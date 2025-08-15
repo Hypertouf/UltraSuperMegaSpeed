@@ -1,16 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://burfw0bjyivit"]
+[gd_scene load_steps=15 format=3 uid="uid://burfw0bjyivit"]
 
 [ext_resource type="Script" uid="uid://d3nrc3ybfahpq" path="res://deora_ii.gd" id="1_crcnc"]
-[ext_resource type="Texture2D" uid="uid://brslca7or588a" path="res://icon.svg" id="2_crcnc"]
 [ext_resource type="PackedScene" uid="uid://du7h81b8dds0n" path="res://Voiture/VoitureVinnie2.glb" id="2_tcm8i"]
 [ext_resource type="PackedScene" uid="uid://drcvdt0jlbjfc" path="res://Voiture/roueVinnie.glb" id="3_c0nqh"]
+[ext_resource type="Texture2D" uid="uid://dlmeng885esi" path="res://assets/Textures/Texture_desert.png" id="4_c0nqh"]
+[ext_resource type="Texture2D" uid="uid://dm52nqae1mief" path="res://assets/Textures/T_road.png" id="5_7xuvc"]
 [ext_resource type="Material" uid="uid://dh6ykun8bv60u" path="res://examples/day_sky.tres" id="5_c0nqh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5agmh"]
 size = Vector3(2.29198, 0.770801, 4.58426)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xuvc"]
-albedo_texture = ExtResource("2_crcnc")
+albedo_texture = ExtResource("4_c0nqh")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_crcnc"]
@@ -29,7 +31,12 @@ _data = {
 point_count = 24
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crcnc"]
-albedo_color = Color(0.223103, 0.223103, 0.223103, 1)
+albedo_texture = ExtResource("5_7xuvc")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_offset = Vector3(-0.14, 0, 0)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.919433
+billboard_keep_scale = true
 
 [sub_resource type="Sky" id="Sky_44vij"]
 sky_material = ExtResource("5_c0nqh")
@@ -123,10 +130,10 @@ path_interval_type = 0
 path_interval = 1.0
 path_simplify_angle = 0.0
 path_rotation = 2
-path_rotation_accurate = false
+path_rotation_accurate = true
 path_local = false
 path_continuous_u = true
-path_u_distance = 1.0
+path_u_distance = 4.55
 path_joined = true
 material = SubResource("StandardMaterial3D_crcnc")
 
