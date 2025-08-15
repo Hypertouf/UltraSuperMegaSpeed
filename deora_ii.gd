@@ -1,6 +1,5 @@
 extends VehicleBody3D
 
-<<<<<<< HEAD
 #preload() pour charger à l'avance des fichier dans la scene
 #absolute_path, IUD
 
@@ -12,10 +11,7 @@ const default_rearview_z = -4.122
 func hypothenuse(a, b):
 	return sqrt((a*a) + (b*b))
 	
-=======
-var car_upside_down = true
 
->>>>>>> 48d2fae (pretty textures)
 func _physics_process(delta):
 	steering = Input.get_axis("droite","gauche") * 0.4
 	engine_force = Input.get_axis("back","forward") * 100
