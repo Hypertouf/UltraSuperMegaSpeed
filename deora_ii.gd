@@ -1,5 +1,8 @@
 extends VehicleBody3D
 var car_upside_down = true
+func hypothenuse(a, b):
+	return sqrt((a*a) + (b*b))
+	
 func _physics_process(delta):
 	steering = Input.get_axis("droite","gauche") * 0.4
 	engine_force = Input.get_axis("back","forward") * 100
@@ -9,7 +12,7 @@ func _physics_process(delta):
 		car_upside_down = true
 	else :
 		car_upside_down = false
-	print($check_ground.is_colliding())
+	#print($check_ground.is_colliding())
 	#print(car_upside_down)
 	if !$check_ground.is_colliding():
 		if !car_upside_down: #necessary for now because x.axis cannot go upside down
@@ -21,11 +24,16 @@ func _physics_process(delta):
 		rotation.y += Input.get_axis("droite","gauche") * 0.1
 		#print(rotation.y)
 		rotation.z += Input.get_axis("roll_right","roll_left") * 0.1
+	
 		
-	$Camera3D.fov = 90 + (abs(max(linear_velocity.x, linear_velocity.z)) * 3)
-
+	$Camera3D.fov = 90 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z)) * 5)#(max(abs(linear_velocity.x), abs(linear_velocity.z)) * 3)
+	print(hypothenuse(linear_velocity.x, linear_velocity.z))
 func _input(event):
 	if event.is_action_pressed("sauter"):
 		print("please why ")
 		if $check_ground.is_colliding():
 			linear_velocity.y += 10
+	
+	#if event.is_action_pressed("switch"):
+		#$Camera3D.set_current(not $Camera3D.current)
+		#$Camera3D2.set_current(not $Camera3D2.current)
