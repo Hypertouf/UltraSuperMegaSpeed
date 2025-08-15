@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://burfw0bjyivit"]
+[gd_scene load_steps=14 format=3 uid="uid://burfw0bjyivit"]
 
 [ext_resource type="Script" uid="uid://d3nrc3ybfahpq" path="res://deora_ii.gd" id="1_crcnc"]
 [ext_resource type="Texture2D" uid="uid://brslca7or588a" path="res://icon.svg" id="2_crcnc"]
 [ext_resource type="PackedScene" uid="uid://du7h81b8dds0n" path="res://Voiture/VoitureVinnie2.glb" id="2_tcm8i"]
 [ext_resource type="PackedScene" uid="uid://drcvdt0jlbjfc" path="res://Voiture/roueVinnie.glb" id="3_c0nqh"]
-[ext_resource type="Shader" uid="uid://cgmyqmsucmvla" path="res://sky.gdshader" id="5_c0nqh"]
+[ext_resource type="Material" uid="uid://dh6ykun8bv60u" path="res://examples/day_sky.tres" id="5_c0nqh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5agmh"]
 size = Vector3(2.29198, 0.770801, 4.58426)
@@ -21,6 +21,7 @@ size = Vector3(500, 0.2, 500)
 data = PackedVector3Array(-50, 0.1, 50, 50, 0.1, 50, -50, -0.1, 50, 50, 0.1, 50, 50, -0.1, 50, -50, -0.1, 50, 50, 0.1, -50, -50, 0.1, -50, 50, -0.1, -50, -50, 0.1, -50, -50, -0.1, -50, 50, -0.1, -50, 50, 0.1, 50, 50, 0.1, -50, 50, -0.1, 50, 50, 0.1, -50, 50, -0.1, -50, 50, -0.1, 50, -50, 0.1, -50, -50, 0.1, 50, -50, -0.1, -50, -50, 0.1, 50, -50, -0.1, 50, -50, -0.1, -50, 50, 0.1, 50, -50, 0.1, 50, 50, 0.1, -50, -50, 0.1, 50, -50, 0.1, -50, 50, 0.1, -50, -50, -0.1, 50, 50, -0.1, 50, -50, -0.1, -50, 50, -0.1, 50, 50, -0.1, -50, -50, -0.1, -50)
 
 [sub_resource type="Curve3D" id="Curve3D_2780r"]
+closed = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.97915, 0.033114, 6.61856, 0, 0, 0, 0, 0, 0, 1.642, 0.0893579, 17.7193, 0, 0, 0, 0, 0, 0, 9.37173, 0.116839, 24.1838, 0, 0, 0, 0, 0, 0, 24.6478, 0.119334, 26.8192, 0, 0, 0, 0, 0, 0, 30.6722, 0.162638, 36.1407, 0, 0, 0, 0, 0, 0, 26.6301, 0.211764, 45.1886, 0, 0, 0, 0, 0, 0, 17.5304, 0.235079, 48.4735, 0, 0, 0, 0, 0, 0, 6.79956, 0.235911, 47.1286, 0, 0, 0, 0, 0, 0, -12.2172, 0.24174, 45.5973, 0, 0, 0, 0, 0, 0, -21.1346, 0.264224, 48.7448, 0, 0, 0, 0, 0, 0, -35.704, 0.259226, 45.7197, 0, 0, 0, 0, 0, 0, -40.9476, 0.175128, 28.5218, 0, 0, 0, 0, 0, 0, -39.6249, 0.0194039, -1.76974, 0, 0, 0, 0, 0, 0, -39.2255, -0.108007, -26.6497, 0, 0, 0, 0, 0, 0, -24.3826, -0.154645, -33.6909, 0, 0, 0, 0, 0, 0, -3.40817, -0.173795, -34.4923, 0, 0, 0, 0, 0, 0, 19.3468, -0.193784, -35.2064, 0, 0, 0, 0, 0, 0, 35.2924, -0.174627, -29.2172, 0, 0, 0, 0, 0, 0, 34.9792, -0.10967, -16.5487, 0, 0, 0, 0, 0, 0, 25.5479, -0.0622001, -8.58407, 0, 0, 0, 0, 0, 0, 13.0668, -0.0438819, -6.75229, 0, 0, 0, 0, 0, 0, 5.30526, -0.0405478, -7.19098, 0, 0, 0, 0, 0, 0, 2.2862, -0.0176864, -3.14091, 0, 0, 0, 0, 0, 0, 1.05733, 0.0281529, 5.65793),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -30,30 +31,11 @@ point_count = 24
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crcnc"]
 albedo_color = Color(0.223103, 0.223103, 0.223103, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xuvc"]
-shader = ExtResource("5_c0nqh")
-shader_parameter/clouds_samples = 16
-shader_parameter/shadow_sample = 4
-shader_parameter/clouds_density = 0.5
-shader_parameter/clouds_scale = 1.0
-shader_parameter/clouds_smoothness = 0.035
-shader_parameter/clouds_light_color = Color(0, 0, 0, 1)
-shader_parameter/clouds_shadow_intensity = 1.0
-shader_parameter/high_clouds_density = 0.0
-shader_parameter/top_color = Color(1, 1, 1, 1)
-shader_parameter/bottom_color = Color(1, 1, 1, 1)
-shader_parameter/sun_scatter = Color(1, 1, 1, 1)
-shader_parameter/astro_tint = Color(0, 0, 0, 1)
-shader_parameter/astro_scale = 1.0
-shader_parameter/astro_intensity = 1.0
-shader_parameter/stars_intensity = 0.0
-shader_parameter/shooting_stars_intensity = 0.0
-shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
-
 [sub_resource type="Sky" id="Sky_44vij"]
-sky_material = SubResource("ShaderMaterial_7xuvc")
+sky_material = ExtResource("5_c0nqh")
 
 [sub_resource type="Environment" id="Environment_04meh"]
+background_mode = 2
 sky = SubResource("Sky_44vij")
 ambient_light_source = 3
 
@@ -142,7 +124,7 @@ path_rotation_accurate = false
 path_local = false
 path_continuous_u = true
 path_u_distance = 1.0
-path_joined = false
+path_joined = true
 material = SubResource("StandardMaterial3D_crcnc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
