@@ -1,5 +1,13 @@
 extends VehicleBody3D
+
+#preload() pour charger à l'avance des fichier dans la scene
+#absolute_path, IUD
+
 var car_upside_down = true
+
+const default_rearview_y = 2.611
+const default_rearview_z = -4.122
+
 func hypothenuse(a, b):
 	return sqrt((a*a) + (b*b))
 	
@@ -24,16 +32,20 @@ func _physics_process(delta):
 		rotation.y += Input.get_axis("droite","gauche") * 0.1
 		#print(rotation.y)
 		rotation.z += Input.get_axis("roll_right","roll_left") * 0.1
+	get_viewport().get_camera_3d().fov = 90 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z)) * 2)
+	if get_viewport().get_camera_3d() == $rearview:
+		get_viewport().get_camera_3d().position.y = default_rearview_y - (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) * 0.05
+		get_viewport().get_camera_3d().position.z = default_rearview_z + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) * 0.1
+	#print(hypothenuse(linear_velocity.x, linear_velocity.z))
 	
-		
-	$Camera3D.fov = 90 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z)) * 5)#(max(abs(linear_velocity.x), abs(linear_velocity.z)) * 3)
-	print(hypothenuse(linear_velocity.x, linear_velocity.z))
 func _input(event):
 	if event.is_action_pressed("sauter"):
 		print("please why ")
 		if $check_ground.is_colliding():
 			linear_velocity.y += 10
-	
-	#if event.is_action_pressed("switch"):
-		#$Camera3D.set_current(not $Camera3D.current)
-		#$Camera3D2.set_current(not $Camera3D2.current)
+			
+	if event.is_action_pressed("switch"):
+		if $cockpit.is_current():
+			$cockpit.clear_current(true)
+		else:
+			$rearview.clear_current(true)

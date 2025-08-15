@@ -95,11 +95,11 @@ damping_relaxation = 2.0
 [node name="check_ground" type="RayCast3D" parent="deoraII"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120831, 0.085695, 0)
 
-[node name="Camera3D" type="Camera3D" parent="deoraII"]
+[node name="cockpit" type="Camera3D" parent="deoraII"]
 transform = Transform3D(-0.999759, 0.000774688, 0.0219285, 0.000294336, 0.99976, -0.0219002, -0.0219402, -0.0218884, -0.99952, 0.00892639, 1.28426, 1.42683)
 
-[node name="Camera3D2" type="Camera3D" parent="deoraII"]
-transform = Transform3D(-0.999759, 0.000774688, 0.0219285, 0.0105666, 0.892863, 0.450205, -0.0192304, 0.450329, -0.892656, 0.00892639, 2.61122, -4.12215)
+[node name="rearview" type="Camera3D" parent="deoraII"]
+transform = Transform3D(-0.999759, 0.000774688, 0.0219285, 0.0105666, 0.892863, 0.450205, -0.0192304, 0.450329, -0.892656, 0, 2.611, -4.122)
 
 [node name="ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_crcnc")
