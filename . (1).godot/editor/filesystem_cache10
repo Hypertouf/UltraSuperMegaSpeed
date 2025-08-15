@@ -1,0 +1,21 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1755254202
+deora_ii.gd::GDScript/GDScript::9152423851993062426::1755193286::0::1::::<>VehicleBody3D<><>0<>0<><>::
+icon.svg::CompressedTexture2D/CompressedTexture2D::3617461333714741798::1755100331::1755102980::1::::<><><>0<>0<>92b5b7444d0f38ac2a94b367fcab85ab<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex::
+NiveauTest.tscn::PackedScene::3825636165772392855::1755198358::0::1::::<><><>0<>0<><>::uid://d3nrc3ybfahpq::::res://deora_ii.gd<>uid://brslca7or588a::::res://icon.svg<>uid://du7h81b8dds0n::::res://Voiture/VoitureVinnie2.glb<>uid://drcvdt0jlbjfc::::res://Voiture/roueVinnie.glb
+niveau_test.gd::GDScript/GDScript::809998406612439078::1755104371::0::1::::<>Node3D<><>0<>0<><>::
+::res://addons/::1755196120
+::res://Voiture/::1755198314
+capot.tres::StandardMaterial3D::7997407735425676382::1755198314::0::1::::<><><>0<>0<><>::uid://33f2wgy3wudn::::res://Voiture/Capotext.png
+Capotext.png::CompressedTexture2D/CompressedTexture2D::2023443166289130163::1755184862::1755187093::1::::<><><>0<>0<>967269c37e5ec499d1d9851f0fa7a910<>res://.godot/imported/Capotext.png-6917156d408ac5354e6cd6dc4e4b8e2d.s3tc.ctex::
+roueVinnie.glb::PackedScene/PackedScene::8357882599651215208::1755184096::1755186873::1::::<><><>0<>0<>3e2458e1b7c721ecf696cc26a65edf28<>res://.godot/imported/roueVinnie.glb-dafa08c594a04e122e5418514fe787b1.scn::uid://br2brhnqimeq2::::res://Voiture/roueVinnie_Material Layer 1.png<>uid://cxd740wn0g8dl::::res://Voiture/roueVinnie_Emissive_Roue.png
+roueVinnie_Emissive_Roue.png::CompressedTexture2D/CompressedTexture2D::6395373983808688853::1755184702::1755186875::1::::<><><>0<>0<>e20b05c0ee0d85f65d7586ee0aba85ab<>res://.godot/imported/roueVinnie_Emissive_Roue.png-265a4750c3c330df03e07744def1d209.s3tc.ctex::
+roueVinnie_Material Layer 1.png::CompressedTexture2D/CompressedTexture2D::3635460688872457963::1755186872::1755186875::1::::<><><>0<>0<>6e7dbb399b5673c544a6f4285db07202<>res://.godot/imported/roueVinnie_Material Layer 1.png-768c947180988b0c1c64b0dc7864e002.s3tc.ctex::
+TextureVoitureFinale.png::CompressedTexture2D/CompressedTexture2D::1885510006924827719::1755184582::1755187060::1::::<><><>0<>0<>d4e01f294c64d0d63648e48858188230<>res://.godot/imported/TextureVoitureFinale.png-c9adf57b298e8501bbc404f85318c111.s3tc.ctex::
+voiture.tres::StandardMaterial3D::5496977539342731780::1755198314::0::1::::<><><>0<>0<><>::uid://14mcr61aa432::::res://Voiture/TextureVoitureFinale.png<>uid://3wbw50jwj8ge::::res://Voiture/VoitureVinnie_EmissiveTuture.png
+VoitureVinnie2.glb::PackedScene/PackedScene::8629584330773516239::1755186948::1755188940::1::::<><><>0<>0<>9e6e916c8c4b361bc4d1451112e6870e<>res://.godot/imported/VoitureVinnie2.glb-52de8f08c663f38bc0ce3c444672b455.scn::uid://ckk1of88k0ab1::::res://Voiture/voiture.tres<>uid://dl7aewllmcyxa::::res://Voiture/capot.tres<>uid://ljqbpyqg27k0::::res://Voiture/VoitureVinnie2_Coffre Layer.png
+VoitureVinnie2_Coffre Layer.png::CompressedTexture2D/CompressedTexture2D::791630763144704037::1755184760::1755188940::1::::<><><>0<>0<>9b1507b6697faa2c18ea44da6618318c<>res://.godot/imported/VoitureVinnie2_Coffre Layer.png-d11ff28c503ee853d85bad8a02ca0691.s3tc.ctex::
+VoitureVinnie2_EmissiveTuture.png::CompressedTexture2D/CompressedTexture2D::3260198609254348350::1755184760::1755186965::1::::<><><>0<>0<>9278d50a912eb8b209efeba4024087c4<>res://.godot/imported/VoitureVinnie2_EmissiveTuture.png-67fcc52bf021b847d9714b73487cdcb6.s3tc.ctex::
+VoitureVinnie2_JauneCapot.png::CompressedTexture2D/CompressedTexture2D::1063191148625240575::1755186963::1755186965::1::::<><><>0<>0<>1c9fab14a6e4b0174f8f4d0f1c61ad6c<>res://.godot/imported/VoitureVinnie2_JauneCapot.png-680a0b8becb590ffdfe8974bec958db8.s3tc.ctex::
+VoitureVinnie.glb::PackedScene/PackedScene::8644333056080289658::1755184020::1755186874::1::::<><><>0<>0<>8b4e4f96de90778ebb75be4608a9adf6<>res://.godot/imported/VoitureVinnie.glb-51a5d78af22438bed4351d9f6d47f698.scn::uid://3wbw50jwj8ge::::res://Voiture/VoitureVinnie_EmissiveTuture.png
+VoitureVinnie_EmissiveTuture.png::CompressedTexture2D/CompressedTexture2D::2010805551672221020::1755186873::1755186875::1::::<><><>0<>0<>53bafc42f1711736d6de42a12ff0a58d<>res://.godot/imported/VoitureVinnie_EmissiveTuture.png-769885a7488d4c2fe554cb2dba54d874.s3tc.ctex::

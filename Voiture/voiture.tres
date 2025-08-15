@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ckk1of88k0ab1"]
+
+[ext_resource type="Texture2D" uid="uid://14mcr61aa432" path="res://Voiture/TextureVoitureFinale.png" id="1_fc6yv"]
+[ext_resource type="Texture2D" uid="uid://3wbw50jwj8ge" path="res://Voiture/VoitureVinnie_EmissiveTuture.png" id="2_7jgn1"]
+
+[resource]
+albedo_texture = ExtResource("1_fc6yv")
+emission_enabled = true
+emission_texture = ExtResource("2_7jgn1")

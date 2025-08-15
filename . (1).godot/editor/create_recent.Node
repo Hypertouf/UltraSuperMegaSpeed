@@ -1,0 +1,12 @@
+Camera3D
+PhantomCamera3D
+DirectionalLight3D
+CollisionPolygon3D
+CollisionShape3D
+LightmapGI
+CSGPolygon3D
+Path3D
+RayCast3D
+MeshInstance3D
+VehicleWheel3D
+VehicleBody3D
