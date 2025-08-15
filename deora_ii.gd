@@ -22,7 +22,7 @@ func _physics_process(delta):
 		#print(rotation.y)
 		rotation.z += Input.get_axis("roll_right","roll_left") * 0.1
 		
-	$Camera3D.fov = 90 + (abs((linear_velocity.x + linear_velocity.z)/2) * 3)
+	$Camera3D.fov = 90 + (abs(max(linear_velocity.x, linear_velocity.z)) * 3)
 
 func _input(event):
 	if event.is_action_pressed("sauter"):
