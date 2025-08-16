@@ -1,21 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://c11e3npj6453m"]
+[gd_scene load_steps=14 format=3 uid="uid://c11e3npj6453m"]
 
 [ext_resource type="Script" uid="uid://b4ewvpbfapvux" path="res://people_1.gd" id="1_vb78p"]
 [ext_resource type="Script" uid="uid://cn2872m8evgvt" path="res://pieton.gd" id="1_x5qse"]
-[ext_resource type="Texture2D" uid="uid://ceasjdi37u1yy" path="res://Pietons/Baby.png" id="2_g33e6"]
 [ext_resource type="Texture2D" uid="uid://cp5hl5ypk0f5h" path="res://AnimTextExplo.tres" id="2_hysuu"]
+[ext_resource type="PlaneMesh" uid="uid://uej1ixsmgesg" path="res://assets/BabyMesh.tres" id="3_x5qse"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oj3sk"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5qse"]
-transparency = 1
-albedo_texture = ExtResource("2_g33e6")
-billboard_mode = 1
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_hysuu"]
-material = SubResource("StandardMaterial3D_x5qse")
-size = Vector2(2, 4)
-orientation = 2
 
 [sub_resource type="Animation" id="Animation_hysuu"]
 resource_name = "Boom"
@@ -107,7 +97,6 @@ orientation = 2
 
 [node name="Pieton" type="Node3D" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_x5qse")
-texture = ExtResource("2_g33e6")
 mesh = NodePath("people1/CollisionShape3D/MeshInstance3D")
 
 [node name="people1" type="RigidBody3D" parent="."]
@@ -120,7 +109,7 @@ shape = SubResource("CapsuleShape3D_oj3sk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="people1/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("PlaneMesh_hysuu")
+mesh = ExtResource("3_x5qse")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="people1/CollisionShape3D"]
 root_node = NodePath("../..")
