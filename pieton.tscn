@@ -110,10 +110,11 @@ script = ExtResource("1_x5qse")
 texture = ExtResource("2_g33e6")
 mesh = NodePath("people1/CollisionShape3D/MeshInstance3D")
 
-[node name="people1" type="RigidBody3D" parent="."]
+[node name="people1" type="RigidBody3D" parent="." node_paths=PackedStringArray("boom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mass = 0.001
 script = ExtResource("1_vb78p")
+boom = NodePath("CollisionShape3D/AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="people1"]
 shape = SubResource("CapsuleShape3D_oj3sk")

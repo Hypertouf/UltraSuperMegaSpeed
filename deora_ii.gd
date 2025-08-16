@@ -2,7 +2,7 @@ extends VehicleBody3D
 
 #preload() pour charger à l'avance des fichier dans la scene
 #absolute_path, IUD
-
+@export var slider : Control
 var car_upside_down = true #self explained, checks if car upside down for flip reasons
 
 const default_rearview_y = 2.611
@@ -36,16 +36,16 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 																										   # calculating the absolute of this hypothenus simply makes the fov NOT works backwards when the car is going negative x and z directions.
 	if get_viewport().get_camera_3d() == $rearview: #makes the rearview camera also get closer to the car as the FOV gets wider.
 		get_viewport().get_camera_3d().position.y = default_rearview_y - (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) * 0.05 
-		get_viewport().get_camera_3d().positiodn.z = default_rearview_z + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) * 0.1
+		get_viewport().get_camera_3d().position.z = default_rearview_z + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) * 0.1
 
 	#print(get_parent_node_3d())
 	if $check_collision.get_collider() is people : #i need to add timers everywhere
 		print("die die die")
 		$check_collision.get_collider().linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
-		$check_collision.get_collider().get_child(0).get_child(1).play("Boom")
+		$check_collision.get_collider().boom.play("Boom")
 		#if $check_collision.get_collider().get_child(0).get_child(1).animation_finished:
 			#$check_collision.get_collider().get_child(0).get_child(1).play("[stop]")
-		get_parent_node_3d().get_child(6).get_child(0).value -= 5
+		slider.value -= 5 #ajust the morality setting
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
 		print("please why ")
