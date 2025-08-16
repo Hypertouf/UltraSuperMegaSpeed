@@ -4,5 +4,5 @@ extends Node3D
 @export var mesh : Node3D
 
 func _ready() -> void:
-	mesh.material.albedo_texture = texture
+	mesh.mesh.material.albedo_texture = texture
 	pass
