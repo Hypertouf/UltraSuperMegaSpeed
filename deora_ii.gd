@@ -43,6 +43,8 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 		print("die die die")
 		$check_collision.get_collider().linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
 		$check_collision.get_collider().get_child(0).get_child(1).play("Boom")
+		#if $check_collision.get_collider().get_child(0).get_child(1).animation_finished:
+			#$check_collision.get_collider().get_child(0).get_child(1).play("[stop]")
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
 		print("please why ")
