@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://w0b4mhjry2ad"]
+
+[ext_resource type="Shader" uid="uid://c804nq4l1sqyc" path="res://assets/VPaitnTerrain.gdshader" id="1_as8os"]
+[ext_resource type="Texture2D" uid="uid://dlmeng885esi" path="res://assets/Textures/Texture_desert.png" id="2_78t88"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_as8os")
+shader_parameter/texture_albedo_a = ExtResource("2_78t88")
+shader_parameter/roughness_a = 1.0
+shader_parameter/roughness_b = 1.0
+shader_parameter/roughness_c = 1.0
+shader_parameter/albedo_a = Color(1, 1, 1, 1)
+shader_parameter/albedo_b = Color(1, 1, 1, 1)
+shader_parameter/albedo_c = Color(1, 1, 1, 1)
+shader_parameter/normal_scale = 1.0
+shader_parameter/ao_light_affect = 1.0
+shader_parameter/roughness_control = 1.0
+shader_parameter/metallic_control = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/blend_threshold = 0.5
+shader_parameter/blend_noise_intensity = 0.5
+shader_parameter/blend_noise_scale = 2.0
+shader_parameter/blend_softness = 0.5
+shader_parameter/blend_transition_color = Color(0, 0, 0, 0.25)
