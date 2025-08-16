@@ -38,13 +38,7 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 		get_viewport().get_camera_3d().position.y = default_rearview_y - (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) * 0.05 
 		get_viewport().get_camera_3d().position.z = default_rearview_z + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) * 0.1
 
-	#print(get_parent_node_3d())
-	if $check_collision.get_collider() is people : #i need to add timers everywhere
-		print("die die die")
-		$check_collision.get_collider().linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
-		$check_collision.get_collider().boom.play("Boom")
-		#if $check_collision.get_collider().get_child(0).get_child(1).animation_finished:
-			#$check_collision.get_collider().get_child(0).get_child(1).play("[stop]")
+
 		slider.value -= 5 #ajust the morality setting
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
@@ -58,3 +52,12 @@ func _input(event): #
 			$cockpit.clear_current(true)
 		else:
 			$rearview.clear_current(true)
+
+
+func _on_body_entered(body: Node) -> void:
+	
+	if body is RigidBody3D :
+		if body is people :
+			print("die die die")
+			body.linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
+			body.boom.play("Boom")

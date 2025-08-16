@@ -1,9 +1,9 @@
 @tool
+
 extends Node3D
 
 @export var PietonMESH : Mesh
 @export var mesh : Node3D
-
 
 func _ready() -> void:
 	mesh.mesh = PietonMESH

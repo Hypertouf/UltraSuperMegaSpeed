@@ -1,0 +1,3 @@
+extends RayCast3D
+
+class_name check_car_collision

@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c11e3npj6453m"]
+[gd_scene load_steps=13 format=3 uid="uid://c11e3npj6453m"]
 
 [ext_resource type="Script" uid="uid://b4ewvpbfapvux" path="res://people_1.gd" id="1_vb78p"]
 [ext_resource type="Script" uid="uid://cn2872m8evgvt" path="res://pieton.gd" id="1_x5qse"]
 [ext_resource type="Texture2D" uid="uid://cp5hl5ypk0f5h" path="res://AnimTextExplo.tres" id="2_hysuu"]
-[ext_resource type="PlaneMesh" uid="uid://uej1ixsmgesg" path="res://assets/BabyMesh.tres" id="3_x5qse"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oj3sk"]
 
@@ -110,7 +109,6 @@ shape = SubResource("CapsuleShape3D_oj3sk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="people1/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = ExtResource("3_x5qse")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="people1/CollisionShape3D"]
 root_node = NodePath("../..")
