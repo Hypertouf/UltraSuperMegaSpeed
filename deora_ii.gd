@@ -39,6 +39,9 @@ func _physics_process(delta):
 		get_viewport().get_camera_3d().position.z = default_rearview_z + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) * 0.1
 	#print(hypothenuse(linear_velocity.x, linear_velocity.z))
 	
+	if $check_collision.get_collider() is people :
+		print("die die die")
+		$check_collision.get_collider().linear_velocity = linear_velocity * 10
 func _input(event):
 	if event.is_action_pressed("sauter"):
 		print("please why ")
