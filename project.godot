@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 flowerwall_crt="*res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn"
 DialogueManager="*res://addons/godot_dialogue_manager-3.7.1/addons/dialogue_manager/dialogue_manager.gd"
 
+[dialogue_manager]
+
+runtime/balloon_path="res://assets/balloon.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/flowerwall_postprocess/plugin.cfg", "res://addons/godot_dialogue_manager-3.7.1/addons/dialogue_manager/plugin.cfg")

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bbbh1af5b4qeb"
+path="res://.godot/imported/RADIOSTAR.dialogue-9687afa332d458d4431695ccf43cb6af.tres"
+
+[deps]
+
+source_file="res://assets/Dialogs/RADIOSTAR.dialogue"
+dest_files=["res://.godot/imported/RADIOSTAR.dialogue-9687afa332d458d4431695ccf43cb6af.tres"]
+
+[params]
+
+defaults=true
