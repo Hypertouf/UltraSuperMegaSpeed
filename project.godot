@@ -17,10 +17,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 flowerwall_crt="*res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn"
+DialogueManager="*res://addons/godot_dialogue_manager-3.7.1/addons/dialogue_manager/dialogue_manager.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/flowerwall_postprocess/plugin.cfg")
+enabled=PackedStringArray("res://addons/flowerwall_postprocess/plugin.cfg", "res://addons/godot_dialogue_manager-3.7.1/addons/dialogue_manager/plugin.cfg")
 
 [input]
 
