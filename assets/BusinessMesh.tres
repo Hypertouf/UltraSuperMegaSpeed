@@ -1,0 +1,8 @@
+[gd_resource type="PlaneMesh" load_steps=2 format=3 uid="uid://et85ob2pj6g2"]
+
+[ext_resource type="Material" uid="uid://dqrhfwk4wvdf3" path="res://assets/businessman.tres" id="1_1goha"]
+
+[resource]
+material = ExtResource("1_1goha")
+size = Vector2(2, 4)
+orientation = 2

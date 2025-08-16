@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dqrhfwk4wvdf3"]
+
+[ext_resource type="Texture2D" uid="uid://b76eohechhtsi" path="res://Pietons/Businessman.png" id="1_51rfc"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_51rfc")
+billboard_mode = 1
+billboard_keep_scale = true
