@@ -5,6 +5,12 @@ extends VehicleBody3D
 @export var slider : Control
 var car_upside_down = true #self explained, checks if car upside down for flip reasons
 
+var score
+var total_rotationx = 0
+var total_rotationy = 0
+var total_rotationz = 0
+var default_position = Vector3(0,0,0)
+
 const default_rearview_y = 2.611
 const default_rearview_z = -4.122 #both constant used for camera placements
 
@@ -22,24 +28,33 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 		car_upside_down = false
 
 	if !$check_ground.is_colliding():
+		if default_position == Vector3(0,0,0):
+			default_position == global_rotation
 		if !car_upside_down: #necessary for now because x.axis cannot go upside down
 			rotation.x += Input.get_axis("back","forward")* 0.1 #makes the car flip on the x axis when not upside down
 		else :
 			rotation.x += Input.get_axis("forward","back")* 0.1 #switches the car flip direction when it is upside down so that it continues the flip rotation smoothly
 
-
 		rotation.y += Input.get_axis("droite","gauche") * 0.1 #makes the car do shuv-it rotation on the y axis
 
 		rotation.z += Input.get_axis("roll_right","roll_left") * 0.1 #makes the car do kickflip rotations on the z axis.
+		print(default_position)
+		if (default_position.y + rotation.y) > 90 : 
+			print("shuvit yooo sick !!!!")
+			
+	if $check_ground.is_colliding():
+		default_position = Vector3(0,0,0)
+	
 	get_viewport().get_camera_3d().fov = 90 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z)) * 2) #adaptive FOV, when the car go faster the FOV go wider to make it feel faster.
 																										   #the math used here is simply calculating the hypothenus of the triangle formed by the x axis vector and the z axis vector. this allows the fov adaptation to remain stable no matter the direction in which the car is turning.
 																										   # calculating the absolute of this hypothenus simply makes the fov NOT works backwards when the car is going negative x and z directions.
+	
 	if get_viewport().get_camera_3d() == $rearview: #makes the rearview camera also get closer to the car as the FOV gets wider.
 		get_viewport().get_camera_3d().position.y = default_rearview_y - (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) * 0.05 
 		get_viewport().get_camera_3d().position.z = default_rearview_z + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) * 0.1
-
-
-		slider.value -= 5 #ajust the morality setting
+	
+		
+		
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
 		print("please why ")
@@ -47,12 +62,13 @@ func _input(event): #
 			linear_velocity.y += 10
 		
 		
-	if event.is_action_pressed("switch"): #button to switch between two cameras
+	if event.is_action_pressed("switch"): #button to switch between three cameras
 		if $cockpit.is_current():
-			$cockpit.clear_current(true)
-		else:
-			$rearview.clear_current(true)
-
+			$rearview.make_current()
+		elif $rearview.is_current():
+			$behind.make_current()
+		else : 
+			$cockpit.make_current()
 
 func _on_body_entered(body: Node) -> void:
 	
@@ -61,3 +77,4 @@ func _on_body_entered(body: Node) -> void:
 			print("die die die")
 			body.linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
 			body.boom.play("Boom")
+			slider.value -= 5 #ajust the morality setting
