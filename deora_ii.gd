@@ -9,7 +9,7 @@ var score
 var total_rotationx = 0
 var total_rotationy = 0
 var total_rotationz = 0
-var default_position = Vector3(0,0,0)
+var default_position = Vector3(0.0,0.0,0.0)
 
 const default_rearview_y = 2.611
 const default_rearview_z = -4.122 #both constant used for camera placements
@@ -28,8 +28,10 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 		car_upside_down = false
 
 	if !$check_ground.is_colliding():
-		if default_position == Vector3(0,0,0):
-			default_position == global_rotation
+		if default_position == Vector3(0.0,0.0,0.0):
+			#print(rotation_degrees)
+			default_position = rotation_degrees
+			print(default_position)
 		if !car_upside_down: #necessary for now because x.axis cannot go upside down
 			rotation.x += Input.get_axis("back","forward")* 0.1 #makes the car flip on the x axis when not upside down
 		else :
@@ -38,11 +40,14 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 		rotation.y += Input.get_axis("droite","gauche") * 0.1 #makes the car do shuv-it rotation on the y axis
 
 		rotation.z += Input.get_axis("roll_right","roll_left") * 0.1 #makes the car do kickflip rotations on the z axis.
-		print(default_position)
-		if (default_position.y + rotation.y) > 90 : 
-			print("shuvit yooo sick !!!!")
-			
+		#print(default_position)
+		#print(default_position.y - rotation_degrees.y)
+		if (default_position.y - rotation_degrees.y) >= 180	:
+			print("shuvit !!!")
+			default_position = Vector3(0,0,0)
+
 	if $check_ground.is_colliding():
+		#print("it's non the ground")
 		default_position = Vector3(0,0,0)
 	
 	get_viewport().get_camera_3d().fov = 90 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z)) * 2) #adaptive FOV, when the car go faster the FOV go wider to make it feel faster.
