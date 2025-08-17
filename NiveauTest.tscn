@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://burfw0bjyivit"]
+[gd_scene load_steps=38 format=3 uid="uid://burfw0bjyivit"]
 
 [ext_resource type="Script" uid="uid://d3nrc3ybfahpq" path="res://deora_ii.gd" id="1_crcnc"]
 [ext_resource type="PackedScene" uid="uid://du7h81b8dds0n" path="res://Voiture/VoitureVinnie2.glb" id="2_tcm8i"]
@@ -16,6 +16,8 @@
 [ext_resource type="PlaneMesh" uid="uid://et85ob2pj6g2" path="res://assets/BusinessMesh.tres" id="12_2rx8g"]
 [ext_resource type="Texture2D" uid="uid://dt5ju0rdepq2h" path="res://assets/Textures/Boost/bubble01.png" id="12_ot1wg"]
 [ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="13_sijr8"]
+[ext_resource type="ArrayMesh" uid="uid://ciyxs82ul5chj" path="res://assets/meshmesh/Mm_garage.res" id="18_ot1wg"]
+[ext_resource type="ArrayMesh" uid="uid://dfdr564lrnmkh" path="res://assets/meshmesh/Mm_bigbuilding.res" id="18_sijr8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5agmh"]
 size = Vector3(2.29198, 0.770801, 4.58426)
@@ -61,21 +63,21 @@ expand_margin_bottom = 228.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oj3sk"]
 
-[sub_resource type="Curve" id="Curve_p3ale"]
+[sub_resource type="Curve" id="Curve_pjc5t"]
 _limits = [-2.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_pjc5t"]
-curve = SubResource("Curve_p3ale")
+curve = SubResource("Curve_pjc5t")
 
-[sub_resource type="Curve" id="Curve_no7d1"]
+[sub_resource type="Curve" id="Curve_14rio"]
 _limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_14rio"]
-curve = SubResource("Curve_no7d1")
+curve = SubResource("Curve_14rio")
 
 [sub_resource type="Curve" id="Curve_d4x08"]
 _data = [Vector2(0, 0), 0.0, 7.58609, 0, 0, Vector2(0.149585, 0.506508), 0.0, 0.0, 0, 0, Vector2(0.288089, 0.280911), 0.0, 0.0, 0, 0, Vector2(0.390582, 0.492408), 0.0, 0.0, 0, 0, Vector2(0.717452, 0.527657), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.05741, 0.0, 0, 0]
@@ -95,6 +97,14 @@ linear_accel_min = -2.23517e-06
 linear_accel_max = -2.23517e-06
 radial_accel_curve = SubResource("CurveTexture_14rio")
 scale_curve = SubResource("CurveTexture_urq10")
+
+[sub_resource type="MultiMesh" id="MultiMesh_d4x08"]
+instance_count = 1
+mesh = ExtResource("18_sijr8")
+buffer = PackedFloat32Array(9.18355e-41, 2.8026e-45, 9.18397e-41, 0, nan, 2.55709e-41, 2.27627e-41, 6.62618e-41)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sijr8"]
+data = PackedVector3Array(-5, 0, 10, -5, 6, -10.0002, -5, 6, 10, -5, 0, 10, -5, 0, -10.0002, -5, 6, -10.0002, -4.6646, 0.3436, -10.0002, -4.6646, 5.6563, 7.7582, -4.6646, 5.6563, -10.0002, -4.6646, 0.3436, -10.0002, -4.6646, 0.3436, 7.7582, -4.6646, 5.6563, 7.7582, 5, 0, -10.0002, 5, 6, 10, 5, 6, -10.0002, 5, 0, -10.0002, 5, 0, 10, 5, 6, 10, 5, 0, 10, -5, 6, 10, 5, 6, 10, 5, 0, 10, -5, 0, 10, -5, 6, 10, -5, 0, -10.0002, 5, 0, 10, 5, 0, -10.0002, -5, 0, -10.0002, -5, 0, 10, 5, 0, 10, 5, 6, -10.0002, -5, 6, 10, -5, 6, -10.0002, 5, 6, -10.0002, 5, 6, 10, -5, 6, 10, -4.6646, 5.6563, -10.0002, -5, 0, -10.0002, -4.6646, 0.3436, -10.0002, -4.6646, 0.3436, -10.0002, -5, 0, -10.0002, 5, 0, -10.0002, -4.6646, 5.6563, -10.0002, -5, 6, -10.0002, -5, 0, -10.0002, 4.6645, 5.6563, -10.0002, -5, 6, -10.0002, -4.6646, 5.6563, -10.0002, 4.6645, 5.6563, -10.0002, 5, 6, -10.0002, -5, 6, -10.0002, -4.6646, 0.3436, -10.0002, 5, 0, -10.0002, 4.6645, 0.3436, -10.0002, 4.6645, 0.3436, -10.0002, 5, 0, -10.0002, 5, 6, -10.0002, 4.6645, 0.3436, -10.0002, 5, 6, -10.0002, 4.6645, 5.6563, -10.0002, -4.6646, 0.3436, 7.7582, 4.6645, 5.6563, 7.7582, -4.6646, 5.6563, 7.7582, -4.6646, 0.3436, 7.7582, 4.6645, 0.3436, 7.7582, 4.6645, 5.6563, 7.7582, 4.6645, 5.6563, -10.0002, 4.6645, 0.3436, 7.7582, 4.6645, 0.3436, -10.0002, 4.6645, 5.6563, -10.0002, 4.6645, 5.6563, 7.7582, 4.6645, 0.3436, 7.7582, 4.6645, 0.3436, -10.0002, -4.6646, 0.3436, 7.7582, -4.6646, 0.3436, -10.0002, 4.6645, 0.3436, -10.0002, 4.6645, 0.3436, 7.7582, -4.6646, 0.3436, 7.7582, -4.6646, 5.6563, -10.0002, 4.6645, 5.6563, 7.7582, 4.6645, 5.6563, -10.0002, -4.6646, 5.6563, -10.0002, -4.6646, 5.6563, 7.7582, 4.6645, 5.6563, 7.7582, -4.7774, 3.1189, -9.8223, 4.8149, 5.6782, -9.7706, 4.8149, 3.1189, -9.8223, -4.7774, 3.1189, -9.8223, -4.7774, 5.6782, -9.7706, 4.8149, 5.6782, -9.7706, 4.8149, 3.1189, -9.8388, -4.7774, 5.6782, -9.8388, -4.7774, 3.1189, -9.8388, 4.8149, 3.1189, -9.8388, 4.8149, 5.6782, -9.8388, -4.7774, 5.6782, -9.8388, -1.5254, 0, -10.0002, -1.5254, 0, -12, -1.5254, 0.3436, -10.0002, 2.4148, 0, -12, 2.4148, 0, -10.0002, 2.4148, 0.3436, -10.0002, 2.4148, 0, -10.0002, -1.5254, 0.3436, -10.0002, 2.4148, 0.3436, -10.0002, 2.4148, 0, -10.0002, -1.5254, 0, -10.0002, -1.5254, 0.3436, -10.0002, -1.5254, 0, -12, 2.4148, 0, -10.0002, 2.4148, 0, -12, -1.5254, 0, -12, -1.5254, 0, -10.0002, 2.4148, 0, -10.0002, 2.4148, 0, -12, -1.5254, 0.3436, -10.0002, -1.5254, 0, -12, 2.4148, 0, -12, 2.4148, 0.3436, -10.0002, -1.5254, 0.3436, -10.0002)
 
 [node name="testscene" type="Node3D"]
 transform = Transform3D(1.01131, 0, 0, 0, 1.01131, 0, 0, 0, 1.01131, 0, 0, 0)
@@ -408,5 +418,16 @@ PietonMESH = ExtResource("11_jodcr")
 [node name="Pieton32" parent="." instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -191.35, 91.13, 40.5619)
 PietonMESH = ExtResource("12_2rx8g")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+multimesh = SubResource("MultiMesh_d4x08")
+
+[node name="MmGarage" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.058, 83.7486, -0.481829)
+mesh = ExtResource("18_ot1wg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.115, 82.5184, -0.481829)
+shape = SubResource("ConcavePolygonShape3D_sijr8")
 
 [connection signal="body_entered" from="deoraII" to="deoraII" method="_on_body_entered"]
