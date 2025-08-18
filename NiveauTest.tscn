@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://burfw0bjyivit"]
+[gd_scene load_steps=38 format=3 uid="uid://burfw0bjyivit"]
 
 [ext_resource type="Script" uid="uid://d3nrc3ybfahpq" path="res://deora_ii.gd" id="1_crcnc"]
 [ext_resource type="PackedScene" uid="uid://du7h81b8dds0n" path="res://Voiture/VoitureVinnie2.glb" id="2_tcm8i"]
@@ -16,11 +16,15 @@
 [ext_resource type="PlaneMesh" uid="uid://et85ob2pj6g2" path="res://assets/BusinessMesh.tres" id="12_2rx8g"]
 [ext_resource type="Texture2D" uid="uid://dt5ju0rdepq2h" path="res://assets/Textures/Boost/bubble01.png" id="12_ot1wg"]
 [ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="13_sijr8"]
-[ext_resource type="PackedScene" uid="uid://sio77rl037iq" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
+[ext_resource type="PackedScene" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
 [ext_resource type="ArrayMesh" uid="uid://ciyxs82ul5chj" path="res://assets/meshmesh/Mm_garage.res" id="18_ot1wg"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5agmh"]
-size = Vector3(2.29198, 0.770801, 4.58426)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ot1wg"]
+radius = 0.634088
+height = 3.35051
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ot1wg"]
+size = Vector3(2.30255, 1.30316, 4.77023)
 
 [sub_resource type="Curve3D" id="Curve3D_2780r"]
 closed = true
@@ -115,8 +119,8 @@ slider = NodePath("../Ui_Holder/Morality")
 turbo = NodePath("../Ui_Holder/Nitro")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="deoraII"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00458956, 0.576144, 0.21553)
-shape = SubResource("BoxShape3D_5agmh")
+transform = Transform3D(1, 0, 0, 0, 0.00523596, -0.999987, 0, 0.999986, 0.00523596, 0, 0.731, 0.281)
+shape = SubResource("CapsuleShape3D_ot1wg")
 
 [node name="VoitureVinnie2" parent="deoraII" instance=ExtResource("2_tcm8i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -170,6 +174,12 @@ transform = Transform3D(-0.999759, 0.000774688, 0.0219285, 0.0105666, 0.892863, 
 
 [node name="behind" type="Camera3D" parent="deoraII"]
 transform = Transform3D(0.984336, 0.0327864, -0.088126, 0.0104484, 0.882877, 0.44517, 0.093445, -0.444084, 0.87853, 0, 2.611, 5.93404)
+
+[node name="hitbox" type="Area3D" parent="deoraII"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="deoraII/hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00100708, 0.540039, 0.210465)
+shape = SubResource("BoxShape3D_ot1wg")
 
 [node name="Path3D2" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.3268, 84.9622, -2.93582)
@@ -453,3 +463,4 @@ transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, 
 PietonMESH = ExtResource("12_2rx8g")
 
 [connection signal="body_entered" from="deoraII" to="deoraII" method="_on_body_entered"]
+[connection signal="body_entered" from="deoraII/hitbox" to="deoraII" method="_on_hitbox_body_entered"]
