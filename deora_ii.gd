@@ -4,7 +4,7 @@ class_name DeoraII
 #absolute_path, IUD
 @export var SLODER : VSlider
 
-@export var turbo : ProgressBar
+@export var torbo : TextureProgressBar
 @export var hitbox : Area3D
 var car_upside_down = true #self explained, checks if car upside down for flip reasons
 
@@ -124,7 +124,7 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 			
 			score = abs(tricks[0]) + abs(tricks[1]) + abs(tricks[2])
 			print(score)
-			turbo.value += score * 3
+			torbo.value += score * 6
 				
 		tricks = [0,0,0]
 		default_position = Vector3(0,0,0)
@@ -157,6 +157,12 @@ func _input(event): #
 			$behind.make_current()
 		else : 
 			$cockpit.make_current()
+			
+	#if event.is_action_pressed("nitrous") and torbo.value > 10:
+		#linear_velocity += 25 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z)))
+		#torbo.value -= 10
+		
+		
 
 func _on_hitbox_body_entered(body: Node3D) -> void:
 		if body is people :

@@ -1,6 +1,6 @@
 [gd_scene load_steps=45 format=4 uid="uid://burfw0bjyivit"]
 
-[ext_resource type="Script" uid="uid://bw16nbl5c8ooa" path="res://main.gd" id="1_14rio"]
+[ext_resource type="Script" path="res://main.gd" id="1_14rio"]
 [ext_resource type="Texture2D" uid="uid://dm52nqae1mief" path="res://assets/Textures/T_road.png" id="5_7xuvc"]
 [ext_resource type="Material" uid="uid://bl84qltiq711f" path="res://WatorMaterial.tres" id="5_44vij"]
 [ext_resource type="Material" uid="uid://dh6ykun8bv60u" path="res://examples/day_sky.tres" id="5_c0nqh"]
@@ -15,11 +15,11 @@
 [ext_resource type="VideoStream" uid="uid://ch4oipsjay70n" path="res://assets/Video/0000-0393.ogv" id="13_d4x08"]
 [ext_resource type="Material" uid="uid://lguna3o2ucmi" path="res://assets/ground.tres" id="13_pjc5t"]
 [ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="13_sijr8"]
-[ext_resource type="Script" uid="uid://dxgcdpodd1kg2" path="res://finish_line.gd" id="16_14rio"]
-[ext_resource type="ArrayMesh" uid="uid://b7x1jmbymgvia" path="res://assets/meshmesh/Mm_finishline.res" id="16_pjc5t"]
-[ext_resource type="PackedScene" uid="uid://sio77rl037iq" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
+[ext_resource type="Script" path="res://finish_line.gd" id="16_14rio"]
+[ext_resource type="ArrayMesh" uid="uid://c4u1bjagi26fj" path="res://assets/meshmesh/Mm_finishline.res" id="16_pjc5t"]
+[ext_resource type="PackedScene" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
 [ext_resource type="ArrayMesh" uid="uid://ciyxs82ul5chj" path="res://assets/meshmesh/Mm_garage.res" id="18_ot1wg"]
-[ext_resource type="PackedScene" uid="uid://b2yts58tdyte3" path="res://deora_ii.tscn" id="20_pjc5t"]
+[ext_resource type="PackedScene" uid="uid://b7dm5eewqdx0" path="res://deora_ii.tscn" id="20_pjc5t"]
 
 [sub_resource type="Curve3D" id="Curve3D_2780r"]
 closed = true
@@ -242,7 +242,7 @@ offset_bottom = 533.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.3, 0.3)
-value = 2.0
+value = 50.0
 fill_mode = 3
 texture_over = ExtResource("10_p3ale")
 texture_progress = ExtResource("11_no7d1")
@@ -483,10 +483,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_urq10")
 }
 
-[node name="deoraII" parent="." node_paths=PackedStringArray("SLODER", "turbo") instance=ExtResource("20_pjc5t")]
+[node name="deoraII" parent="." node_paths=PackedStringArray("SLODER", "torbo") instance=ExtResource("20_pjc5t")]
 transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -198.675, 90.7415, 2.83087)
 SLODER = NodePath("../Ui_Holder/OUI/Morality")
-turbo = NodePath("../Ui_Holder/OUI/Nitro")
+torbo = NodePath("../Ui_Holder/OUI/Nitro")
 
 [connection signal="jeufinit" from="decor/FinishLine" to="." method="_on_finish_line_jeufinit"]
 [connection signal="body_entered" from="decor/FinishLine/Area3D" to="decor/FinishLine" method="_on_area_3d_body_entered"]

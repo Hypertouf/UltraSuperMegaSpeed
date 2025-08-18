@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2yts58tdyte3"]
+[gd_scene load_steps=6 format=3 uid="uid://b7dm5eewqdx0"]
 
 [ext_resource type="Script" uid="uid://d3nrc3ybfahpq" path="res://deora_ii.gd" id="1_ntrkh"]
 [ext_resource type="PackedScene" uid="uid://du7h81b8dds0n" path="res://Voiture/VoitureVinnie2.glb" id="2_kf7fk"]
