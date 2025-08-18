@@ -3,6 +3,7 @@ extends VehicleBody3D
 #preload() pour charger à l'avance des fichier dans la scene
 #absolute_path, IUD
 @export var slider : Control
+@export var turbo : Control
 var car_upside_down = true #self explained, checks if car upside down for flip reasons
 
 var score
@@ -10,6 +11,8 @@ var total_rotationx = 0
 var total_rotationy = 0
 var total_rotationz = 0
 var default_position = Vector3(0.0,0.0,0.0)
+var tricks = [0,0,0]
+ 
 
 const default_rearview_y = 2.611
 const default_rearview_z = -4.122 #both constant used for camera placements
@@ -31,7 +34,7 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 		if default_position == Vector3(0.0,0.0,0.0):
 			#print(rotation_degrees)
 			default_position = rotation_degrees
-			print(default_position)
+			#print(default_position)
 		#if !car_upside_down: #necessary for now because x.axis cannot go upside down
 			#rotation.x += Input.get_axis("back","forward")* 0.1 #makes the car flip on the x axis when not upside down
 		#else :
@@ -42,37 +45,49 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 			total_rotationy += 1
 			if total_rotationy == 60:
 				print("frontflip !!")
+				total_rotationy = 0
+				tricks[0] +=1
 		elif Input.is_action_pressed("back") :
 			rotate_object_local(Vector3(1, 0, 0), -0.1)
 			total_rotationy -= 1
 			if total_rotationy == -60:
+				total_rotationy = 0
 				print("backflip !!")
-		
+				tricks[0] -=1
+				
+		rotation.y += Input.get_axis("droite","gauche") * 0.1 #makes the car do shuv-it rotation on the y axis
+
 		if Input.is_action_pressed("gauche") :
-			rotate_object_local(Vector3(0, 1, 0), 0.1)
 			total_rotationx += 1
 			if total_rotationx == 30:
 				print("front shuv")
 			if total_rotationx == 60:
+				total_rotationx = 0
 				print("front 360 !!")
+				tricks[1] +=1
 		elif Input.is_action_pressed("droite") :
-			rotate_object_local(Vector3(0, 1, 0), -0.1)
 			total_rotationx -= 1
 			if total_rotationx == -30 :
 				print("back shuv")
 			if total_rotationx == -60:
+				total_rotationx = 0
 				print("back 360 !!")
-			
+				tricks[1] -=1
+		
+		rotation.z += Input.get_axis("roll_right","roll_left") * 0.1 #makes the car do kickflip rotations on the z axis.
+		
 		if Input.is_action_pressed("roll_left") :
-			rotate_object_local(Vector3(0, 0, 1), 0.1)
 			total_rotationz += 1
 			if total_rotationz == 60:
+				total_rotationz = 0
 				print("heelflip !!")
+				tricks[2] += 1
 		elif Input.is_action_pressed("roll_right") :
-			rotate_object_local(Vector3(0, 0, 1), -0.1)
 			total_rotationz -= 1
 			if total_rotationz == -60:
+				total_rotationz = 0
 				print("kickflip !!")
+				tricks[2] -=1
 		
 		#print(default_position)
 		#print(default_position.y - rotation_degrees.y)
@@ -83,6 +98,9 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 
 	if $check_ground.is_colliding():
 		#print("it's non the ground")
+		if tricks != [0,0,0]:
+			print(tricks)
+		tricks = [0,0,0]
 		default_position = Vector3(0,0,0)
 		total_rotationx = 0
 		total_rotationy = 0
@@ -100,7 +118,7 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 		
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
-		print("please why ")
+		#print("please why ")
 		if $check_ground.is_colliding(): #but only if car is on the ground of course
 			linear_velocity.y += 10
 		
@@ -115,9 +133,8 @@ func _input(event): #
 
 func _on_body_entered(body: Node) -> void:
 	
-	if body is RigidBody3D :
-		if body is people :
-			print("die die die")
-			body.linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
-			body.boom.play("Boom")
-			slider.value -= 5 #ajust the morality setting
+	if body is people :
+		#print("die die die")
+		body.linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
+		body.boom.play("Boom")
+		slider.value -= 5 #ajust the morality setting
