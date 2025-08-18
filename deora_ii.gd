@@ -2,8 +2,8 @@ extends VehicleBody3D
 class_name DeoraII
 #preload() pour charger à l'avance des fichier dans la scene
 #absolute_path, IUD
-@export var slider : Control
-@export var turbo : Control
+@export var slider : VSlider
+@export var turbo : ProgressBar
 @export var hitbox : Area3D
 var car_upside_down = true #self explained, checks if car upside down for flip reasons
 
@@ -163,4 +163,4 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 			body.get_parent().explo.position = body.position
 			body.linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
 			body.boom.play("Boom")
-			slider.value -= 5 #ajust the morality setting
+			slider.value += -5
