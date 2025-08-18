@@ -4,6 +4,7 @@ extends VehicleBody3D
 #absolute_path, IUD
 @export var slider : Control
 @export var turbo : Control
+@export var hitbox : Area3D
 var car_upside_down = true #self explained, checks if car upside down for flip reasons
 
 var score
@@ -12,7 +13,6 @@ var total_rotationy = 0
 var total_rotationz = 0
 var default_position = Vector3(0.0,0.0,0.0)
 var tricks = [0,0,0]
- 
 
 const default_rearview_y = 2.611
 const default_rearview_z = -4.122 #both constant used for camera placements
@@ -44,7 +44,7 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 			rotate_object_local(Vector3(1, 0, 0), 0.1)
 			total_rotationy += 1
 			if total_rotationy == 60:
-				print("frontflip !!")
+				#print("frontflip !!")
 				total_rotationy = 0
 				tricks[0] +=1
 		elif Input.is_action_pressed("back") :
@@ -52,26 +52,26 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 			total_rotationy -= 1
 			if total_rotationy == -60:
 				total_rotationy = 0
-				print("backflip !!")
+				#print("backflip !!")
 				tricks[0] -=1
 				
 		rotation.y += Input.get_axis("droite","gauche") * 0.1 #makes the car do shuv-it rotation on the y axis
 
 		if Input.is_action_pressed("gauche") :
 			total_rotationx += 1
-			if total_rotationx == 30:
-				print("front shuv")
+			#if total_rotationx == 30:
+				#print("front shuv")
 			if total_rotationx == 60:
 				total_rotationx = 0
-				print("front 360 !!")
+				#print("front 360 !!")
 				tricks[1] +=1
 		elif Input.is_action_pressed("droite") :
 			total_rotationx -= 1
-			if total_rotationx == -30 :
-				print("back shuv")
+			#if total_rotationx == -30 :
+				#print("back shuv")
 			if total_rotationx == -60:
 				total_rotationx = 0
-				print("back 360 !!")
+				#print("back 360 !!")
 				tricks[1] -=1
 		
 		rotation.z += Input.get_axis("roll_right","roll_left") * 0.1 #makes the car do kickflip rotations on the z axis.
@@ -80,13 +80,13 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 			total_rotationz += 1
 			if total_rotationz == 60:
 				total_rotationz = 0
-				print("heelflip !!")
+				#print("heelflip !!")
 				tricks[2] += 1
 		elif Input.is_action_pressed("roll_right") :
 			total_rotationz -= 1
 			if total_rotationz == -60:
 				total_rotationz = 0
-				print("kickflip !!")
+				#print("kickflip !!")
 				tricks[2] -=1
 		
 		#print(default_position)
@@ -100,12 +100,37 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 		#print("it's non the ground")
 		if tricks != [0,0,0]:
 			print(tricks)
+			if tricks == [0,1,0] :
+				print("front 360 !")
+			if tricks == [0,-1,0] :
+				print("back 360 !")
+			if tricks == [1,0,0]:
+				print("frontflip !")
+			if tricks == [-1,0,0]:	
+				print("backflip !")
+			if tricks == [0,0,-1]:
+				print("kickflip !")
+			if tricks == [0,0,1]:
+				print("heelflip !")
+			if tricks == [0,-1,-1]:
+				print("360 flip !!!")
+			if tricks == [0,1,1]:
+				print("360 hardflip !!!")
+			if tricks == [0,1,-1]:
+				print("360 heelflip !!!")
+			if tricks == [0,-1,1]:
+				print("360 inward heelfip !!!")
+			
+			score = abs(tricks[0]) + abs(tricks[1]) + abs(tricks[2])
+			print(score)
+			turbo.value += score * 3
+				
 		tricks = [0,0,0]
 		default_position = Vector3(0,0,0)
 		total_rotationx = 0
 		total_rotationy = 0
 		total_rotationz = 0
-	print(get_viewport().get_camera_3d().fov)
+	#print(get_viewport().get_camera_3d().fov)
 	#if get_viewport().get_camera_3d().fov < 150 :
 	get_viewport().get_camera_3d().fov = 90 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) #adaptive FOV, when the car go faster the FOV go wider to make it feel faster.
 																									   #the math used here is simply calculating the hypothenus of the triangle formed by the x axis vector and the z axis vector. this allows the fov adaptation to remain stable no matter the direction in which the car is turning.
