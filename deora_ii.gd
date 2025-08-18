@@ -134,7 +134,8 @@ func _input(event): #
 func _on_body_entered(body: Node) -> void:
 	
 	if body is people :
-		#print("die die die")
+		print("die die die")
+		body.get_parent().explo.position = body.position
 		body.linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
 		body.boom.play("Boom")
 		slider.value -= 5 #ajust the morality setting

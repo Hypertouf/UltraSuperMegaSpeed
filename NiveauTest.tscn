@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://burfw0bjyivit"]
+[gd_scene load_steps=37 format=3 uid="uid://burfw0bjyivit"]
 
 [ext_resource type="Script" uid="uid://d3nrc3ybfahpq" path="res://deora_ii.gd" id="1_crcnc"]
 [ext_resource type="PackedScene" uid="uid://du7h81b8dds0n" path="res://Voiture/VoitureVinnie2.glb" id="2_tcm8i"]
@@ -16,6 +16,7 @@
 [ext_resource type="PlaneMesh" uid="uid://et85ob2pj6g2" path="res://assets/BusinessMesh.tres" id="12_2rx8g"]
 [ext_resource type="Texture2D" uid="uid://dt5ju0rdepq2h" path="res://assets/Textures/Boost/bubble01.png" id="12_ot1wg"]
 [ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="13_sijr8"]
+[ext_resource type="PackedScene" uid="uid://sio77rl037iq" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
 [ext_resource type="ArrayMesh" uid="uid://ciyxs82ul5chj" path="res://assets/meshmesh/Mm_garage.res" id="18_ot1wg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5agmh"]
@@ -192,7 +193,10 @@ path_joined = true
 material = SubResource("StandardMaterial3D_crcnc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.0354403, 0.999372, 0, -0.999372, 0.0354403, 0, 6.40827, 0)
+transform = Transform3D(0.795548, -5.96046e-08, 0.605891, -0.165918, 0.961775, 0.217854, -0.582731, -0.273842, 0.765138, 0, 6.40827, 0)
+light_color = Color(0.944873, 0.86982, 0.879656, 1)
+light_energy = 0.8
+sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_04meh")
@@ -243,6 +247,7 @@ offset_bottom = 530.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.3, 0.3)
+value = 2.0
 fill_mode = 3
 texture_over = ExtResource("10_p3ale")
 texture_progress = ExtResource("11_no7d1")
@@ -290,7 +295,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_04meh")
 
 [node name="MmGarage" type="MeshInstance3D" parent="decor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.058, 83.7486, -0.481829)
+transform = Transform3D(-0.0236295, 0, 0.999721, 0, 1, 0, -0.999721, 0, -0.0236295, -104.312, 83.8517, -0.525381)
 mesh = ExtResource("18_ot1wg")
 skeleton = NodePath("../..")
 
@@ -298,6 +303,24 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="decor/MmGarage/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_no7d1")
+
+[node name="Building_speed7" parent="decor" instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -182.214, 73.2326, 1.17325)
+
+[node name="Building_speed12" parent="decor" instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.888048, 0.0955706, -0.424259, -0.125835, 0.979848, -0.0426693, 0.416287, 0.0923114, 0.892156, -245.44, 46.6553, 23.9205)
+
+[node name="Building_speed8" parent="decor" instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -104.824, 75.0136, -15.3387)
+
+[node name="Building_speed9" parent="decor" instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -87.7336, 58.3443, 31.6476)
+
+[node name="Building_speed10" parent="decor" instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -112.222, 45.206, 70.4201)
+
+[node name="Building_speed11" parent="decor" instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.594638, 0.699543, -0.367156, -0.722255, 0.66758, 0.102192, 0.320174, 0.206724, 0.912421, -177.482, 53.3458, 53.7188)
 
 [node name="PietonHolder" type="Node3D" parent="."]
 
