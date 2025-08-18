@@ -105,6 +105,9 @@ Karma = null
 
 [node name="people1" type="RigidBody3D" parent="." node_paths=PackedStringArray("boom", "ColShape")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 mass = 0.001
 script = ExtResource("1_vb78p")
 boom = NodePath("CollisionShape3D/AnimationPlayer")

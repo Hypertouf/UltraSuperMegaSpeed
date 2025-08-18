@@ -15,9 +15,9 @@
 [ext_resource type="VideoStream" uid="uid://ch4oipsjay70n" path="res://assets/Video/0000-0393.ogv" id="13_d4x08"]
 [ext_resource type="Material" uid="uid://lguna3o2ucmi" path="res://assets/ground.tres" id="13_pjc5t"]
 [ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="13_sijr8"]
-[ext_resource type="Script" uid="uid://dxgcdpodd1kg2" path="res://finish_line.gd" id="16_14rio"]
+[ext_resource type="Script" path="res://finish_line.gd" id="16_14rio"]
 [ext_resource type="ArrayMesh" uid="uid://c4u1bjagi26fj" path="res://assets/meshmesh/Mm_finishline.res" id="16_pjc5t"]
-[ext_resource type="PackedScene" uid="uid://sio77rl037iq" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
+[ext_resource type="PackedScene" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
 [ext_resource type="ArrayMesh" uid="uid://ciyxs82ul5chj" path="res://assets/meshmesh/Mm_garage.res" id="18_ot1wg"]
 [ext_resource type="PackedScene" uid="uid://b2yts58tdyte3" path="res://deora_ii.tscn" id="20_pjc5t"]
 [ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://Radio/frame0001.png" id="21_urq10"]
@@ -259,10 +259,17 @@ grow_vertical = 2
 layer = 105
 
 [node name="TextureRect" type="TextureRect" parent="Ui_Holder/OUI"]
-offset_left = 60.0
-offset_top = 546.0
-offset_right = 714.0
-offset_bottom = 960.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -509.0
+offset_top = -210.0
+offset_right = 145.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_14rio")
 
@@ -419,7 +426,6 @@ libraries = {
 
 [node name="deoraII" parent="." node_paths=PackedStringArray("SLODER", "torbo") instance=ExtResource("20_pjc5t")]
 transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -198.675, 90.7415, 2.83087)
-visible = false
 SLODER = NodePath("../Ui_Holder/OUI/Morality")
 torbo = NodePath("../Ui_Holder/OUI/Nitro")
 
