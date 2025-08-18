@@ -101,6 +101,7 @@ orientation = 2
 script = ExtResource("1_x5qse")
 mesh = NodePath("people1/CollisionShape3D/MeshInstance3D")
 explo = NodePath("MeshInstance3D")
+Karma = null
 
 [node name="people1" type="RigidBody3D" parent="." node_paths=PackedStringArray("boom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

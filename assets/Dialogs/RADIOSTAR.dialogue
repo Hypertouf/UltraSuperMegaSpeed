@@ -1,11 +1,19 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+
+Oh, what a tragedy, a terrible woe ! [next=2]
+
+The only hope for our society what-a-blow [next=2]
+
+Has fallen dead, struggling against a terrible foe [next=2]
+
+Okay I'm gonna call an ambulance [next=2]
+
+Please no ! [next=2]  
+
+(STATIC NOISE)[next=1]  
+
+do close()
+
+(STATIC NOISE) [speed=50]
+
 => END

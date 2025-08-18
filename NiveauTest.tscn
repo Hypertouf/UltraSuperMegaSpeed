@@ -1,6 +1,6 @@
 [gd_scene load_steps=45 format=4 uid="uid://burfw0bjyivit"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_14rio"]
+[ext_resource type="Script" uid="uid://bw16nbl5c8ooa" path="res://main.gd" id="1_14rio"]
 [ext_resource type="Texture2D" uid="uid://dm52nqae1mief" path="res://assets/Textures/T_road.png" id="5_7xuvc"]
 [ext_resource type="Material" uid="uid://bl84qltiq711f" path="res://WatorMaterial.tres" id="5_44vij"]
 [ext_resource type="Material" uid="uid://dh6ykun8bv60u" path="res://examples/day_sky.tres" id="5_c0nqh"]
@@ -15,11 +15,11 @@
 [ext_resource type="VideoStream" uid="uid://ch4oipsjay70n" path="res://assets/Video/0000-0393.ogv" id="13_d4x08"]
 [ext_resource type="Material" uid="uid://lguna3o2ucmi" path="res://assets/ground.tres" id="13_pjc5t"]
 [ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="13_sijr8"]
-[ext_resource type="Script" path="res://finish_line.gd" id="16_14rio"]
+[ext_resource type="Script" uid="uid://dxgcdpodd1kg2" path="res://finish_line.gd" id="16_14rio"]
 [ext_resource type="ArrayMesh" uid="uid://c4u1bjagi26fj" path="res://assets/meshmesh/Mm_finishline.res" id="16_pjc5t"]
-[ext_resource type="PackedScene" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
+[ext_resource type="PackedScene" uid="uid://sio77rl037iq" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
 [ext_resource type="ArrayMesh" uid="uid://ciyxs82ul5chj" path="res://assets/meshmesh/Mm_garage.res" id="18_ot1wg"]
-[ext_resource type="PackedScene" uid="uid://b7dm5eewqdx0" path="res://deora_ii.tscn" id="20_pjc5t"]
+[ext_resource type="PackedScene" uid="uid://b2yts58tdyte3" path="res://deora_ii.tscn" id="20_pjc5t"]
 
 [sub_resource type="Curve3D" id="Curve3D_2780r"]
 closed = true
@@ -353,130 +353,162 @@ shape = SubResource("BoxShape3D_14rio")
 [node name="Pieton" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -197.38, 91.1212, 8.14955)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 2
 
 [node name="Pieton2" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.745, 91.13, 8.33228)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton3" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -197.38, 91.1212, 10.4709)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton4" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.745, 91.13, 10.6536)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton5" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -197.38, 91.1212, 12.6421)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton6" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.745, 91.13, 12.8249)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton7" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -197.38, 91.1212, 14.9635)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton8" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.745, 91.13, 15.1462)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton9" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -197.38, 91.1212, 16.8518)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton10" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.745, 91.13, 17.0345)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton11" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -197.38, 91.1212, 19.1731)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton12" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.745, 91.13, 19.3558)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton13" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -197.38, 91.1212, 21.3443)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton14" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.745, 91.13, 21.5271)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton15" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -197.38, 91.1212, 23.6657)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton16" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.745, 91.13, 23.8484)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton17" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -197.402, 91.1212, 25.6908)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton18" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -200.081, 91.13, 27.7353)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton19" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -196.096, 91.1212, 27.6098)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton20" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -198.774, 91.13, 29.6543)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton21" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -194.874, 91.1212, 29.4046)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton22" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -197.553, 91.13, 31.4492)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton23" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -193.568, 91.1212, 31.3236)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton24" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -196.246, 91.13, 33.3681)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton25" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -192.505, 91.1212, 32.8846)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton26" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -195.184, 91.13, 34.9291)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton27" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -191.199, 91.1212, 34.8035)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton28" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -193.878, 91.13, 36.8481)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton29" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -189.977, 91.1212, 36.5984)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton30" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -192.656, 91.13, 38.6429)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="Pieton31" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -188.671, 91.1212, 38.5174)
 PietonMESH = ExtResource("11_jodcr")
+Karma = 0
 
 [node name="Pieton32" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(0.826659, 0, 0.562704, 0, 1, 0, -0.562704, 0, 0.826659, -191.35, 91.13, 40.5619)
 PietonMESH = ExtResource("12_2rx8g")
+Karma = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
