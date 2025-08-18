@@ -117,6 +117,7 @@ func _on_body_entered(body: Node) -> void:
 	
 	if body is RigidBody3D :
 		if body is people :
+			body.get_parent().explo.position = body.position
 			print("die die die")
 			body.linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
 			body.boom.play("Boom")
