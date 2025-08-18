@@ -23,8 +23,12 @@ func hypothenuse(a, b): #urhm it might look silly but it is necessary for correc
 	
 
 func _physics_process(delta): #for any actions that needs to be checked and repeated every frame
+	print(abs(hypothenuse(linear_velocity.x, linear_velocity.z)))
 	steering = Input.get_axis("droite","gauche") * 0.4  #makes car go right or left
-	engine_force = Input.get_axis("back","forward") * 200 #makes car go forward or backward
+	if $Timer.is_stopped() and (abs(hypothenuse(linear_velocity.x, linear_velocity.z)) < 40.0):
+		engine_force = Input.get_axis("back","forward") * 200 #makes car go forward or backward
+	elif $Timer.is_stopped() and abs(hypothenuse(linear_velocity.x, linear_velocity.z)) >= 40.0:
+		engine_force=0
 
 	#if rotation.z >= 1.5 or rotation.z <= -1.5 : #necessary for backflips and frontflips, the x axis doesn't allow you to flip normally because the values only go in bewteen -1.5 to 1.5 in a 180 rotation. 
 		#car_upside_down = true					 #so the car needs to have two different state (upside down or not) in which it can do a 180 flip rotation. allowing a full 360 rotation.
@@ -32,9 +36,9 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 		#car_upside_down = false
 
 	if !$check_ground.is_colliding():
-		if default_position == Vector3(0.0,0.0,0.0):
+		#if default_position == Vector3(0.0,0.0,0.0):
 			#print(rotation_degrees)
-			default_position = rotation_degrees
+			#default_position = rotation_degrees
 			#print(default_position)
 		#if !car_upside_down: #necessary for now because x.axis cannot go upside down
 			#rotation.x += Input.get_axis("back","forward")* 0.1 #makes the car flip on the x axis when not upside down
@@ -124,7 +128,7 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 			
 			score = abs(tricks[0]) + abs(tricks[1]) + abs(tricks[2])
 			print(score)
-			torbo.value += score * 6
+			torbo.value += score * 10
 				
 		tricks = [0,0,0]
 		default_position = Vector3(0,0,0)
@@ -142,7 +146,6 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 		get_viewport().get_camera_3d().position.z = default_rearview_z + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) * 0.05
 	
 		
-		
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
 		#print("please why ")
@@ -157,10 +160,14 @@ func _input(event): #
 			$behind.make_current()
 		else : 
 			$cockpit.make_current()
-			
-	#if event.is_action_pressed("nitrous") and torbo.value > 10:
+	
+	if event.is_action_pressed("nitrous") and torbo.value > 10 :
 		#linear_velocity += 25 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z)))
-		#torbo.value -= 10
+		torbo.value -= 25
+		$Timer.start(0.25)
+		if !$Timer.is_stopped():
+			engine_force = 1000
+
 		
 		
 
