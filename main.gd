@@ -3,6 +3,15 @@ extends Node3D
 @export var Ui : Control
 @export var Player : VehicleBody3D
 @export var videofin : VideoStreamTheora
+@export_enum("Good", "Bad", "Osef") var character_class: int
+var Dlg_Sct = load("uid://bbbh1af5b4qeb") #La ou est rangé le dialogue qui est lu dans le ballon
+var balloon_path : String = ProjectSettings.get_setting("dialogue_manager/runtime/balloon_path")
+var resource := load("uid://bbbh1af5b4qeb")
+
+func _ready() -> void:
+	var balloon : Node = load(balloon_path).instantiate()
+	self.add_child(balloon)
+	balloon.start(resource, "start")
 
 func _on_finish_line_jeufinit() -> void:
 	Ui.get_child(0).get_child(2).visible = true
@@ -12,4 +21,9 @@ func _on_finish_line_jeufinit() -> void:
 	VPlay.autoplay = true
 	VPlay.position = Vector2(100,0)
 	Ui.get_child(0).get_child(2).add_child(VPlay)
+	VPlay.finished.connect(_onVPlayFInished)
 	pass # Replace with function body.
+
+func _onVPlayFInished ():
+	get_tree().quit()
+	pass
