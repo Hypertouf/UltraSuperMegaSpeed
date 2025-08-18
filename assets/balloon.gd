@@ -3,7 +3,7 @@ extends CanvasLayer
 
 ## The action to use for advancing the dialogue
 @export var next_action: StringName = &"ui_accept"
-
+signal EndDiag
 ## The action to use to skip typing the dialogue
 @export var skip_action: StringName = &"ui_cancel"
 
@@ -67,7 +67,11 @@ func _ready() -> void:
 	add_child(mutation_cooldown)
 
 func close():
+	
 	APlay.play("Close")
+	print("ouai je close ça ouai")
+	EndDiag.emit()
+	
 	pass
 
 func _unhandled_input(_event: InputEvent) -> void:

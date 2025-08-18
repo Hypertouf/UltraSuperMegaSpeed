@@ -103,11 +103,12 @@ mesh = NodePath("people1/CollisionShape3D/MeshInstance3D")
 explo = NodePath("MeshInstance3D")
 Karma = null
 
-[node name="people1" type="RigidBody3D" parent="." node_paths=PackedStringArray("boom")]
+[node name="people1" type="RigidBody3D" parent="." node_paths=PackedStringArray("boom", "ColShape")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mass = 0.001
 script = ExtResource("1_vb78p")
 boom = NodePath("CollisionShape3D/AnimationPlayer")
+ColShape = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="people1"]
 shape = SubResource("CapsuleShape3D_oj3sk")
@@ -131,3 +132,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.20132e-08, -0.732376)
 visible = false
 process_material = SubResource("ParticleProcessMaterial_g33e6")
 draw_pass_1 = SubResource("PlaneMesh_2q84u")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0

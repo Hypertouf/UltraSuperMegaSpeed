@@ -11,12 +11,13 @@ height = 3.35051
 [sub_resource type="BoxShape3D" id="BoxShape3D_ot1wg"]
 size = Vector3(2.30255, 1.30316, 4.77023)
 
-[node name="deoraII" type="VehicleBody3D" node_paths=PackedStringArray("hitbox")]
+[node name="deoraII" type="VehicleBody3D" node_paths=PackedStringArray("Timy", "hitbox")]
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.19, 0.32)
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_ntrkh")
+Timy = NodePath("Timy")
 hitbox = NodePath("hitbox")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -85,4 +86,10 @@ shape = SubResource("BoxShape3D_ot1wg")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Timy" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="Timy" to="." method="_on_timy_timeout"]

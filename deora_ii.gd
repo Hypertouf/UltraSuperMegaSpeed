@@ -3,7 +3,7 @@ class_name DeoraII
 #preload() pour charger à l'avance des fichier dans la scene
 #absolute_path, IUD
 @export var SLODER : VSlider
-
+@export var Timy : Timer
 @export var torbo : TextureProgressBar
 @export var hitbox : Area3D
 var car_upside_down = true #self explained, checks if car upside down for flip reasons
@@ -178,3 +178,7 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 			body.linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
 			body.boom.play("Boom")
 			SLODER.value =- 5
+			
+			if body.get_parent().Karma == 1 :
+				self.get_parent()._radio_start("start")
+				pass

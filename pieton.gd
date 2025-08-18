@@ -1,5 +1,3 @@
-@tool
-
 extends Node3D
 
 @export var PietonMESH : Mesh
@@ -10,13 +8,5 @@ extends Node3D
 
 func _ready() -> void:
 	mesh.mesh = PietonMESH
-	if Karma == 2 :
-		print("ok")
+
 	pass
-
-
-func _input(event):
-	if event.is_action_pressed("reaload_meshes"):
-		mesh.mesh = PietonMESH
-	else :
-		pass

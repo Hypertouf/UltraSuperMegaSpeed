@@ -9,9 +9,21 @@ var balloon_path : String = ProjectSettings.get_setting("dialogue_manager/runtim
 var resource := load("uid://bbbh1af5b4qeb")
 
 func _ready() -> void:
+	
+	pass
+	
+func _radio_start(chap):
+	
+	AnimPlayer.play("Radio_Talk")
 	var balloon : Node = load(balloon_path).instantiate()
 	self.add_child(balloon)
-	balloon.start(resource, "start")
+	balloon.start(resource, chap)
+	balloon.EndDiag.connect(StopRadio)
+	pass
+
+func StopRadio():
+	AnimPlayer.play("RadioIdle")
+	print("j'ai reçut le signal j'arrête la radio")
 
 func _on_finish_line_jeufinit() -> void:
 	Ui.get_child(0).get_child(2).visible = true
@@ -27,3 +39,6 @@ func _on_finish_line_jeufinit() -> void:
 func _onVPlayFInished ():
 	get_tree().quit()
 	pass
+
+func _HitBad():
+	_radio_start("start")
