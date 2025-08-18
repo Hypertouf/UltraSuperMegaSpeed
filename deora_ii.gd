@@ -22,33 +22,71 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 	steering = Input.get_axis("droite","gauche") * 0.4  #makes car go right or left
 	engine_force = Input.get_axis("back","forward") * 100 #makes car go forward or backward
 
-	if rotation.z >= 1.5 or rotation.z <= -1.5 : #necessary for backflips and frontflips, the x axis doesn't allow you to flip normally because the values only go in bewteen -1.5 to 1.5 in a 180 rotation. 
-		car_upside_down = true					 #so the car needs to have two different state (upside down or not) in which it can do a 180 flip rotation. allowing a full 360 rotation.
-	else :
-		car_upside_down = false
+	#if rotation.z >= 1.5 or rotation.z <= -1.5 : #necessary for backflips and frontflips, the x axis doesn't allow you to flip normally because the values only go in bewteen -1.5 to 1.5 in a 180 rotation. 
+		#car_upside_down = true					 #so the car needs to have two different state (upside down or not) in which it can do a 180 flip rotation. allowing a full 360 rotation.
+	#else :
+		#car_upside_down = false
 
 	if !$check_ground.is_colliding():
 		if default_position == Vector3(0.0,0.0,0.0):
 			#print(rotation_degrees)
 			default_position = rotation_degrees
 			print(default_position)
-		if !car_upside_down: #necessary for now because x.axis cannot go upside down
-			rotation.x += Input.get_axis("back","forward")* 0.1 #makes the car flip on the x axis when not upside down
-		else :
-			rotation.x += Input.get_axis("forward","back")* 0.1 #switches the car flip direction when it is upside down so that it continues the flip rotation smoothly
-
-		rotation.y += Input.get_axis("droite","gauche") * 0.1 #makes the car do shuv-it rotation on the y axis
-
-		rotation.z += Input.get_axis("roll_right","roll_left") * 0.1 #makes the car do kickflip rotations on the z axis.
+		#if !car_upside_down: #necessary for now because x.axis cannot go upside down
+			#rotation.x += Input.get_axis("back","forward")* 0.1 #makes the car flip on the x axis when not upside down
+		#else :
+			#rotation.x += Input.get_axis("forward","back")* 0.1 #switches the car flip direction when it is upside down so that it continues the flip rotation smoothly
+		
+		if Input.is_action_pressed("forward") :
+			rotate_object_local(Vector3(1, 0, 0), 0.1)
+			total_rotationy += 1
+			if total_rotationy == 60:
+				print("frontflip !!")
+		elif Input.is_action_pressed("back") :
+			rotate_object_local(Vector3(1, 0, 0), -0.1)
+			total_rotationy -= 1
+			if total_rotationy == -60:
+				print("backflip !!")
+		
+		if Input.is_action_pressed("gauche") :
+			rotate_object_local(Vector3(0, 1, 0), 0.1)
+			total_rotationx += 1
+			if total_rotationx == 30:
+				print("front shuv")
+			if total_rotationx == 60:
+				print("front 360 !!")
+		elif Input.is_action_pressed("droite") :
+			rotate_object_local(Vector3(0, 1, 0), -0.1)
+			total_rotationx -= 1
+			if total_rotationx == -30 :
+				print("back shuv")
+			if total_rotationx == -60:
+				print("back 360 !!")
+			
+		if Input.is_action_pressed("roll_left") :
+			rotate_object_local(Vector3(0, 0, 1), 0.1)
+			total_rotationz += 1
+			if total_rotationz == 60:
+				print("heelflip !!")
+		elif Input.is_action_pressed("roll_right") :
+			rotate_object_local(Vector3(0, 0, 1), -0.1)
+			total_rotationz -= 1
+			if total_rotationz == -60:
+				print("kickflip !!")
+		
 		#print(default_position)
 		#print(default_position.y - rotation_degrees.y)
-		if (default_position.y - rotation_degrees.y) >= 180	:
-			print("shuvit !!!")
+		#print(total_rotationx)
+		if (default_position.y - rotation_degrees.y) >= 180	: #I need to learn about transformation matrix ugh
+			#print("shuvit !!!")
 			default_position = Vector3(0,0,0)
 
 	if $check_ground.is_colliding():
 		#print("it's non the ground")
 		default_position = Vector3(0,0,0)
+		total_rotationx = 0
+		total_rotationy = 0
+		total_rotationz = 0
 	
 	get_viewport().get_camera_3d().fov = 90 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z)) * 2) #adaptive FOV, when the car go faster the FOV go wider to make it feel faster.
 																										   #the math used here is simply calculating the hypothenus of the triangle formed by the x axis vector and the z axis vector. this allows the fov adaptation to remain stable no matter the direction in which the car is turning.
