@@ -16,8 +16,8 @@
 [ext_resource type="PlaneMesh" uid="uid://et85ob2pj6g2" path="res://assets/BusinessMesh.tres" id="12_2rx8g"]
 [ext_resource type="Texture2D" uid="uid://dt5ju0rdepq2h" path="res://assets/Textures/Boost/bubble01.png" id="12_ot1wg"]
 [ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="13_sijr8"]
+[ext_resource type="PackedScene" uid="uid://sio77rl037iq" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
 [ext_resource type="ArrayMesh" uid="uid://ciyxs82ul5chj" path="res://assets/meshmesh/Mm_garage.res" id="18_ot1wg"]
-[ext_resource type="PackedScene" uid="uid://bdbdq64gaia8v" path="res://assets/Models/Building_speed.glb" id="18_sijr8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5agmh"]
 size = Vector3(2.29198, 0.770801, 4.58426)
@@ -303,23 +303,23 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="decor/MmGarage/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_no7d1")
 
-[node name="Building_speed" parent="decor" instance=ExtResource("18_sijr8")]
+[node name="Building_speed7" parent="decor" instance=ExtResource("16_sijr8")]
 transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -182.214, 73.2326, 1.17325)
 
-[node name="Building_speed2" parent="decor" instance=ExtResource("18_sijr8")]
+[node name="Building_speed12" parent="decor" instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.888048, 0.0955706, -0.424259, -0.125835, 0.979848, -0.0426693, 0.416287, 0.0923114, 0.892156, -245.44, 46.6553, 23.9205)
+
+[node name="Building_speed8" parent="decor" instance=ExtResource("16_sijr8")]
 transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -104.824, 75.0136, -15.3387)
 
-[node name="Building_speed3" parent="decor" instance=ExtResource("18_sijr8")]
+[node name="Building_speed9" parent="decor" instance=ExtResource("16_sijr8")]
 transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -87.7336, 58.3443, 31.6476)
 
-[node name="Building_speed4" parent="decor" instance=ExtResource("18_sijr8")]
+[node name="Building_speed10" parent="decor" instance=ExtResource("16_sijr8")]
 transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -112.222, 45.206, 70.4201)
 
-[node name="Building_speed5" parent="decor" instance=ExtResource("18_sijr8")]
-transform = Transform3D(0.594638, 0.699542, -0.367155, -0.722254, 0.66758, 0.102192, 0.320174, 0.206724, 0.912421, -177.482, 53.3458, 53.7188)
-
-[node name="Building_speed6" parent="decor" instance=ExtResource("18_sijr8")]
-transform = Transform3D(0.888047, 0.0955703, -0.424259, -0.125835, 0.979848, -0.0426692, 0.416287, 0.0923112, 0.892156, -245.44, 46.6553, 23.9205)
+[node name="Building_speed11" parent="decor" instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.594638, 0.699543, -0.367156, -0.722255, 0.66758, 0.102192, 0.320174, 0.206724, 0.912421, -177.482, 53.3458, 53.7188)
 
 [node name="PietonHolder" type="Node3D" parent="."]
 
