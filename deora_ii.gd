@@ -1,5 +1,5 @@
 extends VehicleBody3D
-
+class_name DeoraII
 #preload() pour charger à l'avance des fichier dans la scene
 #absolute_path, IUD
 @export var slider : Control
