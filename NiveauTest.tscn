@@ -483,9 +483,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_urq10")
 }
 
-[node name="deoraII" parent="." node_paths=PackedStringArray("slider", "turbo") instance=ExtResource("20_pjc5t")]
+[node name="deoraII" parent="." node_paths=PackedStringArray("SLODER", "turbo") instance=ExtResource("20_pjc5t")]
 transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -198.675, 90.7415, 2.83087)
-slider = NodePath("../Ui_Holder/OUI/Morality")
+SLODER = NodePath("../Ui_Holder/OUI/Morality")
 turbo = NodePath("../Ui_Holder/OUI/Nitro")
 
 [connection signal="jeufinit" from="decor/FinishLine" to="." method="_on_finish_line_jeufinit"]
