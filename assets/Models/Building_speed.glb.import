@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://6at6yhu5qx0"
-path="res://.godot/imported/M_BigBuilding.glb-ee2b0284cbfc0ffb33e08d3dc6cfc69c.scn"
+uid="uid://bdbdq64gaia8v"
+path="res://.godot/imported/Building_speed.glb-488f280112568b1e55a446c561f74919.scn"
 
 [deps]
 
-source_file="res://assets/Models/M_BigBuilding.glb"
-dest_files=["res://.godot/imported/M_BigBuilding.glb-ee2b0284cbfc0ffb33e08d3dc6cfc69c.scn"]
+source_file="res://assets/Models/Building_speed.glb"
+dest_files=["res://.godot/imported/Building_speed.glb-488f280112568b1e55a446c561f74919.scn"]
 
 [params]
 
@@ -32,17 +32,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"meshes": {
-"M_BigBuilding_Cube_012": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://assets/meshmesh/Mm_bigbuilding.res"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
