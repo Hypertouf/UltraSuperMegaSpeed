@@ -169,6 +169,7 @@ func _input(event): #
 	
 	if event.is_action_pressed("nitrous") and torbo.value > 10 :
 		#linear_velocity += 25 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z)))
+		$nitrous.play() 
 		torbo.value -= 25
 		$Timer.start(0.25)
 		if !$Timer.is_stopped():
