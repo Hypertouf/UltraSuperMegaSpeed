@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2yts58tdyte3"]
+[gd_scene load_steps=8 format=3 uid="uid://b2yts58tdyte3"]
 
 [ext_resource type="Script" uid="uid://d3nrc3ybfahpq" path="res://deora_ii.gd" id="1_ntrkh"]
 [ext_resource type="PackedScene" uid="uid://du7h81b8dds0n" path="res://Voiture/VoitureVinnie2.glb" id="2_kf7fk"]
 [ext_resource type="PackedScene" uid="uid://drcvdt0jlbjfc" path="res://Voiture/roueVinnie.glb" id="3_gl3cw"]
 [ext_resource type="AudioStream" uid="uid://r8bgkcn26u2e" path="res://assets/Audio/NFSU2 Nitrous Oxide System Sound Effects.mp3" id="4_kf7fk"]
+[ext_resource type="AudioStream" uid="uid://c0llask5xjo1d" path="res://assets/Audio/deltarune explosion greenscreen.mp3" id="5_gl3cw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ot1wg"]
 radius = 0.634088
@@ -93,6 +94,9 @@ one_shot = true
 
 [node name="nitrous" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_kf7fk")
+
+[node name="explo" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_gl3cw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

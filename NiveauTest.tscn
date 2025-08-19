@@ -15,9 +15,9 @@
 [ext_resource type="VideoStream" uid="uid://ch4oipsjay70n" path="res://assets/Video/0000-0393.ogv" id="13_d4x08"]
 [ext_resource type="Material" uid="uid://lguna3o2ucmi" path="res://assets/ground.tres" id="13_pjc5t"]
 [ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="13_sijr8"]
-[ext_resource type="Script" uid="uid://dxgcdpodd1kg2" path="res://finish_line.gd" id="16_14rio"]
+[ext_resource type="Script" path="res://finish_line.gd" id="16_14rio"]
 [ext_resource type="ArrayMesh" uid="uid://c4u1bjagi26fj" path="res://assets/meshmesh/Mm_finishline.res" id="16_pjc5t"]
-[ext_resource type="PackedScene" uid="uid://sio77rl037iq" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
+[ext_resource type="PackedScene" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
 [ext_resource type="ArrayMesh" uid="uid://ciyxs82ul5chj" path="res://assets/meshmesh/Mm_garage.res" id="18_ot1wg"]
 [ext_resource type="PackedScene" uid="uid://b2yts58tdyte3" path="res://deora_ii.tscn" id="20_pjc5t"]
 [ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://Radio/frame0001.png" id="21_urq10"]
@@ -210,12 +210,13 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d4x08"]
 
-[node name="testscene" type="Node3D" node_paths=PackedStringArray("AnimPlayer", "Ui", "LayBa")]
+[node name="testscene" type="Node3D" node_paths=PackedStringArray("AnimPlayer", "Ui", "VStraemPlay", "LayBa")]
 transform = Transform3D(1.01131, 0, 0, 0, 1.01131, 0, 0, 0, 1.01131, 0, 0, 0)
 script = ExtResource("1_14rio")
 AnimPlayer = NodePath("AnimationPlayer")
 Ui = NodePath("Ui_Holder")
 videofin = ExtResource("13_d4x08")
+VStraemPlay = NodePath("Ui_Holder/OUI/Panel/VideoStreamPlayer")
 LayBa = NodePath("Ui_Holder/BalloonHolder")
 
 [node name="Path3D2" type="Path3D" parent="."]
@@ -350,6 +351,8 @@ layout_mode = 0
 offset_right = 1440.0
 offset_bottom = 1080.0
 stream = ExtResource("13_d4x08")
+autoplay = true
+paused = true
 
 [node name="BalloonHolder" type="CanvasLayer" parent="Ui_Holder"]
 
@@ -430,7 +433,6 @@ Karma = 1
 [node name="Pieton3" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -198.39, 91.7932, 48.9338)
 PietonMESH = ExtResource("11_jodcr")
-Karma = 0
 
 [node name="Pieton4" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -203.171, 92.1065, 56.3119)

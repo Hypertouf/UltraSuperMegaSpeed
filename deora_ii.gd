@@ -7,6 +7,7 @@ class_name DeoraII
 @export var torbo : TextureProgressBar
 @export var hitbox : Area3D
 @export var locked_cam : Camera3D
+
 var car_upside_down = true #self explained, checks if car upside down for flip reasons
 
 var score
@@ -181,6 +182,7 @@ func _input(event): #
 func _on_hitbox_body_entered(body: Node3D) -> void:
 		if body is people :
 			print("die die die")
+			$explo.play()
 			body.get_parent().explo.position = body.position
 			body.linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
 			body.boom.play("Boom")
