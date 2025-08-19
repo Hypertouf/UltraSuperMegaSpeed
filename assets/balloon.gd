@@ -65,6 +65,7 @@ func _ready() -> void:
 
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
 	add_child(mutation_cooldown)
+	print("Bad_Childbad child num for noww")
 
 func close():
 	
@@ -184,6 +185,7 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 
 #endregion
+
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

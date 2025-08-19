@@ -1,15 +1,80 @@
-~ start
+~ Child_bad
 
-WHAT WAS THAT ?! [next=2]
+if Bad_Child == 0
+	do AddOne(0)
+	WHAT WAS THAT ?! [next=2]
 
-Did you just roll on a goddamn child ? [next=2]
+	Did you just roll on a goddamn child ? [next=2]
 
-WHAT IS WRONG WITH YOU [next=2]  
+	WHAT IS WRONG WITH YOU [next=2]  
+
+	(STATIC NOISE)[next=1]  
+
+	do close()
+
+	(STATIC NOISE) [speed=50]
+
+	=> END
+if Bad_Child == 1
+	do AddOne(0)
+	AGAIN ?! [next=2]
+
+	WHY. [next=2]
+
+	Tell me why RIGHT NOW ! [next=2]  
+	
+	Are you doing this on purpose ?[next=2]  
+
+	(STATIC NOISE)[next=1]  
+
+	do close()
+
+	(STATIC NOISE) [speed=50]
+
+	=> END
+~ Child_good
+
+Honestly ? [next=2]
+
+That one was an a-hole [next=2]
+
+I won't miss him [next=2]  
 
 (STATIC NOISE)[next=1]  
 
 do close()
 
 (STATIC NOISE) [speed=50]
+
+
+=> END
+
+~ Child_neutral
+
+This may come as a surprise to you [next=2]
+
+But I actually don't have any opinion on that one [next=2]
+
+So like. Who cares lol.[next=2]  
+
+(STATIC NOISE)[next=1]  
+
+do close()
+
+(STATIC NOISE) [speed=50]
+
+
+=> END!
+
+~ business_bad
+
+=> END
+
+~ business_good
+
+=> END
+
+~ Biusiness_neutral
+
 
 => END

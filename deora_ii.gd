@@ -24,7 +24,7 @@ func hypothenuse(a, b): #urhm it might look silly but it is necessary for correc
 	
 
 func _physics_process(delta): #for any actions that needs to be checked and repeated every frame
-	print(abs(hypothenuse(linear_velocity.x, linear_velocity.z)))
+	#print(abs(hypothenuse(linear_velocity.x, linear_velocity.z)))
 	steering = Input.get_axis("droite","gauche") * 0.4  #makes car go right or left
 	if $Timer.is_stopped() and (abs(hypothenuse(linear_velocity.x, linear_velocity.z)) < 40.0):
 		engine_force = Input.get_axis("back","forward") * 200 #makes car go forward or backward
@@ -186,6 +186,14 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 			body.boom.play("Boom")
 			SLODER.value =- 5
 			
+			if body.get_parent().Karma == 0 :
+				self.get_parent()._radio_start("Child_good")
+				pass
+				
 			if body.get_parent().Karma == 1 :
-				self.get_parent()._radio_start("start")
+				self.get_parent()._radio_start("Child_bad")
+				pass
+
+			if body.get_parent().Karma == 2 :
+				self.get_parent()._radio_start("Child_neutral")
 				pass
