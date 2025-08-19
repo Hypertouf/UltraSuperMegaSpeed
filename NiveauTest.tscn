@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://burfw0bjyivit"]
+[gd_scene load_steps=51 format=4 uid="uid://burfw0bjyivit"]
 
 [ext_resource type="Script" uid="uid://bw16nbl5c8ooa" path="res://main.gd" id="1_14rio"]
 [ext_resource type="Texture2D" uid="uid://dm52nqae1mief" path="res://assets/Textures/T_road.png" id="5_7xuvc"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://b2yts58tdyte3" path="res://deora_ii.tscn" id="20_pjc5t"]
 [ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://Radio/frame0001.png" id="21_urq10"]
 [ext_resource type="Texture2D" uid="uid://copvhmpfo4ibr" path="res://Radio/frame0002.png" id="22_l7mtl"]
+[ext_resource type="Script" uid="uid://d0p3cd3n1g00o" path="res://body_for_camera_2.gd" id="23_urq10"]
 
 [sub_resource type="Curve3D" id="Curve3D_2780r"]
 closed = true
@@ -206,6 +207,8 @@ _data = {
 &"RadioIdle": SubResource("Animation_e0q2u"),
 &"Radio_Talk": SubResource("Animation_cgqdq")
 }
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d4x08"]
 
 [node name="testscene" type="Node3D" node_paths=PackedStringArray("AnimPlayer", "Ui")]
 transform = Transform3D(1.01131, 0, 0, 0, 1.01131, 0, 0, 0, 1.01131, 0, 0, 0)
@@ -424,10 +427,26 @@ libraries = {
 &"": SubResource("AnimationLibrary_urq10")
 }
 
-[node name="deoraII" parent="." node_paths=PackedStringArray("SLODER", "torbo") instance=ExtResource("20_pjc5t")]
+[node name="deoraII" parent="." node_paths=PackedStringArray("SLODER", "torbo", "locked_cam") instance=ExtResource("20_pjc5t")]
 transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -198.675, 90.7415, 2.83087)
 SLODER = NodePath("../Ui_Holder/OUI/Morality")
 torbo = NodePath("../Ui_Holder/OUI/Nitro")
+locked_cam = NodePath("../body_for_camera2/locked_camera")
+
+[node name="body_for_camera2" type="StaticBody3D" parent="." node_paths=PackedStringArray("car")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.20146, 0)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("23_urq10")
+car = NodePath("../deoraII")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="body_for_camera2"]
+shape = SubResource("CapsuleShape3D_d4x08")
+disabled = true
+
+[node name="locked_camera" type="Camera3D" parent="body_for_camera2"]
+transform = Transform3D(-0.988816, 1.73685e-15, -8.64451e-08, -2.55193e-08, 0.944748, 0.291906, 8.25925e-08, 0.291906, -0.944748, 0, 2.39459, -3.86068)
 
 [connection signal="jeufinit" from="decor/FinishLine" to="." method="_on_finish_line_jeufinit"]
 [connection signal="body_entered" from="decor/FinishLine/Area3D" to="decor/FinishLine" method="_on_area_3d_body_entered"]

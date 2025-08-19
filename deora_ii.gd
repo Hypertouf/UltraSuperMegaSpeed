@@ -6,6 +6,7 @@ class_name DeoraII
 @export var Timy : Timer
 @export var torbo : TextureProgressBar
 @export var hitbox : Area3D
+@export var locked_cam : Camera3D
 var car_upside_down = true #self explained, checks if car upside down for flip reasons
 
 var score
@@ -44,7 +45,10 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 			#rotation.x += Input.get_axis("back","forward")* 0.1 #makes the car flip on the x axis when not upside down
 		#else :
 			#rotation.x += Input.get_axis("forward","back")* 0.1 #switches the car flip direction when it is upside down so that it continues the flip rotation smoothly
-		
+		if (Input.is_action_pressed("forward") or Input.is_action_pressed("back") or Input.is_action_pressed("gauche") or Input.is_action_pressed("droite") or Input.is_action_pressed("roll_left") or Input.is_action_pressed("roll_right")) and angular_velocity != Vector3.ZERO:
+			angular_velocity = Vector3.ZERO
+			
+			
 		if Input.is_action_pressed("forward") :
 			rotate_object_local(Vector3(1, 0, 0), 0.1)
 			total_rotationy += 1
@@ -158,7 +162,9 @@ func _input(event): #
 			$rearview.make_current()
 		elif $rearview.is_current():
 			$behind.make_current()
-		else : 
+		elif $behind.is_current() : 
+			locked_cam.make_current()
+		else :
 			$cockpit.make_current()
 	
 	if event.is_action_pressed("nitrous") and torbo.value > 10 :
