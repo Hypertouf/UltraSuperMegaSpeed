@@ -42,7 +42,7 @@ func _ready() -> void:
 func _radio_start(chap):
 	
 	AnimPlayer.play("Radio_Talk")
-	if LayBa.get_child_count() > 0:
+	if  LayBa.get_child_count() > 0:
 		LayBa.get_child(0).queue_free()
 	var balloon : Node = load(balloon_path).instantiate()
 	LayBa.add_child(balloon)
@@ -73,6 +73,3 @@ func _on_finish_line_jeufinit() -> void:
 func _onVPlayFInished ():
 	get_tree().quit()
 	pass
-
-func _HitBad():
-	_radio_start("start")
