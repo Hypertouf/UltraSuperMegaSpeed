@@ -348,13 +348,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_d4x08")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Ui_Holder/OUI/Panel"]
 layout_mode = 0
-offset_right = 1440.0
+offset_left = 101.93
+offset_right = 1541.93
 offset_bottom = 1080.0
 stream = ExtResource("13_d4x08")
 autoplay = true
 paused = true
 
 [node name="BalloonHolder" type="CanvasLayer" parent="Ui_Holder"]
+layer = 128
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -397,7 +399,7 @@ transform = Transform3D(0.888048, 0.0955706, -0.424259, -0.125835, 0.979848, -0.
 transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -104.824, 75.0136, -15.3387)
 
 [node name="Building_speed9" parent="decor" instance=ExtResource("16_sijr8")]
-transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -87.7336, 58.3443, 31.6476)
+transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -91.3651, 50.5981, 37.2688)
 
 [node name="Building_speed10" parent="decor" instance=ExtResource("16_sijr8")]
 transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -112.222, 45.206, 70.4201)
