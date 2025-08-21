@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://burfw0bjyivit"]
+[gd_scene load_steps=56 format=4 uid="uid://burfw0bjyivit"]
 
 [ext_resource type="Script" uid="uid://bw16nbl5c8ooa" path="res://main.gd" id="1_14rio"]
 [ext_resource type="Texture2D" uid="uid://dm52nqae1mief" path="res://assets/Textures/T_road.png" id="5_7xuvc"]
@@ -19,10 +19,12 @@
 [ext_resource type="ArrayMesh" uid="uid://c4u1bjagi26fj" path="res://assets/meshmesh/Mm_finishline.res" id="16_pjc5t"]
 [ext_resource type="PackedScene" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
 [ext_resource type="ArrayMesh" uid="uid://ciyxs82ul5chj" path="res://assets/meshmesh/Mm_garage.res" id="18_ot1wg"]
+[ext_resource type="PlaneMesh" uid="uid://et85ob2pj6g2" path="res://assets/BusinessMesh.tres" id="19_l7mtl"]
 [ext_resource type="PackedScene" uid="uid://b2yts58tdyte3" path="res://deora_ii.tscn" id="20_pjc5t"]
 [ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://Radio/frame0001.png" id="21_urq10"]
 [ext_resource type="Texture2D" uid="uid://copvhmpfo4ibr" path="res://Radio/frame0002.png" id="22_l7mtl"]
 [ext_resource type="Script" uid="uid://d0p3cd3n1g00o" path="res://body_for_camera_2.gd" id="23_urq10"]
+[ext_resource type="Texture2D" uid="uid://b82r3k27dut3s" path="res://assets/Textures/T_roadH.png" id="25_e0q2u"]
 
 [sub_resource type="Curve3D" id="Curve3D_2780r"]
 closed = true
@@ -210,6 +212,15 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d4x08"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgqdq"]
+albedo_texture = ExtResource("25_e0q2u")
+uv1_scale = Vector3(-25.535, -25.535, -25.535)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7mtl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0q2u"]
+albedo_color = Color(0.921569, 0.470588, 0.972549, 1)
+
 [node name="testscene" type="Node3D" node_paths=PackedStringArray("AnimPlayer", "Ui", "VStraemPlay", "LayBa")]
 transform = Transform3D(1.01131, 0, 0, 0, 1.01131, 0, 0, 0, 1.01131, 0, 0, 0)
 script = ExtResource("1_14rio")
@@ -224,7 +235,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.3268, 84.9622, -2.93582)
 curve = SubResource("Curve3D_2780r")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -85.3797, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -86.6728, 0)
 use_collision = true
 polygon = PackedVector2Array(0, 0, 0, 2, 10, 2, 10, 0)
 mode = 2
@@ -424,7 +435,7 @@ shape = SubResource("BoxShape3D_14rio")
 
 [node name="Pieton" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -198.39, 91.7932, 8.14955)
-PietonMESH = ExtResource("11_jodcr")
+PietonMESH = ExtResource("19_l7mtl")
 Karma = 1
 
 [node name="Pieton2" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
@@ -447,7 +458,7 @@ libraries = {
 }
 
 [node name="deoraII" parent="." node_paths=PackedStringArray("SLODER", "torbo", "locked_cam") instance=ExtResource("20_pjc5t")]
-transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -198.675, 90.7415, 2.83087)
+transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, 761.272, 62.964, 2.83087)
 SLODER = NodePath("../Ui_Holder/OUI/Morality")
 torbo = NodePath("../Ui_Holder/OUI/Nitro")
 locked_cam = NodePath("../body_for_camera2/locked_camera")
@@ -466,6 +477,52 @@ disabled = true
 
 [node name="locked_camera" type="Camera3D" parent="body_for_camera2"]
 transform = Transform3D(-0.988816, 1.73685e-15, -8.64451e-08, -2.55193e-08, 0.944748, 0.291906, 8.25925e-08, 0.291906, -0.944748, 0, 2.39459, -3.86068)
+
+[node name="testcity" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 906.256, 19.7982, 11.7638)
+use_collision = true
+size = Vector3(873.68, 65.1261, 893.742)
+material = SubResource("StandardMaterial3D_cgqdq")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="testcity"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 44.6976, 0)
+radius = 60.6089
+height = 23.1507
+sides = 64
+material = SubResource("StandardMaterial3D_l7mtl")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="testcity/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.0399, 0)
+operation = 2
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="testcity/CSGCylinder3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40.7091, 0)
+radius = 72.4207
+radial_segments = 84
+rings = 51
+
+[node name="CSGBox3D" type="CSGBox3D" parent="testcity/CSGCylinder3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8062, -21.0476, 3.75049)
+size = Vector3(88.1423, 6.51489, 8.50098)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="testcity"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -162.395, 37.239, 108.291)
+size = Vector3(32.5903, 9.92981, 33.4729)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="testcity/CSGBox3D"]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="testcity/CSGBox3D/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.280029, 40.0668, -15.6533)
+radius = 44.7368
+height = 33.5107
+sides = 64
+
+[node name="bridge" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 258.515, 52.4113, 30.6681)
+use_collision = true
+size = Vector3(423.838, 1, 62.3361)
 
 [connection signal="jeufinit" from="decor/FinishLine" to="." method="_on_finish_line_jeufinit"]
 [connection signal="body_entered" from="decor/FinishLine/Area3D" to="decor/FinishLine" method="_on_area_3d_body_entered"]
