@@ -19,7 +19,6 @@
 [ext_resource type="ArrayMesh" uid="uid://c4u1bjagi26fj" path="res://assets/meshmesh/Mm_finishline.res" id="16_pjc5t"]
 [ext_resource type="PackedScene" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
 [ext_resource type="ArrayMesh" uid="uid://ciyxs82ul5chj" path="res://assets/meshmesh/Mm_garage.res" id="18_ot1wg"]
-[ext_resource type="PlaneMesh" uid="uid://et85ob2pj6g2" path="res://assets/BusinessMesh.tres" id="19_l7mtl"]
 [ext_resource type="PackedScene" uid="uid://b2yts58tdyte3" path="res://deora_ii.tscn" id="20_pjc5t"]
 [ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://Radio/frame0001.png" id="21_urq10"]
 [ext_resource type="Texture2D" uid="uid://copvhmpfo4ibr" path="res://Radio/frame0002.png" id="22_l7mtl"]
@@ -220,6 +219,13 @@ uv1_scale = Vector3(-25.535, -25.535, -25.535)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0q2u"]
 albedo_color = Color(0.921569, 0.470588, 0.972549, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_e0q2u"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 545.599, -194.699, 43.2038, -50.7646, 12.2413, 20.9115, 50.7646, -12.2413, -20.9115, 684.927, -189.39, 53.2454, -48.5576, -56.9953, -1.27126, 48.5576, 56.9953, 1.27126, 799.953, -194.797, 48.0355, 0, 0, 0, 0, 0, 0, 902.884, -148.369, 46.7411, -45.4772, -50.3103, -0.238575, 45.4772, 50.3103, 0.238575, 1060.81, -178.039, 45.673),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="testscene" type="Node3D" node_paths=PackedStringArray("AnimPlayer", "Ui", "VStraemPlay", "LayBa")]
 transform = Transform3D(1.01131, 0, 0, 0, 1.01131, 0, 0, 0, 1.01131, 0, 0, 0)
@@ -435,7 +441,7 @@ shape = SubResource("BoxShape3D_14rio")
 
 [node name="Pieton" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -198.39, 91.7932, 8.14955)
-PietonMESH = ExtResource("19_l7mtl")
+PietonMESH = ExtResource("11_jodcr")
 Karma = 1
 
 [node name="Pieton2" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
@@ -458,7 +464,7 @@ libraries = {
 }
 
 [node name="deoraII" parent="." node_paths=PackedStringArray("SLODER", "torbo", "locked_cam") instance=ExtResource("20_pjc5t")]
-transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, 761.272, 62.964, 2.83087)
+transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -199.943, 88.9405, 2.83087)
 SLODER = NodePath("../Ui_Holder/OUI/Morality")
 torbo = NodePath("../Ui_Holder/OUI/Nitro")
 locked_cam = NodePath("../body_for_camera2/locked_camera")
@@ -479,7 +485,7 @@ disabled = true
 transform = Transform3D(-0.988816, 1.73685e-15, -8.64451e-08, -2.55193e-08, 0.944748, 0.291906, 8.25925e-08, 0.291906, -0.944748, 0, 2.39459, -3.86068)
 
 [node name="testcity" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 906.256, 19.7982, 11.7638)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 906.256, 19.7982, 11.2463)
 use_collision = true
 size = Vector3(873.68, 65.1261, 893.742)
 material = SubResource("StandardMaterial3D_cgqdq")
@@ -523,6 +529,24 @@ sides = 64
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 258.515, 52.4113, 30.6681)
 use_collision = true
 size = Vector3(423.838, 1, 62.3361)
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_e0q2u")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.37642, 286.548, 115.225)
+polygon = PackedVector2Array(0, 0, 0, 1, 10, 1, 10, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
 
 [connection signal="jeufinit" from="decor/FinishLine" to="." method="_on_finish_line_jeufinit"]
 [connection signal="body_entered" from="decor/FinishLine/Area3D" to="decor/FinishLine" method="_on_area_3d_body_entered"]

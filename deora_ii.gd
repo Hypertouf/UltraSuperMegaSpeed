@@ -10,10 +10,9 @@ class_name DeoraII
 
 var car_upside_down = true #self explained, checks if car upside down for flip reasons
 
+var speed = Vector3.ZERO
 var score
-var total_rotationx = 0
-var total_rotationy = 0
-var total_rotationz = 0
+var total_rotation = Vector3.ZERO
 var default_position = Vector3(0.0,0.0,0.0)
 var tricks = [0,0,0]
 
@@ -51,53 +50,66 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 			
 			
 		if Input.is_action_pressed("forward") :
-			rotate_object_local(Vector3(1, 0, 0), 0.1)
-			total_rotationy += 1
-			if total_rotationy == 60:
+			speed.x = lerp(speed.x, 0.15, 0.05)
+			rotate_object_local(Vector3(1, 0, 0), speed.x)
+			total_rotation.x += 1
+			if total_rotation.x == 60:
 				#print("frontflip !!")
-				total_rotationy = 0
+				total_rotation.x = 0
 				tricks[0] +=1
 		elif Input.is_action_pressed("back") :
-			rotate_object_local(Vector3(1, 0, 0), -0.1)
-			total_rotationy -= 1
-			if total_rotationy == -60:
-				total_rotationy = 0
+			speed.x = lerp(speed.x, 0.15, 0.05)
+			rotate_object_local(Vector3(1, 0, 0), -speed.x)
+			total_rotation.x -= 1
+			if total_rotation.x == -60:
+				total_rotation.x = 0
 				#print("backflip !!")
 				tricks[0] -=1
-				
-		rotation.y += Input.get_axis("droite","gauche") * 0.1 #makes the car do shuv-it rotation on the y axis
-
+		else : 
+			speed.x = lerp(speed.x, 0.0, 0.5)
+		
 		if Input.is_action_pressed("gauche") :
-			total_rotationx += 1
+			speed.y = lerp(speed.y, 0.15, 0.05)
+			total_rotation.y += 1
 			#if total_rotationx == 30:
 				#print("front shuv")
-			if total_rotationx == 60:
-				total_rotationx = 0
+			if total_rotation.y == 60:
+				total_rotation.y = 0
 				#print("front 360 !!")
 				tricks[1] +=1
 		elif Input.is_action_pressed("droite") :
-			total_rotationx -= 1
+			speed.y = lerp(speed.y, 0.15, 0.05)
+			total_rotation.y -= 1
 			#if total_rotationx == -30 :
 				#print("back shuv")
-			if total_rotationx == -60:
-				total_rotationx = 0
+			if total_rotation.y == -60:
+				total_rotation.y = 0
 				#print("back 360 !!")
 				tricks[1] -=1
+		else : 
+			speed.y = lerp(speed.y, 0.0, 0.5)
 		
-		rotation.z += Input.get_axis("roll_right","roll_left") * 0.1 #makes the car do kickflip rotations on the z axis.
+		rotation.y += Input.get_axis("droite","gauche") * speed.y #makes the car do shuv-it rotation on the y axis
+
 		
 		if Input.is_action_pressed("roll_left") :
-			total_rotationz += 1
-			if total_rotationz == 60:
-				total_rotationz = 0
+			speed.z = lerp(speed.z, 0.15, 0.05)
+			total_rotation.z += 1
+			if total_rotation.z == 60:
+				total_rotation.z = 0
 				#print("heelflip !!")
 				tricks[2] += 1
 		elif Input.is_action_pressed("roll_right") :
-			total_rotationz -= 1
-			if total_rotationz == -60:
-				total_rotationz = 0
+			speed.z = lerp(speed.z, 0.15, 0.05)
+			total_rotation.z -= 1
+			if total_rotation.z == -60:
+				total_rotation.z = 0
 				#print("kickflip !!")
 				tricks[2] -=1
+		else : 
+			speed.z = lerp(speed.z, 0.0, 0.5)
+		
+		rotation.z += Input.get_axis("roll_right","roll_left") * speed.z #makes the car do kickflip rotations on the z axis.
 		
 		#print(default_position)
 		#print(default_position.y - rotation_degrees.y)
@@ -137,9 +149,7 @@ func _physics_process(delta): #for any actions that needs to be checked and repe
 				
 		tricks = [0,0,0]
 		default_position = Vector3(0,0,0)
-		total_rotationx = 0
-		total_rotationy = 0
-		total_rotationz = 0
+		total_rotation = Vector3.ZERO
 	#print(get_viewport().get_camera_3d().fov)
 	#if get_viewport().get_camera_3d().fov < 150 :
 	get_viewport().get_camera_3d().fov = 90 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) #adaptive FOV, when the car go faster the FOV go wider to make it feel faster.
@@ -186,13 +196,16 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 			body.get_parent().explo.position = body.position
 			body.linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
 			body.boom.play("Boom")
-			SLODER.value =- 5
 			
 			if body.get_parent().Karma == 0 :
+				
+				SLODER.value += 5
 				self.get_parent()._radio_start("Child_good")
 				pass
 				
 			if body.get_parent().Karma == 1 :
+				
+				SLODER.value -= 5
 				self.get_parent()._radio_start("Child_bad")
 				pass
 
