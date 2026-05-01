@@ -23,20 +23,20 @@ curve = SubResource("Curve_q2clh")
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6k3ko"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ig36o"]
-seamless = true
 noise = SubResource("FastNoiseLite_6k3ko")
+seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_nef3l"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ku5to"]
-seamless = true
 noise = SubResource("FastNoiseLite_nef3l")
+seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_y74h8"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_227pj"]
-seamless = true
 noise = SubResource("FastNoiseLite_y74h8")
+seamless = true
 
 [resource]
 shader = ExtResource("1_0f220")

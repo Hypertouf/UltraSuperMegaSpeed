@@ -9,8 +9,8 @@ seamless = true
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8b5wv"]
 width = 1024
-seamless = true
 noise = SubResource("FastNoiseLite_eqjet")
+seamless = true
 
 [resource]
 render_priority = 0
