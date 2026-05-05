@@ -6,7 +6,7 @@ extends VehicleBody3D
 ## the maximum torque that the engine will sent to the rear wheels- defaults to 300
 @export var max_torque : float = 300.0
 ## the maximum amount of braking force applied to the wheel. Default is 1.0
-@export var max_brake_force : float = 1.0
+@export var max_brake_force : float = 2.0
 ## the maximum rear wheel rpm. The actual engine torque is scaled in a linear vector to ensure the rear wheels will never go beyond this given rpm.
 ## The default value is 600rpm
 @export var max_wheel_rpm : float = 600.0
@@ -19,8 +19,12 @@ extends VehicleBody3D
 @export var torbo : TextureProgressBar
 @export var followcamera : Node3D
 
+var wheelie = false
 
-
+func wheelie_mode() :
+	if wheelie :
+		max_wheel_rpm = 5000
+		max_torque = 600
 
 #local member variables
 var player_acceleration : float = 0.0
@@ -63,7 +67,7 @@ func _input(event): #
 		torbo.value -= 25
 		$Timer.start(0.25)
 		if !$Timer.is_stopped():
-			engine_force = 1000
+			linear_velocity += transform.basis.z * 10
 			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
