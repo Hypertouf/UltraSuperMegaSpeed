@@ -220,13 +220,6 @@ shadow_mesh = SubResource("ArrayMesh_jalnx")
 collision_layer = 2
 physics_material_override = ExtResource("1_vukum")
 script = ExtResource("1_ymx53")
-max_steer = null
-max_torque = null
-max_brake_force = null
-max_wheel_rpm = null
-steer_damping = null
-front_wheel_grip = null
-rear_wheel_grip = null
 
 [node name="body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.025)

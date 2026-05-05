@@ -9,7 +9,7 @@ extends VehicleBody3D
 @export var max_brake_force : float = 1.0
 ## the maximum rear wheel rpm. The actual engine torque is scaled in a linear vector to ensure the rear wheels will never go beyond this given rpm.
 ## The default value is 600rpm
-#@export var max_wheel_rpm : float = 600.0
+@export var max_wheel_rpm : float = 600.0
 ## How quickly the wheel responds to player input- equates to seconds to reach maximum steer. Default is 2.0
 @export var steer_damping = 2.0
 ## How sticky are the front wheels. Default is 5. 0 is frictionless._add_constant_central_force

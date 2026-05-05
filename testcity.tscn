@@ -120,6 +120,13 @@ sides = 64
 
 [node name="car" parent="." node_paths=PackedStringArray("torbo", "followcamera") instance=ExtResource("2_mmo7n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.97784, 32.6649, 192.782)
+max_steer = 0.45
+max_torque = 300.0
+max_brake_force = 1.0
+max_wheel_rpm = 600.0
+steer_damping = 2.0
+front_wheel_grip = 5.0
+rear_wheel_grip = 5.0
 torbo = NodePath("../Ui_Holder/OUI/Nitro")
 followcamera = NodePath("../FollowCamera")
 

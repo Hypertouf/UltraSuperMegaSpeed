@@ -387,6 +387,13 @@ path_joined = false
 
 [node name="car" parent="." instance=ExtResource("3_cgqdq")]
 transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -200.845, 86.9265, 10.5937)
+max_steer = 0.45
+max_torque = 300.0
+max_brake_force = 1.0
+max_wheel_rpm = 600.0
+steer_damping = 2.0
+front_wheel_grip = 5.0
+rear_wheel_grip = 5.0
 
 [node name="FollowCamera" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("4_274cf")]
 follow_target = NodePath("../car")
