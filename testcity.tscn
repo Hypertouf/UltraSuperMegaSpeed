@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://db06bq682ern8"]
+[gd_scene load_steps=32 format=3 uid="uid://db06bq682ern8"]
 
 [ext_resource type="Texture2D" uid="uid://b82r3k27dut3s" path="res://assets/Textures/T_roadH.png" id="1_nw7x5"]
 [ext_resource type="PackedScene" uid="uid://7l1irinimxa" path="res://addons/srcoder_simplecar/car.tscn" id="2_mmo7n"]
+[ext_resource type="Script" uid="uid://3yr365clp1xm" path="res://testcity.gd" id="2_rplec"]
 [ext_resource type="PackedScene" uid="uid://rjx8tx5y7j2p" path="res://addons/srcoder_simplecar/follow_camera.tscn" id="3_nfvel"]
 [ext_resource type="Texture2D" uid="uid://cpii4stj8dfvy" path="res://Radio/frame0000.png" id="4_psp7x"]
 [ext_resource type="Texture2D" uid="uid://du53j3hwuqhej" path="res://assets/Textures/UI_Cursor.png" id="5_4vwau"]
@@ -80,48 +81,54 @@ background_mode = 2
 sky = SubResource("Sky_44vij")
 ambient_light_source = 3
 
-[node name="testcity" type="CSGBox3D"]
+[node name="testcity" type="CSGBox3D" node_paths=PackedStringArray("AnimPlayer", "Ui", "VStraemPlay", "LayBa")]
 use_collision = true
 size = Vector3(873.68, 65.1261, 893.742)
 material = SubResource("StandardMaterial3D_cgqdq")
+script = ExtResource("2_rplec")
+AnimPlayer = NodePath("AnimationPlayer")
+Ui = NodePath("Ui_Holder")
+videofin = ExtResource("11_ts33b")
+VStraemPlay = NodePath("Ui_Holder/OUI/Panel/VideoStreamPlayer")
+LayBa = NodePath("Ui_Holder/BalloonHolder")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+[node name="arena" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42.1616, 0)
 radius = 60.6089
 height = 23.1507
 sides = 64
 material = SubResource("StandardMaterial3D_l7mtl")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGCylinder3D"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="arena"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.0399, 0)
 operation = 2
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCylinder3D/CSGCombiner3D"]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="arena/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40.7091, 0)
 radius = 72.4207
 radial_segments = 84
 rings = 51
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCylinder3D/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="arena/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8062, -21.0476, 3.75049)
 size = Vector3(88.1423, 6.51489, 8.50098)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="grosserampe" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -162.395, 37.239, 108.291)
 size = Vector3(32.5903, 9.92981, 33.4729)
 material = SubResource("StandardMaterial3D_e0q2u")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGBox3D"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe"]
 operation = 2
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D/CSGCombiner3D"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.280029, 40.0668, -15.6533)
 radius = 44.7368
 height = 33.5107
 sides = 64
 
 [node name="car" parent="." node_paths=PackedStringArray("torbo", "followcamera", "SLODER") instance=ExtResource("2_mmo7n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.97784, 32.6649, 192.782)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7103, 32.6649, 192.578)
 torbo = NodePath("../Ui_Holder/OUI/Nitro")
 followcamera = NodePath("../FollowCamera")
 SLODER = NodePath("../Ui_Holder/OUI/Morality")
@@ -268,5 +275,117 @@ PietonMESH = ExtResource("14_rplec")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -203.171, 92.1065, 56.3119)
 PietonMESH = ExtResource("14_rplec")
 Karma = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="prototype_parkour" type="Node3D" parent="."]
+
+[node name="grosserampe2" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8848, 34.614, 201.114)
+use_collision = true
+size = Vector3(3.29937, 4.67984, 5.10236)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="prototype_parkour/grosserampe2"]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="prototype_parkour/grosserampe2/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.0370655, 7.1815, -2.7244)
+radius = 9.20313
+height = 3.18517
+sides = 64
+
+[node name="grosserampe3" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1098, 34.2631, 217.523)
+use_collision = true
+size = Vector3(20.4093, 3.97807, 12.2288)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="prototype_parkour/grosserampe3"]
+transform = Transform3D(0.00338595, 0.999994, 0, -0.999994, 0.00338595, 0, 0, 0, 1, 10.1098, -34.6637, -220.379)
+operation = 2
+
+[node name="grosserampe4" type="CSGBox3D" parent="prototype_parkour/grosserampe3/CSGCombiner3D"]
+transform = Transform3D(0.00338595, -0.999995, 0, 0.999995, 0.00338595, 0, 0, 0, 1, -34.8699, -2.54393, 217.526)
+size = Vector3(13.4468, 3.70448, 7.24199)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="prototype_parkour/grosserampe3/CSGCombiner3D"]
+transform = Transform3D(-5.4948e-08, 1, 0, -1, -5.4948e-08, 0, 0, 0, 1, -35.2589, -8.66284, 213.997)
+radius = 7.15332
+height = 4.53148
+sides = 64
+
+[node name="grosserampe4" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.57774, 44.2483, 220.869)
+use_collision = true
+size = Vector3(1.10089, 8.79166, 5.02256)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="grosserampe5" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(-0.0182028, -0.999834, 0, 0.999834, -0.0182028, 0, 0, 0, 1, -11.7483, 43.0481, 220.475)
+use_collision = true
+size = Vector3(1.10089, 24.5748, 5.67539)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="grosserampe6" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(-0.0157074, -0.999876, 0, 0.999876, -0.0157074, 0, 0, 0, 1, 26.3221, 47.4948, 220.905)
+use_collision = true
+size = Vector3(1.10089, 24.5748, 5.67539)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="grosserampe7" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.57774, 57.9703, 220.905)
+use_collision = true
+size = Vector3(1.10089, 8.79166, 5.02256)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="grosserampe8" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3675, 35.446, 218.024)
+use_collision = true
+size = Vector3(0.03482, 4.81575, 11.2497)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="grosserampe9" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(-0.000593409, 0, 1, 0, 1, 0, -1, 0, -0.000593409, -11.0118, 35.446, 223.674)
+use_collision = true
+size = Vector3(0.03482, 4.81575, 18.9213)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="grosserampe10" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(-0.000593409, 0, 1, 0, 1, 0, -1, 0, -0.000593409, -12.7646, 43.7013, 223.404)
+use_collision = true
+size = Vector3(0.03482, 1.60758, 22.4269)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="grosserampe11" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(-0.000593409, 0, 1, 0, 1, 0, -1, 0, -0.000593409, -12.7646, 43.7013, 217.546)
+use_collision = true
+size = Vector3(0.03482, 1.60758, 22.4269)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="grosserampe12" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(-0.999992, 0, -0.00394442, 0, 1, 0, 0.00394442, 0, -0.999992, -23.9926, 43.7013, 220.471)
+use_collision = true
+size = Vector3(0.03482, 1.60758, 5.87437)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="grosserampe13" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(0.00929663, -0.00626682, -0.999937, 0.000319809, 0.99998, -0.00626413, 0.999957, -0.000261554, 0.00929845, 27.3619, 47.9782, 217.897)
+use_collision = true
+size = Vector3(0.03482, 1.60758, 22.4269)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="grosserampe14" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(0.00929663, -0.00626682, -0.999937, 0.000319809, 0.99998, -0.00626413, 0.999957, -0.000261554, 0.00929845, 27.4129, 47.98, 223.755)
+use_collision = true
+size = Vector3(0.03482, 1.60758, 22.4269)
+material = SubResource("StandardMaterial3D_e0q2u")
+
+[node name="grosserampe15" type="CSGBox3D" parent="prototype_parkour"]
+transform = Transform3D(0.9999, -0.00626683, 0.0126474, 0.00626302, 0.99998, 0.000340799, -0.0126493, -0.000261554, 0.99992, 38.6148, 48.0494, 220.732)
+use_collision = true
+size = Vector3(0.03482, 1.60758, 5.87437)
+material = SubResource("StandardMaterial3D_e0q2u")
 
 [connection signal="body_entered" from="car" to="car" method="_on_body_entered"]
