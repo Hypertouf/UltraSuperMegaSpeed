@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://bl84qltiq711f"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bl84qltiq711f"]
 
 [ext_resource type="Shader" uid="uid://bxfoy56nkxla1" path="res://Woter.gdshader" id="1_vw3b4"]
 
@@ -9,8 +9,8 @@ seamless = true
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8b5wv"]
 width = 1024
-noise = SubResource("FastNoiseLite_eqjet")
 seamless = true
+noise = SubResource("FastNoiseLite_eqjet")
 
 [resource]
 render_priority = 0
