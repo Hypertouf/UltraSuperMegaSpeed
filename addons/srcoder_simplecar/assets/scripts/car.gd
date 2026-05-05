@@ -18,6 +18,8 @@ extends VehicleBody3D
 @export var rear_wheel_grip : float = 5.0
 @export var torbo : TextureProgressBar
 @export var followcamera : Node3D
+@export var SLODER : VSlider
+@export var hitbox : Area3D
 
 var wheelie = false
 
@@ -226,7 +228,7 @@ func get_input(delta : float):
 		tricks = [0,0,0]
 		default_position = Vector3(0,0,0)
 		total_rotation = Vector3.ZERO
-			
+		
 ## helper function to see if we are moving forward
 func going_forward() -> bool:
 	var relative_speed : float = basis.z.dot(linear_velocity.normalized())
@@ -234,4 +236,28 @@ func going_forward() -> bool:
 		return true
 	else:
 		return false
-	
+
+func _on_hitbox_body_entered(body: Node3D) -> void:
+	print("did enter")
+	if body is people :
+		print("die die die")
+		$explo.play()
+		body.get_parent().explo.position = body.position
+		body.linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
+		body.boom.play("Boom")
+		
+		if body.get_parent().Karma == 0 :
+			
+			SLODER.value += 5
+			self.get_parent()._radio_start("Child_good")
+			pass
+			
+		if body.get_parent().Karma == 1 :
+			
+			SLODER.value -= 5
+			self.get_parent()._radio_start("Child_bad")
+			pass
+
+		if body.get_parent().Karma == 2 :
+			self.get_parent()._radio_start("Child_neutral")
+			pass

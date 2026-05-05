@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://7l1irinimxa"]
+[gd_scene load_steps=21 format=4 uid="uid://7l1irinimxa"]
 
 [ext_resource type="Texture2D" uid="uid://d00a8fn18o6y3" path="res://addons/srcoder_simplecar/assets/models/Textures/colormap.png" id="1_n0mcw"]
 [ext_resource type="PhysicsMaterial" uid="uid://cuw7isymmyyku" path="res://addons/srcoder_simplecar/assets/materials/metal_physics_material.phymat" id="1_vukum"]
 [ext_resource type="Script" uid="uid://deikjexi0srs1" path="res://addons/srcoder_simplecar/assets/scripts/car.gd" id="1_ymx53"]
 [ext_resource type="AudioStream" uid="uid://r8bgkcn26u2e" path="res://assets/Audio/NFSU2 Nitrous Oxide System Sound Effects.mp3" id="4_0vicd"]
+[ext_resource type="AudioStream" uid="uid://c0llask5xjo1d" path="res://assets/Audio/deltarune explosion greenscreen.mp3" id="5_iwjfg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwqi7"]
 resource_name = "colormap"
@@ -216,6 +217,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jalnx")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_iwjfg"]
+size = Vector3(1.67963, 1.09668, 3.06982)
+
 [node name="car" type="VehicleBody3D"]
 collision_layer = 2
 physics_material_override = ExtResource("1_vukum")
@@ -302,3 +306,15 @@ volume_db = -30.832
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="explo" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_iwjfg")
+volume_db = -31.516
+
+[node name="hitbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00377119, 0.594732, 0.0607575)
+shape = SubResource("BoxShape3D_iwjfg")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
