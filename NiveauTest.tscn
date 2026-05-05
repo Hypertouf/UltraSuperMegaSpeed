@@ -16,6 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://dw8e1mh2y5h6t" path="res://decor.tscn" id="12_sijr8"]
 [ext_resource type="VideoStream" uid="uid://ch4oipsjay70n" path="res://assets/Video/0000-0393.ogv" id="13_d4x08"]
 [ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="13_sijr8"]
+[ext_resource type="Script" uid="uid://dxgcdpodd1kg2" path="res://finish_line.gd" id="16_14rio"]
+[ext_resource type="ArrayMesh" uid="uid://c4u1bjagi26fj" path="res://assets/meshmesh/Mm_finishline.res" id="16_pjc5t"]
+[ext_resource type="PackedScene" uid="uid://sio77rl037iq" path="res://assets/Models/building_speed.tscn" id="16_sijr8"]
+[ext_resource type="ArrayMesh" uid="uid://ciyxs82ul5chj" path="res://assets/meshmesh/Mm_garage.res" id="18_ot1wg"]
+[ext_resource type="PackedScene" uid="uid://b2yts58tdyte3" path="res://deora_ii.tscn" id="20_pjc5t"]
 [ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://Radio/frame0001.png" id="21_urq10"]
 [ext_resource type="PackedScene" uid="uid://db06bq682ern8" path="res://testcity.tscn" id="22_e0q2u"]
 [ext_resource type="Texture2D" uid="uid://copvhmpfo4ibr" path="res://Radio/frame0002.png" id="22_l7mtl"]
@@ -181,7 +186,7 @@ _data = {
 }
 point_count = 5
 
-[node name="testscene" type="Node3D" node_paths=PackedStringArray("AnimPlayer", "Ui", "VStraemPlay", "LayBa")]
+[node name="testscene" type="Node3D" unique_id=757023379 node_paths=PackedStringArray("AnimPlayer", "Ui", "VStraemPlay", "LayBa")]
 transform = Transform3D(1.01131, 0, 0, 0, 1.01131, 0, 0, 0, 1.01131, 0, 0, 0)
 script = ExtResource("1_14rio")
 AnimPlayer = NodePath("AnimationPlayer")
@@ -190,11 +195,11 @@ videofin = ExtResource("13_d4x08")
 VStraemPlay = NodePath("Ui_Holder/OUI/Panel/VideoStreamPlayer")
 LayBa = NodePath("Ui_Holder/BalloonHolder")
 
-[node name="Path3D2" type="Path3D" parent="."]
+[node name="Path3D2" type="Path3D" parent="." unique_id=2017182239]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.3268, 84.9622, -2.93582)
 curve = SubResource("Curve3D_2780r")
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D2"]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D2" unique_id=375317109]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -86.6728, 0)
 use_collision = true
 polygon = PackedVector2Array(0, 0, 0, 2, 10, 2, 10, 0)
@@ -211,16 +216,16 @@ path_u_distance = 4.55
 path_joined = true
 material = SubResource("StandardMaterial3D_crcnc")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=772716794]
 transform = Transform3D(0.795548, -5.96046e-08, 0.605891, -0.165918, 0.961775, 0.217854, -0.582731, -0.273842, 0.765138, 0, 6.40827, 0)
 light_color = Color(0.944873, 0.86982, 0.879656, 1)
 light_energy = 0.8
 sky_mode = 1
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1358070058]
 environment = SubResource("Environment_04meh")
 
-[node name="Ui_Holder" type="Control" parent="."]
+[node name="Ui_Holder" type="Control" parent="." unique_id=1844592721]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -231,10 +236,10 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="OUI" type="CanvasLayer" parent="Ui_Holder"]
+[node name="OUI" type="CanvasLayer" parent="Ui_Holder" unique_id=86869695]
 layer = 105
 
-[node name="Radio" type="TextureRect" parent="Ui_Holder/OUI"]
+[node name="Radio" type="TextureRect" parent="Ui_Holder/OUI" unique_id=2070046811]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -246,7 +251,7 @@ grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_14rio")
 
-[node name="Morality" type="VSlider" parent="Ui_Holder/OUI"]
+[node name="Morality" type="VSlider" parent="Ui_Holder/OUI" unique_id=1470843155]
 texture_filter = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -264,7 +269,7 @@ theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_oj3sk")
 value = 50.0
 scrollable = false
 
-[node name="Nitro" type="TextureProgressBar" parent="Ui_Holder/OUI"]
+[node name="Nitro" type="TextureProgressBar" parent="Ui_Holder/OUI" unique_id=1077740080]
 clip_children = 2
 texture_filter = 1
 anchors_preset = 3
@@ -284,14 +289,14 @@ fill_mode = 3
 texture_over = ExtResource("10_p3ale")
 texture_progress = ExtResource("11_no7d1")
 
-[node name="TextureRect" type="TextureRect" parent="Ui_Holder/OUI/Nitro"]
+[node name="TextureRect" type="TextureRect" parent="Ui_Holder/OUI/Nitro" unique_id=768136095]
 z_index = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("10_p3ale")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Ui_Holder/OUI/Nitro"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Ui_Holder/OUI/Nitro" unique_id=1142423495]
 texture_filter = 1
 position = Vector2(359, 728)
 amount = 2
@@ -299,14 +304,14 @@ texture = ExtResource("12_ot1wg")
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_l7mtl")
 
-[node name="TextureRect2" type="TextureRect" parent="Ui_Holder/OUI/Nitro"]
+[node name="TextureRect2" type="TextureRect" parent="Ui_Holder/OUI/Nitro" unique_id=50415152]
 z_index = -1
 layout_mode = 0
 offset_right = 462.0
 offset_bottom = 776.0
 texture = ExtResource("13_sijr8")
 
-[node name="Panel" type="Panel" parent="Ui_Holder/OUI"]
+[node name="Panel" type="Panel" parent="Ui_Holder/OUI" unique_id=1321917097]
 visible = false
 z_index = 50
 anchors_preset = 15
@@ -317,7 +322,7 @@ grow_vertical = 2
 theme = SubResource("Theme_14rio")
 theme_override_styles/panel = SubResource("StyleBoxFlat_d4x08")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Ui_Holder/OUI/Panel"]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Ui_Holder/OUI/Panel" unique_id=1689855446]
 layout_mode = 0
 offset_left = 101.93
 offset_right = 1541.93
@@ -326,51 +331,107 @@ stream = ExtResource("13_d4x08")
 autoplay = true
 paused = true
 
-[node name="BalloonHolder" type="CanvasLayer" parent="Ui_Holder"]
+[node name="BalloonHolder" type="CanvasLayer" parent="Ui_Holder" unique_id=118719075]
 layer = 128
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1951652600]
 
-[node name="decor" parent="." instance=ExtResource("12_sijr8")]
+[node name="decor" type="Node3D" parent="." unique_id=1595346461]
 
-[node name="PietonHolder" type="Node3D" parent="."]
+[node name="Woter" type="MeshInstance3D" parent="decor" unique_id=208942488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+material_overlay = ExtResource("5_44vij")
+mesh = SubResource("PlaneMesh_oj3sk")
+skeleton = NodePath("../..")
 
-[node name="Pieton" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
+[node name="Terrain" type="MeshInstance3D" parent="decor" unique_id=1423115534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -178.3, -12.8136, 0)
+mesh = SubResource("ArrayMesh_d4x08")
+skeleton = NodePath("../..")
+metadata/_edit_lock_ = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="decor/Terrain" unique_id=669177956]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="decor/Terrain/StaticBody3D" unique_id=1204466990]
+shape = SubResource("ConcavePolygonShape3D_04meh")
+
+[node name="MmGarage" type="MeshInstance3D" parent="decor" unique_id=1725863679]
+transform = Transform3D(-0.0234351, 0.128017, 0.991495, 0.00302497, 0.991772, -0.127981, -0.999721, 0, -0.0236295, -104.312, 82.2122, -0.525381)
+mesh = ExtResource("18_ot1wg")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="decor/MmGarage" unique_id=1982800091]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="decor/MmGarage/StaticBody3D" unique_id=883458906]
+shape = SubResource("ConcavePolygonShape3D_no7d1")
+
+[node name="Building_speed7" parent="decor" unique_id=712183499 instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -182.214, 73.2326, 1.17325)
+
+[node name="Building_speed12" parent="decor" unique_id=474757149 instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.888048, 0.0955706, -0.424259, -0.125835, 0.979848, -0.0426693, 0.416287, 0.0923114, 0.892156, -245.44, 46.6553, 23.9205)
+
+[node name="Building_speed8" parent="decor" unique_id=826510887 instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -104.824, 75.0136, -15.3387)
+
+[node name="Building_speed9" parent="decor" unique_id=11835508 instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -91.3651, 50.5981, 37.2688)
+
+[node name="Building_speed10" parent="decor" unique_id=840552461 instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.988816, 0, 0, 0, 0.988816, 0, 0, 0, 0.988816, -112.222, 45.206, 70.4201)
+
+[node name="Building_speed11" parent="decor" unique_id=2065496292 instance=ExtResource("16_sijr8")]
+transform = Transform3D(0.594638, 0.699543, -0.367156, -0.722255, 0.66758, 0.102192, 0.320174, 0.206724, 0.912421, -177.482, 53.3458, 53.7188)
+
+[node name="FinishLine" type="Node3D" parent="decor" unique_id=116451417]
+transform = Transform3D(0.983947, 0.178459, 0, -0.178459, 0.983947, 0, 0, 0, 1, -61.7752, 76.2226, 0)
+script = ExtResource("16_14rio")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="decor/FinishLine" unique_id=1238018364]
+mesh = ExtResource("16_pjc5t")
+
+[node name="Area3D" type="Area3D" parent="decor/FinishLine" unique_id=703370831]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="decor/FinishLine/Area3D" unique_id=1147652642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134186, 3.51385, -1.5821)
+shape = SubResource("BoxShape3D_14rio")
+
+[node name="PietonHolder" type="Node3D" parent="." unique_id=181060501]
+
+[node name="Pieton" parent="PietonHolder" unique_id=1523545725 instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -198.39, 91.7932, 8.14955)
 PietonMESH = ExtResource("11_jodcr")
 Karma = 1
 
-[node name="Pieton2" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
+[node name="Pieton2" parent="PietonHolder" unique_id=147971888 instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -203.171, 92.1065, 15.5276)
 PietonMESH = ExtResource("11_jodcr")
 Karma = 1
 
-[node name="Pieton3" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
+[node name="Pieton3" parent="PietonHolder" unique_id=964462060 instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -198.39, 91.7932, 48.9338)
 PietonMESH = ExtResource("11_jodcr")
 
-[node name="Pieton4" parent="PietonHolder" instance=ExtResource("10_kvwxe")]
+[node name="Pieton4" parent="PietonHolder" unique_id=1061066567 instance=ExtResource("10_kvwxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -203.171, 92.1065, 56.3119)
 PietonMESH = ExtResource("11_jodcr")
 Karma = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_urq10")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=900827669]
+libraries/ = SubResource("AnimationLibrary_urq10")
 
 [node name="testcity" parent="." instance=ExtResource("22_e0q2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 906.256, 19.7982, 11.2463)
 
-[node name="bridge" type="CSGBox3D" parent="."]
+[node name="bridge" type="CSGBox3D" parent="." unique_id=1430441741]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 258.515, 52.4113, 30.6681)
 use_collision = true
 size = Vector3(423.838, 1, 62.3361)
 
-[node name="Path3D" type="Path3D" parent="."]
+[node name="Path3D" type="Path3D" parent="." unique_id=1451538189]
 curve = SubResource("Curve3D_e0q2u")
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D" unique_id=792907827]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.37642, 286.548, 115.225)
 polygon = PackedVector2Array(0, 0, 0, 1, 10, 1, 10, 0)
 mode = 2
