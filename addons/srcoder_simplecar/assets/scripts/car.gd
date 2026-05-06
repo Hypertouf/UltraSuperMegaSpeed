@@ -56,20 +56,37 @@ func hypothenuse(a, b): #urhm it might look silly but it is necessary for correc
 
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
-		#print("please why ")
+		print("pressed")
 		if $check_ground.is_colliding(): #but only if car is on the ground of course
-			linear_velocity += (transform.basis.y * 6) + transform.basis.z #HOLY SHIT IT WORKS
-			linear_velocity.y += 7 #add a little global vertical boost for cleaner walljumps 
-			#transform.basis.y + 10 makes the car jump from local position and transform.basis.z makes the car keep it's rolling speed when jumping
-			#if we prefer making the car stick to the wall and ceiling use linear_velocity.y += 10
+			print("ground_checked")
+			$jumpTimer.start(0.1)
+			
+	if event.is_action_released("sauter") and $check_ground.is_colliding() and $jumpTimer.is_stopped():
+		print("big_jump")
+		linear_velocity += (transform.basis.y * 6) + transform.basis.z #HOLY SHIT IT WORKS
+		linear_velocity.y += 7 #add a little global vertical boost for cleaner walljumps 
+				#transform.basis.y + 10 makes the car jump from local position and transform.basis.z makes the car keep it's rolling speed when jumping
+				#if we prefer making the car stick to the wall and ceiling use linear_velocity.y += 10
+	elif event.is_action_released("sauter") and $check_ground.is_colliding() and !$jumpTimer.is_stopped() :
+		print("small_jump")
+		linear_velocity += (transform.basis.y * 2) + transform.basis.z #HOLY SHIT IT WORKS
+		linear_velocity.y += 3
+				
 			
 	if event.is_action_pressed("nitrous") and torbo.value > 10 :
 		#linear_velocity += 25 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z)))
 		$nitrous.play() 
 		torbo.value -= 25
-		$Timer.start(0.25)
-		if !$Timer.is_stopped():
+		$nitrousTimer.start(0.25)
+		if !$nitrousTimer.is_stopped():
 			linear_velocity += transform.basis.z * 10
+	
+	if event.is_action_pressed("stomp") and !$check_ground.is_colliding() and torbo.value > 10 :
+		$nitrous.play() 
+		torbo.value -= 25
+		linear_velocity.y = -10
+		
+		
 			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -261,3 +278,12 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 		if body.get_parent().Karma == 2 :
 			self.get_parent()._radio_start("Child_neutral")
 			pass
+			
+	if body is bumper :
+		print("enter bumper")
+		position.y = body.global_position.y
+		position.x = body.global_position.x
+		position.z = body.global_position.z
+		linear_velocity.y = body.get_parent_node_3d().bump_y
+		linear_velocity.x = body.get_parent_node_3d().bump_x
+		linear_velocity.z = body.get_parent_node_3d().bump_z
