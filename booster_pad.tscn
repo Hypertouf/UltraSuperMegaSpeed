@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://loy552u5ob8l"]
 
-[ext_resource type="PackedScene" uid="uid://denjrfospc545" path="res://bumper.tscn" id="1_sspmp"]
 [ext_resource type="Script" uid="uid://cwt4jtj0qyd3w" path="res://booster_pad.gd" id="2_6v7ex"]
+[ext_resource type="ArrayMesh" uid="uid://drya6dl5ful1u" path="res://assets/Models/props/Powerup.tres" id="2_bo13x"]
 
-[node name="booster_pad" unique_id=1560870479 instance=ExtResource("1_sspmp")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gyrsk"]
+size = Vector3(0.27978516, 0.46936035, 0.18115234)
 
-[node name="RigidBody3D" parent="." index="0" unique_id=1686974564]
+[node name="booster_pad" type="Node3D" unique_id=1560870479]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1686974564 node_paths=PackedStringArray("Colbumper")]
+lock_rotation = true
+freeze = true
 script = ExtResource("2_6v7ex")
+Colbumper = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=17618427]
+shape = SubResource("BoxShape3D_gyrsk")
+
+[node name="Powerup" type="MeshInstance3D" parent="RigidBody3D" unique_id=879978250]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("2_bo13x")
+skeleton = NodePath("../..")
