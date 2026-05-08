@@ -290,6 +290,7 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 			pass
 			
 	if body is bumper :
+		body.Meesh.player.play("Trigger")
 		print("enter bumper")
 		position.y = body.global_position.y
 		position.x = body.global_position.x

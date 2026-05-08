@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://denjrfospc545"]
 
 [ext_resource type="Script" uid="uid://bw4tstdbc6htr" path="res://bumper.gd" id="1_hrt4a"]
+[ext_resource type="PackedScene" uid="uid://dsy5twty10ykf" path="res://assets/Models/props/ressors.tscn" id="2_h31vo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gyrsk"]
 size = Vector3(0.27978516, 0.46936035, 0.18115234)
@@ -9,14 +10,18 @@ size = Vector3(0.27978516, 0.46936035, 0.18115234)
 
 [node name="Bumper" type="Node3D" unique_id=1560870479]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1686974564 node_paths=PackedStringArray("Colbumper")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1686974564 node_paths=PackedStringArray("Colbumper", "Meesh")]
 lock_rotation = true
 freeze = true
 script = ExtResource("1_hrt4a")
 Colbumper = NodePath("CollisionShape3D")
+Meesh = NodePath("CollisionShape3D/ressors")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=17618427]
 shape = SubResource("BoxShape3D_gyrsk")
 
+[node name="ressors" parent="RigidBody3D/CollisionShape3D" unique_id=1538105530 instance=ExtResource("2_h31vo")]
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1787238174]
+visible = false
 mesh = SubResource("CapsuleMesh_2f0gt")
