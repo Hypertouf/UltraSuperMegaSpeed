@@ -534,3 +534,5 @@ environment = SubResource("Environment_3824e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1780980051]
 transform = Transform3D(0.85243034, -0.20511307, -0.48092738, 0, -0.9198352, 0.39230502, -0.5228408, -0.3344127, -0.78409547, 0, 0, 0)
+light_color = Color(0.85846734, 0.75992113, 0.860659, 1)
+light_energy = 0.6
