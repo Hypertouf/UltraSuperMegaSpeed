@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ciw30oasqtwms"
-path="res://.godot/imported/Car_Custo.glb-f709b677eb83e89da8283ae1cc9dcc53.scn"
+uid="uid://c5y3jpe8pcaus"
+path="res://.godot/imported/Car_Custo3.glb-196487f6193bb067f263cfaa0a12705e.scn"
 
 [deps]
 
-source_file="res://addons/srcoder_simplecar/assets/models/Car_Custo.glb"
-dest_files=["res://.godot/imported/Car_Custo.glb-f709b677eb83e89da8283ae1cc9dcc53.scn"]
+source_file="res://addons/srcoder_simplecar/assets/models/Car_Custo3.glb"
+dest_files=["res://.godot/imported/Car_Custo3.glb-196487f6193bb067f263cfaa0a12705e.scn"]
 
 [params]
 
