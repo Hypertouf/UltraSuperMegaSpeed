@@ -265,7 +265,7 @@ func going_forward() -> bool:
 		return false
 
 func _on_hitbox_body_entered(body: Node3D) -> void:
-	print("did enter")
+	print(body)
 	if body is people :
 		print("die die die")
 		$explo.play()
@@ -313,4 +313,8 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 		linear_velocity.z = body.get_parent_node_3d().boost_z
 		$boostTimer.start(0.5)
 		#test comment
+
+	if body is loop : #button to switch between three cameras
+		print("LOOP !!!!")
+		$cockpit.make_current()
 		
