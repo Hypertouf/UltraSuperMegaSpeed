@@ -323,8 +323,11 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 func _on_hitbox_area_entered(area: Area3D) -> void:
 	print(area)
 	if area is enterLoop :
+		$cockpit.fov = 90
 		$cockpit.make_current()
+		
 
 func _on_hitbox_area_exited(area: Area3D) -> void:
 	if area is exitLoop :
 		followcamera.mycamera.make_current()
+		

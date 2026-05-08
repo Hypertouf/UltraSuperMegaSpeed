@@ -158,7 +158,7 @@ followcamera = NodePath("../FollowCamera")
 SLODER = NodePath("../Ui_Holder/OUI/Morality")
 
 [node name="cockpit" type="Camera3D" parent="car" unique_id=442277929]
-transform = Transform3D(-1, 0, -8.742277e-08, -1.8038888e-08, 0.97848016, 0.20634082, 8.554145e-08, 0.20634082, -0.97848016, 0, 1.1079063, 0.19076538)
+transform = Transform3D(-1, -4.4816276e-15, -8.7422784e-08, -1.46786725e-08, 0.9858033, 0.16790438, 8.6181664e-08, 0.16790438, -0.9858033, 0, 1.7031517, -2.0601654)
 
 [node name="FollowCamera" parent="." unique_id=1529330641 node_paths=PackedStringArray("follow_target") instance=ExtResource("3_nfvel")]
 follow_target = NodePath("../car")
