@@ -91,6 +91,7 @@ sky_material = ExtResource("12_4vwau")
 background_mode = 2
 sky = SubResource("Sky_44vij")
 ambient_light_source = 3
+ambient_light_color = Color(0.68933016, 0.88001716, 0.94318074, 1)
 
 [node name="testcity" type="CSGBox3D" unique_id=1344364098 node_paths=PackedStringArray("AnimPlayer", "Ui", "VStraemPlay", "LayBa")]
 use_collision = true
@@ -262,7 +263,12 @@ layer = 128
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=267446990]
 transform = Transform3D(0.795548, -5.96046e-08, 0.605891, -0.165918, 0.961775, 0.217854, -0.582731, -0.273842, 0.765138, 0, 6.40827, 0)
 light_color = Color(0.944873, 0.86982, 0.879656, 1)
-light_energy = 0.8
+sky_mode = 1
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1948173961]
+transform = Transform3D(0.18839002, 0.09271309, -0.9777081, 0.41970292, -0.9076467, -0.005198142, -0.88789624, -0.40936756, -0.20990264, 0, 6.40827, 0)
+light_color = Color(0.79261047, 0.9158941, 0.9605041, 1)
+light_energy = 0.5
 sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=169522566]
