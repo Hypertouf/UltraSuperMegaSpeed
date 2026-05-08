@@ -19,6 +19,13 @@
 [ext_resource type="Script" uid="uid://c5nyf0lcaibsq" path="res://bump1.gd" id="17_2f0gt"]
 [ext_resource type="Script" uid="uid://bdvuvd65e5sve" path="res://bump2.gd" id="18_ts33b"]
 [ext_resource type="Script" uid="uid://domhxww3lo12s" path="res://bump3.gd" id="19_o0tb5"]
+[ext_resource type="PackedScene" uid="uid://loy552u5ob8l" path="res://booster_pad.tscn" id="20_igicc"]
+[ext_resource type="Script" uid="uid://di8facgqwjvoq" path="res://booster1.gd" id="21_let05"]
+[ext_resource type="Script" uid="uid://ce4y665xse68e" path="res://booster2.gd" id="22_let05"]
+[ext_resource type="Script" uid="uid://ba6plucvhceen" path="res://booster3.gd" id="23_8fmto"]
+[ext_resource type="Script" uid="uid://c0c5hpbssi7he" path="res://booster4.gd" id="24_p4ofo"]
+[ext_resource type="Script" uid="uid://c2iph2nt1kp67" path="res://booster5.gd" id="25_fwmp3"]
+[ext_resource type="Script" uid="uid://cllin0w25yrf6" path="res://booster6.gd" id="26_fwmp3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgqdq"]
 albedo_texture = ExtResource("1_nw7x5")
@@ -133,6 +140,7 @@ sides = 64
 
 [node name="car" parent="." unique_id=333542348 node_paths=PackedStringArray("torbo", "followcamera", "SLODER") instance=ExtResource("2_mmo7n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7103, 32.6649, 192.578)
+freeze_mode = 1
 front_wheel_grip = 10.0
 rear_wheel_grip = 10.0
 torbo = NodePath("../Ui_Holder/OUI/Nitro")
@@ -429,5 +437,29 @@ script = ExtResource("18_ts33b")
 [node name="Bump3" parent="." unique_id=1560870479 instance=ExtResource("16_gyrsk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.719568, 57.30495, 212.41629)
 script = ExtResource("17_2f0gt")
+
+[node name="booster_pad" parent="." unique_id=892767973 instance=ExtResource("20_igicc")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.218819, 32.775463, 215.87393)
+script = ExtResource("21_let05")
+
+[node name="booster_pad2" parent="." unique_id=499008718 instance=ExtResource("20_igicc")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.387272, 32.775463, 216.46356)
+script = ExtResource("22_let05")
+
+[node name="booster_pad3" parent="." unique_id=1391010546 instance=ExtResource("20_igicc")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.387272, 32.775463, 200.98816)
+script = ExtResource("23_8fmto")
+
+[node name="booster_pad4" parent="." unique_id=321319776 instance=ExtResource("20_igicc")]
+transform = Transform3D(-1.0000001, 0, 8.7422784e-08, 0, 1, 0, -8.7422784e-08, 0, -1.0000001, 34.782425, 32.775463, 200.87071)
+script = ExtResource("24_p4ofo")
+
+[node name="booster_pad5" parent="." unique_id=1576954913 instance=ExtResource("20_igicc")]
+transform = Transform3D(-0.0069812406, 0, -0.9999756, 0, 1, 0, 0.9999756, 0, -0.0069812406, 34.93586, 32.775463, 182.93994)
+script = ExtResource("25_fwmp3")
+
+[node name="booster_pad6" parent="." unique_id=122611538 instance=ExtResource("20_igicc")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -4.3166475, 32.775463, 182.88617)
+script = ExtResource("26_fwmp3")
 
 [connection signal="body_entered" from="car" to="car" method="_on_body_entered"]

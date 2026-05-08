@@ -245,6 +245,16 @@ func get_input(delta : float):
 		tricks = [0,0,0]
 		default_position = Vector3(0,0,0)
 		total_rotation = Vector3.ZERO
+	
+	if !$boostTimer.is_stopped() :
+		lock_rotation = true
+		for wheel in steering_wheels :
+			wheel.wheel_friction_slip = 0.0
+			
+	else :
+		lock_rotation = false
+		for wheel in steering_wheels :
+			wheel.wheel_friction_slip = 5.0
 		
 ## helper function to see if we are moving forward
 func going_forward() -> bool:
@@ -287,3 +297,19 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 		linear_velocity.y = body.get_parent_node_3d().bump_y
 		linear_velocity.x = body.get_parent_node_3d().bump_x
 		linear_velocity.z = body.get_parent_node_3d().bump_z
+		
+	if body is booster_pad :
+		print("enter booster")
+		position.y = body.global_position.y
+		position.x = body.global_position.x
+		position.z = body.global_position.z
+		rotation = body.global_rotation
+		for wheel in steering_wheels :
+			wheel.rotation = Vector3(0.0,0.0,0.0)
+			wheel.steering = 0.0
+		steering = 0.0
+		linear_velocity.y = body.get_parent_node_3d().boost_y
+		linear_velocity.x = body.get_parent_node_3d().boost_x
+		linear_velocity.z = body.get_parent_node_3d().boost_z
+		$boostTimer.start(0.5)
+		

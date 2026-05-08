@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://7l1irinimxa"]
+[gd_scene format=4 uid="uid://7l1irinimxa"]
 
 [ext_resource type="Texture2D" uid="uid://d00a8fn18o6y3" path="res://addons/srcoder_simplecar/assets/models/Textures/colormap.png" id="1_n0mcw"]
 [ext_resource type="PhysicsMaterial" uid="uid://cuw7isymmyyku" path="res://addons/srcoder_simplecar/assets/materials/metal_physics_material.phymat" id="1_vukum"]
@@ -218,28 +218,28 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jalnx")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iwjfg"]
-size = Vector3(1.67963, 1.09668, 4.20495)
+size = Vector3(1.67963, 1.09668, 2.9843109)
 
-[node name="car" type="VehicleBody3D"]
+[node name="car" type="VehicleBody3D" unique_id=585784445]
 collision_layer = 2
 physics_material_override = ExtResource("1_vukum")
 script = ExtResource("1_ymx53")
 
-[node name="body" type="MeshInstance3D" parent="."]
+[node name="body" type="MeshInstance3D" parent="." unique_id=787695455]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.025)
 mesh = SubResource("ArrayMesh_wqhfy")
 skeleton = NodePath("")
 
-[node name="spoiler" type="MeshInstance3D" parent="body"]
+[node name="spoiler" type="MeshInstance3D" parent="body" unique_id=608140305]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, -1.04369)
 mesh = SubResource("ArrayMesh_6em3i")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1843665828]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.025)
 shape = SubResource("ConvexPolygonShape3D_1nhew")
 
-[node name="WheelBackRight" type="VehicleWheel3D" parent="."]
+[node name="WheelBackRight" type="VehicleWheel3D" parent="." unique_id=653985420]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.3, -0.653875)
 wheel_roll_influence = 1.0
 wheel_radius = 0.3
@@ -248,12 +248,12 @@ suspension_stiffness = 100.0
 damping_compression = 2.3
 damping_relaxation = 2.5
 
-[node name="wheel-back-right" type="MeshInstance3D" parent="WheelBackRight"]
+[node name="wheel-back-right" type="MeshInstance3D" parent="WheelBackRight" unique_id=314252679]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, -0.00657403)
 mesh = SubResource("ArrayMesh_blm54")
 skeleton = NodePath("")
 
-[node name="WheelBackLeft" type="VehicleWheel3D" parent="."]
+[node name="WheelBackLeft" type="VehicleWheel3D" parent="." unique_id=61028692]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.3, -0.653875)
 wheel_roll_influence = 1.0
 wheel_radius = 0.3
@@ -262,12 +262,12 @@ suspension_stiffness = 100.0
 damping_compression = 2.3
 damping_relaxation = 2.5
 
-[node name="wheel-back-left" type="MeshInstance3D" parent="WheelBackLeft"]
+[node name="wheel-back-left" type="MeshInstance3D" parent="WheelBackLeft" unique_id=59314057]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, -0.00657403)
 mesh = SubResource("ArrayMesh_bcio1")
 skeleton = NodePath("")
 
-[node name="WheelFrontRight" type="VehicleWheel3D" parent="."]
+[node name="WheelFrontRight" type="VehicleWheel3D" parent="." unique_id=1795746929]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.3, 0.656971)
 use_as_steering = true
 wheel_roll_influence = 1.0
@@ -277,12 +277,12 @@ suspension_stiffness = 100.0
 damping_compression = 2.3
 damping_relaxation = 2.5
 
-[node name="wheel-front-right" type="MeshInstance3D" parent="WheelFrontRight"]
+[node name="wheel-front-right" type="MeshInstance3D" parent="WheelFrontRight" unique_id=278086574]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, 0.00257409)
 mesh = SubResource("ArrayMesh_pme3t")
 skeleton = NodePath("")
 
-[node name="WheelFrontLeft" type="VehicleWheel3D" parent="."]
+[node name="WheelFrontLeft" type="VehicleWheel3D" parent="." unique_id=1727671381]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.3, 0.656971)
 use_as_steering = true
 wheel_roll_influence = 1.0
@@ -292,32 +292,35 @@ suspension_stiffness = 100.0
 damping_compression = 2.3
 damping_relaxation = 2.5
 
-[node name="wheel-front-left" type="MeshInstance3D" parent="WheelFrontLeft"]
+[node name="wheel-front-left" type="MeshInstance3D" parent="WheelFrontLeft" unique_id=2049457641]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, 0.00257409)
 mesh = SubResource("ArrayMesh_h7tpb")
 skeleton = NodePath("")
 
-[node name="check_ground" type="RayCast3D" parent="."]
+[node name="check_ground" type="RayCast3D" parent="." unique_id=1438501857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120831, 0.085695, 0)
 
-[node name="nitrous" type="AudioStreamPlayer3D" parent="."]
+[node name="nitrous" type="AudioStreamPlayer3D" parent="." unique_id=196192388]
 stream = ExtResource("4_0vicd")
 volume_db = -30.832
 
-[node name="nitrousTimer" type="Timer" parent="."]
+[node name="nitrousTimer" type="Timer" parent="." unique_id=1234174705]
 one_shot = true
 
-[node name="explo" type="AudioStreamPlayer3D" parent="."]
+[node name="explo" type="AudioStreamPlayer3D" parent="." unique_id=567408761]
 stream = ExtResource("5_iwjfg")
 volume_db = -31.516
 
-[node name="hitbox" type="Area3D" parent="."]
+[node name="hitbox" type="Area3D" parent="." unique_id=2132694768]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00377119, 0.594732, 0.628325)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox" unique_id=2036620393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00377119, 0.594732, 0.01800549)
 shape = SubResource("BoxShape3D_iwjfg")
 
-[node name="jumpTimer" type="Timer" parent="."]
+[node name="jumpTimer" type="Timer" parent="." unique_id=968459059]
+one_shot = true
+
+[node name="boostTimer" type="Timer" parent="." unique_id=1690382906]
 one_shot = true
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
