@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvcny5d81bhoj"
-path.s3tc="res://.godot/imported/Car_Custo_wheels.png-57a3d0585c0b4c9267b0607d4d169524.s3tc.ctex"
+uid="uid://dfh4mwvrtxgkh"
+path.s3tc="res://.godot/imported/ressors_ressors.png-86b27178826e6a9d07d60c21d4e59b26.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "e061fbbadc334483e80357c9e72d5ff9"
+"md5": "7c52dc3b74a4f8f1188fd44c0cfe58f8"
 }
 
 [deps]
 
-source_file="res://addons/srcoder_simplecar/assets/models/Car_Custo_wheels.png"
-dest_files=["res://.godot/imported/Car_Custo_wheels.png-57a3d0585c0b4c9267b0607d4d169524.s3tc.ctex"]
+source_file="res://assets/Models/props/ressors_ressors.png"
+dest_files=["res://.godot/imported/ressors_ressors.png-86b27178826e6a9d07d60c21d4e59b26.s3tc.ctex"]
 
 [params]
 

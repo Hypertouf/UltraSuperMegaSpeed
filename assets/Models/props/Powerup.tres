@@ -1,0 +1,40 @@
+[gd_resource type="ArrayMesh" format=3 uid="uid://drya6dl5ful1u"]
+
+[ext_resource type="Texture2D" uid="uid://cgdxdjy4augxp" path="res://assets/Models/props/CabineTelephonique_COLO.png" id="1_o3ga1"]
+[ext_resource type="Texture2D" uid="uid://di3dc11pm0tmr" path="res://assets/Models/props/emissive_powerup.png" id="2_hcr6o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gmbnm"]
+albedo_texture = ExtResource("1_o3ga1")
+emission_enabled = true
+emission_texture = ExtResource("2_hcr6o")
+texture_filter = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a8h5e"]
+_surfaces = [{
+"aabb": AABB(-1, -1.7484554e-07, -1.25, 2, 1e-05, 2.5),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 243, 8, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 243, 8, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Powerup_Plane"
+_surfaces = [{
+"aabb": AABB(-1, -1.7484554e-07, -1.25, 2, 1e-05, 2.5),
+"attribute_data": PackedByteArray(102, 95, 218, 110, 102, 159, 218, 30, 102, 159, 218, 110, 102, 95, 218, 30),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_gmbnm"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 243, 8, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 243, 8, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_a8h5e")

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cte253dilrla1"
-path.s3tc="res://.godot/imported/Car_Custo_Vroom_save_07.05.png-06506d14620e791660581d022f85b5d9.s3tc.ctex"
+uid="uid://dkyjwivub6ltk"
+path.s3tc="res://.godot/imported/Car_Custo3_Emissive_wheel.png-503034cb03e4745a31dd0a53a7bd9002.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "47f61ba4886359e70e52bb58f96d43b8"
+"md5": "32e8601962dd705f40c67e0b7a910b4f"
 }
 
 [deps]
 
-source_file="res://addons/srcoder_simplecar/assets/models/Car_Custo_Vroom_save_07.05.png"
-dest_files=["res://.godot/imported/Car_Custo_Vroom_save_07.05.png-06506d14620e791660581d022f85b5d9.s3tc.ctex"]
+source_file="res://addons/srcoder_simplecar/assets/models/Textures/Car_Custo3_Emissive_wheel.png"
+dest_files=["res://.godot/imported/Car_Custo3_Emissive_wheel.png-503034cb03e4745a31dd0a53a7bd9002.s3tc.ctex"]
 
 [params]
 

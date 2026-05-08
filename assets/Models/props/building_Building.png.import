@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cte253dilrla1"
-path.s3tc="res://.godot/imported/Car_Custo_Vroom_save_07.05.png-0813a9cb21b1f3734e175cfffe55ba65.s3tc.ctex"
+uid="uid://c8w7sinhmkban"
+path.s3tc="res://.godot/imported/building_Building.png-340bee5b57ee3692d222da8d2af58734.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "47f61ba4886359e70e52bb58f96d43b8"
+"md5": "123b2d432d9281804477a5a25425dad1"
 }
 
 [deps]
 
-source_file="res://addons/srcoder_simplecar/assets/models/Textures/Car_Custo_Vroom_save_07.05.png"
-dest_files=["res://.godot/imported/Car_Custo_Vroom_save_07.05.png-0813a9cb21b1f3734e175cfffe55ba65.s3tc.ctex"]
+source_file="res://assets/Models/props/building_Building.png"
+dest_files=["res://.godot/imported/building_Building.png-340bee5b57ee3692d222da8d2af58734.s3tc.ctex"]
 
 [params]
 

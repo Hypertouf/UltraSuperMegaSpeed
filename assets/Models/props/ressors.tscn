@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dsy5twty10ykf"]
+
+[ext_resource type="PackedScene" uid="uid://dmtd3jme7nn2i" path="res://assets/Models/props/ressors.glb" id="1_5ewv3"]
+[ext_resource type="Script" uid="uid://ctomnfll1nest" path="res://assets/Models/props/ressors.gd" id="2_cgwvx"]
+
+[node name="ressors" unique_id=1538105530 node_paths=PackedStringArray("player") instance=ExtResource("1_5ewv3")]
+script = ExtResource("2_cgwvx")
+player = NodePath("AnimationPlayer")

@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://dcup375s06tai"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cuw7isymmyyku" path="res://addons/srcoder_simplecar/assets/materials/metal_physics_material.phymat" id="1_gdthg"]
+[ext_resource type="Script" uid="uid://deikjexi0srs1" path="res://addons/srcoder_simplecar/assets/scripts/car.gd" id="2_mbobr"]
+[ext_resource type="ArrayMesh" uid="uid://brrhegunrhihi" path="res://assets/Models/Tuture/Body.tres" id="3_y1lln"]
+[ext_resource type="ArrayMesh" uid="uid://p0kah35jkkke" path="res://assets/Models/Tuture/wheel-back-right.tres" id="4_1i4ed"]
+[ext_resource type="AudioStream" uid="uid://r8bgkcn26u2e" path="res://assets/Audio/NFSU2 Nitrous Oxide System Sound Effects.mp3" id="4_v75hc"]
+[ext_resource type="ArrayMesh" uid="uid://cap6vdgy1mha" path="res://assets/Models/Tuture/wheel-back-left.tres" id="5_67njv"]
+[ext_resource type="AudioStream" uid="uid://c0llask5xjo1d" path="res://assets/Audio/deltarune explosion greenscreen.mp3" id="5_y1lln"]
+[ext_resource type="ArrayMesh" uid="uid://dg5won52i52g8" path="res://assets/Models/Tuture/wheel-front-right.tres" id="6_2cqij"]
+[ext_resource type="ArrayMesh" uid="uid://ctkojq0qsv21s" path="res://assets/Models/Tuture/wheel-front-left.tres" id="7_syhvw"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_y1lln"]
+points = PackedVector3Array(-0.60522306, 0.26807648, -1.2820185, 0.66481656, 0.26807648, 1.2584238, 0.43247437, 0.92284083, -0.5437177, -0.55640733, 0.70768535, 1.0138385, 0.6160009, 0.26807648, -1.2820185, -0.7028544, 0.17043078, 0.96516633, -0.40982166, 0.6588218, -1.3313029, 0.56718516, 0.70768535, 0.96516633, -0.40452895, 0.95252585, -0.21635845, 0.074332975, 0.19469999, 1.5579474, -0.6540387, 0.6588218, -0.8421323, 0.66481656, 0.6588218, -0.8421323, 0.7136322, 0.17043078, 1.0138385, 0.24925797, 0.2087, -1.3338311, 0.32282946, 0.6588218, -1.3799751, 0.23967022, 0.94785696, 0.17086592, -0.7028544, 0.26807648, 1.2091393, 0.2554821, 0.5629429, 1.3137491, -0.59326744, 0.2087, -1.1117861, -0.4580416, 0.9167091, -0.5322706, -0.24526303, 0.5628921, 1.3164927, -0.6540387, 0.26807648, -1.2333463, -0.31477004, 0.9485455, 0.12823018, 0.37178382, 0.70768535, 1.0625107, -0.31205162, 0.6588218, -1.3799751, 0.6040453, 0.2087, -1.0675995, 0.2740138, 0.26807648, 1.5513752, -0.20117469, 0.19545405, 1.5087935, 0.37615344, 0.9564964, -0.30682537, 0.4205995, 0.6588218, -1.3313029, -0.23848014, 0.2087, -1.3338311, -0.23476048, 0.95692825, -0.43836793)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iwjfg"]
+size = Vector3(1.67963, 1.09668, 2.9843109)
+
+[node name="car" type="VehicleBody3D" unique_id=585784445]
+collision_layer = 2
+physics_material_override = ExtResource("1_gdthg")
+script = ExtResource("2_mbobr")
+
+[node name="body" type="MeshInstance3D" parent="." unique_id=787695455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040127784, -0.020060861)
+mesh = ExtResource("3_y1lln")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=107261883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040127784, -0.020060861)
+shape = SubResource("ConvexPolygonShape3D_y1lln")
+
+[node name="WheelBackRight" type="VehicleWheel3D" parent="." unique_id=653985420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.3, -0.6687834)
+wheel_roll_influence = 1.0
+wheel_radius = 0.3
+wheel_friction_slip = 5.0
+suspension_stiffness = 100.0
+damping_compression = 2.3
+damping_relaxation = 2.5
+
+[node name="wheel-back-right" type="MeshInstance3D" parent="WheelBackRight" unique_id=314252679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, -0.00657403)
+mesh = ExtResource("4_1i4ed")
+skeleton = NodePath("")
+
+[node name="WheelBackLeft" type="VehicleWheel3D" parent="." unique_id=61028692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.3, -0.6687834)
+wheel_roll_influence = 1.0
+wheel_radius = 0.3
+wheel_friction_slip = 5.0
+suspension_stiffness = 100.0
+damping_compression = 2.3
+damping_relaxation = 2.5
+
+[node name="wheel-back-left" type="MeshInstance3D" parent="WheelBackLeft" unique_id=59314057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, -0.00657403)
+mesh = ExtResource("5_67njv")
+skeleton = NodePath("")
+
+[node name="WheelFrontRight" type="VehicleWheel3D" parent="." unique_id=1795746929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.3, 0.656971)
+use_as_steering = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.3
+wheel_friction_slip = 5.0
+suspension_stiffness = 100.0
+damping_compression = 2.3
+damping_relaxation = 2.5
+
+[node name="wheel-front-right" type="MeshInstance3D" parent="WheelFrontRight" unique_id=278086574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, 0.00257409)
+mesh = ExtResource("6_2cqij")
+skeleton = NodePath("")
+
+[node name="WheelFrontLeft" type="VehicleWheel3D" parent="." unique_id=1727671381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.3, 0.656971)
+use_as_steering = true
+wheel_roll_influence = 1.0
+wheel_radius = 0.3
+wheel_friction_slip = 5.0
+suspension_stiffness = 100.0
+damping_compression = 2.3
+damping_relaxation = 2.5
+
+[node name="wheel-front-left" type="MeshInstance3D" parent="WheelFrontLeft" unique_id=2049457641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, 0.00257409)
+mesh = ExtResource("7_syhvw")
+skeleton = NodePath("")
+
+[node name="check_ground" type="RayCast3D" parent="." unique_id=1438501857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120831, 0.085695, 0)
+
+[node name="nitrous" type="AudioStreamPlayer3D" parent="." unique_id=196192388]
+stream = ExtResource("4_v75hc")
+volume_db = -30.832
+
+[node name="nitrousTimer" type="Timer" parent="." unique_id=1234174705]
+one_shot = true
+
+[node name="explo" type="AudioStreamPlayer3D" parent="." unique_id=567408761]
+stream = ExtResource("5_y1lln")
+volume_db = -31.516
+
+[node name="hitbox" type="Area3D" parent="." unique_id=2132694768]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox" unique_id=2036620393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00377119, 0.594732, 0.01800549)
+shape = SubResource("BoxShape3D_iwjfg")
+
+[node name="jumpTimer" type="Timer" parent="." unique_id=968459059]
+one_shot = true
+
+[node name="boostTimer" type="Timer" parent="." unique_id=1690382906]
+one_shot = true
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
