@@ -323,4 +323,6 @@ one_shot = true
 [node name="boostTimer" type="Timer" parent="." unique_id=1690382906]
 one_shot = true
 
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

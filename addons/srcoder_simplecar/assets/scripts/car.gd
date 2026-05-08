@@ -314,7 +314,17 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 		$boostTimer.start(0.5)
 		#test comment
 
-	if body is loop : #button to switch between three cameras
-		print("LOOP !!!!")
-		$cockpit.make_current()
+	#if body is loop : #button to switch between three cameras
+		#print("LOOP !!!!")
+		#$cockpit.make_current()
 		
+
+
+func _on_hitbox_area_entered(area: Area3D) -> void:
+	print(area)
+	if area is enterLoop :
+		$cockpit.make_current()
+
+func _on_hitbox_area_exited(area: Area3D) -> void:
+	if area is exitLoop :
+		followcamera.mycamera.make_current()
