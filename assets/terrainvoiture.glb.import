@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/terrainvoiture.glb-17e86f48594c97d6931417a55e
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,10 +34,14 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "BlankMat": {
 "use_external/enabled": true,
+"use_external/fallback_path": "res://assets/ground.tres",
 "use_external/path": "uid://lguna3o2ucmi"
 }
 },
@@ -46,7 +52,8 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://mesh_terrain.res"
+"save_to_file/fallback_path": "res://mesh_terrain.res",
+"save_to_file/path": "uid://ct4sd5co5j4ms"
 }
 }
 }

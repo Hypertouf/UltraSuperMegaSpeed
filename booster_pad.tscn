@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://loy552u5ob8l"]
+
+[ext_resource type="PackedScene" uid="uid://denjrfospc545" path="res://bumper.tscn" id="1_sspmp"]
+[ext_resource type="Script" uid="uid://cwt4jtj0qyd3w" path="res://booster_pad.gd" id="2_6v7ex"]
+
+[node name="booster_pad" unique_id=1560870479 instance=ExtResource("1_sspmp")]
+
+[node name="RigidBody3D" parent="." index="0" unique_id=1686974564]
+script = ExtResource("2_6v7ex")

@@ -6,7 +6,7 @@ extends VehicleBody3D
 ## the maximum torque that the engine will sent to the rear wheels- defaults to 300
 @export var max_torque : float = 300.0
 ## the maximum amount of braking force applied to the wheel. Default is 1.0
-@export var max_brake_force : float = 1.0
+@export var max_brake_force : float = 2.0
 ## the maximum rear wheel rpm. The actual engine torque is scaled in a linear vector to ensure the rear wheels will never go beyond this given rpm.
 ## The default value is 600rpm
 @export var max_wheel_rpm : float = 600.0
@@ -18,9 +18,15 @@ extends VehicleBody3D
 @export var rear_wheel_grip : float = 5.0
 @export var torbo : TextureProgressBar
 @export var followcamera : Node3D
+@export var SLODER : VSlider
+@export var hitbox : Area3D
 
+var wheelie = false
 
-
+func wheelie_mode() :
+	if wheelie :
+		max_wheel_rpm = 5000
+		max_torque = 600
 
 #local member variables
 var player_acceleration : float = 0.0
@@ -50,20 +56,37 @@ func hypothenuse(a, b): #urhm it might look silly but it is necessary for correc
 
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
-		#print("please why ")
+		print("pressed")
 		if $check_ground.is_colliding(): #but only if car is on the ground of course
-			linear_velocity += (transform.basis.y * 6) + transform.basis.z #HOLY SHIT IT WORKS
-			linear_velocity.y += 7 #add a little global vertical boost for cleaner walljumps 
-			#transform.basis.y + 10 makes the car jump from local position and transform.basis.z makes the car keep it's rolling speed when jumping
-			#if we prefer making the car stick to the wall and ceiling use linear_velocity.y += 10
+			print("ground_checked")
+			$jumpTimer.start(0.1)
+			
+	if event.is_action_released("sauter") and $check_ground.is_colliding() and $jumpTimer.is_stopped():
+		print("big_jump")
+		linear_velocity += (transform.basis.y * 6) + transform.basis.z #HOLY SHIT IT WORKS
+		linear_velocity.y += 7 #add a little global vertical boost for cleaner walljumps 
+				#transform.basis.y + 10 makes the car jump from local position and transform.basis.z makes the car keep it's rolling speed when jumping
+				#if we prefer making the car stick to the wall and ceiling use linear_velocity.y += 10
+	elif event.is_action_released("sauter") and $check_ground.is_colliding() and !$jumpTimer.is_stopped() :
+		print("small_jump")
+		linear_velocity += (transform.basis.y * 2) + transform.basis.z #HOLY SHIT IT WORKS
+		linear_velocity.y += 3
+				
 			
 	if event.is_action_pressed("nitrous") and torbo.value > 10 :
 		#linear_velocity += 25 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z)))
 		$nitrous.play() 
 		torbo.value -= 25
-		$Timer.start(0.25)
-		if !$Timer.is_stopped():
-			engine_force = 1000
+		$nitrousTimer.start(0.25)
+		if !$nitrousTimer.is_stopped():
+			linear_velocity += transform.basis.z * 10
+	
+	if event.is_action_pressed("stomp") and !$check_ground.is_colliding() and torbo.value > 10 :
+		$nitrous.play() 
+		torbo.value -= 25
+		linear_velocity.y = -10
+		
+		
 			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -222,7 +245,17 @@ func get_input(delta : float):
 		tricks = [0,0,0]
 		default_position = Vector3(0,0,0)
 		total_rotation = Vector3.ZERO
+	
+	if !$boostTimer.is_stopped() :
+		lock_rotation = true
+		for wheel in steering_wheels :
+			wheel.wheel_friction_slip = 0.0
 			
+	else :
+		lock_rotation = false
+		for wheel in steering_wheels :
+			wheel.wheel_friction_slip = 5.0
+		
 ## helper function to see if we are moving forward
 func going_forward() -> bool:
 	var relative_speed : float = basis.z.dot(linear_velocity.normalized())
@@ -230,4 +263,53 @@ func going_forward() -> bool:
 		return true
 	else:
 		return false
-	
+
+func _on_hitbox_body_entered(body: Node3D) -> void:
+	print("did enter")
+	if body is people :
+		print("die die die")
+		$explo.play()
+		body.get_parent().explo.position = body.position
+		body.linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
+		body.boom.play("Boom")
+		
+		if body.get_parent().Karma == 0 :
+			
+			SLODER.value += 5
+			self.get_parent()._radio_start("Child_good")
+			pass
+			
+		if body.get_parent().Karma == 1 :
+			
+			SLODER.value -= 5
+			self.get_parent()._radio_start("Child_bad")
+			pass
+
+		if body.get_parent().Karma == 2 :
+			self.get_parent()._radio_start("Child_neutral")
+			pass
+			
+	if body is bumper :
+		print("enter bumper")
+		position.y = body.global_position.y
+		position.x = body.global_position.x
+		position.z = body.global_position.z
+		linear_velocity.y = body.get_parent_node_3d().bump_y
+		linear_velocity.x = body.get_parent_node_3d().bump_x
+		linear_velocity.z = body.get_parent_node_3d().bump_z
+		
+	if body is booster_pad :
+		print("enter booster")
+		position.y = body.global_position.y
+		position.x = body.global_position.x
+		position.z = body.global_position.z
+		rotation = body.global_rotation
+		for wheel in steering_wheels :
+			wheel.rotation = Vector3(0.0,0.0,0.0)
+			wheel.steering = 0.0
+		steering = 0.0
+		linear_velocity.y = body.get_parent_node_3d().boost_y
+		linear_velocity.x = body.get_parent_node_3d().boost_x
+		linear_velocity.z = body.get_parent_node_3d().boost_z
+		$boostTimer.start(0.5)
+		
