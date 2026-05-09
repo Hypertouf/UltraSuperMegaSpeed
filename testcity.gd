@@ -1,4 +1,7 @@
 extends Node3D
+
+class_name ground
+
 @export var AnimPlayer : AnimationPlayer
 @export var Ui : Control
 @export var Player : VehicleBody3D
@@ -9,7 +12,6 @@ var Dlg_Sct = load("uid://bbbh1af5b4qeb") #La ou est rangé le dialogue qui est 
 var balloon_path : String = ProjectSettings.get_setting("dialogue_manager/runtime/balloon_path")
 var resource := load("uid://bbbh1af5b4qeb")
 @export var LayBa : CanvasLayer
-
 
 
 #region story counter

@@ -4,6 +4,7 @@
 
 [node name="FollowCamera" type="Node3D" unique_id=670489488 node_paths=PackedStringArray("mycamera")]
 script = ExtResource("1_1bo7l")
+rotation_damping = 0.0
 mycamera = NodePath("Pivot/SpringArm3D/Camera3D")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=1687875611]
@@ -15,3 +16,4 @@ spring_length = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="Pivot/SpringArm3D" unique_id=486204263]
 current = true
+size = 30.411
