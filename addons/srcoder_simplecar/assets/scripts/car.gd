@@ -78,9 +78,7 @@ func _input(event): #
 		$nitrous.play() 
 		torbo.value -= 25
 		followcamera.rotation.y = rotation.y
-		$nitrousTimer.start(0.25)
-		if !$nitrousTimer.is_stopped():
-			linear_velocity += transform.basis.z * 12
+		linear_velocity += transform.basis.z * 12
 	
 	if event.is_action_pressed("stomp") and !$check_ground.is_colliding() and torbo.value > 10 :
 		$nitrous.play() 
@@ -100,15 +98,22 @@ func _physics_process(delta: float) -> void:
 		#linearly reduce engine force based on the wheels current rpm and the player input
 		var actual_force : float = player_acceleration * ((-max_torque/max_wheel_rpm) * abs(wheel.get_rpm()) + max_torque) 
 		wheel.engine_force = actual_force
+		
 	
 	followcamera.mycamera.fov = 75 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) #adaptive FOV, when the car go faster the FOV go wider to make it feel faster.
 																									   #the math used here is simply calculating the hypothenus of the triangle formed by the x axis vector and the z axis vector. this allows the fov adaptation to remain stable no matter the direction in which the car is turning.
 																									   # calculating the absolute of this hypothenus simply makes the fov NOT works backwards when the car is going negative x and z directions.
 	if !$check_ground.is_colliding() :
 		followcamera.rotation_damping = 0
-	else : 
-		followcamera.rotation_damping = 3.118
-
+	elif $check_ground.is_colliding() and $check_ground.global_rotation.x < -1.2 and $check_ground.global_rotation.x > -1.6 and $walljumpTimer.is_stopped():
+		followcamera.rotation_damping = 0
+		followcamera.rotation_degrees.y += 180 
+		$walljumpTimer.start(2)
+	elif $check_ground.is_colliding() and $check_ground.global_rotation.x < -1.2 and $check_ground.global_rotation.x > -1.6 and !$walljumpTimer.is_stopped():
+		followcamera.rotation_damping = 0
+	else :
+		followcamera.rotation_damping = 3.11
+	
 
 ## sets the variables player_steer, player_brake and player_acceleration based on the player input
 func get_input(delta : float):

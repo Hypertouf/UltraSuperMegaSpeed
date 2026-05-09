@@ -95,9 +95,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120831, 0.085695, 0)
 stream = ExtResource("4_v75hc")
 volume_db = -30.832
 
-[node name="nitrousTimer" type="Timer" parent="." unique_id=1234174705]
-one_shot = true
-
 [node name="explo" type="AudioStreamPlayer3D" parent="." unique_id=567408761]
 stream = ExtResource("5_y1lln")
 volume_db = -31.516
@@ -112,6 +109,9 @@ shape = SubResource("BoxShape3D_iwjfg")
 one_shot = true
 
 [node name="boostTimer" type="Timer" parent="." unique_id=1690382906]
+one_shot = true
+
+[node name="walljumpTimer" type="Timer" parent="." unique_id=417806007]
 one_shot = true
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
