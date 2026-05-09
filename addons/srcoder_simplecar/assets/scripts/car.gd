@@ -108,7 +108,7 @@ func _physics_process(delta: float) -> void:
 	elif $check_ground.is_colliding() and $check_ground.global_rotation.x < -1.2 and $check_ground.global_rotation.x > -1.6 and $walljumpTimer.is_stopped():
 		followcamera.rotation_damping = 0
 		followcamera.rotation_degrees.y += 180 
-		$walljumpTimer.start(2)
+		$walljumpTimer.start(1)
 	elif $check_ground.is_colliding() and $check_ground.global_rotation.x < -1.2 and $check_ground.global_rotation.x > -1.6 and !$walljumpTimer.is_stopped():
 		followcamera.rotation_damping = 0
 	else :
