@@ -1,0 +1,41 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://dhmcecu30ux7u"]
+
+[ext_resource type="Texture2D" uid="uid://bjc8tnttmpkqj" path="res://assets/Models/textures/Default_road_T_road.png" id="1_vykn6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gv3f"]
+resource_name = "Route"
+cull_mode = 2
+albedo_texture = ExtResource("1_vykn6")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rr26f"]
+_surfaces = [{
+"aabb": AABB(-5, 0, -10, 10, 0.04, 20),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Route",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Default_road_Cube_002"
+_surfaces = [{
+"aabb": AABB(-5, 0, -10, 10, 0.04, 20),
+"attribute_data": PackedByteArray("xv2SxMT9lMfE/ZLExv2Ux8b9lMf8/5XHxv2Vx/z/lMf8/5TH//+SxP//lMf8/5LE/P+SxMb9kMT8/5DExv2SxMb9lMf8/5LE/P+Ux8b9ksTegf//wP1iV8D9///egWJX"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_6gv3f"),
+"name": "Route",
+"primitive": 3,
+"uv_scale": Vector4(2.0020099, 2.9419553, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP//AIAAAP////8AgP///////wCAAAAAAP//AIAAAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VFWqqlRVqqpUVaqqVFWqqv///3////9/////f////3+qKqoqqiqqKqoqqiqqKqoq/3////9/////f////3///wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rr26f")

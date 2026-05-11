@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://be5wkcxqydy2y"]
+
+[ext_resource type="Script" uid="uid://bak2utxuhhqnf" path="res://enterloop.gd" id="1_3awm6"]
+[ext_resource type="Script" uid="uid://d4gh1bllr2irl" path="res://exitloop.gd" id="2_irs60"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_30u42"]
+size = Vector3(1.8568115, 2.070282, 2.284668)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t5iea"]
+height = 6.076416
+radius = 10.39209
+
+[node name="LOOPING" type="CSGCylinder3D" unique_id=1666396629]
+transform = Transform3D(0.0017453283, -4.3635097e-08, -0.9999984, -0.99999845, -4.371132e-08, -0.0017453282, -4.3635097e-08, 1, -4.3711317e-08, 0, 0, 0)
+use_collision = true
+radius = 9.495605
+height = 3.8712158
+sides = 50
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1792213275]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=719078974]
+transform = Transform3D(-1.0000055, 8.742276e-08, 3.608877e-09, -8.7423246e-08, -0.9999998, -1.10134124e-13, 1.9140276e-15, 0, 1.0000074, 0.21455002, -0.042495728, 0.12741089)
+radius = 8.807617
+height = 3.77063
+sides = 50
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=736648218]
+transform = Transform3D(-1.0000055, 8.742276e-08, 7.2177517e-09, -8.7423246e-08, -0.9999998, -2.2026825e-13, 1.9140276e-15, 0, 1.0000074, 0.21455002, -0.14834595, 0.127388)
+radius = 7.9526367
+height = 4.514435
+sides = 50
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1889922309]
+transform = Transform3D(-1.0000055, 8.742276e-08, 2.1769667e-08, -8.7423246e-08, -0.9999998, -6.6435746e-13, 1.9140276e-15, 0, 1.0000074, 4.156399, -0.14834595, 0.1341629)
+radius = 4.9682617
+height = 4.514435
+sides = 50
+
+[node name="enter1" type="Area3D" parent="." unique_id=823126845]
+transform = Transform3D(1, 3.5527137e-15, 1.9073475e-15, 0, 1, 0, 1.907348e-15, 0, 1, -0.016170502, 0, 9.26424)
+script = ExtResource("1_3awm6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enter1" unique_id=2070104718]
+transform = Transform3D(0.5777294, 1.7252912e-08, 0.8162286, -5.4104234e-08, 1, 1.7158165e-08, -0.81622833, -5.4074654e-08, 0.5777291, 5.7721176, 0.030227661, -4.21294)
+shape = SubResource("BoxShape3D_30u42")
+
+[node name="enter2" type="Area3D" parent="." unique_id=839058322]
+transform = Transform3D(1, 3.5527137e-15, 1.9073475e-15, 0, 1, 0, 1.907348e-15, 0, 1, -0.016170502, 0, 9.26424)
+script = ExtResource("1_3awm6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enter2" unique_id=1348364651]
+transform = Transform3D(0.5777294, 1.7252912e-08, 0.81622875, -5.4104234e-08, 1, 1.7158158e-08, -0.81622833, -5.4074654e-08, 0.577729, 5.5549774, 0.030227661, -14.477314)
+shape = SubResource("BoxShape3D_30u42")
+
+[node name="exit" type="Area3D" parent="." unique_id=980386267]
+script = ExtResource("2_irs60")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="exit" unique_id=463220908]
+transform = Transform3D(1, 7.3896445e-13, 1.9073475e-15, 0, 1, 0, 1.907348e-15, 0, 1, 0.00033569336, 0.010131836, -0.19185638)
+shape = SubResource("CylinderShape3D_t5iea")

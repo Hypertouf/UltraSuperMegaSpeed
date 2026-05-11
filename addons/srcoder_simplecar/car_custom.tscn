@@ -4,14 +4,12 @@
 [ext_resource type="Script" uid="uid://deikjexi0srs1" path="res://addons/srcoder_simplecar/assets/scripts/car.gd" id="2_mbobr"]
 [ext_resource type="ArrayMesh" uid="uid://brrhegunrhihi" path="res://assets/Models/Tuture/Body.tres" id="3_y1lln"]
 [ext_resource type="ArrayMesh" uid="uid://p0kah35jkkke" path="res://assets/Models/Tuture/wheel-back-right.tres" id="4_1i4ed"]
+[ext_resource type="Shape3D" uid="uid://j86ti6qr6k03" path="res://assets/Models/Tuture/body_collision_convex.tres" id="4_67njv"]
 [ext_resource type="AudioStream" uid="uid://r8bgkcn26u2e" path="res://assets/Audio/NFSU2 Nitrous Oxide System Sound Effects.mp3" id="4_v75hc"]
 [ext_resource type="ArrayMesh" uid="uid://cap6vdgy1mha" path="res://assets/Models/Tuture/wheel-back-left.tres" id="5_67njv"]
 [ext_resource type="AudioStream" uid="uid://c0llask5xjo1d" path="res://assets/Audio/deltarune explosion greenscreen.mp3" id="5_y1lln"]
 [ext_resource type="ArrayMesh" uid="uid://dg5won52i52g8" path="res://assets/Models/Tuture/wheel-front-right.tres" id="6_2cqij"]
 [ext_resource type="ArrayMesh" uid="uid://ctkojq0qsv21s" path="res://assets/Models/Tuture/wheel-front-left.tres" id="7_syhvw"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_y1lln"]
-points = PackedVector3Array(-0.60522306, 0.26807648, -1.2820185, 0.66481656, 0.26807648, 1.2584238, 0.43247437, 0.92284083, -0.5437177, -0.55640733, 0.70768535, 1.0138385, 0.6160009, 0.26807648, -1.2820185, -0.7028544, 0.17043078, 0.96516633, -0.40982166, 0.6588218, -1.3313029, 0.56718516, 0.70768535, 0.96516633, -0.40452895, 0.95252585, -0.21635845, 0.074332975, 0.19469999, 1.5579474, -0.6540387, 0.6588218, -0.8421323, 0.66481656, 0.6588218, -0.8421323, 0.7136322, 0.17043078, 1.0138385, 0.24925797, 0.2087, -1.3338311, 0.32282946, 0.6588218, -1.3799751, 0.23967022, 0.94785696, 0.17086592, -0.7028544, 0.26807648, 1.2091393, 0.2554821, 0.5629429, 1.3137491, -0.59326744, 0.2087, -1.1117861, -0.4580416, 0.9167091, -0.5322706, -0.24526303, 0.5628921, 1.3164927, -0.6540387, 0.26807648, -1.2333463, -0.31477004, 0.9485455, 0.12823018, 0.37178382, 0.70768535, 1.0625107, -0.31205162, 0.6588218, -1.3799751, 0.6040453, 0.2087, -1.0675995, 0.2740138, 0.26807648, 1.5513752, -0.20117469, 0.19545405, 1.5087935, 0.37615344, 0.9564964, -0.30682537, 0.4205995, 0.6588218, -1.3313029, -0.23848014, 0.2087, -1.3338311, -0.23476048, 0.95692825, -0.43836793)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iwjfg"]
 size = Vector3(1.67963, 1.09668, 2.9843109)
@@ -28,7 +26,7 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=107261883]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040127784, -0.020060861)
-shape = SubResource("ConvexPolygonShape3D_y1lln")
+shape = ExtResource("4_67njv")
 
 [node name="WheelBackRight" type="VehicleWheel3D" parent="." unique_id=653985420]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.3, -0.6687834)

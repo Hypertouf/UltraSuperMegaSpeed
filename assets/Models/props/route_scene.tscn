@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cwd67p3r0e5vm"]
+
+[ext_resource type="ArrayMesh" uid="uid://dhmcecu30ux7u" path="res://assets/Models/props/default_road.tres" id="1_ux8oo"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_30u42"]
+points = PackedVector3Array(5, 0.04, 10, 5, 0, 10, 5, 0.04, -10, -5, 0.04, 10, -5, 0, 10, 5, 0, -10, -5, 0.04, -10, -5, 0, -10)
+
+[node name="Route_scene" type="StaticBody3D" unique_id=2058465276]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1690075679]
+mesh = ExtResource("1_ux8oo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1012758531]
+shape = SubResource("ConvexPolygonShape3D_30u42")
