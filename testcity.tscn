@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://be5wkcxqydy2y" path="res://assets/Models/CSG_scenes/looping.tscn" id="32_7b2fy"]
 [ext_resource type="PackedScene" uid="uid://1n6vxhapemow" path="res://assets/Models/props/looping_scene.tscn" id="33_7b2fy"]
 [ext_resource type="PackedScene" uid="uid://b855nbwddsohx" path="res://assets/Models/props/looping_barrierless_scene.tscn" id="34_30u42"]
+[ext_resource type="ArrayMesh" uid="uid://dhmcecu30ux7u" path="res://assets/Models/props/default_road.tres" id="35_30u42"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgqdq"]
 albedo_texture = ExtResource("1_nw7x5")
@@ -115,6 +116,9 @@ background_mode = 2
 sky = SubResource("Sky_6p87c")
 ssao_enabled = true
 sdfgi_enabled = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_30u42"]
+points = PackedVector3Array(5, 0.04, 10, 5, 0, 10, 5, 0.04, -10, -5, 0.04, 10, -5, 0, 10, 5, 0, -10, -5, 0.04, -10, -5, 0, -10)
 
 [node name="testcity" type="CSGBox3D" unique_id=1344364098 node_paths=PackedStringArray("AnimPlayer", "Ui", "VStraemPlay", "LayBa")]
 use_collision = true
@@ -550,3 +554,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.3391, 32.56305, 150.3569)
 
 [node name="Looping_Barrierless_scene" parent="." unique_id=404991392 instance=ExtResource("34_30u42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.3391, 32.56305, 130.03209)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=967543678]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.34733, 32.530823, 134.02133)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2119234909]
+mesh = ExtResource("35_30u42")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1133702822]
+shape = SubResource("ConvexPolygonShape3D_30u42")
