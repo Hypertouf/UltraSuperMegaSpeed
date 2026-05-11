@@ -25,7 +25,10 @@
 [ext_resource type="Script" uid="uid://dnh8ii3bbkx1o" path="res://exitWall.gd" id="29_4qwh0"]
 [ext_resource type="ArrayMesh" uid="uid://dbdtjsmneksfp" path="res://assets/Models/props/FeuTricolore.tres" id="29_nmf1d"]
 [ext_resource type="ArrayMesh" uid="uid://b13gjyi1ur5sa" path="res://assets/Models/props/Bouche_Incendie.tres" id="30_7b2fy"]
+[ext_resource type="PackedScene" uid="uid://1n6vxhapemow" path="res://assets/Models/props/looping_scene.tscn" id="30_3824e"]
 [ext_resource type="ArrayMesh" uid="uid://gqiqsgm1h8lb" path="res://assets/Models/props/Building.tres" id="31_3824e"]
+[ext_resource type="PackedScene" uid="uid://cwd67p3r0e5vm" path="res://assets/Models/props/route_scene.tscn" id="31_nmf1d"]
+[ext_resource type="PackedScene" uid="uid://b855nbwddsohx" path="res://assets/Models/props/looping_barrierless_scene.tscn" id="32_7b2fy"]
 [ext_resource type="Script" uid="uid://bak2utxuhhqnf" path="res://enterloop.gd" id="32_nmf1d"]
 [ext_resource type="Script" uid="uid://d4gh1bllr2irl" path="res://exitloop.gd" id="33_7b2fy"]
 [ext_resource type="Script" uid="uid://briioihkxilxm" path="res://addons/proto_shape/proto_ramp/proto_ramp.gd" id="34_7b2fy"]
@@ -833,3 +836,12 @@ material = SubResource("StandardMaterial3D_e0q2u")
 [node name="booster_pad7" parent="." unique_id=783139051 instance=ExtResource("20_igicc")]
 transform = Transform3D(0.28921545, 0, 0.9572638, 0, 1, 0, -0.9572638, 0, 0.28921545, 26.62836, 32.775463, 115.3136)
 script = ExtResource("20_jjgpy")
+
+[node name="Looping_scene" parent="." unique_id=1527651806 instance=ExtResource("30_3824e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.1844, 32.563057, 153.06516)
+
+[node name="Route_scene" parent="." unique_id=2058465276 instance=ExtResource("31_nmf1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.83924, 32.563046, 153.44742)
+
+[node name="Looping_Barrierless_scene" parent="." unique_id=404991392 instance=ExtResource("32_7b2fy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.22574, 32.563034, 168.8068)
