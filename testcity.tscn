@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://db06bq682ern8"]
 
-[ext_resource type="Texture2D" uid="uid://b82r3k27dut3s" path="res://assets/Textures/T_roadH.png" id="1_nw7x5"]
+[ext_resource type="Texture2D" uid="uid://caorwmxtxx6g8" path="res://assets/Models/textures/Concrete_generic.png" id="1_30u42"]
 [ext_resource type="Script" uid="uid://3yr365clp1xm" path="res://testcity.gd" id="2_rplec"]
 [ext_resource type="PackedScene" uid="uid://rjx8tx5y7j2p" path="res://addons/srcoder_simplecar/follow_camera.tscn" id="3_nfvel"]
 [ext_resource type="Texture2D" uid="uid://cpii4stj8dfvy" path="res://Radio/frame0000.png" id="4_psp7x"]
@@ -34,8 +34,10 @@
 [ext_resource type="Script" uid="uid://briioihkxilxm" path="res://addons/proto_shape/proto_ramp/proto_ramp.gd" id="34_7b2fy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgqdq"]
-albedo_texture = ExtResource("1_nw7x5")
+albedo_texture = ExtResource("1_30u42")
+albedo_texture_force_srgb = true
 uv1_scale = Vector3(-25.535, -25.535, -25.535)
+texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7mtl"]
 
