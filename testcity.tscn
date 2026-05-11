@@ -31,8 +31,9 @@
 [ext_resource type="ArrayMesh" uid="uid://dbdtjsmneksfp" path="res://assets/Models/props/FeuTricolore.tres" id="29_nmf1d"]
 [ext_resource type="ArrayMesh" uid="uid://b13gjyi1ur5sa" path="res://assets/Models/props/Bouche_Incendie.tres" id="30_7b2fy"]
 [ext_resource type="ArrayMesh" uid="uid://gqiqsgm1h8lb" path="res://assets/Models/props/Building.tres" id="31_3824e"]
-[ext_resource type="Script" uid="uid://bak2utxuhhqnf" path="res://enterloop.gd" id="32_nmf1d"]
-[ext_resource type="Script" uid="uid://d4gh1bllr2irl" path="res://exitloop.gd" id="33_7b2fy"]
+[ext_resource type="PackedScene" uid="uid://be5wkcxqydy2y" path="res://assets/Models/CSG_scenes/looping.tscn" id="32_7b2fy"]
+[ext_resource type="PackedScene" uid="uid://db8yuewahyt4i" path="res://assets/Models/LoopingPropreglb.glb" id="33_30u42"]
+[ext_resource type="PackedScene" uid="uid://fiehl4lrrnqx" path="res://assets/Models/LoopingPropreglb_barrierless.glb" id="34_t5iea"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgqdq"]
 albedo_texture = ExtResource("1_nw7x5")
@@ -114,13 +115,6 @@ background_mode = 2
 sky = SubResource("Sky_6p87c")
 ssao_enabled = true
 sdfgi_enabled = true
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_30u42"]
-size = Vector3(1.8568115, 2.070282, 2.284668)
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_t5iea"]
-height = 6.076416
-radius = 10.39209
 
 [node name="testcity" type="CSGBox3D" unique_id=1344364098 node_paths=PackedStringArray("AnimPlayer", "Ui", "VStraemPlay", "LayBa")]
 use_collision = true
@@ -548,53 +542,11 @@ light_energy = 0.6
 
 [node name="Looping" type="Node3D" parent="." unique_id=1144230782]
 
-[node name="LOOPING" type="CSGCylinder3D" parent="Looping" unique_id=497378467]
-transform = Transform3D(0.0017453283, -4.3635097e-08, -0.9999984, -0.99999845, -4.371132e-08, -0.0017453282, -4.3635097e-08, 1, -4.3711317e-08, -35.877693, 41.413563, 186.45111)
-use_collision = true
-radius = 9.495605
-height = 3.8712158
-sides = 50
+[node name="LOOPING" parent="Looping" unique_id=1666396629 instance=ExtResource("32_7b2fy")]
+transform = Transform3D(0.0017453283, -4.3635097e-08, -0.99999833, -0.9999984, -4.371132e-08, -0.0017453282, -4.3635094e-08, 1, -4.3711317e-08, -35.877693, 41.413563, 186.45111)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Looping/LOOPING" unique_id=1244325859]
-operation = 2
+[node name="LoopingPropreglb" parent="." unique_id=982829539 instance=ExtResource("33_30u42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.26676, 32.56305, 161.07336)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Looping/LOOPING/CSGCombiner3D" unique_id=897090928]
-transform = Transform3D(-1.0000055, 8.742276e-08, 3.608877e-09, -8.7423246e-08, -0.9999998, -1.10134124e-13, 1.9140276e-15, 0, 1.0000074, 0.21455002, -0.042495728, 0.12741089)
-radius = 8.807617
-height = 3.77063
-sides = 50
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Looping/LOOPING/CSGCombiner3D" unique_id=642686905]
-transform = Transform3D(-1.0000055, 8.742276e-08, 7.2177517e-09, -8.7423246e-08, -0.9999998, -2.2026825e-13, 1.9140276e-15, 0, 1.0000074, 0.21455002, -0.14834595, 0.127388)
-radius = 7.9526367
-height = 4.514435
-sides = 50
-
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Looping/LOOPING/CSGCombiner3D" unique_id=1640130]
-transform = Transform3D(-1.0000055, 8.742276e-08, 2.1769667e-08, -8.7423246e-08, -0.9999998, -6.6435746e-13, 1.9140276e-15, 0, 1.0000074, 4.156399, -0.14834595, 0.1341629)
-radius = 4.9682617
-height = 4.514435
-sides = 50
-
-[node name="enter1" type="Area3D" parent="Looping/LOOPING" unique_id=1237109594]
-transform = Transform3D(1, 3.5527137e-15, 1.9073475e-15, 0, 1, 0, 1.907348e-15, 0, 1, -0.016170502, 0, 9.26424)
-script = ExtResource("32_nmf1d")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Looping/LOOPING/enter1" unique_id=1429509110]
-transform = Transform3D(0.5777294, 1.7252912e-08, 0.8162286, -5.4104234e-08, 1, 1.7158165e-08, -0.81622833, -5.4074654e-08, 0.5777291, 5.7721176, 0.030227661, -4.21294)
-shape = SubResource("BoxShape3D_30u42")
-
-[node name="enter2" type="Area3D" parent="Looping/LOOPING" unique_id=1092513881]
-transform = Transform3D(1, 3.5527137e-15, 1.9073475e-15, 0, 1, 0, 1.907348e-15, 0, 1, -0.016170502, 0, 9.26424)
-script = ExtResource("32_nmf1d")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Looping/LOOPING/enter2" unique_id=901537851]
-transform = Transform3D(0.5777294, 1.7252912e-08, 0.81622875, -5.4104234e-08, 1, 1.7158158e-08, -0.81622833, -5.4074654e-08, 0.577729, 5.5549774, 0.030227661, -14.477314)
-shape = SubResource("BoxShape3D_30u42")
-
-[node name="exit" type="Area3D" parent="Looping/LOOPING" unique_id=1675074488]
-script = ExtResource("33_7b2fy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Looping/LOOPING/exit" unique_id=720314550]
-transform = Transform3D(1, 7.3896445e-13, 1.9073475e-15, 0, 1, 0, 1.907348e-15, 0, 1, 0.00033569336, 0.010131836, -0.19185638)
-shape = SubResource("CylinderShape3D_t5iea")
+[node name="LoopingPropreglb_barrierless" parent="." unique_id=1454405723 instance=ExtResource("34_t5iea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.07798, 32.56305, 141.97751)
