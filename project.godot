@@ -30,7 +30,7 @@ runtime/balloon_path="res://assets/balloon.tscn"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/flowerwall_postprocess/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/flowerwall_postprocess/plugin.cfg", "res://addons/proto_shape/plugin.cfg")
 
 [input]
 

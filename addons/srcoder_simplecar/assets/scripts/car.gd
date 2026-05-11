@@ -318,9 +318,7 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 			wheel.rotation = Vector3(0.0,0.0,0.0)
 			wheel.steering = 0.0
 		steering = 0.0
-		linear_velocity.y = body.get_parent_node_3d().boost_y
-		linear_velocity.x = body.get_parent_node_3d().boost_x
-		linear_velocity.z = body.get_parent_node_3d().boost_z
+		linear_velocity = body.get_parent_node_3d().transform.basis.z.normalized() * 20
 		$boostTimer.start(0.5)
 		#test comment
 
@@ -335,9 +333,20 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 	if area is enterLoop :
 		$cockpit.fov = 90
 		$cockpit.make_current()
-		
+	
+	if area is enterWall :
+		print("WALLING")
+		# Set the default gravity direction to `Vector3(0, -1, 0)`.																					
+		#if area.get_parent().transform.basis.x[0] >= 0 and area.get_parent().transform.basis.z[2] >= 0 :
+		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, (area.get_parent().transform.basis.x + area.get_parent().transform.basis.z).normalized())
+		#elif area.get_parent().transform.basis.x[0] >= 0 and area.get_parent().transform.basis.z[2] < 0 :
+			#PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, (area.get_parent().transform.basis.x + area.get_parent().transform.basis.z).normalized())
 
+																																			
 func _on_hitbox_area_exited(area: Area3D) -> void:
 	if area is exitLoop :
 		followcamera.mycamera.make_current()
+	
+	if area is exitWall :
+		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
 		
