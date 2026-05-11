@@ -32,8 +32,8 @@
 [ext_resource type="ArrayMesh" uid="uid://b13gjyi1ur5sa" path="res://assets/Models/props/Bouche_Incendie.tres" id="30_7b2fy"]
 [ext_resource type="ArrayMesh" uid="uid://gqiqsgm1h8lb" path="res://assets/Models/props/Building.tres" id="31_3824e"]
 [ext_resource type="PackedScene" uid="uid://be5wkcxqydy2y" path="res://assets/Models/CSG_scenes/looping.tscn" id="32_7b2fy"]
-[ext_resource type="PackedScene" uid="uid://db8yuewahyt4i" path="res://assets/Models/LoopingPropreglb.glb" id="33_30u42"]
-[ext_resource type="PackedScene" uid="uid://fiehl4lrrnqx" path="res://assets/Models/LoopingPropreglb_barrierless.glb" id="34_t5iea"]
+[ext_resource type="PackedScene" uid="uid://1n6vxhapemow" path="res://assets/Models/props/looping_scene.tscn" id="33_7b2fy"]
+[ext_resource type="PackedScene" uid="uid://b855nbwddsohx" path="res://assets/Models/props/looping_barrierless_scene.tscn" id="34_30u42"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgqdq"]
 albedo_texture = ExtResource("1_nw7x5")
@@ -545,8 +545,8 @@ light_energy = 0.6
 [node name="LOOPING" parent="Looping" unique_id=1666396629 instance=ExtResource("32_7b2fy")]
 transform = Transform3D(0.0017453283, -4.3635097e-08, -0.99999833, -0.9999984, -4.371132e-08, -0.0017453282, -4.3635094e-08, 1, -4.3711317e-08, -35.877693, 41.413563, 186.45111)
 
-[node name="LoopingPropreglb" parent="." unique_id=982829539 instance=ExtResource("33_30u42")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.26676, 32.56305, 161.07336)
+[node name="Looping_scene" parent="." unique_id=1527651806 instance=ExtResource("33_7b2fy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.3391, 32.56305, 150.3569)
 
-[node name="LoopingPropreglb_barrierless" parent="." unique_id=1454405723 instance=ExtResource("34_t5iea")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.07798, 32.56305, 141.97751)
+[node name="Looping_Barrierless_scene" parent="." unique_id=404991392 instance=ExtResource("34_30u42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.3391, 32.56305, 130.03209)
