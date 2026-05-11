@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://166bekci8d7p"
-path.s3tc="res://.godot/imported/Building_speed_AAAH.png-9d105d60802138c93b7b4e7040253871.s3tc.ctex"
+path.s3tc="res://.godot/imported/Building_speed_AAAH.png-2e49274f2e771eca591b209dc1426606.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/Models/Building_speed_AAAH.png"
-dest_files=["res://.godot/imported/Building_speed_AAAH.png-9d105d60802138c93b7b4e7040253871.s3tc.ctex"]
+source_file="res://assets/Models/textures/Building_speed_AAAH.png"
+dest_files=["res://.godot/imported/Building_speed_AAAH.png-2e49274f2e771eca591b209dc1426606.s3tc.ctex"]
 
 [params]
 

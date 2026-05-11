@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h57lrtcpdoee"
-path.s3tc="res://.godot/imported/FinishLine_FinishLine.png-5aa3b665260854c153a3aeee201d0cfc.s3tc.ctex"
+uid="uid://nexg1263s2je"
+path.s3tc="res://.godot/imported/Collisionvoiture_trottoir.png-38f49fa99d6a4a668ef8c2a8593eccc8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "4780209343d3631d26d59676574558f0"
+"md5": "02c63685a7e1e787f1d0f96c21d4c4e1"
 }
 
 [deps]
 
-source_file="res://assets/Models/FinishLine_FinishLine.png"
-dest_files=["res://.godot/imported/FinishLine_FinishLine.png-5aa3b665260854c153a3aeee201d0cfc.s3tc.ctex"]
+source_file="res://assets/Models/textures/Collisionvoiture_trottoir.png"
+dest_files=["res://.godot/imported/Collisionvoiture_trottoir.png-38f49fa99d6a4a668ef8c2a8593eccc8.s3tc.ctex"]
 
 [params]
 

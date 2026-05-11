@@ -1,6 +1,6 @@
 [gd_resource type="ArrayMesh" format=4 uid="uid://dhmcecu30ux7u"]
 
-[ext_resource type="Texture2D" uid="uid://bjc8tnttmpkqj" path="res://assets/Models/Default_road_T_road.png" id="1_vykn6"]
+[ext_resource type="Texture2D" uid="uid://bjc8tnttmpkqj" path="res://assets/Models/textures/Default_road_T_road.png" id="1_vykn6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gv3f"]
 resource_name = "Route"

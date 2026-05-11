@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjc8tnttmpkqj"
-path.s3tc="res://.godot/imported/Default_road_T_road.png-7de660232328a7f8d7f84408baf72359.s3tc.ctex"
+uid="uid://cwxn2cltrs4fe"
+path.s3tc="res://.godot/imported/Collisionvoiture_Building.png-393b867c53b49c4ba9c935bf6295c76a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "d471fa6e84ca014d95a6a81aca89476d"
+"md5": "123b2d432d9281804477a5a25425dad1"
 }
 
 [deps]
 
-source_file="res://assets/Models/Default_road_T_road.png"
-dest_files=["res://.godot/imported/Default_road_T_road.png-7de660232328a7f8d7f84408baf72359.s3tc.ctex"]
+source_file="res://assets/Models/textures/Collisionvoiture_Building.png"
+dest_files=["res://.godot/imported/Collisionvoiture_Building.png-393b867c53b49c4ba9c935bf6295c76a.s3tc.ctex"]
 
 [params]
 

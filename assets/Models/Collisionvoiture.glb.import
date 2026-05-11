@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://db8yuewahyt4i"
-path="res://.godot/imported/LoopingPropreglb.glb-eaa3827fd89db1cbe4154a93a0ae56e2.scn"
+uid="uid://drtvqiojtbgvk"
+path="res://.godot/imported/Collisionvoiture.glb-86f7ac257576ba051c34d5a5724d257f.scn"
 
 [deps]
 
-source_file="res://assets/Models/LoopingPropreglb.glb"
-dest_files=["res://.godot/imported/LoopingPropreglb.glb-eaa3827fd89db1cbe4154a93a0ae56e2.scn"]
+source_file="res://assets/Models/Collisionvoiture.glb"
+dest_files=["res://.godot/imported/Collisionvoiture.glb-86f7ac257576ba051c34d5a5724d257f.scn"]
 
 [params]
 

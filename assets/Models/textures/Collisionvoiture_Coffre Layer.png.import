@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm5ah4uo65pa7"
-path.s3tc="res://.godot/imported/Garage_Garage.png-6d0836a26316d915ce44f1c9ed0a7c9f.s3tc.ctex"
+uid="uid://edoaljiyfq42"
+path.s3tc="res://.godot/imported/Collisionvoiture_Coffre Layer.png-bf390114f98999db34d19a41d14f8a7f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "dc84163dff8d480422237d0c9c3c5947"
+"md5": "dcd2ccf2cb917c9771ca7c563f4245a0"
 }
 
 [deps]
 
-source_file="res://assets/Models/Garage_Garage.png"
-dest_files=["res://.godot/imported/Garage_Garage.png-6d0836a26316d915ce44f1c9ed0a7c9f.s3tc.ctex"]
+source_file="res://assets/Models/textures/Collisionvoiture_Coffre Layer.png"
+dest_files=["res://.godot/imported/Collisionvoiture_Coffre Layer.png-bf390114f98999db34d19a41d14f8a7f.s3tc.ctex"]
 
 [params]
 
