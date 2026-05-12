@@ -1,6 +1,6 @@
 [gd_resource type="ArrayMesh" format=4 uid="uid://b13gjyi1ur5sa"]
 
-[ext_resource type="Texture2D" uid="uid://vpeh4cn0s6yj" path="res://assets/Models/props/Props_CabineTelephonique_COLO.png" id="1_15ums"]
+[ext_resource type="Texture2D" uid="uid://vpeh4cn0s6yj" path="res://assets/Models/textures/Props_CabineTelephonique_COLO.png" id="1_15ums"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lfkg"]
 resource_name = "CabineTelephonique"
