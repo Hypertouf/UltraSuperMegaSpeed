@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="33_nmf1d"]
 [ext_resource type="Script" uid="uid://briioihkxilxm" path="res://addons/proto_shape/proto_ramp/proto_ramp.gd" id="34_7b2fy"]
 [ext_resource type="PackedScene" uid="uid://cu1mwfdh0vx6o" path="res://assets/Models/props/billboard_medium_scene.tscn" id="34_30u42"]
+[ext_resource type="PackedScene" uid="uid://o07dklbbc76n" path="res://assets/Models/props/billboard_big_scene.tscn" id="35_30u42"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgqdq"]
 albedo_texture = ExtResource("1_30u42")
@@ -148,10 +149,16 @@ size = Vector3(0.82887197, 8.600668, 15.131689)
 size = Vector3(0.25500488, 8.119092, 2.8775787)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w0xsl"]
-size = Vector3(0.6652832, 11.976547, 12.209473)
+size = Vector3(0.6652832, 11.976547, 32.77594)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fh4p4"]
 size = Vector3(1.5658264, 12.683193, 33.377182)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e80w3"]
+size = Vector3(0.6652832, 12.217888, 50.652046)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_17ps5"]
+size = Vector3(1.5658264, 12.683193, 50.688873)
 
 [node name="testcity" type="CSGBox3D" unique_id=1344364098 node_paths=PackedStringArray("AnimPlayer", "Ui", "VStraemPlay", "LayBa")]
 use_collision = true
@@ -997,7 +1004,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07
 script = ExtResource("28_jjgpy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Billboard_medium/enter" unique_id=678328469]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6485786, 6.958084, -10.446541)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6485825, 6.958084, -0.16329956)
 shape = SubResource("BoxShape3D_w0xsl")
 
 [node name="exit" type="Area3D" parent="Billboard_medium" unique_id=241204771]
@@ -1062,3 +1069,21 @@ script = ExtResource("17_2f0gt")
 bump_y = 23.0
 bump_x = -2.0
 bump_z = 1.5
+
+[node name="Bigbillboard" parent="." unique_id=609745557 instance=ExtResource("35_30u42")]
+transform = Transform3D(0.9658128, 0, -0.25924048, 0, 1, 0, 0.25924048, 0, 0.9658128, -52.460693, 50.012745, 104.23742)
+
+[node name="enter" type="Area3D" parent="Bigbillboard" unique_id=1258777419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("28_jjgpy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bigbillboard/enter" unique_id=706514200]
+transform = Transform3D(0.9999992, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999992, 2.648571, 7.0787544, 0.04247284)
+shape = SubResource("BoxShape3D_e80w3")
+
+[node name="exit" type="Area3D" parent="Bigbillboard" unique_id=1628385698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bigbillboard/exit" unique_id=1801170242]
+transform = Transform3D(0.9999992, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999992, 2.785431, 7.1363716, -0.31674194)
+shape = SubResource("BoxShape3D_17ps5")

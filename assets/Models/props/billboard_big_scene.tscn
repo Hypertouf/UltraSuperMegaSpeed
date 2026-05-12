@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bfyur8ac7hsio"]
+[gd_scene format=3 uid="uid://o07dklbbc76n"]
 
-[ext_resource type="ArrayMesh" uid="uid://bx27mybhaywmt" path="res://assets/Models/props/Billboard_bigger.tres" id="1_b73bt"]
+[ext_resource type="ArrayMesh" path="res://assets/Models/props/Billboard_bigger.tres" id="1_b73bt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b73bt"]
 size = Vector3(4.2040443, 14.285439, 54.12786)
@@ -8,7 +8,7 @@ size = Vector3(4.2040443, 14.285439, 54.12786)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rl3q7"]
 size = Vector3(0.5427551, 69.33609, 0.5371704)
 
-[node name="Node3D" type="StaticBody3D" unique_id=609745557]
+[node name="Bigbillboard" type="StaticBody3D" unique_id=609745557]
 
 [node name="BillboardBigger" type="MeshInstance3D" parent="." unique_id=1010711847]
 mesh = ExtResource("1_b73bt")
