@@ -5,6 +5,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_0l3bw"]
 size = Vector3(4.626465, 14.32576, 35.812134)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ueawb"]
+size = Vector3(0.5427551, 69.33609, 0.5371704)
+
 [node name="Billboard_medium" type="StaticBody3D" unique_id=2116713389]
 
 [node name="BillboardMedium_mesh" type="MeshInstance3D" parent="." unique_id=1013766860]
@@ -13,3 +16,11 @@ mesh = ExtResource("1_ueawb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1454558009]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043945313, 7.16555, -0.042663574)
 shape = SubResource("BoxShape3D_0l3bw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=944998385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032485962, -33.901176, 8.250912)
+shape = SubResource("BoxShape3D_ueawb")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=880461563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032485962, -33.901176, -8.281052)
+shape = SubResource("BoxShape3D_ueawb")
