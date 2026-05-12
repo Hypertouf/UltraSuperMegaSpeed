@@ -127,7 +127,7 @@ height = 6.076416
 radius = 10.39209
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3824e"]
-size = Vector3(1.7814226, 8.080673, 2.7503266)
+size = Vector3(1.7814226, 4.510891, 2.7503266)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_30u42"]
 size = Vector3(16.83031, 7.437103, 16.285345)
@@ -676,12 +676,13 @@ transform = Transform3D(-0.999998, -3.5527065e-15, 8.74226e-08, 0, 1, 0, -8.7422
 script = ExtResource("28_jjgpy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall_ride/thewall/enter" unique_id=842982228]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 1.0989933, -2.6190681, 3.5902863)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.20991898, -0.8341751, 3.594101)
 shape = SubResource("BoxShape3D_3824e")
 
 [node name="booster_pad6" parent="Wall_ride" unique_id=1830073677 instance=ExtResource("20_igicc")]
-transform = Transform3D(-0.993552, 0, -0.11337659, 0, 1, 0, 0.11337659, 0, -0.993552, -7.897854, -9.386135, 20.493454)
+transform = Transform3D(-0.993552, 0, -0.11337659, 0, 1, 0, 0.11337659, 0, -0.993552, -7.939028, -9.386135, 20.498154)
 script = ExtResource("20_jjgpy")
+power = 15.0
 
 [node name="exit" type="Area3D" parent="Wall_ride" unique_id=674375632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.942747, -4.012947, -8.200195)
@@ -766,9 +767,10 @@ use_collision = true
 size = Vector3(0.03482, 0.79976165, 20.659948)
 material = SubResource("StandardMaterial3D_e0q2u")
 
-[node name="booster_pad6" parent="." unique_id=1525066855 instance=ExtResource("20_igicc")]
-transform = Transform3D(-0.81594586, 0, 0.5781281, 0, 1, 0, -0.5781281, 0, -0.81594586, -10.8133135, 32.775463, 136.59068)
+[node name="booster_pad6" parent="Wall_ride2" unique_id=1525066855 instance=ExtResource("20_igicc")]
+transform = Transform3D(-0.9876882, 0, -0.1564345, 0, 1, 0, 0.1564345, 0, -0.9876882, -7.720482, -9.386135, 21.490288)
 script = ExtResource("20_jjgpy")
+power = 15.0
 
 [node name="Wall_ride3" type="Node3D" parent="." unique_id=377472672]
 transform = Transform3D(-0.41643944, 0, -0.90916353, 0, 1, 0, 0.90916353, 0, -0.41643944, 42.673653, 42.1616, 131.12216)
@@ -835,9 +837,10 @@ use_collision = true
 size = Vector3(0.03482, 0.79976165, 20.659948)
 material = SubResource("StandardMaterial3D_e0q2u")
 
-[node name="booster_pad7" parent="." unique_id=783139051 instance=ExtResource("20_igicc")]
-transform = Transform3D(0.28921545, 0, 0.9572638, 0, 1, 0, -0.9572638, 0, 0.28921545, 26.62836, 32.775463, 115.3136)
+[node name="booster_pad7" parent="Wall_ride3" unique_id=783139051 instance=ExtResource("20_igicc")]
+transform = Transform3D(-0.99074996, 0, -0.13569826, 0, 1, 0, 0.13569826, 0, -0.99074996, -7.883278, -9.386135, 21.197487)
 script = ExtResource("20_jjgpy")
+power = 15.0
 
 [node name="Looping_scene" parent="." unique_id=1527651806 instance=ExtResource("30_3824e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.1844, 32.563057, 153.06516)

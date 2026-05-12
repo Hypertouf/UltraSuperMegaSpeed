@@ -256,12 +256,14 @@ func get_input(delta : float):
 		total_rotation = Vector3.ZERO
 	
 	if !$boostTimer.is_stopped() :
-		lock_rotation = true
+		axis_lock_angular_y = true
+		axis_lock_angular_z = true
 		for wheel in steering_wheels :
 			wheel.wheel_friction_slip = 0.0
 			
 	else :
-		lock_rotation = false
+		axis_lock_angular_y = false
+		axis_lock_angular_z = false
 		for wheel in steering_wheels :
 			wheel.wheel_friction_slip = 5.0
 		
@@ -318,8 +320,8 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 			wheel.rotation = Vector3(0.0,0.0,0.0)
 			wheel.steering = 0.0
 		steering = 0.0
-		linear_velocity = body.get_parent_node_3d().transform.basis.z.normalized() * 20
-		$boostTimer.start(0.5)
+		linear_velocity = body.get_parent_node_3d().global_transform.basis.z.normalized() * body.get_parent_node_3d().power
+		$boostTimer.start(0.2)
 		#test comment
 
 	#if body is loop : #button to switch between three cameras
@@ -336,11 +338,9 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 	
 	if area is enterWall :
 		print("WALLING")
-		# Set the default gravity direction to `Vector3(0, -1, 0)`.																					
-		#if area.get_parent().transform.basis.x[0] >= 0 and area.get_parent().transform.basis.z[2] >= 0 :
-		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, (area.get_parent().transform.basis.x + area.get_parent().transform.basis.z).normalized())
-		#elif area.get_parent().transform.basis.x[0] >= 0 and area.get_parent().transform.basis.z[2] < 0 :
-			#PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, (area.get_parent().transform.basis.x + area.get_parent().transform.basis.z).normalized())
+		# Set the default gravity direction the x coordinates of the wall.																					
+		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, area.get_parent().global_transform.basis.x)
+		
 
 																																			
 func _on_hitbox_area_exited(area: Area3D) -> void:
