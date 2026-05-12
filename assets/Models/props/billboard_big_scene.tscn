@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bfyur8ac7hsio"]
+
+[ext_resource type="ArrayMesh" uid="uid://bx27mybhaywmt" path="res://assets/Models/props/Billboard_bigger.tres" id="1_b73bt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b73bt"]
+size = Vector3(4.2040443, 14.285439, 54.12786)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rl3q7"]
+size = Vector3(0.5427551, 69.33609, 0.5371704)
+
+[node name="Node3D" type="StaticBody3D" unique_id=609745557]
+
+[node name="BillboardBigger" type="MeshInstance3D" parent="." unique_id=1010711847]
+mesh = ExtResource("1_b73bt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1622884604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0006275177, 7.185711, -0.0005302429)
+shape = SubResource("BoxShape3D_b73bt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1764908069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032485962, -33.901176, 8.250912)
+shape = SubResource("BoxShape3D_rl3q7")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1785056198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032485962, -33.901176, -8.281052)
+shape = SubResource("BoxShape3D_rl3q7")
