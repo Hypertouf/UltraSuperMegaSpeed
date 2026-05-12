@@ -21,13 +21,6 @@ extends VehicleBody3D
 @export var SLODER : VSlider
 @export var hitbox : Area3D
 
-var wheelie = false
-
-func wheelie_mode() :
-	if wheelie :
-		max_wheel_rpm = 5000
-		max_torque = 600
-
 #local member variables
 var player_acceleration : float = 0.0
 var player_braking : float = 0.0
@@ -38,12 +31,19 @@ var total_rotation = Vector3.ZERO
 var tricks = [0,0,0]
 var default_position = Vector3(0.0,0.0,0.0)
 var score = 0
-
+var wheelie = false
+var gravity_change = false
 #an exporetd array of driving wheels so we can limit rom of each wheel when we process input
 @onready var driving_wheels : Array[VehicleWheel3D] = [$WheelBackLeft,$WheelBackRight]
 @onready var steering_wheels : Array[VehicleWheel3D] = [$WheelFrontLeft,$WheelFrontRight]
 
 
+
+func wheelie_mode() :
+	if wheelie :
+		max_wheel_rpm = 5000
+		max_torque = 600
+		
 func _ready() -> void:
 	#set wheel friction slip
 	for wheel in steering_wheels:
@@ -114,7 +114,10 @@ func _physics_process(delta: float) -> void:
 	else :
 		followcamera.rotation_damping = 3.11
 	
-
+	if gravity_change and (basis.z.dot(linear_velocity) <= 4 or Input.is_action_just_released("sauter")):
+		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
+		gravity_change = false
+		
 ## sets the variables player_steer, player_brake and player_acceleration based on the player input
 func get_input(delta : float):
 	#steer first
@@ -146,14 +149,14 @@ func get_input(delta : float):
 			#default_position = rotation_degrees
 			#print(default_position)
 		#if !car_upside_down: #necessary for now because x.axis cannot go upside down
-			#rotation.x += Input.get_axis("back","forward")* 0.1 #makes the car flip on the x axis when not upside down
+			#rotation.x += Input.get_axis("backflip","frontflip")* 0.1 #makes the car flip on the x axis when not upside down
 		#else :
-			#rotation.x += Input.get_axis("forward","back")* 0.1 #switches the car flip direction when it is upside down so that it continues the flip rotation smoothly
-		if (Input.is_action_pressed("forward") or Input.is_action_pressed("back") or Input.is_action_pressed("gauche") or Input.is_action_pressed("droite") or Input.is_action_pressed("roll_left") or Input.is_action_pressed("roll_right")) and angular_velocity != Vector3.ZERO:
+			#rotation.x += Input.get_axis("frontflip","backflip")* 0.1 #switches the car flip direction when it is upside down so that it continues the flip rotation smoothly
+		if (Input.is_action_pressed("frontflip") or Input.is_action_pressed("backflip") or Input.is_action_pressed("shuvleft") or Input.is_action_pressed("shuvright") or Input.is_action_pressed("roll_left") or Input.is_action_pressed("roll_right")) and angular_velocity != Vector3.ZERO:
 			angular_velocity = Vector3.ZERO
 			
 			
-		if Input.is_action_pressed("forward") :
+		if Input.is_action_pressed("frontflip") :
 			speed.x = lerp(speed.x, 0.15, 0.05)
 			rotate_object_local(Vector3(1, 0, 0), speed.x)
 			total_rotation.x += 1
@@ -161,18 +164,18 @@ func get_input(delta : float):
 				#print("frontflip !!")
 				total_rotation.x = 0
 				tricks[0] +=1
-		elif Input.is_action_pressed("back") :
+		elif Input.is_action_pressed("backflip") :
 			speed.x = lerp(speed.x, 0.15, 0.05)
 			rotate_object_local(Vector3(1, 0, 0), -speed.x)
 			total_rotation.x -= 1
 			if total_rotation.x == -60:
 				total_rotation.x = 0
-				#print("backflip !!")
+				#print("backflipflip !!")
 				tricks[0] -=1
 		else : 
 			speed.x = lerp(speed.x, 0.0, 0.5)
 		
-		if Input.is_action_pressed("gauche") :
+		if Input.is_action_pressed("shuvleft") :
 			speed.y = lerp(speed.y, 0.15, 0.05)
 			total_rotation.y += 1
 			#if total_rotationx == 30:
@@ -181,19 +184,19 @@ func get_input(delta : float):
 				total_rotation.y = 0
 				#print("front 360 !!")
 				tricks[1] +=1
-		elif Input.is_action_pressed("droite") :
+		elif Input.is_action_pressed("shuvright") :
 			speed.y = lerp(speed.y, 0.15, 0.05)
 			total_rotation.y -= 1
 			#if total_rotationx == -30 :
-				#print("back shuv")
+				#print("backflip shuv")
 			if total_rotation.y == -60:
 				total_rotation.y = 0
-				#print("back 360 !!")
+				#print("backflip 360 !!")
 				tricks[1] -=1
 		else : 
 			speed.y = lerp(speed.y, 0.0, 0.5)
 		
-		rotation.y += Input.get_axis("droite","gauche") * speed.y #makes the car do shuv-it rotation on the y axis
+		rotation.y += Input.get_axis("shuvright","shuvleft") * speed.y #makes the car do shuv-it rotation on the y axis
 
 		
 		if Input.is_action_pressed("roll_left") :
@@ -229,11 +232,11 @@ func get_input(delta : float):
 			if tricks == [0,1,0] :
 				print("front 360 !")
 			if tricks == [0,-1,0] :
-				print("back 360 !")
+				print("backflip 360 !")
 			if tricks == [1,0,0]:
 				print("frontflip !")
 			if tricks == [-1,0,0]:	
-				print("backflip !")
+				print("backflipflip !")
 			if tricks == [0,0,-1]:
 				print("kickflip !")
 			if tricks == [0,0,1]:
@@ -338,8 +341,9 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 	
 	if area is enterWall :
 		print("WALLING")
+		gravity_change = true
 		# Set the default gravity direction the x coordinates of the wall.																					
-		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, area.get_parent().global_transform.basis.x)
+		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, area.get_parent().global_transform.basis.x * 2)
 		
 
 																																			
@@ -349,4 +353,4 @@ func _on_hitbox_area_exited(area: Area3D) -> void:
 	
 	if area is exitWall :
 		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
-		
+		gravity_change = false
