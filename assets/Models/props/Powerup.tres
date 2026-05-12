@@ -1,7 +1,7 @@
 [gd_resource type="ArrayMesh" format=3 uid="uid://drya6dl5ful1u"]
 
-[ext_resource type="Texture2D" uid="uid://cgdxdjy4augxp" path="res://assets/Models/props/CabineTelephonique_COLO.png" id="1_o3ga1"]
-[ext_resource type="Texture2D" uid="uid://di3dc11pm0tmr" path="res://assets/Models/props/emissive_powerup.png" id="2_hcr6o"]
+[ext_resource type="Texture2D" uid="uid://cgdxdjy4augxp" path="res://assets/Models/textures/CabineTelephonique_COLO.png" id="1_o3ga1"]
+[ext_resource type="Texture2D" uid="uid://di3dc11pm0tmr" path="res://assets/Models/textures/emissive_powerup.png" id="2_hcr6o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gmbnm"]
 albedo_texture = ExtResource("1_o3ga1")

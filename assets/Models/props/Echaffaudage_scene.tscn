@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ddk1ni0j2vby3"]
+
+[ext_resource type="ArrayMesh" uid="uid://b1wm8smuyod54" path="res://assets/Models/props/Echaffaudage.tres" id="1_jir1c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c1hrp"]
+size = Vector3(4.0877686, 3.4669685, 9.189117)
+
+[node name="Echaffaudage" type="StaticBody3D" unique_id=1295332682]
+
+[node name="Echaffaudage" type="MeshInstance3D" parent="." unique_id=763304015]
+mesh = ExtResource("1_jir1c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1282218509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028259277, 1.7309227, 0.0029449463)
+shape = SubResource("BoxShape3D_c1hrp")

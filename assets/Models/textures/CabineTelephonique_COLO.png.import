@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di3dc11pm0tmr"
-path.s3tc="res://.godot/imported/emissive_powerup.png-0816c558aaabe9acc2b5ec13f2c2d623.s3tc.ctex"
+uid="uid://cgdxdjy4augxp"
+path.s3tc="res://.godot/imported/CabineTelephonique_COLO.png-1f2ec705acd4d57be531718d952363a5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Models/props/emissive_powerup.png"
-dest_files=["res://.godot/imported/emissive_powerup.png-0816c558aaabe9acc2b5ec13f2c2d623.s3tc.ctex"]
+source_file="res://assets/Models/textures/CabineTelephonique_COLO.png"
+dest_files=["res://.godot/imported/CabineTelephonique_COLO.png-1f2ec705acd4d57be531718d952363a5.s3tc.ctex"]
 
 [params]
 

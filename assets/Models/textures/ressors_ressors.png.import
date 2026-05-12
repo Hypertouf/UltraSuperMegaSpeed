@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfh4mwvrtxgkh"
-path.s3tc="res://.godot/imported/ressors_ressors.png-86b27178826e6a9d07d60c21d4e59b26.s3tc.ctex"
+path.s3tc="res://.godot/imported/ressors_ressors.png-170d61b1c24625be17700d724f10e1ae.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/Models/props/ressors_ressors.png"
-dest_files=["res://.godot/imported/ressors_ressors.png-86b27178826e6a9d07d60c21d4e59b26.s3tc.ctex"]
+source_file="res://assets/Models/textures/ressors_ressors.png"
+dest_files=["res://.godot/imported/ressors_ressors.png-170d61b1c24625be17700d724f10e1ae.s3tc.ctex"]
 
 [params]
 

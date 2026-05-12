@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgdxdjy4augxp"
-path.s3tc="res://.godot/imported/CabineTelephonique_COLO.png-2205d6c57fb51ef1fc90693868055491.s3tc.ctex"
+uid="uid://c8w7sinhmkban"
+path.s3tc="res://.godot/imported/building_Building.png-d7c97f123f5b493c3fbad4be0dc3e79a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "123b2d432d9281804477a5a25425dad1"
+}
 
 [deps]
 
-source_file="res://assets/Models/props/CabineTelephonique_COLO.png"
-dest_files=["res://.godot/imported/CabineTelephonique_COLO.png-2205d6c57fb51ef1fc90693868055491.s3tc.ctex"]
+source_file="res://assets/Models/textures/building_Building.png"
+dest_files=["res://.godot/imported/building_Building.png-d7c97f123f5b493c3fbad4be0dc3e79a.s3tc.ctex"]
 
 [params]
 
