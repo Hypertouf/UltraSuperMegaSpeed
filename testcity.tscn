@@ -1009,6 +1009,7 @@ shape = SubResource("BoxShape3D_w0xsl")
 
 [node name="exit" type="Area3D" parent="Billboard_medium" unique_id=241204771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("29_4qwh0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Billboard_medium/exit" unique_id=1442529634]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.785431, 7.1363716, -0.35678864)
@@ -1083,7 +1084,36 @@ shape = SubResource("BoxShape3D_e80w3")
 
 [node name="exit" type="Area3D" parent="Bigbillboard" unique_id=1628385698]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("29_4qwh0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bigbillboard/exit" unique_id=1801170242]
 transform = Transform3D(0.9999992, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999992, 2.785431, 7.1363716, -0.31674194)
 shape = SubResource("BoxShape3D_17ps5")
+
+[node name="ProtoRamp2" type="Node3D" parent="." unique_id=525387727]
+transform = Transform3D(-0.99899584, 0.032779485, 0.03054491, 3.0267984e-09, 0.6817303, -0.7316036, -0.04480498, -0.730869, -0.68104565, -65.83232, 44.83004, 167.28737)
+script = ExtResource("34_7b2fy")
+type = 0
+collisions_enabled = true
+width = 4.2674413
+height = 0.7583847
+depth = 1.0
+anchor = 0
+anchor_fixed = true
+fill = 0.21983498587481454
+material = null
+metadata/_custom_type_script = "uid://briioihkxilxm"
+
+[node name="ProtoRamp3" type="Node3D" parent="." unique_id=580394383]
+transform = Transform3D(-0.99899584, 0.02575542, 0.03666257, 3.7252903e-09, 0.81827015, -0.5748338, -0.044804983, -0.5742567, -0.8174484, -64.93322, 44.0938, 139.54375)
+script = ExtResource("34_7b2fy")
+type = 0
+collisions_enabled = true
+width = 4.2674413
+height = 0.7583847
+depth = 0.8590126
+anchor = 0
+anchor_fixed = true
+fill = 0.21983498587481454
+material = null
+metadata/_custom_type_script = "uid://briioihkxilxm"
