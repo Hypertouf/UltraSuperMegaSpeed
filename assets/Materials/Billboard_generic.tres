@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://33ly3c5h5wvt"]
+
+[ext_resource type="Texture2D" uid="uid://bfjx45jtuny0y" path="res://assets/Models/Billboard_bigger_Billboard_Support.png" id="1_weuw0"]
+
+[resource]
+resource_name = "GeneriqueBillboard"
+cull_mode = 2
+albedo_texture = ExtResource("1_weuw0")
+roughness = 0.5
+texture_filter = 2
