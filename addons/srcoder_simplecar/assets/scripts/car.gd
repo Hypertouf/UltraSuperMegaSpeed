@@ -253,7 +253,7 @@ func get_input(delta : float):
 			score = abs(tricks[0]) + abs(tricks[1]) + abs(tricks[2])
 			print(score)
 			torbo.value += score * 10
-				
+ 				
 		tricks = [0,0,0]
 		default_position = Vector3(0,0,0)
 		total_rotation = Vector3.ZERO

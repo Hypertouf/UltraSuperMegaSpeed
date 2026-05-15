@@ -1,0 +1,233 @@
+[gd_scene format=3 uid="uid://754vjwcs50eq"]
+
+[ext_resource type="PackedScene" uid="uid://dcup375s06tai" path="res://addons/srcoder_simplecar/car_custom.tscn" id="1_0nkrw"]
+[ext_resource type="Script" uid="uid://3yr365clp1xm" path="res://testcity.gd" id="1_nkwo0"]
+[ext_resource type="PackedScene" uid="uid://rjx8tx5y7j2p" path="res://addons/srcoder_simplecar/follow_camera.tscn" id="2_fq8mh"]
+[ext_resource type="ArrayMesh" uid="uid://ciyxs82ul5chj" path="res://assets/meshmesh/Mm_garage.res" id="3_n146p"]
+[ext_resource type="Material" uid="uid://dh6ykun8bv60u" path="res://examples/day_sky.tres" id="4_fq8mh"]
+[ext_resource type="Texture2D" uid="uid://cpii4stj8dfvy" path="res://Radio/frame0000.png" id="6_hamwd"]
+[ext_resource type="Texture2D" uid="uid://du53j3hwuqhej" path="res://assets/Textures/UI_Cursor.png" id="7_6ru4e"]
+[ext_resource type="Texture2D" uid="uid://dh0qh2orsscla" path="res://assets/Textures/UI_MoralityMeter.png" id="8_xib5o"]
+[ext_resource type="Texture2D" uid="uid://tcp5lww6uhxp" path="res://assets/Textures/Boost/Boost_Top.png" id="9_uamwa"]
+[ext_resource type="Texture2D" uid="uid://bl8o73hlpy20e" path="res://assets/Textures/Boost/Boost_middle.png" id="10_3yvjw"]
+[ext_resource type="Texture2D" uid="uid://dt5ju0rdepq2h" path="res://assets/Textures/Boost/bubble01.png" id="11_lvo3j"]
+[ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="12_vylv8"]
+[ext_resource type="VideoStream" uid="uid://ch4oipsjay70n" path="res://assets/Video/0000-0393.ogv" id="13_csgam"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fq8mh"]
+data = PackedVector3Array(-5, 0, 10, -5, 6, -10.0002, -5, 6, 10, -5, 0, 10, -5, 0, -10.0002, -5, 6, -10.0002, -4.6646, 0.3436, -10.0002, -4.6646, 5.6563, 7.7582, -4.6646, 5.6563, -10.0002, -4.6646, 0.3436, -10.0002, -4.6646, 0.3436, 7.7582, -4.6646, 5.6563, 7.7582, 5, 0, -10.0002, 5, 6, 10, 5, 6, -10.0002, 5, 0, -10.0002, 5, 0, 10, 5, 6, 10, 5, 0, 10, -5, 6, 10, 5, 6, 10, 5, 0, 10, -5, 0, 10, -5, 6, 10, -5, 0, -10.0002, 5, 0, 10, 5, 0, -10.0002, -5, 0, -10.0002, -5, 0, 10, 5, 0, 10, 5, 6, -10.0002, -5, 6, 10, -5, 6, -10.0002, 5, 6, -10.0002, 5, 6, 10, -5, 6, 10, -4.6646, 5.6563, -10.0002, -5, 0, -10.0002, -4.6646, 0.3436, -10.0002, -4.6646, 0.3436, -10.0002, -5, 0, -10.0002, 5, 0, -10.0002, -4.6646, 5.6563, -10.0002, -5, 6, -10.0002, -5, 0, -10.0002, 4.6645, 5.6563, -10.0002, -5, 6, -10.0002, -4.6646, 5.6563, -10.0002, 4.6645, 5.6563, -10.0002, 5, 6, -10.0002, -5, 6, -10.0002, -4.6646, 0.3436, -10.0002, 5, 0, -10.0002, 4.6645, 0.3436, -10.0002, 4.6645, 0.3436, -10.0002, 5, 0, -10.0002, 5, 6, -10.0002, 4.6645, 0.3436, -10.0002, 5, 6, -10.0002, 4.6645, 5.6563, -10.0002, -4.6646, 0.3436, 7.7582, 4.6645, 5.6563, 7.7582, -4.6646, 5.6563, 7.7582, -4.6646, 0.3436, 7.7582, 4.6645, 0.3436, 7.7582, 4.6645, 5.6563, 7.7582, 4.6645, 5.6563, -10.0002, 4.6645, 0.3436, 7.7582, 4.6645, 0.3436, -10.0002, 4.6645, 5.6563, -10.0002, 4.6645, 5.6563, 7.7582, 4.6645, 0.3436, 7.7582, 4.6645, 0.3436, -10.0002, -4.6646, 0.3436, 7.7582, -4.6646, 0.3436, -10.0002, 4.6645, 0.3436, -10.0002, 4.6645, 0.3436, 7.7582, -4.6646, 0.3436, 7.7582, -4.6646, 5.6563, -10.0002, 4.6645, 5.6563, 7.7582, 4.6645, 5.6563, -10.0002, -4.6646, 5.6563, -10.0002, -4.6646, 5.6563, 7.7582, 4.6645, 5.6563, 7.7582, -4.7774, 3.1189, -9.8223, 4.8149, 5.6782, -9.7706, 4.8149, 3.1189, -9.8223, -4.7774, 3.1189, -9.8223, -4.7774, 5.6782, -9.7706, 4.8149, 5.6782, -9.7706, 4.8149, 3.1189, -9.8388, -4.7774, 5.6782, -9.8388, -4.7774, 3.1189, -9.8388, 4.8149, 3.1189, -9.8388, 4.8149, 5.6782, -9.8388, -4.7774, 5.6782, -9.8388, -1.5254, 0, -10.0002, -1.5254, 0, -12, -1.5254, 0.3436, -10.0002, 2.4148, 0, -12, 2.4148, 0, -10.0002, 2.4148, 0.3436, -10.0002, 2.4148, 0, -10.0002, -1.5254, 0.3436, -10.0002, 2.4148, 0.3436, -10.0002, 2.4148, 0, -10.0002, -1.5254, 0, -10.0002, -1.5254, 0.3436, -10.0002, -1.5254, 0, -12, 2.4148, 0, -10.0002, 2.4148, 0, -12, -1.5254, 0, -12, -1.5254, 0, -10.0002, 2.4148, 0, -10.0002, 2.4148, 0, -12, -1.5254, 0.3436, -10.0002, -1.5254, 0, -12, 2.4148, 0, -12, 2.4148, 0.3436, -10.0002, -1.5254, 0.3436, -10.0002)
+
+[sub_resource type="Sky" id="Sky_6p87c"]
+sky_material = ExtResource("4_fq8mh")
+
+[sub_resource type="Environment" id="Environment_ajbjs"]
+background_mode = 2
+sky = SubResource("Sky_6p87c")
+ssao_enabled = true
+sdfgi_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pmuua"]
+texture = ExtResource("8_xib5o")
+texture_margin_left = 693.0
+expand_margin_top = 227.0
+expand_margin_bottom = 228.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vajfm"]
+
+[sub_resource type="Curve" id="Curve_bg4fq"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pjc5t"]
+curve = SubResource("Curve_bg4fq")
+
+[sub_resource type="Curve" id="Curve_lsos7"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_14rio"]
+curve = SubResource("Curve_lsos7")
+
+[sub_resource type="Curve" id="Curve_4vynd"]
+_data = [Vector2(0, 0), 0.0, 7.58609, 0, 0, Vector2(0.149585, 0.506508), 0.0, 0.0, 0, 0, Vector2(0.288089, 0.280911), 0.0, 0.0, 0, 0, Vector2(0.390582, 0.492408), 0.0, 0.0, 0, 0, Vector2(0.717452, 0.527657), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.05741, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_urq10"]
+curve = SubResource("Curve_4vynd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_guwcc"]
+particle_flag_disable_z = true
+direction = Vector3(1, -5, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+orbit_velocity_curve = SubResource("CurveTexture_pjc5t")
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_curve = SubResource("CurveTexture_14rio")
+scale_curve = SubResource("CurveTexture_urq10")
+
+[sub_resource type="Theme" id="Theme_ib3t2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qn0af"]
+bg_color = Color(0.169211, 0.657799, 0.817548, 1)
+
+[node name="The_BIG_city" type="Node3D" unique_id=234967597 node_paths=PackedStringArray("AnimPlayer", "Ui", "Player", "VStraemPlay", "LayBa")]
+script = ExtResource("1_nkwo0")
+AnimPlayer = NodePath("AnimationPlayer")
+Ui = NodePath("Ui_Holder")
+Player = NodePath("car")
+VStraemPlay = NodePath("Ui_Holder/OUI/Panel/VideoStreamPlayer")
+LayBa = NodePath("Ui_Holder/BalloonHolder")
+
+[node name="Ground" type="CSGBox3D" parent="." unique_id=655146880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -4, -1.853)
+use_collision = true
+size = Vector3(380.8, 8, 386.554)
+
+[node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("torbo", "followcamera", "SLODER") instance=ExtResource("1_0nkrw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020943165, 0.350577, -185.28537)
+max_steer = null
+max_torque = null
+max_brake_force = null
+max_wheel_rpm = null
+steer_damping = null
+front_wheel_grip = null
+rear_wheel_grip = null
+torbo = NodePath("../Ui_Holder/OUI/Nitro")
+followcamera = NodePath("../FollowCamera")
+SLODER = NodePath("../Ui_Holder/OUI/Morality")
+
+[node name="FollowCamera" parent="." unique_id=670489488 node_paths=PackedStringArray("follow_target") instance=ExtResource("2_fq8mh")]
+follow_target = NodePath("../car")
+
+[node name="MmGarage" type="MeshInstance3D" parent="." unique_id=1392713945]
+transform = Transform3D(-1.0000001, 0, -8.742277e-08, 0, 1, 0, 8.7422784e-08, 0, -0.99999994, 0.547, 0, -182.73512)
+mesh = ExtResource("3_n146p")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MmGarage" unique_id=1644253322]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MmGarage/StaticBody3D" unique_id=1374209238]
+shape = SubResource("ConcavePolygonShape3D_fq8mh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1611002276]
+environment = SubResource("Environment_ajbjs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=2042551339]
+transform = Transform3D(0.85243034, -0.20511307, -0.48092738, 0, -0.9198352, 0.39230502, -0.5228408, -0.3344127, -0.78409547, 0, 0, 0)
+light_color = Color(0.85846734, 0.75992113, 0.860659, 1)
+light_energy = 0.6
+
+[node name="Ui_Holder" type="Control" parent="." unique_id=1045278626]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OUI" type="CanvasLayer" parent="Ui_Holder" unique_id=1032556636]
+layer = 105
+
+[node name="Radio" type="TextureRect" parent="Ui_Holder/OUI" unique_id=1581360646]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = -222.0
+offset_right = 730.0
+offset_bottom = 192.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_hamwd")
+
+[node name="Morality" type="VSlider" parent="Ui_Holder/OUI" unique_id=82169598]
+texture_filter = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -100.0
+offset_right = 720.0
+offset_bottom = 736.0
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+mouse_filter = 2
+theme_override_icons/grabber = ExtResource("7_6ru4e")
+theme_override_styles/slider = SubResource("StyleBoxTexture_pmuua")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_vajfm")
+value = 50.0
+scrollable = false
+
+[node name="Nitro" type="TextureProgressBar" parent="Ui_Holder/OUI" unique_id=895769308]
+clip_children = 2
+texture_filter = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -153.0
+offset_top = -243.0
+offset_right = 309.0
+offset_bottom = 533.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+value = 50.0
+fill_mode = 3
+texture_over = ExtResource("9_uamwa")
+texture_progress = ExtResource("10_3yvjw")
+
+[node name="TextureRect" type="TextureRect" parent="Ui_Holder/OUI/Nitro" unique_id=1089267258]
+z_index = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_uamwa")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Ui_Holder/OUI/Nitro" unique_id=1649914025]
+texture_filter = 1
+position = Vector2(359, 728)
+amount = 2
+texture = ExtResource("11_lvo3j")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_guwcc")
+
+[node name="TextureRect2" type="TextureRect" parent="Ui_Holder/OUI/Nitro" unique_id=1061380411]
+z_index = -1
+layout_mode = 0
+offset_right = 462.0
+offset_bottom = 776.0
+texture = ExtResource("12_vylv8")
+
+[node name="Panel" type="Panel" parent="Ui_Holder/OUI" unique_id=890678938]
+visible = false
+z_index = 50
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ib3t2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qn0af")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Ui_Holder/OUI/Panel" unique_id=1816467202]
+layout_mode = 0
+offset_left = 101.93
+offset_right = 1541.93
+offset_bottom = 1080.0
+stream = ExtResource("13_csgam")
+autoplay = true
+paused = true
+
+[node name="BalloonHolder" type="CanvasLayer" parent="Ui_Holder" unique_id=766770753]
+layer = 128
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1948927949]

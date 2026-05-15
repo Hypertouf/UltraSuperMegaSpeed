@@ -17,6 +17,7 @@ size = Vector3(1.67963, 1.09668, 2.9843109)
 [node name="car" type="VehicleBody3D" unique_id=585784445]
 collision_layer = 2
 physics_material_override = ExtResource("1_gdthg")
+center_of_mass_mode = 1
 script = ExtResource("2_mbobr")
 
 [node name="body" type="MeshInstance3D" parent="." unique_id=787695455]
@@ -111,6 +112,9 @@ one_shot = true
 
 [node name="walljumpTimer" type="Timer" parent="." unique_id=417806007]
 one_shot = true
+
+[node name="cockpit" type="Camera3D" parent="." unique_id=62731619]
+transform = Transform3D(-1, -1.0778208e-15, -8.742277e-08, 1.1167362e-08, 0.9918077, -0.12773974, 8.670658e-08, -0.12773974, -0.9918077, 0, 1.3845024, -2.0706635)
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="hitbox" to="." method="_on_hitbox_area_exited"]
