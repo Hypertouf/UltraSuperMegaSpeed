@@ -1,0 +1,42 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://droydpt104cs0"]
+
+[ext_resource type="Texture2D" uid="uid://cynuynjkttwot" path="res://assets/Models/props/Roads_Road_atlas.png" id="1_1njn0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p86hm"]
+resource_name = "RoadAtlas"
+cull_mode = 2
+albedo_texture = ExtResource("1_1njn0")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_828s0"]
+_surfaces = [{
+"aabb": AABB(-5.0000024, 0, -5.0000024, 10.000004, 0.04, 10.000005),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgABAAQABAABAAMABQAAAAIABQADAAAAAgAEAAYABQACAAYABAADAAcABQAHAAMABgAEAAcABgAHAAUA"),
+"name": "RoadAtlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD+/wAA//8AAP7//////wAA//8AAAAAAAAAAAAA/v8AAAAA//8AAAAAAAD///7/AAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Roads_Cube_015"
+_surfaces = [{
+"aabb": AABB(-5.0000024, 0, -5.0000024, 10.000004, 0.04, 10.000005),
+"attribute_data": PackedByteArray("GJfptWCXufsYl7n7YJfptZbN6etYyIDEichXxGXNwev6f/t/AAABAPp/AQAAAPt/ichXxGCX6bV0l6a1WMiAxHCX8PtlzcHrls3p62CXuftlzcHrYJfptVjIgMRgl7n7"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_p86hm"),
+"name": "RoadAtlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAAVNX+/wAA//9U1f7//////1TV//8AAAAAVNUAAP///v9f6QAAAAAAAP/FAAD//wAA9cUAAAAA/v9x6QAA//8AAP///v////////8AAP///v////////8AAP//AAD//wAA/////wAAAAD///////8AAP//AAAAAAAA///+//////9N9AAAAAD+//rvAAD///7/+O/+/wAA//9P9AAAAAD+/xz+//8AAAAAHP4AAAAAAADF9f7/AAD//4b5qqpUVaqqVFWqqlRVqqpUVcPpHcsHuvri6rkJ49PpFMv/f/+//3//v/9//7//f/+/UJOt7M+ML/PKjDPzVJOp7P/////////////////////vfQdB730HQXB1R0WUPCj5")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_828s0")

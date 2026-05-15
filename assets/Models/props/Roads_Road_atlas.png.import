@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b82r3k27dut3s"
-path.s3tc="res://.godot/imported/T_roadH.png-90b2693881037670fb49a0e748758a9a.s3tc.ctex"
+uid="uid://cynuynjkttwot"
+path.s3tc="res://.godot/imported/Roads_Road_atlas.png-6bc7b55a97246ee6199d9cf7acbf4d05.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "500ca5f32ff4431242a6f9b27adf1e57"
+}
 
 [deps]
 
-source_file="res://assets/Textures/T_roadH.png"
-dest_files=["res://.godot/imported/T_roadH.png-90b2693881037670fb49a0e748758a9a.s3tc.ctex"]
+source_file="res://assets/Models/props/Roads_Road_atlas.png"
+dest_files=["res://.godot/imported/Roads_Road_atlas.png-6bc7b55a97246ee6199d9cf7acbf4d05.s3tc.ctex"]
 
 [params]
 

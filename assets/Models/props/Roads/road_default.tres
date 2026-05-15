@@ -1,0 +1,42 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://dl2t6yhgp0hrb"]
+
+[ext_resource type="Texture2D" uid="uid://cynuynjkttwot" path="res://assets/Models/props/Roads_Road_atlas.png" id="1_1uesv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p86hm"]
+resource_name = "RoadAtlas"
+cull_mode = 2
+albedo_texture = ExtResource("1_1uesv")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_geo3f"]
+_surfaces = [{
+"aabb": AABB(-5, 0, -10, 10, 0.04, 20),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwACAAEABAADAAEAAAAEAAEABAAFAAMABgAAAAIABAAHAAUABAAAAAcABQAIAAMAAwAIAAIABQAHAAgAAAAGAAkAAAAJAAcABgACAAoACAAKAAIACQAGAAoABwALAAgABwAJAAsACAALAAoACQAKAAsA"),
+"name": "RoadAtlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAP9/AAAAAP//AAAAAAAA////fwAA/////wAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAP//AAD//wAA/38AAP//////fwAA//8AAP//AAAAAP////8AAP///////wAA")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Roads_Cube_002"
+_surfaces = [{
+"aabb": AABB(-5, 0, -10, 10, 0.04, 20),
+"attribute_data": PackedByteArray("rtYo4ITWi/+E1ijgrtaL/67WxMCE1sTArtaL/9T/rP+u1qz/1P+L/9T/KOD//8TA//8o4NT/xMDU/4v///+L/9T/xMCu1qTA1P+kwK7WxMCu1ijg1P/EwNT/KOCu1sTArtaL/9T/i//m0/+//3////9//7/m0///5tP/v/9/////f/+/5tP//w=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABgAHAAgABgAJAAcACgALAAwACgANAAsADgAKAAwADgAMAA8AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAUABYAGAAWABkAGgAbABwAGgAdABsAHgAfACAAHgAhAB8A"),
+"material": SubResource("StandardMaterial3D_p86hm"),
+"name": "RoadAtlas",
+"primitive": 3,
+"uv_scale": Vector4(1.52553, 2, 0, 0),
+"vertex_count": 34,
+"vertex_data": PackedByteArray("AAAAAP9/VNUAAP//AABU1QAA////f1TVAAAAAAAAVNUAAAAA//9U1QAA/////1TVAAAAAAAA////////AAD//wAA//8AAP////8AAAAA/////wAA/39U1f///////1TV//////9/VNX//wAA//9U1f//AAAAAFTV/////wAAVNX//wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAAAAD/f/+///8AAP///7///wAA/3//vwAAAAD///+/AAAAAAAA/7///wAAAAD/v///////f/+/AAD//////78AAP///3//v/////////+//////wAA/78AAP///3//vwAA//8AAP+///////9//79UVaqqVFWqqlRVqqpUVaqqVFWqqlRVqqr///9/////f////3////9/qiqqKqoqqiqqKqoqqiqqKqoqqiqqKqoq/3////9/////f////3///wAA/38AAP9/AAD/fwAA/38AAP9/AAD/f////3////9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_geo3f")

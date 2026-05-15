@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cmlfho2rqtpmg"
-path="res://.godot/imported/Billboard_bigger.glb-08d213e797b05539911d3140af736c52.scn"
+uid="uid://b73vtljts3rxo"
+path="res://.godot/imported/Roads.glb-719bb5f2c76782d8ba6c0bb57752ed4b.scn"
 
 [deps]
 
-source_file="res://assets/Models/Billboard_bigger.glb"
-dest_files=["res://.godot/imported/Billboard_bigger.glb-08d213e797b05539911d3140af736c52.scn"]
+source_file="res://assets/Models/props/Roads.glb"
+dest_files=["res://.godot/imported/Roads.glb-719bb5f2c76782d8ba6c0bb57752ed4b.scn"]
 
 [params]
 
