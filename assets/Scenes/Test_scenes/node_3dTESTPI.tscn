@@ -2,20 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://dcup375s06tai" path="res://addons/srcoder_simplecar/car_custom.tscn" id="1_5ul23"]
 [ext_resource type="PackedScene" uid="uid://jaavrwy3gfo1" path="res://assets/Models/props/TV.tscn" id="2_yq255"]
+[ext_resource type="PackedScene" uid="uid://rjx8tx5y7j2p" path="res://addons/srcoder_simplecar/follow_camera.tscn" id="3_yq255"]
+[ext_resource type="PackedScene" uid="uid://cna0whqbhy737" path="res://assets/Models/props/building_scene.tscn" id="4_e23l6"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_e23l6"]
-size = Vector3(47.293335, 1.0910645, 31.73285)
+[node name="LARACINE" type="Node3D" unique_id=579918696]
 
-[node name="Node3D" type="Node3D" unique_id=579918696]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2085109876]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=382730649]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06085205, -0.5740967, -0.009735107)
-shape = SubResource("BoxShape3D_e23l6")
-
-[node name="car" parent="." unique_id=585784445 instance=ExtResource("1_5ul23")]
+[node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("followcamera") instance=ExtResource("1_5ul23")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.968231, 0.23857886, -0.55497265)
+followcamera = NodePath("../FollowCamera")
 
 [node name="Tv" parent="." unique_id=1060322279 instance=ExtResource("2_yq255")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.17139, -0.028246, 6.2961426)
+
+[node name="FollowCamera" parent="." unique_id=670489488 node_paths=PackedStringArray("follow_target") instance=ExtResource("3_yq255")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.55275, -0.028564453, -4.702882)
+follow_target = NodePath("../car")
+
+[node name="Building" parent="." unique_id=133595730 instance=ExtResource("4_e23l6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.20451, -39.958504, 6.543261)
+
+[node name="Building2" parent="." unique_id=1076591679 instance=ExtResource("4_e23l6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.20451, 6.7794724, 6.543261)
