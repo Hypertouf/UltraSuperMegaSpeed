@@ -12,7 +12,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.968231, 0.23857886, -0.554
 followcamera = NodePath("../FollowCamera")
 
 [node name="Tv" parent="." unique_id=1060322279 instance=ExtResource("2_yq255")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.17139, -0.028246, 6.2961426)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.17139, 2.7290401, 6.2961426)
 
 [node name="FollowCamera" parent="." unique_id=670489488 node_paths=PackedStringArray("follow_target") instance=ExtResource("3_yq255")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.55275, -0.028564453, -4.702882)

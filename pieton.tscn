@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c11e3npj6453m"]
+[gd_scene format=3 uid="uid://c11e3npj6453m"]
 
 [ext_resource type="Script" uid="uid://b4ewvpbfapvux" path="res://people_1.gd" id="1_vb78p"]
 [ext_resource type="Script" uid="uid://cn2872m8evgvt" path="res://pieton.gd" id="1_x5qse"]
@@ -97,12 +97,12 @@ material = SubResource("StandardMaterial3D_g33e6")
 size = Vector2(4, 4)
 orientation = 2
 
-[node name="Pieton" type="Node3D" node_paths=PackedStringArray("mesh", "explo")]
+[node name="Pieton" type="Node3D" unique_id=812360240 node_paths=PackedStringArray("mesh", "explo")]
 script = ExtResource("1_x5qse")
 mesh = NodePath("people1/CollisionShape3D/MeshInstance3D")
 explo = NodePath("MeshInstance3D")
 
-[node name="people1" type="RigidBody3D" parent="." node_paths=PackedStringArray("boom", "ColShape")]
+[node name="people1" type="RigidBody3D" parent="." unique_id=1336307423 node_paths=PackedStringArray("boom", "ColShape")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -112,28 +112,26 @@ script = ExtResource("1_vb78p")
 boom = NodePath("CollisionShape3D/AnimationPlayer")
 ColShape = NodePath("CollisionShape3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="people1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="people1" unique_id=1612858282]
 shape = SubResource("CapsuleShape3D_oj3sk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="people1/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="people1/CollisionShape3D" unique_id=1636413991]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="people1/CollisionShape3D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="people1/CollisionShape3D" unique_id=2143387870]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_x5qse")
-}
+libraries/ = SubResource("AnimationLibrary_x5qse")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1828435144]
 transform = Transform3D(4, 0, 0, 0, -1.74846e-07, 4, 0, -4, -1.74846e-07, 0, 2.76862, 0)
 visible = false
 mesh = SubResource("PlaneMesh_vb78p")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="MeshInstance3D"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="MeshInstance3D" unique_id=1579017242]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.20132e-08, -0.732376)
 visible = false
 process_material = SubResource("ParticleProcessMaterial_g33e6")
 draw_pass_1 = SubResource("PlaneMesh_2q84u")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=78003772]
 wait_time = 2.0
