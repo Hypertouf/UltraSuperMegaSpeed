@@ -1,0 +1,53 @@
+[gd_scene format=4 uid="uid://ctk6ln36mej3g"]
+
+[ext_resource type="Texture2D" uid="uid://cynuynjkttwot" path="res://assets/Models/props/Roads_Road_atlas.png" id="1_2iir3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p86hm"]
+resource_name = "RoadAtlas"
+cull_mode = 2
+albedo_texture = ExtResource("1_2iir3")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hb5m2"]
+_surfaces = [{
+"aabb": AABB(-7.978002, -7.450581e-09, -7.978002, 20, 1e-05, 20),
+"format": 34896613377,
+"index_count": 69,
+"index_data": PackedByteArray("AAABAAIAAwAAAAIAAAAEAAEABAAFAAEABAAGAAUABgAEAAcABwAEAAAABwAAAAgACAAAAAkACQAAAAoAAAALAAoAAwAMAAAAAAAMAAsADQAMAAMACwAMAA4ADgAMAA8AEAAMAA0ADAARAA8AEAASAAwADAASABEAEwASABAAEgAUABEAEgATABQA"),
+"name": "RoadAtlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 21,
+"vertex_data": PackedByteArray("CXgAABRwAADLkQAA/38AAPyKAABagQAANoUAADaFAAD/fwAAM24AAP//AAD/fwAA//8AAAAAAAD/fwAAAAAAAAReAAAAAAAAkkIAADcGAADFKgAAORUAADkVAADFKgAAFHAAAAl4AABagQAA/IoAADcGAACSQgAAAAAAAAReAAD/fwAAy5EAAAAAAAD/fwAAM24AAP9/AAD/fwAA//8AAAAAAAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1wvwv"]
+resource_name = "Roads_Cube_005"
+_surfaces = [{
+"aabb": AABB(-7.978002, -7.450581e-09, -7.978002, 20, 1e-05, 20),
+"attribute_data": PackedByteArray("T8YlgiTTEIq/z72KRso2gd/MqIxXwhqG8sqGj0XK6ZJnwQ+KB4Dmv+6Iyf8HgOf2DMDmvwzAyf/Rf+a/Hrf//9F///8MwOa/DMAV96DKapUJ+PS7IMNJoQTA+a4EwOy/GffsvwT8+7dl1auKS+EvgwLvFYD//xWA//8Ltw=="),
+"format": 34896613399,
+"index_count": 69,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAAFAAAABgAFAAQABwAFAAYABwAIAAUACQAKAAsACgAJAAwACgAMAA0ADgAPABAADwAOABEADwARABIAEwAUABUAFQAUABYAFAAXABYAFAAYABcAGQAUABMAGQATABoAGwAZABoAHAAZABsAHQAZABwAHQAeABkA"),
+"material": SubResource("StandardMaterial3D_p86hm"),
+"name": "RoadAtlas",
+"primitive": 3,
+"uv_scale": Vector4(1.9986701, 2.002983, 0, 0),
+"vertex_count": 31,
+"vertex_data": PackedByteArray("CXgAABRw/7/LkQAA/3//v/yKAABagf+//38AADNu/782hQAANoX/vxRwAAAJeP+/WoEAAPyK/7//fwAAy5H/vzNuAAD/f/+//38AAP////8zbgAA/3////9/AADLkf//AAAAAP////8AAAAA/3//////AAAAAFTV/38AADNuVNX/fwAAAABU1f//AAD/f1TVy5EAAP9/VNU5FQAAxSr/vxRwAAAJeP+/NwYAAJJC/78AAAAABF7/vwAAAAD/f/+/M24AAP9//78JeAAAFHD/v8UqAAA5Ff+/kkIAADcG/78EXgAAAAD/v/9/AAAAAP+//38AADNu/7/7//h/+//4f/v/+H/7//h/+//4f/v/+H/7//h/+//4f/v/+H//f/+//3//v/9//7//f/+//3//v6qqqqqqqqqqqqqqqqqqqqqqqqmq/v//f/7//3////9/////f////3////9//v//f////3////9//v//f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hb5m2")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wi8h6"]
+data = PackedVector3Array(1.3999, 0, 0.7782, 3.4122, 0, 2.0218, 2.8803, 0, 2.1276999, 1.3999, 0, 0.7782, 2.0218, 0, 0.6314, 3.4122, 0, 2.0218, 2.4292998, 0, 2.4292998, 1.3999, 0, 0.7782, 2.8803, 0, 2.1276999, 2.4292998, 0, 2.4292998, 0.7782, 0, 1.3999, 1.3999, 0, 0.7782, 2.1276999, 0, 2.8803, 0.7782, 0, 1.3999, 2.4292998, 0, 2.4292998, 2.0218, 0, 3.4122, 0.7782, 0, 1.3999, 2.1276999, 0, 2.8803, 2.0218, 0, 3.4122, 0.6314, 0, 2.0218, 0.7782, 0, 1.3999, 2.0218, 0, 12.021999, 0.6314, 0, 2.0218, 2.0218, 0, 3.4122, 0.6314, 0, 2.0218, 2.0218, 0, 12.021999, -7.9779997, 0, 12.021999, 0.6314, 0, 2.0218, -7.9779997, 0, 12.021999, -7.9779997, 0, 2.0218, 12.021999, 0, -7.9779997, 2.0218, 0, 0.6314, 2.0218, 0, -7.9779997, 2.0218, 0, 0.6314, 12.021999, 0, -7.9779997, 12.021999, 0, 2.0218, 2.0218, 0, 0.6314, 12.021999, 0, 2.0218, 3.4122, 0, 2.0218, -6.3199997, 0, -4.6366, 0.7782, 0, 1.3999, -7.4925, 0, -2.7770998, -7.4925, 0, -2.7770998, 0.7782, 0, 1.3999, -7.9779997, 0, -0.6329, 0.7782, 0, 1.3999, -7.9779997, 0, 2.0218, -7.9779997, 0, -0.6329, 0.7782, 0, 1.3999, 0.6314, 0, 2.0218, -7.9779997, 0, 2.0218, 1.3999, 0, 0.7782, 0.7782, 0, 1.3999, -6.3199997, 0, -4.6366, 1.3999, 0, 0.7782, -6.3199997, 0, -4.6366, -4.6366, 0, -6.3199997, -2.7770998, 0, -7.4925, 1.3999, 0, 0.7782, -4.6366, 0, -6.3199997, -0.6329, 0, -7.9779997, 1.3999, 0, 0.7782, -2.7770998, 0, -7.4925, 2.0218, 0, -7.9779997, 1.3999, 0, 0.7782, -0.6329, 0, -7.9779997, 2.0218, 0, -7.9779997, 2.0218, 0, 0.6314, 1.3999, 0, 0.7782)
+
+[node name="Node3D" type="StaticBody3D" unique_id=2123673970]
+
+[node name="RoadTurning" type="MeshInstance3D" parent="." unique_id=733073697]
+mesh = SubResource("ArrayMesh_1wvwv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2094034244]
+shape = SubResource("ConcavePolygonShape3D_wi8h6")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bunpfwsn8y2rj"]
+
+[ext_resource type="ArrayMesh" uid="uid://dtu348da86h78" path="res://assets/Models/props/Roads/road_4ways.tres" id="1_0mmvu"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6cv3x"]
+points = PackedVector3Array(5.0000014, 0.04, -5.0000024, 5.0000014, 0, -5.0000024, -5.0000024, 0.04, -5.0000024, 4.999022, 0.04, 5.0000024, 4.999022, 0, 5.0000024, -5.0000024, 0, -5.0000024, -5.0000024, 0.04, 4.999024, -5.0000024, 0, 4.999024)
+
+[node name="Road_4ways" type="StaticBody3D" unique_id=648047569]
+
+[node name="Road4Ways" type="MeshInstance3D" parent="." unique_id=1909333863]
+mesh = ExtResource("1_0mmvu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=443561732]
+shape = SubResource("ConvexPolygonShape3D_6cv3x")

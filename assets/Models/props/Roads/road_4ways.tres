@@ -1,0 +1,42 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://dtu348da86h78"]
+
+[ext_resource type="Texture2D" uid="uid://cynuynjkttwot" path="res://assets/Models/props/Roads_Road_atlas.png" id="1_g0c70"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p86hm"]
+resource_name = "RoadAtlas"
+cull_mode = 2
+albedo_texture = ExtResource("1_g0c70")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l7o38"]
+_surfaces = [{
+"aabb": AABB(-5.0000024, 0, -5.0000024, 10.000004, 0.04, 10.000005),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgABAAQABAABAAMABQAAAAIABQADAAAAAgAEAAYABQACAAYABAADAAcABQAHAAMABgAEAAcABgAHAAUA"),
+"name": "RoadAtlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD+/wAA//8AAP7//////wAA//8AAAAAAAAAAAAA/v8AAAAA//8AAAAAAAD///7/AAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Roads_Cube_006"
+_surfaces = [{
+"aabb": AABB(-5.0000024, 0, -5.0000024, 10.000004, 0.04, 10.000005),
+"attribute_data": PackedByteArray("j8TYyMPE/fuPxP37w8TYyBn4/fvk99jIGfjYyOT3/fv/////DMAHwP//B8AMwP//5PejyMPE2MjDxKPI5PfYyMPEMfzk9/375Pcx/MPE/fvk9/37w8TYyOT32MjDxP37"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_p86hm"),
+"name": "RoadAtlas",
+"primitive": 3,
+"uv_scale": Vector4(2.0000606, 1.9994161, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAAVNX+/wAA//9U1f7//////1TV//8AAAAAVNUAAP///v9U1QAAAAAAAFTVAAD//wAAVNUAAAAA/v9U1QAA//8AAP///v////////8AAP///v////////8AAP//AAD//wAA/////wAAAAD///////8AAP//AAAAAAAA///+/////////wAAAAD+////AAD///7////+/wAA/////wAAAAD+//////8AAAAA//8AAAAAAAD///7/AAD/////qqpUVamqVFWpqlRVqqpUVVTVVNVU1VTVVNVU1VTVVNX/f/+//3//v/9//7//f/+//3////9/////f////3////9//3//f/9//3//f/9//3//f/8//3//P/9//z//f/8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_l7o38")
