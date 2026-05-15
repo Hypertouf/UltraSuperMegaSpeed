@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://jaavrwy3gfo1"]
+
+[ext_resource type="ArrayMesh" uid="uid://y2q8tylqx0ey" path="res://assets/Models/props/Tv_intact.tres" id="1_x5sod"]
+[ext_resource type="Script" uid="uid://cemt8066x3ywn" path="res://assets/Models/props/tv.gd" id="1_y1q63"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y1q63"]
+size = Vector3(1, 0.7803955, 0.8751221)
+
+[node name="Tv" type="RigidBody3D" unique_id=1060322279]
+script = ExtResource("1_y1q63")
+
+[node name="TvIntact" type="MeshInstance3D" parent="." unique_id=1322357356]
+mesh = ExtResource("1_x5sod")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=137740728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39642334, -0.02947998)
+shape = SubResource("BoxShape3D_y1q63")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

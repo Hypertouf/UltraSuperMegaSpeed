@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b73vtljts3rxo"
-path="res://.godot/imported/Roads.glb-719bb5f2c76782d8ba6c0bb57752ed4b.scn"
+uid="uid://fbn3qlt8fy2v"
+path="res://.godot/imported/Tvs.glb-6653ab2d89f26e5eb2938501573b0591.scn"
 
 [deps]
 
-source_file="res://assets/Models/props/Roads.glb"
-dest_files=["res://.godot/imported/Roads.glb-719bb5f2c76782d8ba6c0bb57752ed4b.scn"]
+source_file="res://assets/Models/props/Tvs.glb"
+dest_files=["res://.godot/imported/Tvs.glb-6653ab2d89f26e5eb2938501573b0591.scn"]
 
 [params]
 
