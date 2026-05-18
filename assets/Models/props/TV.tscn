@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://jaavrwy3gfo1"]
 
-[ext_resource type="ArrayMesh" uid="uid://y2q8tylqx0ey" path="res://assets/Models/props/Tv_intact.tres" id="1_x5sod"]
+[ext_resource type="ArrayMesh" uid="uid://b7womw3xn2ds8" path="res://assets/Models/props/Tv_intact.tres" id="1_x5sod"]
 [ext_resource type="Script" uid="uid://cemt8066x3ywn" path="res://assets/Models/props/tv.gd" id="1_y1q63"]
-[ext_resource type="ArrayMesh" uid="uid://ooemfqk271c7" path="res://assets/Models/props/Tv_broke.tres" id="3_k4cva"]
+[ext_resource type="ArrayMesh" uid="uid://dwdox0bsrxqeb" path="res://assets/Models/props/Tv_broke.tres" id="3_k4cva"]
 [ext_resource type="AudioStream" uid="uid://c0llask5xjo1d" path="res://assets/Audio/deltarune explosion greenscreen.mp3" id="4_6fl3k"]
 [ext_resource type="AudioStream" uid="uid://ctjv4n5qu7pi7" path="res://assets/Audio/Ten Minutes of Static.mp3" id="5_6fl3k"]
 [ext_resource type="Texture2D" uid="uid://cp5hl5ypk0f5h" path="res://AnimTextExplo.tres" id="6_6irsl"]
@@ -76,7 +76,10 @@ material = SubResource("StandardMaterial3D_g33e6")
 size = Vector2(4, 4)
 orientation = 2
 
-[node name="Tv" type="RigidBody3D" unique_id=1060322279 node_paths=PackedStringArray("mesh", "anim", "light", "sound", "parti")]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6irsl"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="Tv" type="RigidBody3D" unique_id=1060322279 node_paths=PackedStringArray("mesh", "anim", "light", "sound", "parti", "text")]
 mass = 0.01
 script = ExtResource("1_y1q63")
 mesh = NodePath("Tv_mesh")
@@ -87,6 +90,7 @@ light = NodePath("SpotLight3D")
 sound = NodePath("AudioStreamPlayer3D")
 explosion = ExtResource("4_6fl3k")
 parti = NodePath("GPUParticles3D")
+text = NodePath("Sprite3D")
 
 [node name="Tv_mesh" type="MeshInstance3D" parent="." unique_id=1322357356]
 mesh = ExtResource("1_x5sod")
@@ -113,12 +117,30 @@ spot_angle = 40.8
 stream = ExtResource("5_6fl3k")
 volume_db = -30.0
 autoplay = true
+max_distance = 50.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=58054213]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.20132e-08, -0.732376)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_f5j11")
 draw_pass_1 = SubResource("PlaneMesh_b4wrp")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=4429990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.263446, 0)
+pixel_size = 0.03
+billboard = 1
+texture = SubResource("ViewportTexture_6irsl")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=1178895251]
+transparent_bg = true
+size = Vector2i(110, 30)
+size_2d_override = Vector2i(50, 50)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite3D/SubViewport" unique_id=145199727]
+offset_right = 504.0
+offset_bottom = 40.0
+bbcode_enabled = true
+text = "[b][shake rate=30.0 level=10 connected=1][wave amp=50.0 freq=5.0 connected=1][rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]HA HA HA HA[/rainbow][/wave][/shake]"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

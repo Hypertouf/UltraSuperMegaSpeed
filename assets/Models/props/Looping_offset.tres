@@ -1,10 +1,8 @@
 [gd_resource type="ArrayMesh" format=4 uid="uid://dokhtm32injf7"]
 
-[ext_resource type="Texture2D" uid="uid://dm52nqae1mief" path="res://assets/Textures/T_road.png" id="1_3uujw"]
 [ext_resource type="Texture2D" uid="uid://caorwmxtxx6g8" path="res://assets/Models/textures/Concrete_generic.png" id="2_6mpdg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gosqw"]
-albedo_texture = ExtResource("1_3uujw")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbw7i"]

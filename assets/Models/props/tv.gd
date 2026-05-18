@@ -8,6 +8,7 @@ extends RigidBody3D
 @export var sound : AudioStreamPlayer3D
 @export var explosion : AudioStreamMP3
 @export var parti : GPUParticles3D
+@export var text : Sprite3D
 var izdead : bool = false
 
 func _ready() -> void:
@@ -25,6 +26,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		sound.play()
 		light.light_energy = 0
 		anim.stop()
+		text.visible = false
 		mesh.mesh = broke
 		var timy = Timer.new() # Create a new Sprite2D.
 		timy.autostart = true
