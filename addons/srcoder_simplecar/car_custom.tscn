@@ -115,11 +115,11 @@ one_shot = true
 [node name="walljumpTimer" type="Timer" parent="." unique_id=417806007]
 one_shot = true
 
-[node name="cockpit" type="Camera3D" parent="." unique_id=62731619]
-transform = Transform3D(-1, -1.0778208e-15, -8.742277e-08, 1.1167362e-08, 0.9918077, -0.12773974, 8.670658e-08, -0.12773974, -0.9918077, -2.5091273e-08, 1.0542033, -2.317504)
-
 [node name="bumpTimer" type="Timer" parent="." unique_id=1267097384]
 one_shot = true
+
+[node name="cockpit" type="Camera3D" parent="." unique_id=62731619]
+transform = Transform3D(-1, -1.0778209e-15, -8.742277e-08, 1.1167362e-08, 0.99180776, -0.12773977, 8.670658e-08, -0.12773976, -0.99180776, -2.5091273e-08, 1.0542033, -2.317504)
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="hitbox" to="." method="_on_hitbox_area_exited"]
