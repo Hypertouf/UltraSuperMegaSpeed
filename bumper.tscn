@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bw4tstdbc6htr" path="res://bumper.gd" id="1_hrt4a"]
 [ext_resource type="PackedScene" uid="uid://dsy5twty10ykf" path="res://assets/Models/props/ressors.tscn" id="2_h31vo"]
+[ext_resource type="AudioStream" uid="uid://b4l15yvn8ce5t" path="res://assets/Audio/spring_sound_1.wav" id="3_sn2yj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gyrsk"]
 size = Vector3(0.27978516, 0.46936035, 0.18115234)
@@ -10,12 +11,13 @@ size = Vector3(0.27978516, 0.46936035, 0.18115234)
 
 [node name="Bumper" type="Node3D" unique_id=1560870479]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1686974564 node_paths=PackedStringArray("Colbumper", "Meesh")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1686974564 node_paths=PackedStringArray("Colbumper", "Meesh", "Sound")]
 lock_rotation = true
 freeze = true
 script = ExtResource("1_hrt4a")
 Colbumper = NodePath("CollisionShape3D")
 Meesh = NodePath("CollisionShape3D/ressors")
+Sound = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=17618427]
 shape = SubResource("BoxShape3D_gyrsk")
@@ -25,3 +27,14 @@ shape = SubResource("BoxShape3D_gyrsk")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1787238174]
 visible = false
 mesh = SubResource("CapsuleMesh_2f0gt")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=1246359045]
+stream = ExtResource("3_sn2yj")
+volume_db = -20.0
+
+[node name="Area3D" type="Area3D" parent="RigidBody3D" unique_id=352008786]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D" unique_id=84341354]
+shape = SubResource("BoxShape3D_gyrsk")
+
+[connection signal="area_entered" from="RigidBody3D/Area3D" to="RigidBody3D" method="_on_area_3d_area_entered"]

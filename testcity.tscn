@@ -30,7 +30,6 @@
 [ext_resource type="ArrayMesh" uid="uid://b13gjyi1ur5sa" path="res://assets/Models/props/Bouche_Incendie.tres" id="30_7b2fy"]
 [ext_resource type="PackedScene" uid="uid://1n6vxhapemow" path="res://assets/Models/props/looping_scene.tscn" id="30_3824e"]
 [ext_resource type="ArrayMesh" uid="uid://gqiqsgm1h8lb" path="res://assets/Models/props/Building.tres" id="31_3824e"]
-[ext_resource type="PackedScene" uid="uid://cwd67p3r0e5vm" path="res://assets/Models/props/route_scene.tscn" id="31_nmf1d"]
 [ext_resource type="PackedScene" uid="uid://b855nbwddsohx" path="res://assets/Models/props/looping_barrierless_scene.tscn" id="32_7b2fy"]
 [ext_resource type="Script" uid="uid://bak2utxuhhqnf" path="res://enterloop.gd" id="32_nmf1d"]
 [ext_resource type="Script" uid="uid://d4gh1bllr2irl" path="res://exitloop.gd" id="33_7b2fy"]
@@ -509,27 +508,27 @@ bump_x = 3.0
 bump_z = 5.0
 
 [node name="booster_pad" parent="buildingArea" unique_id=1539197742 instance=ExtResource("20_igicc")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.218819, 32.775463, 215.87393)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.218819, 32.58716, 215.87393)
 script = ExtResource("20_jjgpy")
 
 [node name="booster_pad2" parent="buildingArea" unique_id=1166323520 instance=ExtResource("20_igicc")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.387272, 32.775463, 216.46356)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.387272, 32.58677, 216.46356)
 script = ExtResource("20_jjgpy")
 
 [node name="booster_pad3" parent="buildingArea" unique_id=169759654 instance=ExtResource("20_igicc")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.387272, 32.775463, 200.98816)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.387272, 32.588196, 200.98816)
 script = ExtResource("20_jjgpy")
 
 [node name="booster_pad4" parent="buildingArea" unique_id=1237048708 instance=ExtResource("20_igicc")]
-transform = Transform3D(-1.0000001, 0, 8.7422784e-08, 0, 1, 0, -8.7422784e-08, 0, -1.0000001, 34.782425, 32.775463, 200.87071)
+transform = Transform3D(-1.0000001, 0, 8.7422784e-08, 0, 1, 0, -8.7422784e-08, 0, -1.0000001, 34.782425, 32.58165, 200.87071)
 script = ExtResource("20_jjgpy")
 
 [node name="booster_pad5" parent="buildingArea" unique_id=760020470 instance=ExtResource("20_igicc")]
-transform = Transform3D(-0.0069812406, 0, -0.9999756, 0, 1, 0, 0.9999756, 0, -0.0069812406, 34.93586, 32.775463, 182.93994)
+transform = Transform3D(-0.0069812406, 0, -0.9999756, 0, 1, 0, 0.9999756, 0, -0.0069812406, 34.93586, 32.568104, 182.93994)
 script = ExtResource("20_jjgpy")
 
 [node name="booster_pad6" parent="buildingArea" unique_id=1750101655 instance=ExtResource("20_igicc")]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -4.3166475, 32.775463, 182.88617)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -4.3166475, 32.56844, 182.88617)
 script = ExtResource("20_jjgpy")
 
 [node name="Lampadaire" type="StaticBody3D" parent="buildingArea" unique_id=209864178]
@@ -777,7 +776,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.35160065, 
 shape = SubResource("BoxShape3D_3824e")
 
 [node name="booster_pad6" parent="Wall_ride" unique_id=1830073677 instance=ExtResource("20_igicc")]
-transform = Transform3D(-0.993552, 0, -0.11337659, 0, 1, 0, 0.11337659, 0, -0.993552, -7.939028, -9.386135, 20.498154)
+transform = Transform3D(-0.993552, 0, -0.11337659, 0, 1, 0, 0.11337659, 0, -0.993552, -7.939028, -9.590664, 20.498154)
 script = ExtResource("20_jjgpy")
 power = 15.0
 
@@ -865,7 +864,7 @@ size = Vector3(0.03482, 0.79976165, 20.659948)
 material = SubResource("StandardMaterial3D_e0q2u")
 
 [node name="booster_pad6" parent="Wall_ride2" unique_id=1525066855 instance=ExtResource("20_igicc")]
-transform = Transform3D(-0.9876882, 0, -0.1564345, 0, 1, 0, 0.1564345, 0, -0.9876882, -7.720482, -9.386135, 21.490288)
+transform = Transform3D(-0.9876882, 0, -0.1564345, 0, 1, 0, 0.1564345, 0, -0.9876882, -7.720482, -9.5744705, 21.490288)
 script = ExtResource("20_jjgpy")
 power = 15.0
 
@@ -914,15 +913,12 @@ transform = Transform3D(0.94900817, 0, -0.31525156, 0, 1, 0, 0.31525156, 0, 0.94
 shape = SubResource("BoxShape3D_6p87c")
 
 [node name="booster_pad7" parent="Wall_ride3" unique_id=783139051 instance=ExtResource("20_igicc")]
-transform = Transform3D(-0.99074996, 0, -0.13569826, 0, 1, 0, 0.13569826, 0, -0.99074996, -7.883278, -9.386135, 21.197487)
+transform = Transform3D(-0.99074996, 0, -0.13569826, 0, 1, 0, 0.13569826, 0, -0.99074996, -7.883278, -9.588146, 21.197487)
 script = ExtResource("20_jjgpy")
 power = 15.0
 
 [node name="Looping_scene" parent="." unique_id=1527651806 instance=ExtResource("30_3824e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.1844, 32.563057, 153.06516)
-
-[node name="Route_scene" parent="." unique_id=2058465276 instance=ExtResource("31_nmf1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.83924, 32.563046, 153.44742)
 
 [node name="Looping_Barrierless_scene" parent="." unique_id=404991392 instance=ExtResource("32_7b2fy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.22574, 32.563034, 168.8068)
@@ -992,7 +988,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_3824e")
 
 [node name="booster_pad7" parent="." unique_id=53128439 instance=ExtResource("20_igicc")]
-transform = Transform3D(-0.9989187, -0.030588731, 0.035010513, -0.020631064, 0.96651065, 0.2557963, -0.0416625, 0.25479743, -0.9660964, -64.85932, 44.701023, 136.73138)
+transform = Transform3D(-0.9999179, -0.008507309, -0.0095948875, -0.010602893, 0.9693385, 0.24550156, 0.0072121546, 0.24558313, -0.9693487, -64.85833, 44.669662, 136.72311)
 script = ExtResource("20_jjgpy")
 
 [node name="Bump1" parent="." unique_id=1851882378 instance=ExtResource("16_gyrsk")]

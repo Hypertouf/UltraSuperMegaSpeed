@@ -20,6 +20,12 @@ extends VehicleBody3D
 @export var followcamera : Node3D
 @export var SLODER : VSlider
 @export var hitbox : Area3D
+@export var explosion : AudioStreamMP3
+@export var nitrousSound : AudioStreamMP3
+@export var trickLand : AudioStreamWAV
+@export var Sound : AudioStreamPlayer3D
+
+
 
 #local member variables
 var player_acceleration : float = 0.0
@@ -75,13 +81,15 @@ func _input(event): #
 			
 	if event.is_action_pressed("nitrous") and torbo.value > 10 :
 		#linear_velocity += 25 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z)))
-		$nitrous.play() 
+		Sound.stream = nitrousSound
+		Sound.play() 
 		torbo.value -= 25
 		followcamera.rotation.y = rotation.y
 		linear_velocity += transform.basis.z * 12
 	
 	if event.is_action_pressed("stomp") and !$check_ground.is_colliding() and torbo.value > 10 :
-		$nitrous.play() 
+		Sound.stream = nitrousSound
+		Sound.play() 
 		torbo.value -= 25
 		linear_velocity.y = -10
 		
@@ -229,6 +237,8 @@ func get_input(delta : float):
 		#print("it's non the ground")
 		if tricks != [0,0,0]:
 			print(tricks)
+			Sound.stream = trickLand
+			Sound.play()
 			if tricks == [0,1,0] :
 				print("front 360 !")
 			if tricks == [0,-1,0] :
@@ -289,10 +299,11 @@ func going_forward() -> bool:
 		return false
 
 func _on_hitbox_body_entered(body: Node3D) -> void:
-	print(body)
+	#print(body)
 	if body is people :
 		print("die die die")
-		$explo.play()
+		Sound.stream = explosion
+		Sound.play() 
 		body.get_parent().explo.position = body.position
 		body.linear_velocity = linear_velocity * 10 #makes the NPC get yeeted at very fast speeds when collided
 		body.boom.play("Boom")
@@ -349,7 +360,7 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 
 
 func _on_hitbox_area_entered(area: Area3D) -> void:
-	print(area)
+	#print(area)
 	if area is enterLoop :
 		$cockpit.fov = 90
 		$cockpit.make_current()

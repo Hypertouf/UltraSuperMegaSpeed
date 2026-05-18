@@ -425,6 +425,9 @@ transform = Transform3D(-0.0023736176, 0, -0.9999972, 0, 1, 0, 0.9999972, 0, -0.
 [node name="Barriere_default2" parent="bunch_o\'_buildings" unique_id=2071838130 instance=ExtResource("35_kb7yh")]
 transform = Transform3D(-0.003927026, 0, -0.9999923, 0, 1, 0, 0.9999923, 0, -0.003927026, -68.96506, 39.794815, 15.712037)
 
+[node name="Barriere_small" parent="bunch_o\'_buildings" unique_id=278157494 instance=ExtResource("34_1uvwm")]
+transform = Transform3D(0.017906142, 0, 0.99983966, 0, 1, 0, -0.99983966, 0, 0.017906142, -114.69622, 26.000027, 0.228845)
+
 [node name="the_big_ONE" type="Node3D" parent="." unique_id=1642111166]
 
 [node name="Building6" parent="the_big_ONE" unique_id=1807344747 instance=ExtResource("15_xib5o")]
@@ -789,7 +792,7 @@ script = ExtResource("19_pmuua")
 transform = Transform3D(1, 0, 0, 0, 0.92879015, 0.37060603, 0, -0.37060603, 0.92879015, -121.750824, 20.275805, -60.277878)
 script = ExtResource("19_pmuua")
 
-[node name="Barriere_small" parent="ezRoute" unique_id=278157494 instance=ExtResource("34_1uvwm")]
+[node name="Barriere_small" parent="ezRoute" unique_id=2019709630 instance=ExtResource("34_1uvwm")]
 transform = Transform3D(1, 0, 0, 0, 0.9470143, 0.32119155, 0, -0.32119155, 0.9470143, -112.120544, 23.758938, -7.2467575)
 
 [node name="Echaffaudage" parent="ezRoute" unique_id=82235281 instance=ExtResource("30_pjy18")]

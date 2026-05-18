@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://p0kah35jkkke" path="res://assets/Models/Tuture/wheel-back-right.tres" id="4_1i4ed"]
 [ext_resource type="Shape3D" uid="uid://j86ti6qr6k03" path="res://assets/Models/Tuture/body_collision_convex.tres" id="4_67njv"]
 [ext_resource type="AudioStream" uid="uid://r8bgkcn26u2e" path="res://assets/Audio/NFSU2 Nitrous Oxide System Sound Effects.mp3" id="4_v75hc"]
+[ext_resource type="AudioStream" uid="uid://dl8gi3jd4ttd5" path="res://assets/Audio/turboGain.wav" id="5_2cqij"]
 [ext_resource type="ArrayMesh" uid="uid://cap6vdgy1mha" path="res://assets/Models/Tuture/wheel-back-left.tres" id="5_67njv"]
 [ext_resource type="AudioStream" uid="uid://c0llask5xjo1d" path="res://assets/Audio/deltarune explosion greenscreen.mp3" id="5_y1lln"]
 [ext_resource type="ArrayMesh" uid="uid://dg5won52i52g8" path="res://assets/Models/Tuture/wheel-front-right.tres" id="6_2cqij"]
@@ -14,12 +15,17 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_iwjfg"]
 size = Vector3(1.67963, 1.09668, 2.9843109)
 
-[node name="car" type="VehicleBody3D" unique_id=585784445]
+[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("hitbox", "Sound")]
 collision_layer = 2
 physics_material_override = ExtResource("1_gdthg")
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.28881523, -0.020060861)
 script = ExtResource("2_mbobr")
+hitbox = NodePath("hitbox")
+explosion = ExtResource("5_y1lln")
+nitrousSound = ExtResource("4_v75hc")
+trickLand = ExtResource("5_2cqij")
+Sound = NodePath("AudioStreamPlayer3D")
 
 [node name="body" type="MeshInstance3D" parent="." unique_id=787695455]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28881523, -0.020060861)
@@ -91,13 +97,8 @@ skeleton = NodePath("")
 [node name="check_ground" type="RayCast3D" parent="." unique_id=1438501857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120831, -0.24324802, 0)
 
-[node name="nitrous" type="AudioStreamPlayer3D" parent="." unique_id=196192388]
-stream = ExtResource("4_v75hc")
-volume_db = -30.832
-
-[node name="explo" type="AudioStreamPlayer3D" parent="." unique_id=567408761]
-stream = ExtResource("5_y1lln")
-volume_db = -31.516
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1541837788]
+volume_db = -30.0
 
 [node name="hitbox" type="Area3D" parent="." unique_id=2132694768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.328943, 0)
