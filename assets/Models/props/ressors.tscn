@@ -1,8 +1,31 @@
 [gd_scene format=3 uid="uid://dsy5twty10ykf"]
 
-[ext_resource type="PackedScene" uid="uid://dmtd3jme7nn2i" path="res://assets/Models/props/ressors.glb" id="1_5ewv3"]
 [ext_resource type="Script" uid="uid://ctomnfll1nest" path="res://assets/Models/props/ressors.gd" id="2_cgwvx"]
+[ext_resource type="ArrayMesh" uid="uid://ct3f60eg6ue8u" path="res://assets/Models/props/Ressors.tres" id="2_rtnjy"]
 
-[node name="ressors" unique_id=1538105530 node_paths=PackedStringArray("player") instance=ExtResource("1_5ewv3")]
+[sub_resource type="Animation" id="Animation_wbv76"]
+resource_name = "Trigger"
+length = 0.5416667
+tracks/0/type = "scale_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torus")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.033333335, 1, 1, 1, 1, 0.06666667, 1, 1, 0.75949305, 1, 0.1, 1, 1, 0.43881717, 1, 0.13333334, 1, 1, 0.31056786, 1, 0.16666667, 1, 1, 0.7595978, 1, 0.2, 1, 1, 1.5935107, 1, 0.23333333, 1, 1, 2.1387613, 1, 0.26666668, 1, 1, 2.037381, 1, 0.33333334, 1, 1, 0.733801, 1, 0.4, 1, 1, 1.1314694, 1, 0.43333334, 1, 1, 1.110126, 1, 0.46666667, 1, 1, 0.97995913, 1, 0.5, 1, 1, 1.1838528, 1, 0.5416667, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ajwco"]
+_data = {
+&"Trigger": SubResource("Animation_wbv76")
+}
+
+[node name="ressors" type="Node3D" unique_id=1538105530 node_paths=PackedStringArray("player")]
 script = ExtResource("2_cgwvx")
 player = NodePath("AnimationPlayer")
+
+[node name="Torus" type="MeshInstance3D" parent="." unique_id=1105623988]
+mesh = ExtResource("2_rtnjy")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1289806475]
+libraries/ = SubResource("AnimationLibrary_ajwco")

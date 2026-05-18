@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bj41ndm0i4rlx"]
+
+[ext_resource type="ArrayMesh" uid="uid://cdoplllm10brb" path="res://assets/Models/props/Barriere/Barriere_small.tres" id="1_gd0hs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k8dum"]
+size = Vector3(0.13745117, 1.0011292, 5.523926)
+
+[node name="Barriere_small" type="StaticBody3D" unique_id=278157494]
+
+[node name="BarriereSmall_mesh" type="MeshInstance3D" parent="." unique_id=457119777]
+mesh = ExtResource("1_gd0hs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=399163495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0057373047, 0.56611633, -0.037353516)
+shape = SubResource("BoxShape3D_k8dum")
