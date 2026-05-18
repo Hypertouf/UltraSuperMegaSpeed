@@ -18,19 +18,20 @@ size = Vector3(1.67963, 1.09668, 2.9843109)
 collision_layer = 2
 physics_material_override = ExtResource("1_gdthg")
 center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.28881523, -0.020060861)
 script = ExtResource("2_mbobr")
 
 [node name="body" type="MeshInstance3D" parent="." unique_id=787695455]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040127784, -0.020060861)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28881523, -0.020060861)
 mesh = ExtResource("3_y1lln")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=107261883]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040127784, -0.020060861)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28881523, -0.020060861)
 shape = ExtResource("4_67njv")
 
 [node name="WheelBackRight" type="VehicleWheel3D" parent="." unique_id=653985420]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.3, -0.6687834)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, -0.028943002, -0.6687834)
 wheel_roll_influence = 1.0
 wheel_radius = 0.3
 wheel_friction_slip = 5.0
@@ -44,7 +45,7 @@ mesh = ExtResource("4_1i4ed")
 skeleton = NodePath("")
 
 [node name="WheelBackLeft" type="VehicleWheel3D" parent="." unique_id=61028692]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.3, -0.6687834)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, -0.028943002, -0.6687834)
 wheel_roll_influence = 1.0
 wheel_radius = 0.3
 wheel_friction_slip = 5.0
@@ -58,7 +59,7 @@ mesh = ExtResource("5_67njv")
 skeleton = NodePath("")
 
 [node name="WheelFrontRight" type="VehicleWheel3D" parent="." unique_id=1795746929]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.3, 0.656971)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, -0.028943002, 0.656971)
 use_as_steering = true
 wheel_roll_influence = 1.0
 wheel_radius = 0.3
@@ -73,7 +74,7 @@ mesh = ExtResource("6_2cqij")
 skeleton = NodePath("")
 
 [node name="WheelFrontLeft" type="VehicleWheel3D" parent="." unique_id=1727671381]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.3, 0.656971)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, -0.028943002, 0.656971)
 use_as_steering = true
 wheel_roll_influence = 1.0
 wheel_radius = 0.3
@@ -88,7 +89,7 @@ mesh = ExtResource("7_syhvw")
 skeleton = NodePath("")
 
 [node name="check_ground" type="RayCast3D" parent="." unique_id=1438501857]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120831, 0.085695, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120831, -0.24324802, 0)
 
 [node name="nitrous" type="AudioStreamPlayer3D" parent="." unique_id=196192388]
 stream = ExtResource("4_v75hc")
@@ -99,6 +100,7 @@ stream = ExtResource("5_y1lln")
 volume_db = -31.516
 
 [node name="hitbox" type="Area3D" parent="." unique_id=2132694768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.328943, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox" unique_id=2036620393]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00377119, 0.594732, 0.01800549)
@@ -114,7 +116,7 @@ one_shot = true
 one_shot = true
 
 [node name="cockpit" type="Camera3D" parent="." unique_id=62731619]
-transform = Transform3D(-1, -1.0778208e-15, -8.742277e-08, 1.1167362e-08, 0.9918077, -0.12773974, 8.670658e-08, -0.12773974, -0.9918077, 0, 1.3845024, -2.0706635)
+transform = Transform3D(-1, -1.0778208e-15, -8.742277e-08, 1.1167362e-08, 0.9918077, -0.12773974, 8.670658e-08, -0.12773974, -0.9918077, -2.5091273e-08, 1.0542033, -2.317504)
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="hitbox" to="." method="_on_hitbox_area_exited"]

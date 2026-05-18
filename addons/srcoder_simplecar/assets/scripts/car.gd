@@ -306,7 +306,7 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 	if body is bumper :
 		body.Meesh.player.play("Trigger")
 		print("enter bumper")
-		position.y = body.global_position.y
+		position.y = body.global_position.y + 0.29
 		position.x = body.global_position.x
 		position.z = body.global_position.z
 		linear_velocity.y = body.get_parent_node_3d().bump_y
@@ -315,7 +315,7 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 		
 	if body is booster_pad :
 		print("enter booster")
-		position.y = body.global_position.y
+		position.y = body.global_position.y + 0.29
 		position.x = body.global_position.x
 		position.z = body.global_position.z
 		rotation = body.global_rotation

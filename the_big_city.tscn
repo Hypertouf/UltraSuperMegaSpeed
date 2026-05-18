@@ -639,30 +639,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.75788, 26.746986, -47.09
 [node name="Echaffaudage3" parent="." unique_id=636971868 instance=ExtResource("30_pjy18")]
 transform = Transform3D(1, 0, 0, 0, 0.95051575, 0.31067643, 0, -0.31067643, 0.95051575, -114.29903, 20.212988, -7.221259)
 
-[node name="InvisibleWall" type="StaticBody3D" parent="." unique_id=1918536810]
+[node name="MapLimits" type="Node3D" parent="." unique_id=535886358]
+
+[node name="InvisibleWall" type="StaticBody3D" parent="MapLimits" unique_id=1918536810]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.85594, 0, -139.99554)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisibleWall" unique_id=472418227]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapLimits/InvisibleWall" unique_id=472418227]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -31.547226, 26.364868, 31.542046)
 shape = SubResource("BoxShape3D_62cfs")
 
-[node name="InvisibleWall2" type="StaticBody3D" parent="." unique_id=2111558028]
+[node name="InvisibleWall2" type="StaticBody3D" parent="MapLimits" unique_id=2111558028]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.85594, 0, 104.611206)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisibleWall2" unique_id=1599815164]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapLimits/InvisibleWall2" unique_id=1599815164]
 transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, -28.981743, 26.364868, 1.7821655)
 shape = SubResource("BoxShape3D_rvk64")
 
-[node name="InvisibleWall3" type="StaticBody3D" parent="." unique_id=496592809]
+[node name="InvisibleWall3" type="StaticBody3D" parent="MapLimits" unique_id=496592809]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.64055, 0, -139.99554)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisibleWall3" unique_id=2018499296]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapLimits/InvisibleWall3" unique_id=2018499296]
 transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, -75.166725, 26.364868, 32.546494)
 shape = SubResource("BoxShape3D_1uvwm")
 
-[node name="InvisibleWall4" type="StaticBody3D" parent="." unique_id=9271988]
+[node name="InvisibleWall4" type="StaticBody3D" parent="MapLimits" unique_id=9271988]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.89447, 0, 90.1936)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisibleWall4" unique_id=869517425]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapLimits/InvisibleWall4" unique_id=869517425]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -15.105305, 26.364868, 13.648548)
 shape = SubResource("BoxShape3D_kb7yh")
