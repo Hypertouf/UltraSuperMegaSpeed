@@ -528,7 +528,7 @@ transform = Transform3D(1, 0, 0, 0, 0.92879015, 0.37060603, 0, -0.37060603, 0.92
 script = ExtResource("19_pmuua")
 
 [node name="booster_pad3" parent="bunch_o\'_buildings" unique_id=9854485 instance=ExtResource("18_csgam")]
-transform = Transform3D(1, 0, 0, 0, 0.92879015, 0.37060603, 0, -0.37060603, 0.92879015, -121.750824, 20.306225, -60.290016)
+transform = Transform3D(1, 0, 0, 0, 0.92879015, 0.37060603, 0, -0.37060603, 0.92879015, -121.750824, 20.349932, -60.307457)
 script = ExtResource("19_pmuua")
 
 [node name="the_big_ONE" type="Node3D" parent="." unique_id=1642111166]
