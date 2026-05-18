@@ -269,6 +269,16 @@ func get_input(delta : float):
 		axis_lock_angular_z = false
 		for wheel in steering_wheels :
 			wheel.wheel_friction_slip = 5.0
+	
+	if !$bumpTimer.is_stopped() :
+		axis_lock_angular_y = true
+		axis_lock_angular_z = true
+		axis_lock_angular_x = true
+			
+	else :
+		axis_lock_angular_x = false
+		axis_lock_angular_y = false
+		axis_lock_angular_z = false
 		
 ## helper function to see if we are moving forward
 func going_forward() -> bool:
@@ -306,12 +316,17 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 	if body is bumper :
 		body.Meesh.player.play("Trigger")
 		print("enter bumper")
-		position.y = body.global_position.y + 0.31
+		position.y = body.global_position.y + 0.5
 		position.x = body.global_position.x
 		position.z = body.global_position.z
+		rotation.x = body.global_rotation.x -45
+		rotation.y = body.global_rotation.y
+		rotation.z = body.global_rotation.z
+		$bumpTimer.start(0.2)
 		linear_velocity.y = body.get_parent_node_3d().bump_y
 		linear_velocity.x = body.get_parent_node_3d().bump_x
 		linear_velocity.z = body.get_parent_node_3d().bump_z
+
 		
 	if body is booster_pad :
 		print("enter booster")

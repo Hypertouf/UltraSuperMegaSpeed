@@ -343,6 +343,9 @@ transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70
 [node name="Road_4ways2" parent="Main_road" unique_id=98420801 instance=ExtResource("29_qn0af")]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -1.8359967, -0.013964176, -81.5677)
 
+[node name="RoadDefault17" parent="Main_road" unique_id=1181978539 instance=ExtResource("14_ffspi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -34.602745, -9.536743e-07, -50.884247)
+
 [node name="bunch_o\'_buildings" type="Node3D" parent="." unique_id=876232540]
 
 [node name="Building" parent="bunch_o\'_buildings" unique_id=133595730 instance=ExtResource("15_xib5o")]
@@ -448,10 +451,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66, 0, 42)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107, 0, 24)
 
 [node name="Looping_scene" parent="bunch_o\'_buildings" unique_id=1527651806 instance=ExtResource("22_vajfm")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -92.28541, 39.58815, 56.34557)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -92.28541, 39.690117, 55.11089)
 
 [node name="Looping_scene2" parent="bunch_o\'_buildings" unique_id=1478339025 instance=ExtResource("22_vajfm")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -99.35213, 39.58815, 67.84864)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -99.35213, 39.483322, 67.35036)
 
 [node name="Building11" parent="bunch_o\'_buildings" unique_id=1756896058 instance=ExtResource("15_xib5o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.651985, 0.068021774, 81.65701)
@@ -528,7 +531,7 @@ transform = Transform3D(1, 0, 0, 0, 0.92879015, 0.37060603, 0, -0.37060603, 0.92
 script = ExtResource("19_pmuua")
 
 [node name="booster_pad3" parent="bunch_o\'_buildings" unique_id=9854485 instance=ExtResource("18_csgam")]
-transform = Transform3D(1, 0, 0, 0, 0.92879015, 0.37060603, 0, -0.37060603, 0.92879015, -121.750824, 20.349932, -60.307457)
+transform = Transform3D(1, 0, 0, 0, 0.92879015, 0.37060603, 0, -0.37060603, 0.92879015, -121.750824, 20.275805, -60.277878)
 script = ExtResource("19_pmuua")
 
 [node name="the_big_ONE" type="Node3D" parent="." unique_id=1642111166]
@@ -585,9 +588,6 @@ power = 25.0
 [node name="Tv" parent="." unique_id=1060322279 instance=ExtResource("31_ffspi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.81809, 40.046463, 83.95676)
 
-[node name="RoadDefault" parent="." unique_id=1181978539 instance=ExtResource("14_ffspi")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -34.602745, -9.536743e-07, -50.884247)
-
 [node name="grosserampe2" type="CSGBox3D" parent="." unique_id=527099385]
 transform = Transform3D(-4.3711385e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -4.3711385e-08, -97.93229, 1.979384, -77.2329)
 use_collision = true
@@ -604,27 +604,27 @@ height = 7.6482306
 sides = 64
 
 [node name="Bumper" parent="." unique_id=984964292 instance=ExtResource("32_62cfs")]
-transform = Transform3D(0.82557666, -0.56429, 0, 0.56429, 0.82557666, 0, 0, 0, 1, -101.200676, 2.909862, -77.317825)
+transform = Transform3D(-0.0789703, -0.56429005, -0.82179105, -0.053977013, 0.82557666, -0.5617025, 0.9954146, 0, -0.09565468, -101.200676, 2.909862, -77.317825)
 script = ExtResource("33_rvk64")
 bump_y = 16.0
 bump_x = -10.0
 
 [node name="booster_pad" parent="." unique_id=191403215 instance=ExtResource("18_csgam")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -93.006744, 0.038808167, -77.06279)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -92.420456, 0.038808167, -77.06279)
 script = ExtResource("19_pmuua")
 
 [node name="Echaffaudage" parent="." unique_id=82235281 instance=ExtResource("30_pjy18")]
 transform = Transform3D(-0.000874646, -0.97903687, 0.20368136, -0.99862516, 0.0115312645, 0.051139135, -0.052415796, -0.20335653, -0.9777008, -117.41417, 24.33941, -47.574238)
 
 [node name="Bumper2" parent="." unique_id=342060064 instance=ExtResource("32_62cfs")]
-transform = Transform3D(0.045572184, -0.99896103, 0, 0.99896103, 0.045572184, 0, 0, 0, 1, -120.772446, 24.463896, -48.161457)
+transform = Transform3D(0.44446805, -0.88568634, 0.13419297, 0.3617233, 0.040404648, -0.93140954, 0.8195147, 0.4625225, 0.338332, -120.772446, 24.463896, -48.161457)
 script = ExtResource("33_rvk64")
 bump_y = 5.0
 bump_x = -10.0
 bump_z = 10.0
 
 [node name="Bumper3" parent="." unique_id=1562680424 instance=ExtResource("32_62cfs")]
-transform = Transform3D(0.0014311825, 0.999999, 0, -0.999999, 0.0014311825, 0, 0, 0, 1, -131.74309, 24.058867, -37.64619)
+transform = Transform3D(0.5486507, 0.83546144, -0.03141193, -0.058974266, 0.0011956692, -0.99825877, -0.83396906, 0.5495479, 0.049926788, -131.74309, 24.058867, -37.64619)
 script = ExtResource("33_rvk64")
 bump_y = 5.0
 bump_x = 15.0
@@ -668,3 +668,184 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.89447, 0, 90.1936)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MapLimits/InvisibleWall4" unique_id=869517425]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -15.105305, 26.364868, 13.648548)
 shape = SubResource("BoxShape3D_kb7yh")
+
+[node name="Echaffaudage4" parent="." unique_id=789975330 instance=ExtResource("30_pjy18")]
+transform = Transform3D(0.0032532949, -0.009953609, 0.99994516, -0.31065938, 0.95046365, 0.010471784, -0.95051575, -0.31067643, -4.370899e-08, -114.291245, 22.287586, -0.87413394)
+
+[node name="Echaffaudage5" parent="." unique_id=330503837 instance=ExtResource("30_pjy18")]
+transform = Transform3D(0.5983286, -0.0099536115, 0.8011888, -0.24327412, 0.9504637, 0.19348544, -0.7634268, -0.31067646, 0.56626815, -107.65651, 23.298008, 2.0901818)
+
+[node name="booster_pad2" parent="." unique_id=1195009236 instance=ExtResource("18_csgam")]
+transform = Transform3D(0.59832853, -0.009953633, 0.80118895, -0.24327412, 0.9504636, 0.19348548, -0.7634268, -0.31067646, 0.5662681, -111.54906, 25.795023, -1.6528795)
+script = ExtResource("19_pmuua")
+
+[node name="booster_pad4" parent="." unique_id=905876156 instance=ExtResource("18_csgam")]
+transform = Transform3D(-5.428484e-08, -0.5900422, 0.80737245, 1, -4.371139e-08, 3.5291364e-08, 1.4467979e-08, 0.80737245, 0.5900422, -97.63284, 30.546347, 6.3803263)
+script = ExtResource("19_pmuua")
+
+[node name="Bumper4" parent="." unique_id=1763740292 instance=ExtResource("32_62cfs")]
+transform = Transform3D(0.3687804, 0.35258013, 0.8600513, 0.58539206, 0.63062567, -0.5095361, -0.72202295, 0.6913742, 0.026164785, -104.7603, 27.648024, 2.8876452)
+script = ExtResource("33_rvk64")
+bump_y = 5.0
+bump_x = 20.0
+bump_z = 10.0
+
+[node name="Echaffaudage8" parent="." unique_id=256165139 instance=ExtResource("30_pjy18")]
+transform = Transform3D(0.99765927, 0, -0.06838095, 0, 1, 0, 0.06838095, 0, 0.99765927, -95.340385, 36.70901, 62.575554)
+
+[node name="Echaffaudage9" parent="." unique_id=1188759671 instance=ExtResource("30_pjy18")]
+transform = Transform3D(0.99765927, 0, -0.06838095, 0, 1, 0, 0.06838095, 0, 0.99765927, -96.8925, 36.67985, 62.46917)
+
+[node name="semiLoop" type="Node3D" parent="." unique_id=1301559486]
+
+[node name="grosserampe4" type="CSGBox3D" parent="semiLoop" unique_id=186276619]
+transform = Transform3D(-5.4284833e-08, -0.5900422, 0.80737233, 0.9999999, -4.371139e-08, 3.529136e-08, 1.4467977e-08, 0.80737245, 0.5900421, -95.67066, 30.105951, 10.215696)
+use_collision = true
+size = Vector3(3.611513, 4.67984, 7.6947346)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="semiLoop/grosserampe4" unique_id=527579318]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="semiLoop/grosserampe4/CSGCombiner3D" unique_id=1490424904]
+transform = Transform3D(-4.3711147e-08, 0.99999386, 0, -1, -4.37114e-08, 0, -6.661338e-16, 0, 0.99999386, 0.012546527, 9.1904545, -3.5772557)
+radius = 11.180176
+height = 7.6482306
+sides = 64
+
+[node name="grosserampe3" type="CSGBox3D" parent="semiLoop" unique_id=1218476242]
+transform = Transform3D(-0.9999999, 1.509958e-07, 0, -1.5099579e-07, -1, 0, 0, 0, 0.9999999, -96.90113, 29.718664, 21.708439)
+use_collision = true
+size = Vector3(4.1373324, 4.67984, 7.6947346)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="semiLoop/grosserampe3" unique_id=1135816790]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="semiLoop/grosserampe3/CSGCombiner3D" unique_id=2088784677]
+transform = Transform3D(-4.3711147e-08, 0.99999386, 0, -1, -4.37114e-08, 0, -6.661338e-16, 0, 0.99999386, 0.012546527, 9.1904545, -3.5772557)
+radius = 11.180176
+height = 7.6482306
+sides = 64
+
+[node name="grosserampe8" type="CSGBox3D" parent="semiLoop" unique_id=244107040]
+transform = Transform3D(-0.9999999, 1.509958e-07, 0, -1.5099579e-07, -1, 0, 0, 0, 0.9999999, -92.81666, 29.718664, 21.708439)
+use_collision = true
+size = Vector3(4.1373324, 4.67984, 7.6947346)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="semiLoop/grosserampe8" unique_id=2096788725]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="semiLoop/grosserampe8/CSGCombiner3D" unique_id=912718957]
+transform = Transform3D(-4.3711147e-08, 0.99999386, 0, -1, -4.37114e-08, 0, -6.661338e-16, 0, 0.99999386, 0.012546527, 9.1904545, -3.5772557)
+radius = 11.180176
+height = 7.6482306
+sides = 64
+
+[node name="grosserampe5" type="CSGBox3D" parent="semiLoop" unique_id=1805377818]
+transform = Transform3D(-0.9999999, -1.5099579e-07, 0, 1.0677015e-07, -0.70710677, -0.7071067, 1.0677014e-07, -0.7071067, 0.70710677, -97.45418, 25.888664, 25.852652)
+use_collision = true
+size = Vector3(4.1373324, 4.67984, 7.6947346)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="semiLoop/grosserampe5" unique_id=1732408171]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="semiLoop/grosserampe5/CSGCombiner3D" unique_id=949140122]
+transform = Transform3D(-4.3711147e-08, 0.99999386, 0, -1, -4.37114e-08, 0, -6.661338e-16, 0, 0.99999386, 0.012546527, 9.1904545, -3.5772557)
+radius = 11.180176
+height = 7.6482306
+sides = 64
+
+[node name="grosserampe9" type="CSGBox3D" parent="semiLoop" unique_id=1146971431]
+transform = Transform3D(-0.9999999, -1.5099579e-07, 0, 1.0677015e-07, -0.70710677, -0.7071067, 1.0677014e-07, -0.7071067, 0.70710677, -93.35615, 25.888664, 25.852652)
+use_collision = true
+size = Vector3(4.1373324, 4.67984, 7.6947346)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="semiLoop/grosserampe9" unique_id=1151811283]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="semiLoop/grosserampe9/CSGCombiner3D" unique_id=2088358870]
+transform = Transform3D(-4.3711147e-08, 0.99999386, 0, -1, -4.37114e-08, 0, -6.661338e-16, 0, 0.99999386, 0.012546527, 9.1904545, -3.5772557)
+radius = 11.180176
+height = 7.6482306
+sides = 64
+
+[node name="grosserampe6" type="CSGBox3D" parent="semiLoop" unique_id=2129475177]
+transform = Transform3D(-0.9999999, 8.742277e-08, 0, 3.8213705e-15, 4.3711385e-08, -0.99999994, -8.742277e-08, -0.99999994, -4.3711385e-08, -97.25545, 20.301548, 25.852652)
+use_collision = true
+size = Vector3(4.1373324, 4.67984, 7.6947346)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="semiLoop/grosserampe6" unique_id=1111161292]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="semiLoop/grosserampe6/CSGCombiner3D" unique_id=138079213]
+transform = Transform3D(-4.3711147e-08, 0.99999386, 0, -1, -4.37114e-08, 0, -6.661338e-16, 0, 0.99999386, 0.012546527, 9.1904545, -3.5772557)
+radius = 11.180176
+height = 7.6482306
+sides = 64
+
+[node name="grosserampe10" type="CSGBox3D" parent="semiLoop" unique_id=1127605539]
+transform = Transform3D(-0.9999999, 8.742277e-08, 0, 3.8213705e-15, 4.3711385e-08, -0.99999994, -8.742277e-08, -0.99999994, -4.3711385e-08, -93.14657, 20.301548, 25.852652)
+use_collision = true
+size = Vector3(4.1373324, 4.67984, 7.6947346)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="semiLoop/grosserampe10" unique_id=1085432071]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="semiLoop/grosserampe10/CSGCombiner3D" unique_id=1608907814]
+transform = Transform3D(-4.3711147e-08, 0.99999386, 0, -1, -4.37114e-08, 0, -6.661338e-16, 0, 0.99999386, 0.012546527, 9.1904545, -3.5772557)
+radius = 11.180176
+height = 7.6482306
+sides = 64
+
+[node name="grosserampe7" type="CSGBox3D" parent="semiLoop" unique_id=269999627]
+transform = Transform3D(-0.9999999, 6.181723e-08, 6.181723e-08, 0, 0.7071067, -0.7071067, -8.742277e-08, -0.7071067, -0.7071067, -97.05643, 15.563968, 21.255974)
+use_collision = true
+size = Vector3(4.1373324, 4.67984, 7.6947346)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="semiLoop/grosserampe7" unique_id=1502048415]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="semiLoop/grosserampe7/CSGCombiner3D" unique_id=696834915]
+transform = Transform3D(-4.3711147e-08, 0.99999386, 0, -1, -4.37114e-08, 0, -6.661338e-16, 0, 0.99999386, 0.012546527, 9.1904545, -3.5772557)
+radius = 11.180176
+height = 7.6482306
+sides = 64
+
+[node name="grosserampe11" type="CSGBox3D" parent="semiLoop" unique_id=2036918753]
+transform = Transform3D(-0.9999999, 6.181723e-08, 6.181723e-08, 0, 0.7071067, -0.7071067, -8.742277e-08, -0.7071067, -0.7071067, -92.94274, 15.563968, 21.255974)
+use_collision = true
+size = Vector3(4.1373324, 4.67984, 7.6947346)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="semiLoop/grosserampe11" unique_id=1332660688]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="semiLoop/grosserampe11/CSGCombiner3D" unique_id=763995063]
+transform = Transform3D(-4.3711147e-08, 0.99999386, 0, -1, -4.37114e-08, 0, -6.661338e-16, 0, 0.99999386, 0.012546527, 9.1904545, -3.5772557)
+radius = 11.180176
+height = 7.6482306
+sides = 64
+
+[node name="Echaffaudage6" parent="semiLoop" unique_id=215635216 instance=ExtResource("30_pjy18")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.3711392e-08, 0, 0, 3.5527137e-15, 1, -89.62132, 30.171368, 16.858522)
+
+[node name="Echaffaudage7" parent="semiLoop" unique_id=1976483596 instance=ExtResource("30_pjy18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.95392, 9.9764185, 13.941899)
+
+[node name="Echaffaudage10" parent="semiLoop" unique_id=1693421754 instance=ExtResource("30_pjy18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.74825, 9.989719, 13.932999)
+
+[node name="booster_pad5" parent="semiLoop" unique_id=1331006584 instance=ExtResource("18_csgam")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -93.194275, 30.628244, 15.5206585)
+script = ExtResource("19_pmuua")
+
+[node name="booster_pad6" parent="semiLoop" unique_id=1330876012 instance=ExtResource("18_csgam")]
+transform = Transform3D(-1, 1.509958e-07, 0, -1.509958e-07, -1, 0, 0, 0, 1, -94.62836, 30.548899, 17.847902)
+script = ExtResource("19_pmuua")
