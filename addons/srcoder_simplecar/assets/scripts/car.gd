@@ -20,14 +20,33 @@ extends VehicleBody3D
 @export var followcamera : Node3D
 @export var SLODER : VSlider
 @export var hitbox : Area3D
+@export var Ui : Control
+@export var AnimPlayer : AnimationPlayer
 @export var explosion : AudioStreamMP3
 @export var nitrousSound : AudioStreamMP3
 @export var trickLand : AudioStreamWAV
 @export var shortjump : AudioStreamWAV
 @export var bigjump : AudioStreamWAV
 @export var Sound : AudioStreamPlayer3D
+@export var SoundNitro : AudioStreamPlayer3D
+@export var videofin : VideoStreamTheora
+@export var VStraemPlay : VideoStreamPlayer
+var Dlg_Sct = load("uid://bbbh1af5b4qeb") #La ou est rangé le dialogue qui est lu dans le ballon
+var balloon_path : String = ProjectSettings.get_setting("dialogue_manager/runtime/balloon_path")
+var resource := load("uid://bbbh1af5b4qeb")
+@export var LayBa : CanvasLayer
+var nitro_oldvalue 
 
 
+#region story counter
+
+@export var Bad_Child : int = 0
+@export var Good_Child : int = 0
+@export var Bad_Business : int = 0
+@export var Good_Business : int = 0
+@export var Total_kills : int = 0
+
+#endregion
 
 #local member variables
 var player_acceleration : float = 0.0
@@ -54,6 +73,7 @@ func wheelie_mode() :
 		
 func _ready() -> void:
 	#set wheel friction slip
+	nitro_oldvalue = torbo.value
 	for wheel in steering_wheels:
 		wheel.wheel_friction_slip = front_wheel_grip
 	for wheel in driving_wheels:
@@ -87,9 +107,15 @@ func _input(event): #
 			
 	if event.is_action_pressed("nitrous") and torbo.value > 10 :
 		#linear_velocity += 25 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z)))
-		Sound.stream = nitrousSound
-		Sound.play() 
-		torbo.value -= 25
+		SoundNitro.stream = nitrousSound
+		SoundNitro.play() 
+		
+		var tween = create_tween()
+	
+		var newtorbovalue = torbo.value
+		newtorbovalue -= 25
+		tween.tween_property(torbo, "value",newtorbovalue, 0.5)
+		
 		followcamera.rotation.y = rotation.y
 		linear_velocity += transform.basis.z * 12
 	
@@ -243,7 +269,7 @@ func get_input(delta : float):
 		#print("it's non the ground")
 		if tricks != [0,0,0]:
 			print(tricks)
-			Sound.stream = trickLand
+			#Sound.stream = trickLand
 			Sound.play()
 			if tricks == [0,1,0] :
 				print("front 360 !")
@@ -268,7 +294,12 @@ func get_input(delta : float):
 			
 			score = abs(tricks[0]) + abs(tricks[1]) + abs(tricks[2])
 			print(score)
-			torbo.value += score * 10
+			var newtorbovalue = torbo.value
+			newtorbovalue = torbo.value + score * 10
+			#
+			var tween = create_tween()
+			tween.tween_property(torbo, "value", newtorbovalue, 0.3) # Uses TRANS_LINEAR.
+			#torbo.value += score * 10
  				
 		tricks = [0,0,0]
 		default_position = Vector3(0,0,0)
@@ -386,3 +417,55 @@ func _on_hitbox_area_exited(area: Area3D) -> void:
 	if area is exitWall :
 		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
 		gravity_change = false
+		
+		
+	#region story stuff
+	
+func _radio_start(chap):
+	
+	AnimPlayer.play("Radio_Talk")
+	if  LayBa.get_child_count() > 0:
+		LayBa.get_child(0).queue_free()
+	var balloon : Node = load(balloon_path).instantiate()
+	LayBa.add_child(balloon)
+	balloon.start(resource, chap)
+	balloon.EndDiag.connect(StopRadio)
+	pass
+
+func StopRadio():
+	AnimPlayer.play("RadioIdle")
+	print("j'ai reçut le signal j'arrête la radio")
+
+func _on_finish_line_jeufinit() -> void:
+	Ui.get_child(0).get_child(3).visible = true
+	VStraemPlay.paused = false
+	
+	#var VPlay = VideoStreamPlayer.new()
+	#VPlay.stream = videofin
+	#VPlay.autoplay = true
+	#VPlay.position = Vector2(-4000,-1500)
+	#VPlay.scale = Vector2(2,2)
+	#VPlay.z_index = 52
+	#Ui.get_child(0).get_child(2).add_child(VPlay)
+	
+	VStraemPlay.finished.connect(_onVPlayFInished)
+	
+	pass # Replace with function body.
+
+func _onVPlayFInished ():
+	get_tree().quit()
+	pass
+	
+	#endregion
+
+
+func _on_nitro_value_changed(value: float) -> void:
+	print("VAL CHANGED")
+	if value > nitro_oldvalue :
+		Sound.stream = trickLand
+		Sound.play() 
+		pass
+	else :
+		pass
+	nitro_oldvalue = value
+	pass # Replace with function body.

@@ -11,21 +11,143 @@
 [ext_resource type="AudioStream" uid="uid://c0llask5xjo1d" path="res://assets/Audio/deltarune explosion greenscreen.mp3" id="5_y1lln"]
 [ext_resource type="ArrayMesh" uid="uid://dg5won52i52g8" path="res://assets/Models/Tuture/wheel-front-right.tres" id="6_2cqij"]
 [ext_resource type="ArrayMesh" uid="uid://ctkojq0qsv21s" path="res://assets/Models/Tuture/wheel-front-left.tres" id="7_syhvw"]
+[ext_resource type="Texture2D" uid="uid://cpii4stj8dfvy" path="res://Radio/frame0000.png" id="12_cgcc8"]
+[ext_resource type="Texture2D" uid="uid://du53j3hwuqhej" path="res://assets/Textures/UI_Cursor.png" id="13_u3kq8"]
+[ext_resource type="Texture2D" uid="uid://dh0qh2orsscla" path="res://assets/Textures/UI_MoralityMeter.png" id="14_wj4kd"]
+[ext_resource type="Texture2D" uid="uid://tcp5lww6uhxp" path="res://assets/Textures/Boost/Boost_Top.png" id="15_0acjl"]
+[ext_resource type="Texture2D" uid="uid://bl8o73hlpy20e" path="res://assets/Textures/Boost/Boost_middle.png" id="16_jjlsn"]
+[ext_resource type="Texture2D" uid="uid://dt5ju0rdepq2h" path="res://assets/Textures/Boost/bubble01.png" id="17_e70ve"]
+[ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="18_scxrs"]
+[ext_resource type="VideoStream" uid="uid://ch4oipsjay70n" path="res://assets/Video/0000-0393.ogv" id="19_854qw"]
+[ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://Radio/frame0001.png" id="20_wj4kd"]
+[ext_resource type="Texture2D" uid="uid://copvhmpfo4ibr" path="res://Radio/frame0002.png" id="21_0acjl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iwjfg"]
 size = Vector3(1.67963, 1.09668, 2.9843109)
 
-[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("hitbox", "Sound")]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vpcws"]
+texture = ExtResource("14_wj4kd")
+texture_margin_left = 693.0
+expand_margin_top = 227.0
+expand_margin_bottom = 228.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sdpfv"]
+
+[sub_resource type="Curve" id="Curve_dmp2w"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pjc5t"]
+curve = SubResource("Curve_dmp2w")
+
+[sub_resource type="Curve" id="Curve_7sqjs"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_14rio"]
+curve = SubResource("Curve_7sqjs")
+
+[sub_resource type="Curve" id="Curve_qh2ve"]
+_data = [Vector2(0, 0), 0.0, 7.58609, 0, 0, Vector2(0.149585, 0.506508), 0.0, 0.0, 0, 0, Vector2(0.288089, 0.280911), 0.0, 0.0, 0, 0, Vector2(0.390582, 0.492408), 0.0, 0.0, 0, 0, Vector2(0.717452, 0.527657), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.05741, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_urq10"]
+curve = SubResource("Curve_qh2ve")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jkilt"]
+particle_flag_disable_z = true
+direction = Vector3(1, -5, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+orbit_velocity_curve = SubResource("CurveTexture_pjc5t")
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_curve = SubResource("CurveTexture_14rio")
+scale_curve = SubResource("CurveTexture_urq10")
+
+[sub_resource type="Theme" id="Theme_cdysg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtq8k"]
+bg_color = Color(0.169211, 0.657799, 0.817548, 1)
+
+[sub_resource type="Animation" id="Animation_jjlsn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ui_Holder/OUI/Radio:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_cgcc8")]
+}
+
+[sub_resource type="Animation" id="Animation_u3kq8"]
+resource_name = "RadioIdle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ui_Holder/OUI/Radio:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_cgcc8")]
+}
+
+[sub_resource type="Animation" id="Animation_cgcc8"]
+resource_name = "Radio_talk"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ui_Holder/OUI/Radio:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("12_cgcc8"), ExtResource("20_wj4kd"), ExtResource("12_cgcc8"), ExtResource("21_0acjl")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u3kq8"]
+_data = {
+&"RESET": SubResource("Animation_jjlsn"),
+&"RadioIdle": SubResource("Animation_u3kq8"),
+&"Radio_talk": SubResource("Animation_cgcc8")
+}
+
+[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "VStraemPlay", "LayBa")]
 collision_layer = 2
 physics_material_override = ExtResource("1_gdthg")
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.28881523, -0.020060861)
 script = ExtResource("2_mbobr")
+torbo = NodePath("Ui_Holder/OUI/Nitro")
+SLODER = NodePath("Ui_Holder/OUI/Morality")
 hitbox = NodePath("hitbox")
+Ui = NodePath("Ui_Holder")
+AnimPlayer = NodePath("AnimationPlayer")
 explosion = ExtResource("5_y1lln")
 nitrousSound = ExtResource("4_v75hc")
 trickLand = ExtResource("5_2cqij")
 Sound = NodePath("AudioStreamPlayer3D")
+SoundNitro = NodePath("AudioStreamPlayer3D_nitro")
+videofin = ExtResource("19_854qw")
+VStraemPlay = NodePath("Ui_Holder/OUI/Panel/VideoStreamPlayer")
+LayBa = NodePath("Ui_Holder/BalloonHolder")
 
 [node name="body" type="MeshInstance3D" parent="." unique_id=787695455]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28881523, -0.020060861)
@@ -100,6 +222,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120831, -0.24324802, 0)
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1541837788]
 volume_db = -30.0
 
+[node name="AudioStreamPlayer3D_nitro" type="AudioStreamPlayer3D" parent="." unique_id=1538426193]
+stream = ExtResource("4_v75hc")
+volume_db = -30.0
+
 [node name="hitbox" type="Area3D" parent="." unique_id=2132694768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.328943, 0)
 
@@ -122,6 +248,119 @@ one_shot = true
 [node name="cockpit" type="Camera3D" parent="." unique_id=62731619]
 transform = Transform3D(-1, -1.0778209e-15, -8.742277e-08, 1.1167362e-08, 0.99180776, -0.12773977, 8.670658e-08, -0.12773976, -0.99180776, -2.5091273e-08, 1.0542033, -2.317504)
 
+[node name="Ui_Holder" type="Control" parent="." unique_id=1434486205]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OUI" type="CanvasLayer" parent="Ui_Holder" unique_id=528354933]
+layer = 105
+
+[node name="Radio" type="TextureRect" parent="Ui_Holder/OUI" unique_id=1698662262]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = -222.0
+offset_right = 730.0
+offset_bottom = 192.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_cgcc8")
+
+[node name="Morality" type="VSlider" parent="Ui_Holder/OUI" unique_id=1970595541]
+texture_filter = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -100.0
+offset_right = 720.0
+offset_bottom = 736.0
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+mouse_filter = 2
+theme_override_icons/grabber = ExtResource("13_u3kq8")
+theme_override_styles/slider = SubResource("StyleBoxTexture_vpcws")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_sdpfv")
+value = 50.0
+scrollable = false
+
+[node name="Nitro" type="TextureProgressBar" parent="Ui_Holder/OUI" unique_id=1239366973]
+clip_children = 2
+texture_filter = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -153.0
+offset_top = -243.0
+offset_right = 309.0
+offset_bottom = 533.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+value = 50.0
+fill_mode = 3
+texture_over = ExtResource("15_0acjl")
+texture_progress = ExtResource("16_jjlsn")
+
+[node name="TextureRect" type="TextureRect" parent="Ui_Holder/OUI/Nitro" unique_id=1916050739]
+z_index = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("15_0acjl")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Ui_Holder/OUI/Nitro" unique_id=381074361]
+texture_filter = 1
+position = Vector2(359, 728)
+amount = 2
+texture = ExtResource("17_e70ve")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_jkilt")
+
+[node name="TextureRect2" type="TextureRect" parent="Ui_Holder/OUI/Nitro" unique_id=2119585819]
+z_index = -1
+layout_mode = 0
+offset_right = 462.0
+offset_bottom = 776.0
+texture = ExtResource("18_scxrs")
+
+[node name="Panel" type="Panel" parent="Ui_Holder/OUI" unique_id=2123386761]
+visible = false
+z_index = 50
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_cdysg")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xtq8k")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Ui_Holder/OUI/Panel" unique_id=1572941774]
+layout_mode = 0
+offset_left = 101.93
+offset_right = 1541.93
+offset_bottom = 1080.0
+stream = ExtResource("19_854qw")
+autoplay = true
+paused = true
+
+[node name="BalloonHolder" type="CanvasLayer" parent="Ui_Holder" unique_id=1826505556]
+layer = 128
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=763480539]
+libraries/ = SubResource("AnimationLibrary_u3kq8")
+
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="value_changed" from="Ui_Holder/OUI/Nitro" to="." method="_on_nitro_value_changed"]

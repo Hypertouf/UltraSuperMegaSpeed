@@ -11,7 +11,7 @@ extends Node3D
 #locals
 @onready var pivot : Node3D = $Pivot
 @onready var springarm : SpringArm3D = $Pivot/SpringArm3D
-@export var mycamera : Camera3D = $Pivot/SpringArm3D/Camera3D
+@export var mycamera : Camera3D
 
 func _ready() -> void:
 	pivot.position.y = camera_height
