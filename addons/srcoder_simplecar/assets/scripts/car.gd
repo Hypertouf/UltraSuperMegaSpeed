@@ -23,6 +23,8 @@ extends VehicleBody3D
 @export var explosion : AudioStreamMP3
 @export var nitrousSound : AudioStreamMP3
 @export var trickLand : AudioStreamWAV
+@export var shortjump : AudioStreamWAV
+@export var bigjump : AudioStreamWAV
 @export var Sound : AudioStreamPlayer3D
 
 
@@ -69,12 +71,16 @@ func _input(event): #
 			
 	if event.is_action_released("sauter") and $check_ground.is_colliding() and $jumpTimer.is_stopped():
 		print("big_jump")
+		Sound.stream = bigjump
+		Sound.play()
 		linear_velocity += (transform.basis.y * 6) + transform.basis.z #HOLY SHIT IT WORKS
 		linear_velocity.y += 7 #add a little global vertical boost for cleaner walljumps 
 				#transform.basis.y + 10 makes the car jump from local position and transform.basis.z makes the car keep it's rolling speed when jumping
 				#if we prefer making the car stick to the wall and ceiling use linear_velocity.y += 10
 	elif event.is_action_released("sauter") and $check_ground.is_colliding() and !$jumpTimer.is_stopped() :
 		print("small_jump")
+		Sound.stream = shortjump
+		Sound.play()
 		linear_velocity += (transform.basis.y * 2) + transform.basis.z #HOLY SHIT IT WORKS
 		linear_velocity.y += 3
 				

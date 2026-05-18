@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dcup375s06tai" path="res://addons/srcoder_simplecar/car_custom.tscn" id="1_0nkrw"]
 [ext_resource type="Script" uid="uid://3yr365clp1xm" path="res://testcity.gd" id="1_nkwo0"]
 [ext_resource type="PackedScene" uid="uid://rjx8tx5y7j2p" path="res://addons/srcoder_simplecar/follow_camera.tscn" id="2_fq8mh"]
+[ext_resource type="AudioStream" uid="uid://bic4a206esrbb" path="res://assets/Audio/005.Synth_MLT_se_ac_ce_bounce sound.wav" id="3_kb7yh"]
 [ext_resource type="ArrayMesh" uid="uid://ciyxs82ul5chj" path="res://assets/meshmesh/Mm_garage.res" id="3_n146p"]
 [ext_resource type="Material" uid="uid://dh6ykun8bv60u" path="res://examples/day_sky.tres" id="4_fq8mh"]
 [ext_resource type="Texture2D" uid="uid://cpii4stj8dfvy" path="res://Radio/frame0000.png" id="6_hamwd"]
@@ -150,6 +151,8 @@ transform = Transform3D(0.027380815, 0, -0.9996251, 0, 1, 0, 0.9996251, 0, 0.027
 torbo = NodePath("../Ui_Holder/OUI/Nitro")
 followcamera = NodePath("../FollowCamera")
 SLODER = NodePath("../Ui_Holder/OUI/Morality")
+shortjump = ExtResource("3_kb7yh")
+bigjump = ExtResource("3_kb7yh")
 
 [node name="FollowCamera" parent="." unique_id=670489488 node_paths=PackedStringArray("follow_target") instance=ExtResource("2_fq8mh")]
 follow_target = NodePath("../car")
