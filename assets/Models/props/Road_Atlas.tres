@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://m18bqy1e0bx2"]
+
+[ext_resource type="Texture2D" uid="uid://cynuynjkttwot" path="res://assets/Models/props/Roads_Road_atlas.png" id="1_jxjnb"]
+
+[resource]
+resource_name = "RoadAtlas"
+cull_mode = 2
+albedo_texture = ExtResource("1_jxjnb")
+roughness = 0.5
+texture_filter = 2

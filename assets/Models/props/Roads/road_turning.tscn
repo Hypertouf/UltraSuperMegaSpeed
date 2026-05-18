@@ -1,13 +1,6 @@
 [gd_scene format=4 uid="uid://ctk6ln36mej3g"]
 
-[ext_resource type="Texture2D" uid="uid://cynuynjkttwot" path="res://assets/Models/props/Roads_Road_atlas.png" id="1_2iir3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p86hm"]
-resource_name = "RoadAtlas"
-cull_mode = 2
-albedo_texture = ExtResource("1_2iir3")
-roughness = 0.5
-texture_filter = 2
+[ext_resource type="Material" uid="uid://m18bqy1e0bx2" path="res://assets/Models/props/Road_Atlas.tres" id="1_2iir3"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hb5m2"]
 _surfaces = [{
@@ -31,7 +24,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 69,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAAFAAAABgAFAAQABwAFAAYABwAIAAUACQAKAAsACgAJAAwACgAMAA0ADgAPABAADwAOABEADwARABIAEwAUABUAFQAUABYAFAAXABYAFAAYABcAGQAUABMAGQATABoAGwAZABoAHAAZABsAHQAZABwAHQAeABkA"),
-"material": SubResource("StandardMaterial3D_p86hm"),
+"material": ExtResource("1_2iir3"),
 "name": "RoadAtlas",
 "primitive": 3,
 "uv_scale": Vector4(1.9986701, 2.002983, 0, 0),
