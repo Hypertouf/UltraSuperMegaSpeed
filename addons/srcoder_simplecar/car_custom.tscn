@@ -155,7 +155,7 @@ size = Vector2(4, 4)
 orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0acjl"]
-size = Vector3(0.5852051, 0.62347317, 0.034065247)
+size = Vector3(0.5852051, 0.62347317, 0.05035782)
 
 [node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "VStraemPlay", "exploParticles", "LayBa")]
 collision_layer = 2
@@ -399,7 +399,7 @@ draw_pass_1 = SubResource("PlaneMesh_e70ve")
 [node name="death_hitbox" type="Area3D" parent="." unique_id=1521251063]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="death_hitbox" unique_id=743316767]
-transform = Transform3D(1, 0, 0, 0, 0.031410728, 0.99950653, 0, -0.99950653, 0.031410728, -0.007446289, 0.67674565, -0.17638354)
+transform = Transform3D(1, 0, 0, 0, 0.031410728, 0.99950653, 0, -0.99950653, 0.031410728, -0.007446289, 0.68488795, -0.17612766)
 shape = SubResource("BoxShape3D_0acjl")
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

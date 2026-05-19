@@ -88,6 +88,9 @@ func hypothenuse(a, b): #urhm it might look silly but it is necessary for correc
 func _ontimyended():
 	exploParticles.emitting = false
 	exploCooldown = false
+	position.y += 1
+	rotation.z = 0
+	linear_velocity = Vector3(0.0,0.0,0.0)
 	
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
@@ -485,12 +488,13 @@ func _on_death_hitbox_body_entered(body: Node3D) -> void:
 		print(body)
 		exploParticles.emitting = true
 		Sound.stream = explosion
+		tricks = [0,0,0]
 		if !exploCooldown :
 			Sound.play()
 			exploCooldown = true
 		var timy = Timer.new() # Create a new Sprite2D.
 		timy.autostart = true
 		timy.one_shot = true
-		timy.wait_time = 1
+		timy.wait_time = 0.2
 		timy.timeout.connect(_ontimyended)
 		add_child(timy)
