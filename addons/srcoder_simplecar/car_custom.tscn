@@ -12,19 +12,37 @@
 [ext_resource type="ArrayMesh" uid="uid://dg5won52i52g8" path="res://assets/Models/Tuture/wheel-front-right.tres" id="6_2cqij"]
 [ext_resource type="ArrayMesh" uid="uid://ctkojq0qsv21s" path="res://assets/Models/Tuture/wheel-front-left.tres" id="7_syhvw"]
 [ext_resource type="Texture2D" uid="uid://cpii4stj8dfvy" path="res://assets/Textures/Radio/frame0000.png" id="12_cgcc8"]
+[ext_resource type="AudioStream" uid="uid://cr1dm65ox7iaf" path="res://assets/Audio/Death_quotes/ChewOnThis.wav" id="13_sdpfv"]
 [ext_resource type="Texture2D" uid="uid://du53j3hwuqhej" path="res://assets/Textures/UI_Cursor.png" id="13_u3kq8"]
+[ext_resource type="AudioStream" uid="uid://dxjfrh48byiw2" path="res://assets/Audio/Death_quotes/CrashItAndTrashIt.wav" id="14_dmp2w"]
 [ext_resource type="Texture2D" uid="uid://dh0qh2orsscla" path="res://assets/Textures/UI_MoralityMeter.png" id="14_wj4kd"]
 [ext_resource type="Texture2D" uid="uid://tcp5lww6uhxp" path="res://assets/Textures/Boost/Boost_Top.png" id="15_0acjl"]
+[ext_resource type="AudioStream" uid="uid://dksf6oy54kc85" path="res://assets/Audio/Death_quotes/DontEvenThinkAboutIt.wav" id="15_7sqjs"]
 [ext_resource type="Texture2D" uid="uid://bl8o73hlpy20e" path="res://assets/Textures/Boost/Boost_middle.png" id="16_jjlsn"]
+[ext_resource type="AudioStream" uid="uid://cx6hccrj6tvyu" path="res://assets/Audio/Death_quotes/DumpItAndBumpIt.wav" id="16_qh2ve"]
 [ext_resource type="Texture2D" uid="uid://dt5ju0rdepq2h" path="res://assets/Textures/Boost/bubble01.png" id="17_e70ve"]
+[ext_resource type="AudioStream" uid="uid://djxjl378nxfsm" path="res://assets/Audio/Death_quotes/LosinIt.wav" id="17_jkilt"]
+[ext_resource type="AudioStream" uid="uid://sfr5vpywosgn" path="res://assets/Audio/Death_quotes/NoCanDo.wav" id="18_cdysg"]
 [ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="18_scxrs"]
 [ext_resource type="VideoStream" uid="uid://ch4oipsjay70n" path="res://assets/Video/0000-0393.ogv" id="19_854qw"]
 [ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://assets/Textures/Radio/frame0001.png" id="20_wj4kd"]
 [ext_resource type="Texture2D" uid="uid://copvhmpfo4ibr" path="res://assets/Textures/Radio/frame0002.png" id="21_0acjl"]
 [ext_resource type="Texture2D" uid="uid://cp5hl5ypk0f5h" path="res://AnimTextExplo.tres" id="22_0acjl"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xtq8k"]
+streams_count = 6
+stream_0/stream = ExtResource("13_sdpfv")
+stream_1/stream = ExtResource("14_dmp2w")
+stream_2/stream = ExtResource("15_7sqjs")
+stream_3/stream = ExtResource("16_qh2ve")
+stream_4/stream = ExtResource("17_jkilt")
+stream_5/stream = ExtResource("18_cdysg")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_iwjfg"]
 size = Vector3(1.67963, 1.09668, 2.9843109)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0acjl"]
+size = Vector3(0.5852051, 0.62347317, 0.05035782)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vpcws"]
 texture = ExtResource("14_wj4kd")
@@ -154,10 +172,7 @@ material = SubResource("StandardMaterial3D_g33e6")
 size = Vector2(4, 4)
 orientation = 2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0acjl"]
-size = Vector3(0.5852051, 0.62347317, 0.05035782)
-
-[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "VStraemPlay", "exploParticles", "LayBa")]
+[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "VStraemPlay", "exploParticles", "LayBa")]
 collision_layer = 2
 physics_material_override = ExtResource("1_gdthg")
 center_of_mass_mode = 1
@@ -171,8 +186,9 @@ AnimPlayer = NodePath("AnimationPlayer")
 explosion = ExtResource("5_y1lln")
 nitrousSound = ExtResource("4_v75hc")
 trickLand = ExtResource("5_2cqij")
-Sound = NodePath("AudioStreamPlayer3D")
-SoundNitro = NodePath("AudioStreamPlayer3D_nitro")
+Sound = NodePath("Other_sounds")
+SoundNitro = NodePath("Nitrous")
+death_quotes = NodePath("Death_quote")
 videofin = ExtResource("19_854qw")
 VStraemPlay = NodePath("Ui_Holder/OUI/Panel/VideoStreamPlayer")
 exploParticles = NodePath("GPUParticles3D")
@@ -248,13 +264,17 @@ skeleton = NodePath("")
 [node name="check_ground" type="RayCast3D" parent="." unique_id=1438501857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120831, -0.24324802, 0)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1541837788]
+[node name="Other_sounds" type="AudioStreamPlayer3D" parent="." unique_id=1541837788]
 volume_db = -30.0
 max_polyphony = 3
 
-[node name="AudioStreamPlayer3D_nitro" type="AudioStreamPlayer3D" parent="." unique_id=1538426193]
+[node name="Nitrous" type="AudioStreamPlayer3D" parent="." unique_id=1538426193]
 stream = ExtResource("4_v75hc")
 volume_db = -30.0
+
+[node name="Death_quote" type="AudioStreamPlayer3D" parent="." unique_id=1740587628]
+stream = SubResource("AudioStreamRandomizer_xtq8k")
+volume_db = -25.0
 
 [node name="hitbox" type="Area3D" parent="." unique_id=2132694768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.328943, 0)
@@ -262,6 +282,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.328943, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox" unique_id=2036620393]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00377119, 0.594732, 0.01800549)
 shape = SubResource("BoxShape3D_iwjfg")
+
+[node name="death_hitbox" type="Area3D" parent="." unique_id=1521251063]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="death_hitbox" unique_id=743316767]
+transform = Transform3D(1, 0, 0, 0, 0.031410728, 0.99950653, 0, -0.99950653, 0.031410728, -0.007446289, 0.68488795, -0.17612766)
+shape = SubResource("BoxShape3D_0acjl")
 
 [node name="jumpTimer" type="Timer" parent="." unique_id=968459059]
 one_shot = true
@@ -396,14 +422,8 @@ emitting = false
 process_material = SubResource("ParticleProcessMaterial_jjlsn")
 draw_pass_1 = SubResource("PlaneMesh_e70ve")
 
-[node name="death_hitbox" type="Area3D" parent="." unique_id=1521251063]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="death_hitbox" unique_id=743316767]
-transform = Transform3D(1, 0, 0, 0, 0.031410728, 0.99950653, 0, -0.99950653, 0.031410728, -0.007446289, 0.68488795, -0.17612766)
-shape = SubResource("BoxShape3D_0acjl")
-
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="value_changed" from="Ui_Holder/OUI/Nitro" to="." method="_on_nitro_value_changed"]
 [connection signal="body_entered" from="death_hitbox" to="." method="_on_death_hitbox_body_entered"]
+[connection signal="value_changed" from="Ui_Holder/OUI/Nitro" to="." method="_on_nitro_value_changed"]

@@ -29,6 +29,7 @@ extends VehicleBody3D
 @export var bigjump : AudioStreamWAV
 @export var Sound : AudioStreamPlayer3D
 @export var SoundNitro : AudioStreamPlayer3D
+@export var death_quotes : AudioStreamPlayer3D
 @export var videofin : VideoStreamTheora
 @export var VStraemPlay : VideoStreamPlayer
 @export var exploParticles : GPUParticles3D
@@ -91,6 +92,8 @@ func _ontimyended():
 	position.y += 1
 	rotation.z = 0
 	linear_velocity = Vector3(0.0,0.0,0.0)
+	death_quotes.play()
+	
 	
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
