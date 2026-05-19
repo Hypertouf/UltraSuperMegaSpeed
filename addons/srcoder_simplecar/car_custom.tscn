@@ -21,6 +21,7 @@
 [ext_resource type="VideoStream" uid="uid://ch4oipsjay70n" path="res://assets/Video/0000-0393.ogv" id="19_854qw"]
 [ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://assets/Textures/Radio/frame0001.png" id="20_wj4kd"]
 [ext_resource type="Texture2D" uid="uid://copvhmpfo4ibr" path="res://assets/Textures/Radio/frame0002.png" id="21_0acjl"]
+[ext_resource type="Texture2D" uid="uid://cp5hl5ypk0f5h" path="res://AnimTextExplo.tres" id="22_0acjl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iwjfg"]
 size = Vector3(1.67963, 1.09668, 2.9843109)
@@ -129,7 +130,31 @@ _data = {
 &"Radio_talk": SubResource("Animation_cgcc8")
 }
 
-[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "VStraemPlay", "LayBa")]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jjlsn"]
+emission_shape_scale = Vector3(0.2, 0.2, 0.2)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0, 1)
+spread = 20.0
+initial_velocity_min = 3.5
+initial_velocity_max = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g33e6"]
+transparency = 1
+albedo_texture = ExtResource("22_0acjl")
+emission = Color(0.8988595, 0.8739923, 0.7927266, 1)
+emission_energy_multiplier = 0.1
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e70ve"]
+material = SubResource("StandardMaterial3D_g33e6")
+size = Vector2(4, 4)
+orientation = 2
+
+[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "VStraemPlay", "exploParticles", "LayBa")]
 collision_layer = 2
 physics_material_override = ExtResource("1_gdthg")
 center_of_mass_mode = 1
@@ -147,6 +172,7 @@ Sound = NodePath("AudioStreamPlayer3D")
 SoundNitro = NodePath("AudioStreamPlayer3D_nitro")
 videofin = ExtResource("19_854qw")
 VStraemPlay = NodePath("Ui_Holder/OUI/Panel/VideoStreamPlayer")
+exploParticles = NodePath("GPUParticles3D")
 LayBa = NodePath("Ui_Holder/BalloonHolder")
 
 [node name="body" type="MeshInstance3D" parent="." unique_id=787695455]
@@ -218,6 +244,9 @@ skeleton = NodePath("")
 
 [node name="check_ground" type="RayCast3D" parent="." unique_id=1438501857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120831, -0.24324802, 0)
+
+[node name="check_death" type="RayCast3D" parent="." unique_id=532062086]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0.4044398, 0)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1541837788]
 volume_db = -30.0
@@ -359,6 +388,12 @@ layer = 128
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=763480539]
 libraries/ = SubResource("AnimationLibrary_u3kq8")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1227701084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.20132e-08, -0.732376)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_jjlsn")
+draw_pass_1 = SubResource("PlaneMesh_e70ve")
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="hitbox" to="." method="_on_hitbox_area_exited"]

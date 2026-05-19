@@ -41,37 +41,3 @@ func _ready() -> void:
 	
 	pass
 	
-func _radio_start(chap):
-	
-	AnimPlayer.play("Radio_Talk")
-	if  LayBa.get_child_count() > 0:
-		LayBa.get_child(0).queue_free()
-	var balloon : Node = load(balloon_path).instantiate()
-	LayBa.add_child(balloon)
-	balloon.start(resource, chap)
-	balloon.EndDiag.connect(StopRadio)
-	pass
-
-func StopRadio():
-	AnimPlayer.play("RadioIdle")
-	print("j'ai reçut le signal j'arrête la radio")
-
-func _on_finish_line_jeufinit() -> void:
-	Ui.get_child(0).get_child(3).visible = true
-	VStraemPlay.paused = false
-	
-	#var VPlay = VideoStreamPlayer.new()
-	#VPlay.stream = videofin
-	#VPlay.autoplay = true
-	#VPlay.position = Vector2(-4000,-1500)
-	#VPlay.scale = Vector2(2,2)
-	#VPlay.z_index = 52
-	#Ui.get_child(0).get_child(2).add_child(VPlay)
-	
-	VStraemPlay.finished.connect(_onVPlayFInished)
-	
-	pass # Replace with function body.
-
-func _onVPlayFInished ():
-	get_tree().quit()
-	pass

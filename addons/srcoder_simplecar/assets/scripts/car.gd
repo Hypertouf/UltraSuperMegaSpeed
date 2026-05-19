@@ -31,6 +31,8 @@ extends VehicleBody3D
 @export var SoundNitro : AudioStreamPlayer3D
 @export var videofin : VideoStreamTheora
 @export var VStraemPlay : VideoStreamPlayer
+@export var exploParticles : GPUParticles3D
+
 var Dlg_Sct = load("uid://bbbh1af5b4qeb") #La ou est rangé le dialogue qui est lu dans le ballon
 var balloon_path : String = ProjectSettings.get_setting("dialogue_manager/runtime/balloon_path")
 var resource := load("uid://bbbh1af5b4qeb")
@@ -81,7 +83,10 @@ func _ready() -> void:
 
 func hypothenuse(a, b): #urhm it might look silly but it is necessary for correctly calculating the adaptive FOV
 	return sqrt((a*a) + (b*b))
-
+	
+func _ontimyended():
+	exploParticles.emitting = false
+	
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
 		print("pressed")
@@ -264,7 +269,16 @@ func get_input(delta : float):
 		if (default_position.y - rotation_degrees.y) >= 180	: #I need to learn about transformation matrix ugh
 			#print("shuvit !!!")
 			default_position = Vector3(0,0,0)	
-	
+	if $check_death.is_colliding() :
+		print("death")
+		exploParticles.emitting = true
+		var timy = Timer.new() # Create a new Sprite2D.
+		timy.autostart = true
+		timy.one_shot = true
+		timy.wait_time = 1
+		timy.timeout.connect(_ontimyended)
+		add_child(timy)
+		
 	if $check_ground.is_colliding():
 		#print("it's non the ground")
 		if tricks != [0,0,0]:
@@ -348,17 +362,17 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 		if body.get_parent().Karma == 0 :
 			
 			SLODER.value += 5
-			self.get_parent()._radio_start("Child_good")
+			_radio_start("Child_good")
 			pass
 			
 		if body.get_parent().Karma == 1 :
 			
 			SLODER.value -= 5
-			self.get_parent()._radio_start("Child_bad")
+			_radio_start("Child_bad")
 			pass
 
 		if body.get_parent().Karma == 2 :
-			self.get_parent()._radio_start("Child_neutral")
+			_radio_start("Child_neutral")
 			pass
 			
 	if body is bumper :
@@ -423,7 +437,7 @@ func _on_hitbox_area_exited(area: Area3D) -> void:
 	
 func _radio_start(chap):
 	
-	AnimPlayer.play("Radio_Talk")
+	AnimPlayer.play("Radio_talk")
 	if  LayBa.get_child_count() > 0:
 		LayBa.get_child(0).queue_free()
 	var balloon : Node = load(balloon_path).instantiate()
