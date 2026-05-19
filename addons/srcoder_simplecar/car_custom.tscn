@@ -25,9 +25,17 @@
 [ext_resource type="AudioStream" uid="uid://sfr5vpywosgn" path="res://assets/Audio/Death_quotes/NoCanDo.wav" id="18_cdysg"]
 [ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="18_scxrs"]
 [ext_resource type="VideoStream" uid="uid://ch4oipsjay70n" path="res://assets/Video/0000-0393.ogv" id="19_854qw"]
+[ext_resource type="AudioStream" uid="uid://cpjivt75jel4" path="res://assets/Audio/Tv_quotes/ADIOS.wav" id="19_gpm1f"]
+[ext_resource type="AudioStream" uid="uid://d4ieiykm6gkws" path="res://assets/Audio/Tv_quotes/BUSTAMOVE.wav" id="20_r605t"]
 [ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://assets/Textures/Radio/frame0001.png" id="20_wj4kd"]
 [ext_resource type="Texture2D" uid="uid://copvhmpfo4ibr" path="res://assets/Textures/Radio/frame0002.png" id="21_0acjl"]
+[ext_resource type="AudioStream" uid="uid://51nnw2m27ikx" path="res://assets/Audio/Tv_quotes/BustItAndDustIt.wav" id="21_hs7ed"]
 [ext_resource type="Texture2D" uid="uid://cp5hl5ypk0f5h" path="res://AnimTextExplo.tres" id="22_0acjl"]
+[ext_resource type="AudioStream" uid="uid://ch4s013fvhg7g" path="res://assets/Audio/Tv_quotes/GrppinAndRippin.wav" id="22_xsmfh"]
+[ext_resource type="AudioStream" uid="uid://cp61eddy36a38" path="res://assets/Audio/Tv_quotes/HAVE MERCY.wav" id="23_454yk"]
+[ext_resource type="AudioStream" uid="uid://bwr0xstxnxbxg" path="res://assets/Audio/Tv_quotes/PULLITJEEZ.wav" id="24_36hac"]
+[ext_resource type="AudioStream" uid="uid://cqaf06mrep3k5" path="res://assets/Audio/Tv_quotes/TASTESOMESMOKE.wav" id="25_mvmrt"]
+[ext_resource type="AudioStream" uid="uid://d12cedeewhsa5" path="res://assets/Audio/Tv_quotes/YouBAD.wav" id="26_85v1d"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xtq8k"]
 streams_count = 6
@@ -37,6 +45,17 @@ stream_2/stream = ExtResource("15_7sqjs")
 stream_3/stream = ExtResource("16_qh2ve")
 stream_4/stream = ExtResource("17_jkilt")
 stream_5/stream = ExtResource("18_cdysg")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pjluh"]
+streams_count = 8
+stream_0/stream = ExtResource("19_gpm1f")
+stream_1/stream = ExtResource("20_r605t")
+stream_2/stream = ExtResource("21_hs7ed")
+stream_3/stream = ExtResource("22_xsmfh")
+stream_4/stream = ExtResource("23_454yk")
+stream_5/stream = ExtResource("24_36hac")
+stream_6/stream = ExtResource("25_mvmrt")
+stream_7/stream = ExtResource("26_85v1d")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iwjfg"]
 size = Vector3(1.67963, 1.09668, 2.9843109)
@@ -172,7 +191,7 @@ material = SubResource("StandardMaterial3D_g33e6")
 size = Vector2(4, 4)
 orientation = 2
 
-[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "VStraemPlay", "exploParticles", "LayBa")]
+[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "Tv_quotes", "VStraemPlay", "exploParticles", "LayBa")]
 collision_layer = 2
 physics_material_override = ExtResource("1_gdthg")
 center_of_mass_mode = 1
@@ -189,6 +208,7 @@ trickLand = ExtResource("5_2cqij")
 Sound = NodePath("Other_sounds")
 SoundNitro = NodePath("Nitrous")
 death_quotes = NodePath("Death_quote")
+Tv_quotes = NodePath("Tv_quote")
 videofin = ExtResource("19_854qw")
 VStraemPlay = NodePath("Ui_Holder/OUI/Panel/VideoStreamPlayer")
 exploParticles = NodePath("GPUParticles3D")
@@ -274,6 +294,10 @@ volume_db = -30.0
 
 [node name="Death_quote" type="AudioStreamPlayer3D" parent="." unique_id=1740587628]
 stream = SubResource("AudioStreamRandomizer_xtq8k")
+volume_db = -25.0
+
+[node name="Tv_quote" type="AudioStreamPlayer3D" parent="." unique_id=1331943520]
+stream = SubResource("AudioStreamRandomizer_pjluh")
 volume_db = -25.0
 
 [node name="hitbox" type="Area3D" parent="." unique_id=2132694768]

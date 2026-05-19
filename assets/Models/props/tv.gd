@@ -1,4 +1,5 @@
 extends RigidBody3D
+class_name TV
 
 @export var mesh : MeshInstance3D
 @export var anim : AnimationPlayer

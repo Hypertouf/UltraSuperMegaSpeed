@@ -30,6 +30,7 @@ extends VehicleBody3D
 @export var Sound : AudioStreamPlayer3D
 @export var SoundNitro : AudioStreamPlayer3D
 @export var death_quotes : AudioStreamPlayer3D
+@export var Tv_quotes : AudioStreamPlayer3D
 @export var videofin : VideoStreamTheora
 @export var VStraemPlay : VideoStreamPlayer
 @export var exploParticles : GPUParticles3D
@@ -402,11 +403,9 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 		steering = 0.0
 		linear_velocity = body.get_parent_node_3d().global_transform.basis.z.normalized() * body.get_parent_node_3d().power
 		$boostTimer.start(0.2)
-		#test comment
-
-	#if body is loop : #button to switch between three cameras
-		#print("LOOP !!!!")
-		#$cockpit.make_current()
+		
+	if body is TV :
+		Tv_quotes.play()
 		
 
 
