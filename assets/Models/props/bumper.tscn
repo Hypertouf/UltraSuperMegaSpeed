@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://denjrfospc545"]
 
-[ext_resource type="Script" uid="uid://bw4tstdbc6htr" path="res://bumper.gd" id="1_hrt4a"]
+[ext_resource type="Script" uid="uid://bw4tstdbc6htr" path="res://Scripts/bumper.gd" id="1_hrt4a"]
 [ext_resource type="PackedScene" uid="uid://dsy5twty10ykf" path="res://assets/Models/props/ressors.tscn" id="2_h31vo"]
 [ext_resource type="AudioStream" uid="uid://b4l15yvn8ce5t" path="res://assets/Audio/spring_sound_1.wav" id="3_sn2yj"]
 

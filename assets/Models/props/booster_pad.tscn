@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://loy552u5ob8l"]
 
-[ext_resource type="Script" uid="uid://cwt4jtj0qyd3w" path="res://booster_pad.gd" id="2_6v7ex"]
+[ext_resource type="Script" uid="uid://cwt4jtj0qyd3w" path="res://Scripts/booster_pad.gd" id="2_6v7ex"]
 [ext_resource type="ArrayMesh" uid="uid://drya6dl5ful1u" path="res://assets/Models/props/Powerup.tres" id="2_bo13x"]
 [ext_resource type="AudioStream" uid="uid://c0xlfnh4cxtyw" path="res://assets/Audio/airzipper_sound.wav" id="3_bo13x"]
 

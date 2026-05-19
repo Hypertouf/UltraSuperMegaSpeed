@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://c0llask5xjo1d" path="res://assets/Audio/deltarune explosion greenscreen.mp3" id="5_y1lln"]
 [ext_resource type="ArrayMesh" uid="uid://dg5won52i52g8" path="res://assets/Models/Tuture/wheel-front-right.tres" id="6_2cqij"]
 [ext_resource type="ArrayMesh" uid="uid://ctkojq0qsv21s" path="res://assets/Models/Tuture/wheel-front-left.tres" id="7_syhvw"]
-[ext_resource type="Texture2D" uid="uid://cpii4stj8dfvy" path="res://Radio/frame0000.png" id="12_cgcc8"]
+[ext_resource type="Texture2D" uid="uid://cpii4stj8dfvy" path="res://assets/Textures/Radio/frame0000.png" id="12_cgcc8"]
 [ext_resource type="Texture2D" uid="uid://du53j3hwuqhej" path="res://assets/Textures/UI_Cursor.png" id="13_u3kq8"]
 [ext_resource type="Texture2D" uid="uid://dh0qh2orsscla" path="res://assets/Textures/UI_MoralityMeter.png" id="14_wj4kd"]
 [ext_resource type="Texture2D" uid="uid://tcp5lww6uhxp" path="res://assets/Textures/Boost/Boost_Top.png" id="15_0acjl"]
@@ -19,8 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://dt5ju0rdepq2h" path="res://assets/Textures/Boost/bubble01.png" id="17_e70ve"]
 [ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="18_scxrs"]
 [ext_resource type="VideoStream" uid="uid://ch4oipsjay70n" path="res://assets/Video/0000-0393.ogv" id="19_854qw"]
-[ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://Radio/frame0001.png" id="20_wj4kd"]
-[ext_resource type="Texture2D" uid="uid://copvhmpfo4ibr" path="res://Radio/frame0002.png" id="21_0acjl"]
+[ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://assets/Textures/Radio/frame0001.png" id="20_wj4kd"]
+[ext_resource type="Texture2D" uid="uid://copvhmpfo4ibr" path="res://assets/Textures/Radio/frame0002.png" id="21_0acjl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iwjfg"]
 size = Vector3(1.67963, 1.09668, 2.9843109)

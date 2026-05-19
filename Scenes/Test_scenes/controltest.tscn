@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bwb5pbwyy5ggx"]
+
+[ext_resource type="FontFile" uid="uid://dwp7apxjdqobd" path="res://assets/FOnt/LazyFox Pixel Font 2.ttf" id="1_6u7pw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s82po"]
+
+[node name="Control" type="Control" unique_id=219685995]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=1536787682]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface" unique_id=1625287615]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -470.0
+offset_right = 311.0
+offset_bottom = -12.0
+grow_vertical = 0
+
+[node name="PLAY" type="Button" parent="Interface/VBoxContainer" unique_id=1732073430]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6u7pw")
+theme_override_font_sizes/font_size = 32
+text = "PLAY"
+
+[node name="OPTIONS" type="Button" parent="Interface/VBoxContainer" unique_id=617670709]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6u7pw")
+theme_override_font_sizes/font_size = 32
+text = "OPTIONS"
+
+[node name="CREDITS" type="Button" parent="Interface/VBoxContainer" unique_id=433168592]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6u7pw")
+theme_override_font_sizes/font_size = 32
+text = "CREDITS"
+
+[node name="Panel" type="Panel" parent="Interface/VBoxContainer" unique_id=340966567]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_s82po")
+
+[node name="QUIT" type="Button" parent="Interface/VBoxContainer" unique_id=144643600]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6u7pw")
+theme_override_font_sizes/font_size = 32
+text = "QUIT"
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=2020584296]
+layer = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Background" unique_id=1094654078]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="Background/SubViewportContainer" unique_id=613090215]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://be5wkcxqydy2y"]
 
-[ext_resource type="Script" uid="uid://bak2utxuhhqnf" path="res://enterloop.gd" id="1_3awm6"]
-[ext_resource type="Script" uid="uid://d4gh1bllr2irl" path="res://exitloop.gd" id="2_irs60"]
+[ext_resource type="Script" uid="uid://bak2utxuhhqnf" path="res://Scripts/enterloop.gd" id="1_3awm6"]
+[ext_resource type="Script" uid="uid://d4gh1bllr2irl" path="res://Scripts/exitloop.gd" id="2_irs60"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_30u42"]
 size = Vector3(1.8568115, 2.070282, 2.284668)
