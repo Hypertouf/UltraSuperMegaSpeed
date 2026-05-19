@@ -62,6 +62,7 @@ var default_position = Vector3(0.0,0.0,0.0)
 var score = 0
 var wheelie = false
 var gravity_change = false
+var exploCooldown = false
 #an exporetd array of driving wheels so we can limit rom of each wheel when we process input
 @onready var driving_wheels : Array[VehicleWheel3D] = [$WheelBackLeft,$WheelBackRight]
 @onready var steering_wheels : Array[VehicleWheel3D] = [$WheelFrontLeft,$WheelFrontRight]
@@ -86,6 +87,7 @@ func hypothenuse(a, b): #urhm it might look silly but it is necessary for correc
 	
 func _ontimyended():
 	exploParticles.emitting = false
+	exploCooldown = false
 	
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
@@ -269,15 +271,7 @@ func get_input(delta : float):
 		if (default_position.y - rotation_degrees.y) >= 180	: #I need to learn about transformation matrix ugh
 			#print("shuvit !!!")
 			default_position = Vector3(0,0,0)	
-	if $check_death.is_colliding() :
-		print("death")
-		exploParticles.emitting = true
-		var timy = Timer.new() # Create a new Sprite2D.
-		timy.autostart = true
-		timy.one_shot = true
-		timy.wait_time = 1
-		timy.timeout.connect(_ontimyended)
-		add_child(timy)
+			
 		
 	if $check_ground.is_colliding():
 		#print("it's non the ground")
@@ -483,3 +477,20 @@ func _on_nitro_value_changed(value: float) -> void:
 		pass
 	nitro_oldvalue = value
 	pass # Replace with function body.
+
+
+func _on_death_hitbox_body_entered(body: Node3D) -> void:
+	if body.get_class() != "RigidBody3D" :
+		print("death")
+		print(body)
+		exploParticles.emitting = true
+		Sound.stream = explosion
+		if !exploCooldown :
+			Sound.play()
+			exploCooldown = true
+		var timy = Timer.new() # Create a new Sprite2D.
+		timy.autostart = true
+		timy.one_shot = true
+		timy.wait_time = 1
+		timy.timeout.connect(_ontimyended)
+		add_child(timy)

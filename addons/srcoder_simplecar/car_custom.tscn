@@ -154,6 +154,9 @@ material = SubResource("StandardMaterial3D_g33e6")
 size = Vector2(4, 4)
 orientation = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0acjl"]
+size = Vector3(0.5852051, 0.62347317, 0.034065247)
+
 [node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "VStraemPlay", "exploParticles", "LayBa")]
 collision_layer = 2
 physics_material_override = ExtResource("1_gdthg")
@@ -245,11 +248,9 @@ skeleton = NodePath("")
 [node name="check_ground" type="RayCast3D" parent="." unique_id=1438501857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120831, -0.24324802, 0)
 
-[node name="check_death" type="RayCast3D" parent="." unique_id=532062086]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0.4044398, 0)
-
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1541837788]
 volume_db = -30.0
+max_polyphony = 3
 
 [node name="AudioStreamPlayer3D_nitro" type="AudioStreamPlayer3D" parent="." unique_id=1538426193]
 stream = ExtResource("4_v75hc")
@@ -395,7 +396,14 @@ emitting = false
 process_material = SubResource("ParticleProcessMaterial_jjlsn")
 draw_pass_1 = SubResource("PlaneMesh_e70ve")
 
+[node name="death_hitbox" type="Area3D" parent="." unique_id=1521251063]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="death_hitbox" unique_id=743316767]
+transform = Transform3D(1, 0, 0, 0, 0.031410728, 0.99950653, 0, -0.99950653, 0.031410728, -0.007446289, 0.67674565, -0.17638354)
+shape = SubResource("BoxShape3D_0acjl")
+
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="value_changed" from="Ui_Holder/OUI/Nitro" to="." method="_on_nitro_value_changed"]
+[connection signal="body_entered" from="death_hitbox" to="." method="_on_death_hitbox_body_entered"]
