@@ -1,63 +1,377 @@
 [gd_scene format=3 uid="uid://bwb5pbwyy5ggx"]
 
 [ext_resource type="FontFile" uid="uid://dwp7apxjdqobd" path="res://assets/FOnt/LazyFox Pixel Font 2.ttf" id="1_6u7pw"]
+[ext_resource type="Script" uid="uid://5iwebwtlg236" path="res://Scripts/MainMenu.gd" id="1_fqhod"]
+[ext_resource type="Material" uid="uid://b10yrunmje1il" path="res://assets/Materials/PerspecShader.tres" id="3_8iibg"]
+[ext_resource type="Texture2D" uid="uid://dleyiu3b6afwl" path="res://assets/Textures/MainMenu/Button_bg.png" id="3_j8467"]
+[ext_resource type="AnimationLibrary" uid="uid://behgmw2npan8u" path="res://Anims/Main_Menu_anim.res" id="4_lb7jp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6u7pw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fqhod"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8467"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lb7jp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8iibg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_si2q2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fgnut"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81mob"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4t6n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hdffe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n14xd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hmknm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1sgel"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tq2m7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rcnuh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s82po"]
 
-[node name="Control" type="Control" unique_id=219685995]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wlsk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7tkp3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s3bng"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nhbm6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c2k0a"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8iibg"]
+
+[node name="MainMenu" type="Control" unique_id=219685995 node_paths=PackedStringArray("Anim_enter", "Anim_exit", "Anim_credits", "Anim_quit", "Buttons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fqhod")
+Anim_enter = NodePath("AnimationPlayer_enters")
+Anim_exit = NodePath("AnimationPlayer_exit")
+Anim_credits = NodePath("AnimationPlayer_Credits")
+Anim_quit = NodePath("AnimationPlayer_Quit")
+Buttons = [NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/PLAY"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/OPTIONS"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/CREDITS"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/QUIT")]
 
 [node name="Interface" type="CanvasLayer" parent="." unique_id=1536787682]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Interface" unique_id=1625287615]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Interface" unique_id=1537727002]
+z_index = 5
+material = ExtResource("3_8iibg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Interface/SubViewportContainer" unique_id=1084241149]
+handle_input_locally = false
+size = Vector2i(1152, 567)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="Interface/SubViewportContainer/SubViewport" unique_id=1927440084]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -82.115
+offset_bottom = -82.11499
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="TextureRect" parent="Interface/SubViewportContainer/SubViewport/Control" unique_id=558337935]
+texture_filter = 1
+layout_mode = 0
+offset_left = -500.0
+offset_top = 111.0
+offset_right = -50.0
+offset_bottom = 311.00046
+rotation = 0.27750736
+scale = Vector2(1.2, 0.8)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("3_j8467")
+
+[node name="Bg2" type="TextureRect" parent="Interface/SubViewportContainer/SubViewport/Control" unique_id=1774650676]
+texture_filter = 1
+layout_mode = 0
+offset_left = -500.0
+offset_top = 184.0
+offset_right = -50.0
+offset_bottom = 384.00037
+rotation = 0.1850049
+scale = Vector2(1.2, 0.8)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("3_j8467")
+
+[node name="Bg3" type="TextureRect" parent="Interface/SubViewportContainer/SubViewport/Control" unique_id=1267472487]
+texture_filter = 1
+layout_mode = 0
+offset_left = -544.0
+offset_top = 263.0
+offset_right = -94.0
+offset_bottom = 463.00006
+rotation = -0.1850049
+scale = Vector2(1.2, 0.8)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("3_j8467")
+
+[node name="Bg4" type="TextureRect" parent="Interface/SubViewportContainer/SubViewport/Control" unique_id=50646025]
+texture_filter = 1
+layout_mode = 0
+offset_left = -500.0
+offset_top = 458.0
+offset_right = -50.0
+offset_bottom = 658.0008
+rotation = -0.3700098
+scale = Vector2(1.2, 0.8)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("3_j8467")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/SubViewportContainer/SubViewport" unique_id=1625287615]
+material = ExtResource("3_8iibg")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 11.0
+offset_left = 77.935
 offset_top = -470.0
-offset_right = 311.0
-offset_bottom = -12.0
+offset_right = 377.935
+offset_bottom = -12.000427
 grow_vertical = 0
+theme_override_constants/separation = 20
 
-[node name="PLAY" type="Button" parent="Interface/VBoxContainer" unique_id=1732073430]
+[node name="PLAY" type="Button" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=1732073430]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.91947705, 0.9801499, 0.9757115, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6u7pw")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6u7pw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fqhod")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j8467")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lb7jp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8iibg")
+text = "PLAY"
+
+[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/PLAY" unique_id=659988878]
+show_behind_parent = true
+texture_filter = 1
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -30.0
+offset_right = 42.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_shadow_color = Color(0.96862745, 0.10980392, 0.43137255, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("1_6u7pw")
 theme_override_font_sizes/font_size = 32
 text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="OPTIONS" type="Button" parent="Interface/VBoxContainer" unique_id=617670709]
+[node name="OPTIONS" type="Button" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=617670709]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.91947705, 0.9801499, 0.9757115, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6u7pw")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_si2q2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fgnut")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_81mob")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_f4t6n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdffe")
+text = "OPTIONS"
+
+[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/OPTIONS" unique_id=337210617]
+show_behind_parent = true
+texture_filter = 1
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_shadow_color = Color(0.96862745, 0.10980392, 0.43137255, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("1_6u7pw")
 theme_override_font_sizes/font_size = 32
 text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CREDITS" type="Button" parent="Interface/VBoxContainer" unique_id=433168592]
+[node name="CREDITS" type="Button" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=433168592]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.91947705, 0.9801499, 0.9757115, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6u7pw")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n14xd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hmknm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1sgel")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tq2m7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rcnuh")
+text = "CREDITS"
+
+[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/CREDITS" unique_id=48269449]
+show_behind_parent = true
+texture_filter = 1
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 6.2831855
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_shadow_color = Color(0.96862745, 0.10980392, 0.43137255, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("1_6u7pw")
 theme_override_font_sizes/font_size = 32
 text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="Interface/VBoxContainer" unique_id=340966567]
-custom_minimum_size = Vector2(0, 200)
+[node name="Panel" type="Panel" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=340966567]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_s82po")
 
-[node name="QUIT" type="Button" parent="Interface/VBoxContainer" unique_id=144643600]
+[node name="QUIT" type="Button" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=144643600]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6u7pw")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1wlsk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7tkp3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_s3bng")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_nhbm6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c2k0a")
+text = "QUIT"
+
+[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/QUIT" unique_id=352842259]
+show_behind_parent = true
+texture_filter = 1
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_shadow_color = Color(0.96862745, 0.10980392, 0.43137255, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("1_6u7pw")
 theme_override_font_sizes/font_size = 32
 text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Interface" unique_id=75776526]
+offset_left = 113.0
+offset_top = 25.0
+offset_right = 333.0
+offset_bottom = 145.0
+
+[node name="Button2" type="Button" parent="Interface" unique_id=1016459723]
+offset_left = 159.0
+offset_top = 286.0
+offset_right = 409.0
+offset_bottom = 386.0
+rotation = -0.2984513
+
+[node name="Button3" type="Button" parent="Interface" unique_id=903130098]
+offset_left = 245.0
+offset_top = 451.99997
+offset_right = 465.0
+offset_bottom = 522.0
+rotation = -0.5837431
+
+[node name="Button4" type="Button" parent="Interface" unique_id=455419199]
+offset_left = 356.99997
+offset_top = 624.0
+offset_right = 506.99997
+offset_bottom = 674.0
+rotation = -0.80808747
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=2020584296]
 layer = 0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Background" unique_id=1094654078]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="SubViewport" type="SubViewport" parent="Background/SubViewportContainer" unique_id=613090215]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="AnimationPlayer_enters" type="AnimationPlayer" parent="." unique_id=566951878]
+libraries/ = ExtResource("4_lb7jp")
+
+[node name="AnimationPlayer_exit" type="AnimationPlayer" parent="." unique_id=848504035]
+libraries/ = SubResource("AnimationLibrary_8iibg")
+libraries/Main_Menu_anim = ExtResource("4_lb7jp")
+
+[node name="AnimationPlayer_Credits" type="AnimationPlayer" parent="." unique_id=404811542]
+libraries/ = SubResource("AnimationLibrary_8iibg")
+libraries/Main_Menu_anim = ExtResource("4_lb7jp")
+
+[node name="AnimationPlayer_Quit" type="AnimationPlayer" parent="." unique_id=590250837]
+libraries/ = SubResource("AnimationLibrary_8iibg")
+libraries/Main_Menu_anim = ExtResource("4_lb7jp")
+
+[connection signal="mouse_entered" from="Interface/Button" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="Interface/Button" to="." method="_on_play_mouse_exited"]
+[connection signal="mouse_entered" from="Interface/Button2" to="." method="_on_options_mouse_entered"]
+[connection signal="mouse_exited" from="Interface/Button2" to="." method="_on_options_mouse_exited"]
+[connection signal="mouse_entered" from="Interface/Button3" to="." method="_on_credits_mouse_entered"]
+[connection signal="mouse_exited" from="Interface/Button3" to="." method="_on_credits_mouse_exited"]
+[connection signal="mouse_entered" from="Interface/Button4" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="Interface/Button4" to="." method="_on_quit_mouse_exited"]
