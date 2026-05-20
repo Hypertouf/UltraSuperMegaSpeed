@@ -90,6 +90,7 @@ size = Vector3(300, 8, 300)
 
 [node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("followcamera") instance=ExtResource("1_0nkrw")]
 transform = Transform3D(0.027380815, 0, -0.9996251, 0, 1, 0, 0.9996251, 0, 0.027380815, -88.4463, 0.350577, -77.12201)
+rear_wheel_grip = 5.0
 followcamera = NodePath("../FollowCamera")
 shortjump = ExtResource("3_kb7yh")
 bigjump = ExtResource("3_kb7yh")

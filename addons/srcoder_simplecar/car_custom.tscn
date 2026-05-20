@@ -197,6 +197,7 @@ physics_material_override = ExtResource("1_gdthg")
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.28881523, -0.020060861)
 script = ExtResource("2_mbobr")
+rear_wheel_grip = 10.0
 torbo = NodePath("Ui_Holder/OUI/Nitro")
 SLODER = NodePath("Ui_Holder/OUI/Morality")
 hitbox = NodePath("hitbox")

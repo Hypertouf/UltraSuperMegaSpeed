@@ -277,7 +277,7 @@ func get_input(delta : float):
 		if tricks != [0,0,0]:
 			print(tricks)
 			#Sound.stream = trickLand
-			Sound.play()
+			#Sound.play()
 			if tricks == [0,1,0] :
 				print("front 360 !")
 			if tricks == [0,-1,0] :
@@ -478,6 +478,7 @@ func _on_death_hitbox_body_entered(body: Node3D) -> void:
 		if $exploCoolDown.time_left == 0 :
 			$exploCoolDown.start(0.5)
 			Sound.play()
+			
 		
 
 
@@ -486,6 +487,8 @@ func _on_explo_cool_down_timeout() -> void:
 	exploCooldown = false
 	position.y += 1
 	rotation.z = 0
+	rotation.x = 0
+	angular_velocity = Vector3(0.0,0.0,0.0)
 	linear_velocity = Vector3(0.0,0.0,0.0)
 	death_quotes.play()
 
@@ -501,4 +504,4 @@ func _on_boost_timer_timeout() -> void:
 	axis_lock_angular_z = false
 	axis_lock_angular_x = false
 	for wheel in steering_wheels :
-		wheel.wheel_friction_slip = 5.0
+		wheel.wheel_friction_slip = front_wheel_grip
