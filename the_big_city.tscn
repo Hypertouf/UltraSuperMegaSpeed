@@ -701,6 +701,11 @@ bump_x = 20.0
 bump_z = 10.0
 
 [node name="Pieton" parent="." unique_id=812360240 instance=ExtResource("15_qn0af")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.90221, 1.23138, -73.310646)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.82928, 1.23138, -63.769554)
+PietonMESH = ExtResource("30_ffspi")
+Karma = 1
+
+[node name="Pieton2" parent="." unique_id=1506541626 instance=ExtResource("15_qn0af")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.821144, 1.23138, -63.769554)
 PietonMESH = ExtResource("30_ffspi")
 Karma = 1

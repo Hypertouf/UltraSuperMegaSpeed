@@ -3,6 +3,31 @@
 [ext_resource type="Script" uid="uid://b4ewvpbfapvux" path="res://Scripts/people_1.gd" id="1_vb78p"]
 [ext_resource type="Script" uid="uid://cn2872m8evgvt" path="res://Scripts/pieton.gd" id="1_x5qse"]
 [ext_resource type="Texture2D" uid="uid://cp5hl5ypk0f5h" path="res://AnimTextExplo.tres" id="2_hysuu"]
+[ext_resource type="AudioStream" uid="uid://bearbslshxkif" path="res://assets/Audio/child_quotes/025.Synth_MLT_chao_sound_std_chao_sound_std009025_wav.wav" id="4_d22n6"]
+[ext_resource type="AudioStream" uid="uid://chd3fsc6yut43" path="res://assets/Audio/child_quotes/026.Synth_MLT_chao_sound_std_chao_sound_std009026_wav.wav" id="5_chphh"]
+[ext_resource type="AudioStream" uid="uid://dvs10vkrpal4e" path="res://assets/Audio/child_quotes/035.Synth_MLT_chao_sound_std_chao_sound_std009035_wav.wav" id="6_2nj2q"]
+[ext_resource type="AudioStream" uid="uid://ccjchaage5jaw" path="res://assets/Audio/child_quotes/036.Synth_MLT_chao_sound_std_chao_sound_std009036_wav.wav" id="7_rtfij"]
+[ext_resource type="AudioStream" uid="uid://bff7ih5et2nh0" path="res://assets/Audio/child_quotes/037.Synth_MLT_chao_sound_std_chao_sound_std009037_wav.wav" id="8_fbhs8"]
+[ext_resource type="AudioStream" uid="uid://c2brddiipwydt" path="res://assets/Audio/child_quotes/038.Synth_MLT_chao_sound_std_chao_sound_std009038_wav.wav" id="9_0rv3p"]
+[ext_resource type="AudioStream" uid="uid://wa80fpo8836m" path="res://assets/Audio/child_quotes/039.Synth_MLT_chao_sound_std_chao_sound_std009039_wav.wav" id="10_ocf2a"]
+[ext_resource type="AudioStream" uid="uid://daowqx44qctue" path="res://assets/Audio/child_quotes/040.Synth_MLT_chao_sound_std_chao_sound_std009040_wav.wav" id="11_uo7ws"]
+[ext_resource type="AudioStream" uid="uid://d3sfhlljhdgxw" path="res://assets/Audio/child_quotes/041.Synth_MLT_chao_sound_std_chao_sound_std009041_wav.wav" id="12_dmn8r"]
+[ext_resource type="AudioStream" uid="uid://dgd3d8dqnal5w" path="res://assets/Audio/child_quotes/042.Synth_MLT_chao_sound_std_chao_sound_std009042_wav.wav" id="13_4nt8r"]
+[ext_resource type="AudioStream" uid="uid://bio4c8ajnldn4" path="res://assets/Audio/child_quotes/043.Synth_MLT_chao_sound_std_chao_sound_std009043_wav.wav" id="14_2uor5"]
+[ext_resource type="AudioStream" uid="uid://c32u5kqqgq5fi" path="res://assets/Audio/child_quotes/044.Synth_MLT_chao_sound_std_chao_sound_std009044_wav.wav" id="15_p53lo"]
+[ext_resource type="AudioStream" uid="uid://duvpjay5nk6pd" path="res://assets/Audio/child_quotes/027.Synth_MLT_chao_sound_std_chao_sound_std009027_wav.wav" id="16_um42r"]
+[ext_resource type="AudioStream" uid="uid://v4frq407tikc" path="res://assets/Audio/child_quotes/045.Synth_MLT_chao_sound_std_chao_sound_std009045_wav.wav" id="17_ftc75"]
+[ext_resource type="AudioStream" uid="uid://dhow3p6x21atw" path="res://assets/Audio/child_quotes/046.Synth_MLT_chao_sound_std_chao_sound_std009046_wav.wav" id="18_eyxb2"]
+[ext_resource type="AudioStream" uid="uid://cev3frrqm43x3" path="res://assets/Audio/child_quotes/047.Synth_MLT_chao_sound_std_chao_sound_std009047_wav.wav" id="19_ilo7c"]
+[ext_resource type="AudioStream" uid="uid://bxanimn83e0tp" path="res://assets/Audio/child_quotes/048.Synth_MLT_chao_sound_std_chao_sound_std009048_wav.wav" id="20_j0tc8"]
+[ext_resource type="AudioStream" uid="uid://c7cfgkrtqjwns" path="res://assets/Audio/child_quotes/049.Synth_MLT_chao_sound_std_chao_sound_std009049_wav.wav" id="21_5vlh8"]
+[ext_resource type="AudioStream" uid="uid://vwxk07ws1ldx" path="res://assets/Audio/child_quotes/028.Synth_MLT_chao_sound_std_chao_sound_std009028_wav.wav" id="22_fxvkj"]
+[ext_resource type="AudioStream" uid="uid://dimyqyjm2axjr" path="res://assets/Audio/child_quotes/029.Synth_MLT_chao_sound_std_chao_sound_std009029_wav.wav" id="23_06r4o"]
+[ext_resource type="AudioStream" uid="uid://cap2wb7wfvlji" path="res://assets/Audio/child_quotes/030.Synth_MLT_chao_sound_std_chao_sound_std009030_wav.wav" id="24_2bc10"]
+[ext_resource type="AudioStream" uid="uid://34dgldsopxib" path="res://assets/Audio/child_quotes/031.Synth_MLT_chao_sound_std_chao_sound_std009031_wav.wav" id="25_7jr33"]
+[ext_resource type="AudioStream" uid="uid://bvflfs0cmli78" path="res://assets/Audio/child_quotes/032.Synth_MLT_chao_sound_std_chao_sound_std009032_wav.wav" id="26_iy13f"]
+[ext_resource type="AudioStream" uid="uid://hbahc6mq0y5s" path="res://assets/Audio/child_quotes/033.Synth_MLT_chao_sound_std_chao_sound_std009033_wav.wav" id="27_153pw"]
+[ext_resource type="AudioStream" uid="uid://b5ydfhslvktcl" path="res://assets/Audio/child_quotes/034.Synth_MLT_chao_sound_std_chao_sound_std009034_wav.wav" id="28_4ro1l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oj3sk"]
 
@@ -97,10 +122,39 @@ material = SubResource("StandardMaterial3D_g33e6")
 size = Vector2(4, 4)
 orientation = 2
 
-[node name="Pieton" type="Node3D" unique_id=812360240 node_paths=PackedStringArray("mesh", "explo")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1iouh"]
+streams_count = 25
+stream_0/stream = ExtResource("4_d22n6")
+stream_1/stream = ExtResource("5_chphh")
+stream_2/stream = ExtResource("16_um42r")
+stream_3/stream = ExtResource("22_fxvkj")
+stream_4/stream = ExtResource("23_06r4o")
+stream_5/stream = ExtResource("24_2bc10")
+stream_6/stream = ExtResource("25_7jr33")
+stream_7/stream = ExtResource("26_iy13f")
+stream_8/stream = ExtResource("27_153pw")
+stream_9/stream = ExtResource("28_4ro1l")
+stream_10/stream = ExtResource("6_2nj2q")
+stream_11/stream = ExtResource("7_rtfij")
+stream_12/stream = ExtResource("8_fbhs8")
+stream_13/stream = ExtResource("9_0rv3p")
+stream_14/stream = ExtResource("10_ocf2a")
+stream_15/stream = ExtResource("11_uo7ws")
+stream_16/stream = ExtResource("12_dmn8r")
+stream_17/stream = ExtResource("13_4nt8r")
+stream_18/stream = ExtResource("14_2uor5")
+stream_19/stream = ExtResource("15_p53lo")
+stream_20/stream = ExtResource("17_ftc75")
+stream_21/stream = ExtResource("18_eyxb2")
+stream_22/stream = ExtResource("19_ilo7c")
+stream_23/stream = ExtResource("20_j0tc8")
+stream_24/stream = ExtResource("21_5vlh8")
+
+[node name="Pieton" type="Node3D" unique_id=812360240 node_paths=PackedStringArray("mesh", "explo", "child_quotes")]
 script = ExtResource("1_x5qse")
 mesh = NodePath("people1/CollisionShape3D/MeshInstance3D")
 explo = NodePath("MeshInstance3D")
+child_quotes = NodePath("Child_quotes")
 
 [node name="people1" type="RigidBody3D" parent="." unique_id=1336307423 node_paths=PackedStringArray("boom", "ColShape")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -134,4 +188,12 @@ process_material = SubResource("ParticleProcessMaterial_g33e6")
 draw_pass_1 = SubResource("PlaneMesh_2q84u")
 
 [node name="Timer" type="Timer" parent="." unique_id=78003772]
-wait_time = 2.0
+one_shot = true
+
+[node name="Child_quotes" type="AudioStreamPlayer3D" parent="." unique_id=1244628400]
+stream = SubResource("AudioStreamRandomizer_1iouh")
+volume_db = -35.0
+autoplay = true
+max_distance = 20.0
+
+[connection signal="finished" from="Child_quotes" to="." method="_on_child_quotes_finished"]
