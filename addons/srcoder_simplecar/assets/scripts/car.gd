@@ -87,14 +87,6 @@ func _ready() -> void:
 func hypothenuse(a, b): #urhm it might look silly but it is necessary for correctly calculating the adaptive FOV
 	return sqrt((a*a) + (b*b))
 	
-func _ontimyended():
-	exploParticles.emitting = false
-	exploCooldown = false
-	position.y += 1
-	rotation.z = 0
-	linear_velocity = Vector3(0.0,0.0,0.0)
-	death_quotes.play()
-	
 	
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
@@ -323,24 +315,16 @@ func get_input(delta : float):
 	if !$boostTimer.is_stopped() :
 		axis_lock_angular_y = true
 		axis_lock_angular_z = true
+		axis_lock_angular_x = true
 		for wheel in steering_wheels :
 			wheel.wheel_friction_slip = 0.0
-			
-	else :
-		axis_lock_angular_y = false
-		axis_lock_angular_z = false
-		for wheel in steering_wheels :
-			wheel.wheel_friction_slip = 5.0
+
 	
 	if !$bumpTimer.is_stopped() :
 		axis_lock_angular_y = true
 		axis_lock_angular_z = true
 		axis_lock_angular_x = true
-			
-	else :
-		axis_lock_angular_x = false
-		axis_lock_angular_y = false
-		axis_lock_angular_z = false
+
 		
 ## helper function to see if we are moving forward
 func going_forward() -> bool:
@@ -402,7 +386,7 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 			wheel.steering = 0.0
 		steering = 0.0
 		linear_velocity = body.get_parent_node_3d().global_transform.basis.z.normalized() * body.get_parent_node_3d().power
-		$boostTimer.start(0.2)
+		$boostTimer.start(0.1)
 		
 	if body is TV :
 		Tv_quotes.play()
@@ -491,12 +475,30 @@ func _on_death_hitbox_body_entered(body: Node3D) -> void:
 		exploParticles.emitting = true
 		Sound.stream = explosion
 		tricks = [0,0,0]
-		if !exploCooldown :
+		if $exploCoolDown.time_left == 0 :
+			$exploCoolDown.start(0.5)
 			Sound.play()
-			exploCooldown = true
-		var timy = Timer.new() # Create a new Sprite2D.
-		timy.autostart = true
-		timy.one_shot = true
-		timy.wait_time = 0.2
-		timy.timeout.connect(_ontimyended)
-		add_child(timy)
+		
+
+
+func _on_explo_cool_down_timeout() -> void:
+	exploParticles.emitting = false
+	exploCooldown = false
+	position.y += 1
+	rotation.z = 0
+	linear_velocity = Vector3(0.0,0.0,0.0)
+	death_quotes.play()
+
+
+func _on_bump_timer_timeout() -> void:
+	axis_lock_angular_x = false
+	axis_lock_angular_y = false
+	axis_lock_angular_z = false
+
+
+func _on_boost_timer_timeout() -> void:
+	axis_lock_angular_y = false
+	axis_lock_angular_z = false
+	axis_lock_angular_x = false
+	for wheel in steering_wheels :
+		wheel.wheel_friction_slip = 5.0

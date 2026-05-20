@@ -325,6 +325,9 @@ one_shot = true
 [node name="bumpTimer" type="Timer" parent="." unique_id=1267097384]
 one_shot = true
 
+[node name="exploCoolDown" type="Timer" parent="." unique_id=1524377064]
+one_shot = true
+
 [node name="cockpit" type="Camera3D" parent="." unique_id=62731619]
 transform = Transform3D(-1, -1.0778209e-15, -8.742277e-08, 1.1167362e-08, 0.99180776, -0.12773977, 8.670658e-08, -0.12773976, -0.99180776, -2.5091273e-08, 1.0542033, -2.317504)
 
@@ -450,4 +453,7 @@ draw_pass_1 = SubResource("PlaneMesh_e70ve")
 [connection signal="area_exited" from="hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="death_hitbox" to="." method="_on_death_hitbox_body_entered"]
+[connection signal="timeout" from="boostTimer" to="." method="_on_boost_timer_timeout"]
+[connection signal="timeout" from="bumpTimer" to="." method="_on_bump_timer_timeout"]
+[connection signal="timeout" from="exploCoolDown" to="." method="_on_explo_cool_down_timeout"]
 [connection signal="value_changed" from="Ui_Holder/OUI/Nitro" to="." method="_on_nitro_value_changed"]

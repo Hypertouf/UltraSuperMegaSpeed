@@ -621,7 +621,7 @@ transform = Transform3D(1, 0, 0, 0, 0.92879015, 0.37060603, 0, -0.37060603, 0.92
 script = ExtResource("19_pmuua")
 
 [node name="booster_pad4" parent="ezRoute" unique_id=9854485 instance=ExtResource("18_csgam")]
-transform = Transform3D(1, 0, 0, 0, 0.92879015, 0.37060603, 0, -0.37060603, 0.92879015, -121.750824, 20.275805, -60.277878)
+transform = Transform3D(1, 0, 0, 0, 0.92879015, 0.37060603, 0, -0.37060603, 0.92879015, -121.750824, 20.296465, -60.277878)
 script = ExtResource("19_pmuua")
 
 [node name="Barriere_small" parent="ezRoute" unique_id=2019709630 instance=ExtResource("34_1uvwm")]
@@ -709,3 +709,21 @@ Karma = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.821144, 1.23138, -63.769554)
 PietonMESH = ExtResource("30_ffspi")
 Karma = 1
+
+[node name="Echaffaudage" parent="." unique_id=1254750524 instance=ExtResource("30_pjy18")]
+transform = Transform3D(1, 0, 0, 0, 0.99429893, -0.10662851, 0, 0.10662851, 0.99429893, -94.03056, 18.45164, -15.123391)
+
+[node name="Barriere_default" parent="." unique_id=486824974 instance=ExtResource("35_kb7yh")]
+transform = Transform3D(1, 0, 0, 0, 0.99429893, -0.10662851, 0, 0.10662851, 0.99429893, -87.76503, 21.924585, -15.017785)
+
+[node name="Echaffaudage2" parent="." unique_id=983262832 instance=ExtResource("30_pjy18")]
+transform = Transform3D(1, 0, 0, 0, 0.99429893, -0.10662851, 0, 0.10662851, 0.99429893, -94.03056, 19.42518, -24.20156)
+
+[node name="Barriere_default2" parent="." unique_id=668469757 instance=ExtResource("35_kb7yh")]
+transform = Transform3D(1, 0, 0, 0, 0.99429893, -0.10662851, 0, 0.10662851, 0.99429893, -87.76503, 22.841412, -23.567087)
+
+[node name="Echaffaudage3" parent="." unique_id=942356905 instance=ExtResource("30_pjy18")]
+transform = Transform3D(1, 0, 0, 0, 0.99429893, -0.10662851, 0, 0.10662851, 0.99429893, -89.81479, 18.45164, -15.123391)
+
+[node name="Echaffaudage4" parent="." unique_id=1169122037 instance=ExtResource("30_pjy18")]
+transform = Transform3D(1, 0, 0, 0, 0.99429893, -0.10662851, 0, 0.10662851, 0.99429893, -89.81479, 19.42518, -24.20156)
