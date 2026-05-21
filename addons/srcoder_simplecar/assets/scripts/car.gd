@@ -24,6 +24,7 @@ extends VehicleBody3D
 @export var AnimPlayer : AnimationPlayer
 @export var explosion : AudioStreamMP3
 @export var nitrousSound : AudioStreamMP3
+@export var static_sound : AudioStreamMP3
 @export var trickLand : AudioStreamWAV
 @export var shortjump : AudioStreamWAV
 @export var bigjump : AudioStreamWAV
@@ -31,6 +32,7 @@ extends VehicleBody3D
 @export var SoundNitro : AudioStreamPlayer3D
 @export var death_quotes : AudioStreamPlayer3D
 @export var Tv_quotes : AudioStreamPlayer3D
+@export var Radio : AudioStreamPlayer3D
 @export var videofin : VideoStreamTheora
 @export var VStraemPlay : VideoStreamPlayer
 @export var exploParticles : GPUParticles3D
@@ -79,6 +81,7 @@ func wheelie_mode() :
 func _ready() -> void:
 	#set wheel friction slip
 	nitro_oldvalue = torbo.value
+	Radio.play()
 	for wheel in steering_wheels:
 		wheel.wheel_friction_slip = front_wheel_grip
 	for wheel in driving_wheels:
@@ -505,3 +508,9 @@ func _on_boost_timer_timeout() -> void:
 	axis_lock_angular_x = false
 	for wheel in steering_wheels :
 		wheel.wheel_friction_slip = front_wheel_grip
+
+
+func _on_radio_finished() -> void:
+	#Sound.stream = static_sound
+	#Sound.play()
+	Radio.play()

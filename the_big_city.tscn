@@ -89,7 +89,7 @@ use_collision = true
 size = Vector3(300, 8, 300)
 
 [node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("followcamera") instance=ExtResource("1_0nkrw")]
-transform = Transform3D(-0.9983529, 0, -0.057372436, 0, 1, 0, 0.057372436, 0, -0.9983529, -89.73374, 23.928556, -23.07677)
+transform = Transform3D(0.010628935, 0, -0.99994355, 0, 1, 0, 0.99994355, 0, 0.010628935, -88.58769, 0.4368992, -77.0158)
 rear_wheel_grip = 5.0
 followcamera = NodePath("../FollowCamera")
 shortjump = ExtResource("3_kb7yh")
@@ -783,3 +783,12 @@ text = "JUMP"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.99474, 19.763647, -9.892768)
 pixel_size = 0.05
 text = "JUMP"
+
+[node name="Tv" parent="." unique_id=515717453 instance=ExtResource("31_ffspi")]
+transform = Transform3D(-0.99889314, 0, 0.047036603, 0, 1, 0, -0.047036603, 0, -0.99889314, -89.42808, 35.89039, -82.66653)
+
+[node name="Tv2" parent="." unique_id=1020148099 instance=ExtResource("31_ffspi")]
+transform = Transform3D(-0.034899466, 0, 0.9993908, 0, 1, 0, -0.9993908, 0, -0.034899466, -54.00428, 36.373665, -45.999268)
+
+[node name="Tv3" parent="." unique_id=788217812 instance=ExtResource("31_ffspi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.86269, 32.1366, 22.412779)

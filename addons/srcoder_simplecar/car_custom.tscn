@@ -36,6 +36,15 @@
 [ext_resource type="AudioStream" uid="uid://bwr0xstxnxbxg" path="res://assets/Audio/Tv_quotes/PULLITJEEZ.wav" id="24_36hac"]
 [ext_resource type="AudioStream" uid="uid://cqaf06mrep3k5" path="res://assets/Audio/Tv_quotes/TASTESOMESMOKE.wav" id="25_mvmrt"]
 [ext_resource type="AudioStream" uid="uid://d12cedeewhsa5" path="res://assets/Audio/Tv_quotes/YouBAD.wav" id="26_85v1d"]
+[ext_resource type="AudioStream" uid="uid://bgoxbpj5cfe8b" path="res://assets/Audio/Signé Furax épisodes 61 à 65 - Cassette n°13 - Pierre Dac & Francis Blanche-2.mp3" id="27_pjluh"]
+[ext_resource type="AudioStream" uid="uid://cwmsm7feriy3n" path="res://assets/Audio/Audio 7.mp3" id="28_hvcv4"]
+[ext_resource type="AudioStream" uid="uid://qicm7gs8oiig" path="res://assets/Audio/Audio 6.mp3" id="29_t8xh1"]
+[ext_resource type="AudioStream" uid="uid://bcqjp5qrx557t" path="res://assets/Audio/Audio 5.mp3" id="30_b7us2"]
+[ext_resource type="AudioStream" uid="uid://bqc1xcp3i1tfc" path="res://assets/Audio/Audio 4.mp3" id="31_5fmnu"]
+[ext_resource type="AudioStream" uid="uid://xjenu2xfacl5" path="res://assets/Audio/Audio 3.mp3" id="32_iux6i"]
+[ext_resource type="AudioStream" uid="uid://cog2p8rgji4tq" path="res://assets/Audio/Audio 2.mp3" id="33_vqadn"]
+[ext_resource type="AudioStream" uid="uid://bfap835lsftgs" path="res://assets/Audio/Audio 1.mp3" id="34_vh4ao"]
+[ext_resource type="AudioStream" uid="uid://ta83b0ntrv7n" path="res://assets/Audio/freesound_community-fm-radio-static-82334.mp3" id="35_hvcv4"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xtq8k"]
 streams_count = 6
@@ -56,6 +65,18 @@ stream_4/stream = ExtResource("23_454yk")
 stream_5/stream = ExtResource("24_36hac")
 stream_6/stream = ExtResource("25_mvmrt")
 stream_7/stream = ExtResource("26_85v1d")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hhcwt"]
+playback_mode = 2
+streams_count = 8
+stream_0/stream = ExtResource("27_pjluh")
+stream_1/stream = ExtResource("28_hvcv4")
+stream_2/stream = ExtResource("29_t8xh1")
+stream_3/stream = ExtResource("30_b7us2")
+stream_4/stream = ExtResource("31_5fmnu")
+stream_5/stream = ExtResource("32_iux6i")
+stream_6/stream = ExtResource("33_vqadn")
+stream_7/stream = ExtResource("34_vh4ao")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iwjfg"]
 size = Vector3(1.67963, 1.09668, 2.9843109)
@@ -191,7 +212,7 @@ material = SubResource("StandardMaterial3D_g33e6")
 size = Vector2(4, 4)
 orientation = 2
 
-[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "Tv_quotes", "VStraemPlay", "exploParticles", "LayBa")]
+[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "Tv_quotes", "Radio", "VStraemPlay", "exploParticles", "LayBa")]
 collision_layer = 2
 physics_material_override = ExtResource("1_gdthg")
 center_of_mass_mode = 1
@@ -205,11 +226,13 @@ Ui = NodePath("Ui_Holder")
 AnimPlayer = NodePath("AnimationPlayer")
 explosion = ExtResource("5_y1lln")
 nitrousSound = ExtResource("4_v75hc")
+static_sound = ExtResource("35_hvcv4")
 trickLand = ExtResource("5_2cqij")
 Sound = NodePath("Other_sounds")
 SoundNitro = NodePath("Nitrous")
 death_quotes = NodePath("Death_quote")
 Tv_quotes = NodePath("Tv_quote")
+Radio = NodePath("Radio")
 videofin = ExtResource("19_854qw")
 VStraemPlay = NodePath("Ui_Holder/OUI/Panel/VideoStreamPlayer")
 exploParticles = NodePath("GPUParticles3D")
@@ -300,6 +323,10 @@ volume_db = -25.0
 [node name="Tv_quote" type="AudioStreamPlayer3D" parent="." unique_id=1331943520]
 stream = SubResource("AudioStreamRandomizer_pjluh")
 volume_db = -25.0
+
+[node name="Radio" type="AudioStreamPlayer3D" parent="." unique_id=1928303185]
+stream = SubResource("AudioStreamRandomizer_hhcwt")
+volume_db = -80.0
 
 [node name="hitbox" type="Area3D" parent="." unique_id=2132694768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.328943, 0)
@@ -450,6 +477,7 @@ emitting = false
 process_material = SubResource("ParticleProcessMaterial_jjlsn")
 draw_pass_1 = SubResource("PlaneMesh_e70ve")
 
+[connection signal="finished" from="Radio" to="." method="_on_radio_finished"]
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
