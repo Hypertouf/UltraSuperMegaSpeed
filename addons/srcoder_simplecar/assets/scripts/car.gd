@@ -457,7 +457,7 @@ func _onVPlayFInished ():
 
 
 func _on_nitro_value_changed(value: float) -> void:
-	print("VAL CHANGED")
+	#print("VAL CHANGED")
 	if value > nitro_oldvalue :
 		Sound.stream = trickLand
 		Sound.play() 

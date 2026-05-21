@@ -5,7 +5,10 @@
 [ext_resource type="AudioStream" uid="uid://c0xlfnh4cxtyw" path="res://assets/Audio/airzipper_sound.wav" id="3_bo13x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gyrsk"]
-size = Vector3(0.27978516, 0.46936035, 0.18115234)
+size = Vector3(0.6903076, 0.46936035, 0.6348572)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ppdcs"]
+size = Vector3(0.6903076, 0.46936035, 0.6348572)
 
 [node name="booster_pad" type="Node3D" unique_id=1560870479]
 
@@ -28,7 +31,7 @@ skeleton = NodePath("../..")
 [node name="Area3D" type="Area3D" parent="RigidBody3D" unique_id=202392242]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D" unique_id=92595738]
-shape = SubResource("BoxShape3D_gyrsk")
+shape = SubResource("BoxShape3D_ppdcs")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1027601673]
 stream = ExtResource("3_bo13x")

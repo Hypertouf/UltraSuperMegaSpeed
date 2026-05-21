@@ -4,8 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://dsy5twty10ykf" path="res://assets/Models/props/ressors.tscn" id="2_h31vo"]
 [ext_resource type="AudioStream" uid="uid://b4l15yvn8ce5t" path="res://assets/Audio/spring_sound_1.wav" id="3_sn2yj"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_630l8"]
+size = Vector3(0.3812256, 0.9718628, 0.2998047)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_gyrsk"]
-size = Vector3(0.27978516, 0.46936035, 0.18115234)
+size = Vector3(0.3812256, 0.9718628, 0.2998047)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2f0gt"]
 
@@ -16,17 +19,12 @@ lock_rotation = true
 freeze = true
 script = ExtResource("1_hrt4a")
 Colbumper = NodePath("CollisionShape3D")
-Meesh = NodePath("CollisionShape3D/ressors")
+Meesh = NodePath("ressors")
 Sound = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=17618427]
-shape = SubResource("BoxShape3D_gyrsk")
-
-[node name="ressors" parent="RigidBody3D/CollisionShape3D" unique_id=1538105530 instance=ExtResource("2_h31vo")]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" unique_id=1787238174]
-visible = false
-mesh = SubResource("CapsuleMesh_2f0gt")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00030517578, 0.25125122, 0.00048828125)
+shape = SubResource("BoxShape3D_630l8")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=1246359045]
 stream = ExtResource("3_sn2yj")
@@ -35,6 +33,14 @@ volume_db = -20.0
 [node name="Area3D" type="Area3D" parent="RigidBody3D" unique_id=352008786]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D" unique_id=84341354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00030517578, 0.25125122, 0.00048828125)
 shape = SubResource("BoxShape3D_gyrsk")
+
+[node name="ressors" parent="RigidBody3D" unique_id=1538105530 instance=ExtResource("2_h31vo")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1787238174]
+visible = false
+mesh = SubResource("CapsuleMesh_2f0gt")
+skeleton = NodePath("../CollisionShape3D")
 
 [connection signal="area_entered" from="RigidBody3D/Area3D" to="RigidBody3D" method="_on_area_3d_area_entered"]
