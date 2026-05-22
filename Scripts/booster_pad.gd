@@ -6,4 +6,5 @@ class_name booster_pad
 @export var Sound : AudioStreamPlayer3D
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	Sound.play()
+	if area.get_parent_node_3d() is VehicleBody3D :
+		Sound.play()
