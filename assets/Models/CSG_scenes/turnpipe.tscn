@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bfq0fd2nsskmy"]
+
+[node name="turnpipe" type="Node3D" unique_id=1942043165]
+
+[node name="pipe" type="CSGCylinder3D" parent="." unique_id=2032138196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.76128, 22.784595, 54.331352)
+use_collision = true
+radius = 3.1206055
+height = 10.234222
+sides = 30
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="pipe" unique_id=182519344]
+operation = 2
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="pipe/CSGCombiner3D" unique_id=754252916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.43073273, 0)
+radius = 2.4296875
+height = 11.123215
+sides = 30
+
+[node name="pipe2" type="CSGCylinder3D" parent="." unique_id=931017697]
+transform = Transform3D(1, 0, 0, 0, -0.026543286, -0.9996477, 0, 0.9996477, -0.026543286, -120.71882, 15.214176, 46.759327)
+use_collision = true
+radius = 3.1743164
+height = 7.293335
+sides = 30
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="pipe2" unique_id=246566327]
+operation = 2
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="pipe2/CSGCombiner3D" unique_id=1288791112]
+radius = 2.4472656
+height = 7.293335
+sides = 30
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="." unique_id=1834734621]
+transform = Transform3D(-0.012217023, -0.9999254, 0, 0.9999254, -0.012217023, 0, 0, 0, 1, -120.78751, 18.488028, 50.905754)
+use_collision = true
+inner_radius = 0.10924472
+outer_radius = 6.536593
+sides = 30
+ring_sides = 30
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGTorus3D" unique_id=237329702]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.30021667)
+operation = 2
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="CSGTorus3D/CSGCombiner3D" unique_id=732768800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.30021667)
+inner_radius = 0.94254225
+outer_radius = 5.8888826
+sides = 30
+ring_sides = 23
+
+[node name="pipe3" type="CSGCylinder3D" parent="CSGTorus3D/CSGCombiner3D" unique_id=379951557]
+transform = Transform3D(-0.012217023, 0.9999254, 0, -0.9999254, -0.012217023, 0, 0, 0, 1, 4.8150444, -0.08509064, 3.425602)
+radius = 2.7363281
+height = 9.195904
+sides = 20
+
+[node name="pipe4" type="CSGCylinder3D" parent="CSGTorus3D/CSGCombiner3D" unique_id=1327620449]
+transform = Transform3D(-0.012217023, -0.026541373, -0.99957305, -0.9999254, 0.00032428093, 0.012212719, 0, 0.9996477, -0.026543286, -3.2764091, -0.18916321, -4.446644)
+radius = 2.649414
+height = 7.293335
+sides = 20

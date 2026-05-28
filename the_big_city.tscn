@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bunpfwsn8y2rj" path="res://assets/Models/props/Roads/road_4_ways.tscn" id="29_qn0af"]
 [ext_resource type="PlaneMesh" uid="uid://uej1ixsmgesg" path="res://assets/BabyMesh.tres" id="30_ffspi"]
 [ext_resource type="PackedScene" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
+[ext_resource type="PackedScene" uid="uid://bfq0fd2nsskmy" path="res://assets/Models/CSG_scenes/turnpipe.tscn" id="31_00tu3"]
 [ext_resource type="PackedScene" uid="uid://jaavrwy3gfo1" path="res://assets/Models/props/TV.tscn" id="31_ffspi"]
 [ext_resource type="PackedScene" uid="uid://denjrfospc545" path="res://assets/Models/props/bumper.tscn" id="32_62cfs"]
 [ext_resource type="Script" uid="uid://c5nyf0lcaibsq" path="res://Scripts/bump1.gd" id="33_rvk64"]
@@ -695,6 +696,16 @@ bump_y = 5.0
 bump_x = 20.0
 bump_z = 10.0
 
+[node name="Echaffaudage9" parent="ezRoute" unique_id=1636436097 instance=ExtResource("30_pjy18")]
+transform = Transform3D(0.0032532949, -0.009953609, 0.99994516, -0.31065938, 0.95046365, 0.010471784, -0.95051575, -0.31067643, -4.370899e-08, -123.47592, 22.1914, -0.8741335)
+
+[node name="Bumper5" parent="ezRoute" unique_id=1987014073 instance=ExtResource("32_62cfs")]
+transform = Transform3D(0.20873198, -0.6837213, -0.6992539, 0.10957809, 0.726852, -0.67799634, 0.9718147, 0.06489661, 0.22663794, -127.6367, 25.581604, -2.0158465)
+script = ExtResource("33_rvk64")
+bump_y = 5.0
+bump_x = -15.0
+bump_z = -1.5
+
 [node name="MapLimits" type="Node3D" parent="." unique_id=535886358]
 
 [node name="InvisibleWall" type="StaticBody3D" parent="MapLimits" unique_id=1918536810]
@@ -817,169 +828,161 @@ transform = Transform3D(-0.034899466, 0, 0.9993908, 0, 1, 0, -0.9993908, 0, -0.0
 [node name="Tv3" parent="." unique_id=788217812 instance=ExtResource("31_ffspi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.86269, 32.1366, 22.412779)
 
-[node name="Echaffaudage8" parent="." unique_id=1636436097 instance=ExtResource("30_pjy18")]
-transform = Transform3D(0.0032532949, -0.009953609, 0.99994516, -0.31065938, 0.95046365, 0.010471784, -0.95051575, -0.31067643, -4.370899e-08, -123.47592, 22.1914, -0.8741335)
+[node name="VLoopSection" type="Node3D" parent="." unique_id=1043510002]
 
-[node name="Echaffaudage9" parent="." unique_id=542398947 instance=ExtResource("30_pjy18")]
+[node name="Echaffaudage9" parent="VLoopSection" unique_id=542398947 instance=ExtResource("30_pjy18")]
 transform = Transform3D(1.9106855e-15, 4.3711385e-08, 1, 1, -4.3711385e-08, 0, 4.371139e-08, 0.99999994, -4.371139e-08, -142.1638, 27.956919, -7.7340236)
 
-[node name="grosserampe3" type="CSGBox3D" parent="." unique_id=34387866]
+[node name="grosserampe3" type="CSGBox3D" parent="VLoopSection" unique_id=34387866]
 transform = Transform3D(4.3711385e-08, 1, 8.742277e-08, 0.9999999, -4.371139e-08, 0, 3.8213705e-15, 8.742278e-08, -0.9999999, -159.99776, 27.973118, -0.18817356)
 use_collision = true
 size = Vector3(4.1373324, 8.215897, 8.328327)
 material = SubResource("StandardMaterial3D_vajfm")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe3" unique_id=209173664]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="VLoopSection/grosserampe3" unique_id=209173664]
 operation = 2
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe3/CSGCombiner3D" unique_id=761142133]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="VLoopSection/grosserampe3/CSGCombiner3D" unique_id=761142133]
 transform = Transform3D(-4.3711147e-08, 0.99999386, -2.1032065e-12, -1, -4.37114e-08, 0, -6.662592e-16, 2.1032065e-12, 0.99999386, 0.012542725, 4.941349, -4.574814)
 radius = 8.7109375
 height = 7.7
 sides = 64
 
-[node name="Echaffaudage10" parent="." unique_id=1169529797 instance=ExtResource("30_pjy18")]
+[node name="Echaffaudage10" parent="VLoopSection" unique_id=1169529797 instance=ExtResource("30_pjy18")]
 transform = Transform3D(1.9106855e-15, 4.3711385e-08, 1, 1, -4.3711385e-08, 0, 4.371139e-08, 0.99999994, -4.371139e-08, -151.35301, 27.956919, -7.7340226)
 
-[node name="Echaffaudage11" parent="." unique_id=1964290263 instance=ExtResource("30_pjy18")]
+[node name="Echaffaudage11" parent="VLoopSection" unique_id=1964290263 instance=ExtResource("30_pjy18")]
 transform = Transform3D(4.371139e-08, 0.99999994, -8.742278e-08, 1, -4.3711385e-08, 0, -3.821371e-15, -8.742277e-08, -1, -167.22063, 27.956917, 8.520935)
 
-[node name="Looping_scene" parent="." unique_id=1627572639 instance=ExtResource("22_vajfm")]
+[node name="Looping_scene" parent="VLoopSection" unique_id=1627572639 instance=ExtResource("22_vajfm")]
 transform = Transform3D(-4.371139e-08, 1, 0, 4.371139e-08, 1.9106855e-15, -1, -1, -4.371139e-08, -4.371139e-08, -164.23872, 31.70801, 24.98072)
 
-[node name="Echaffaudage12" parent="." unique_id=191667928 instance=ExtResource("30_pjy18")]
+[node name="Echaffaudage12" parent="VLoopSection" unique_id=191667928 instance=ExtResource("30_pjy18")]
 transform = Transform3D(4.371139e-08, 0.99999994, -8.742278e-08, 1, -4.3711385e-08, 0, -3.821371e-15, -8.742277e-08, -1, -167.22063, 27.956917, 17.659039)
 
-[node name="Echaffaudage13" parent="." unique_id=1428224386 instance=ExtResource("30_pjy18")]
+[node name="Echaffaudage13" parent="VLoopSection" unique_id=1428224386 instance=ExtResource("30_pjy18")]
 transform = Transform3D(4.371139e-08, 0.99999994, -8.742278e-08, 1, -4.3711385e-08, 0, -3.821371e-15, -8.742277e-08, -1, -167.80908, 35.51882, 34.82309)
 
-[node name="Echaffaudage14" parent="." unique_id=225218305 instance=ExtResource("30_pjy18")]
+[node name="Echaffaudage14" parent="VLoopSection" unique_id=225218305 instance=ExtResource("30_pjy18")]
 transform = Transform3D(4.371139e-08, 0.99999994, -8.742278e-08, 1, -4.3711385e-08, 0, -3.821371e-15, -8.742277e-08, -1, -167.80908, 35.51882, 43.96119)
 
-[node name="grosserampe4" type="CSGBox3D" parent="." unique_id=2055940244]
+[node name="grosserampe4" type="CSGBox3D" parent="VLoopSection" unique_id=2055940244]
 transform = Transform3D(1.9106853e-15, 4.371139e-08, -0.9999999, 0.9999999, -4.371139e-08, 0, -4.3711385e-08, -1, -4.3711385e-08, -160.28127, 35.523705, 52.54512)
 use_collision = true
 size = Vector3(4.1373324, 8.215897, 8.328327)
 material = SubResource("StandardMaterial3D_vajfm")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe4" unique_id=677165510]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="VLoopSection/grosserampe4" unique_id=677165510]
 operation = 2
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe4/CSGCombiner3D" unique_id=1311671517]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="VLoopSection/grosserampe4/CSGCombiner3D" unique_id=1311671517]
 transform = Transform3D(-4.3711147e-08, 0.99999386, -2.1032065e-12, -1, -4.37114e-08, 0, -6.662592e-16, 2.1032065e-12, 0.99999386, 0.012542725, 4.941349, -4.574814)
 radius = 8.7109375
 height = 7.7
 sides = 64
 
-[node name="Echaffaudage15" parent="." unique_id=1935457940 instance=ExtResource("30_pjy18")]
+[node name="Echaffaudage15" parent="VLoopSection" unique_id=1935457940 instance=ExtResource("30_pjy18")]
 transform = Transform3D(1.9106855e-15, 4.3711385e-08, -1, 1, -4.3711385e-08, 0, -4.371139e-08, -0.99999994, -4.371139e-08, -151.6354, 35.51882, 59.750732)
 
-[node name="Echaffaudage16" parent="." unique_id=223670961 instance=ExtResource("30_pjy18")]
+[node name="Echaffaudage16" parent="VLoopSection" unique_id=223670961 instance=ExtResource("30_pjy18")]
 transform = Transform3D(1.9106855e-15, 4.3711385e-08, -1, 1, -4.3711385e-08, 0, -4.371139e-08, -0.99999994, -4.371139e-08, -142.4643, 35.51882, 59.76585)
 
-[node name="booster_pad5" parent="." unique_id=1645263483 instance=ExtResource("18_csgam")]
+[node name="booster_pad5" parent="VLoopSection" unique_id=1645263483 instance=ExtResource("18_csgam")]
 transform = Transform3D(0.0043037236, -0.009953633, -0.9999412, 0.31072962, 0.9504635, -0.008123696, 0.95048845, -0.3106764, 0.007183403, -117.59987, 25.631256, -1.9600397)
 script = ExtResource("19_pmuua")
 
-[node name="Bumper2" parent="." unique_id=1987014073 instance=ExtResource("32_62cfs")]
-transform = Transform3D(0.20873198, -0.6837213, -0.6992539, 0.10957809, 0.726852, -0.67799634, 0.9718147, 0.06489661, 0.22663794, -127.6367, 25.581604, -2.0158465)
-script = ExtResource("33_rvk64")
-bump_y = 5.0
-bump_x = -15.0
-bump_z = -1.5
-
-[node name="booster_pad2" parent="." unique_id=1028991571 instance=ExtResource("18_csgam")]
+[node name="booster_pad2" parent="VLoopSection" unique_id=1028991571 instance=ExtResource("18_csgam")]
 transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -139.77432, 28.087387, -4.236662)
 script = ExtResource("19_pmuua")
 power = 30.0
 
-[node name="Cabine_Telephonique" parent="." unique_id=1364820621 instance=ExtResource("26_4vynd")]
+[node name="Cabine_Telephonique" parent="VLoopSection" unique_id=1364820621 instance=ExtResource("26_4vynd")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -144.84583, 26.474792, -5.927633)
 
-[node name="enter" type="Area3D" parent="Cabine_Telephonique" unique_id=1357402677]
+[node name="enter" type="Area3D" parent="VLoopSection/Cabine_Telephonique" unique_id=1357402677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.4156, 30.686172, -1.1920929e-07)
 script = ExtResource("17_csgam")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cabine_Telephonique/enter" unique_id=1416601612]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VLoopSection/Cabine_Telephonique/enter" unique_id=1416601612]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.24152, -29.001787, -1.9174957)
 shape = SubResource("BoxShape3D_00tu3")
 
-[node name="exit" type="Area3D" parent="Cabine_Telephonique" unique_id=1326925091]
+[node name="exit" type="Area3D" parent="VLoopSection/Cabine_Telephonique" unique_id=1326925091]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.4156, 30.686172, -1.1920929e-07)
 script = ExtResource("18_pmuua")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cabine_Telephonique/exit" unique_id=1103694499]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VLoopSection/Cabine_Telephonique/exit" unique_id=1103694499]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.78654, -29.099987, -2.0147552)
 shape = SubResource("BoxShape3D_nseyi")
 
-[node name="Cabine_Telephonique2" parent="." unique_id=220265557 instance=ExtResource("26_4vynd")]
+[node name="Cabine_Telephonique2" parent="VLoopSection" unique_id=220265557 instance=ExtResource("26_4vynd")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -165.88057, 26.85073, 10.236638)
 
-[node name="enter" type="Area3D" parent="Cabine_Telephonique2" unique_id=201702972]
+[node name="enter" type="Area3D" parent="VLoopSection/Cabine_Telephonique2" unique_id=201702972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.4156, 30.686172, -1.1920929e-07)
 script = ExtResource("17_csgam")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cabine_Telephonique2/enter" unique_id=2070320687]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VLoopSection/Cabine_Telephonique2/enter" unique_id=2070320687]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.697, -29.586628, -1.9174957)
 shape = SubResource("BoxShape3D_pjy18")
 
-[node name="exit" type="Area3D" parent="Cabine_Telephonique2" unique_id=1053925469]
+[node name="exit" type="Area3D" parent="VLoopSection/Cabine_Telephonique2" unique_id=1053925469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.4156, 30.686172, -1.1920929e-07)
 script = ExtResource("18_pmuua")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cabine_Telephonique2/exit" unique_id=1850656785]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VLoopSection/Cabine_Telephonique2/exit" unique_id=1850656785]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.78654, -29.46452, -2.0147552)
 shape = SubResource("BoxShape3D_ffspi")
 
-[node name="booster_pad3" parent="." unique_id=2006244904 instance=ExtResource("18_csgam")]
+[node name="booster_pad3" parent="VLoopSection" unique_id=2006244904 instance=ExtResource("18_csgam")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -163.62256, 28.087387, 6.5588145)
 script = ExtResource("19_pmuua")
 power = 30.0
 
-[node name="Cabine_Telephonique3" parent="." unique_id=8538696 instance=ExtResource("26_4vynd")]
+[node name="Cabine_Telephonique3" parent="VLoopSection" unique_id=8538696 instance=ExtResource("26_4vynd")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -165.88057, 34.096004, 40.14498)
 
-[node name="enter" type="Area3D" parent="Cabine_Telephonique3" unique_id=2043604492]
+[node name="enter" type="Area3D" parent="VLoopSection/Cabine_Telephonique3" unique_id=2043604492]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.4156, 30.686172, -1.1920929e-07)
 script = ExtResource("17_csgam")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cabine_Telephonique3/enter" unique_id=1796268679]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VLoopSection/Cabine_Telephonique3/enter" unique_id=1796268679]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.31648, -29.298069, 0.50930786)
 shape = SubResource("BoxShape3D_nn7lq")
 
-[node name="exit" type="Area3D" parent="Cabine_Telephonique3" unique_id=1686783094]
+[node name="exit" type="Area3D" parent="VLoopSection/Cabine_Telephonique3" unique_id=1686783094]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.4156, 30.686172, -1.1920929e-07)
 script = ExtResource("18_pmuua")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cabine_Telephonique3/exit" unique_id=221300383]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VLoopSection/Cabine_Telephonique3/exit" unique_id=221300383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.07695, -29.362526, 0.81178665)
 shape = SubResource("BoxShape3D_cs1wj")
 
-[node name="Cabine_Telephonique4" parent="." unique_id=1193436388 instance=ExtResource("26_4vynd")]
+[node name="Cabine_Telephonique4" parent="VLoopSection" unique_id=1193436388 instance=ExtResource("26_4vynd")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -146.88052, 34.096004, 57.671467)
 
-[node name="enter" type="Area3D" parent="Cabine_Telephonique4" unique_id=1614919852]
+[node name="enter" type="Area3D" parent="VLoopSection/Cabine_Telephonique4" unique_id=1614919852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.4156, 30.686172, -1.1920929e-07)
 script = ExtResource("17_csgam")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cabine_Telephonique4/enter" unique_id=1525013354]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VLoopSection/Cabine_Telephonique4/enter" unique_id=1525013354]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.31648, -29.298069, 0.50930786)
 shape = SubResource("BoxShape3D_kaf07")
 
-[node name="exit" type="Area3D" parent="Cabine_Telephonique4" unique_id=1241880771]
+[node name="exit" type="Area3D" parent="VLoopSection/Cabine_Telephonique4" unique_id=1241880771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.4156, 30.686172, -1.1920929e-07)
 script = ExtResource("18_pmuua")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cabine_Telephonique4/exit" unique_id=1752119319]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VLoopSection/Cabine_Telephonique4/exit" unique_id=1752119319]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.07695, -29.362526, 0.81178665)
 shape = SubResource("BoxShape3D_jpguo")
 
-[node name="booster_pad4" parent="." unique_id=907591236 instance=ExtResource("18_csgam")]
+[node name="booster_pad4" parent="VLoopSection" unique_id=907591236 instance=ExtResource("18_csgam")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -164.24748, 35.555264, 31.685051)
 script = ExtResource("19_pmuua")
 power = 30.0
 
-[node name="booster_pad6" parent="." unique_id=674543886 instance=ExtResource("18_csgam")]
+[node name="booster_pad6" parent="VLoopSection" unique_id=674543886 instance=ExtResource("18_csgam")]
 transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -154.67409, 35.555264, 56.252003)
 script = ExtResource("19_pmuua")
 power = 15.0
@@ -1037,3 +1040,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.64674, 32.52715, 54.4468
 
 [node name="Barriere_default8" parent="Bighalfpipe" unique_id=942390943 instance=ExtResource("35_kb7yh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.84165, 32.539505, 54.467224)
+
+[node name="pipesystem" type="Node3D" parent="." unique_id=1160386969]
+
+[node name="turnpipe" parent="pipesystem" unique_id=1942043165 instance=ExtResource("31_00tu3")]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1786108642]
