@@ -472,7 +472,7 @@ func _on_nitro_value_changed(value: float) -> void:
 
 
 func _on_death_hitbox_body_entered(body: Node3D) -> void:
-	if body.get_class() != "RigidBody3D" :
+	if body.get_class() != "RigidBody3D" and (rotation_degrees.z > 40 or rotation_degrees.z < -40):
 		print("death")
 		print(body)
 		exploParticles.emitting = true
