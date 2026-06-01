@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0hsfkgf6dwv"]
 
 [ext_resource type="ArrayMesh" uid="uid://cyn3cp840gw8o" path="res://assets/Models/props/Garage.tres" id="1_djmrx"]
+[ext_resource type="Script" uid="uid://bjf6kbv15jp3x" path="res://assets/Models/props/garage.gd" id="1_me5wn"]
 [ext_resource type="ArrayMesh" uid="uid://3mm74plrn2dm" path="res://assets/Models/props/garage_rideau_ferme.tres" id="2_buxqr"]
 [ext_resource type="Shape3D" uid="uid://bdujoueoh5vre" path="res://assets/Models/props/Garage_collision.tres" id="2_wdkr7"]
 [ext_resource type="ArrayMesh" uid="uid://066x7vijtrek" path="res://assets/Models/props/garage_rideau_ouvert.tres" id="3_me5wn"]
@@ -23,14 +24,221 @@ emission_energy_multiplier = 3.55
 material = SubResource("StandardMaterial3D_edl5g")
 size = Vector2(4.08, 7.195)
 
-[node name="Garage" type="StaticBody3D" unique_id=679176269]
+[sub_resource type="Animation" id="Animation_rctsg"]
+resource_name = "IG"
+length = 0.05
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D3:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_buxqr"]
+resource_name = "Ouvre"
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rideau:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0995217, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.2789598, -4.2365103), Vector3(0, 1.4046887, -4.2365103), Vector3(0, 2.7401843, -4.2365103)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rideau:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.39, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Rideau_ferme:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_me5wn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rideau:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.2789598, -4.2365103)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rideau:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rideau_ferme:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_edl5g"]
+resource_name = "menu"
+length = 0.05
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D3:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_me5wn"]
+_data = {
+&"IG": SubResource("Animation_rctsg"),
+&"Ouvre": SubResource("Animation_buxqr"),
+&"RESET": SubResource("Animation_me5wn"),
+&"menu": SubResource("Animation_edl5g")
+}
+
+[node name="Garage" type="StaticBody3D" unique_id=679176269 node_paths=PackedStringArray("anim")]
+script = ExtResource("1_me5wn")
+anim = NodePath("AnimationPlayer")
 
 [node name="Garage" type="MeshInstance3D" parent="." unique_id=149018131]
 mesh = ExtResource("1_djmrx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=449957451]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6803393, 1.5388412, -4.2913074)
-visible = false
 mesh = SubResource("QuadMesh_me5wn")
 
 [node name="Rideau" type="MeshInstance3D" parent="." unique_id=822092701]
@@ -47,10 +255,11 @@ shape = ExtResource("2_wdkr7")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1856691974]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0678735, 1.5388412, -4.2913074)
-visible = false
 mesh = SubResource("QuadMesh_me5wn")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1084079825]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30133104, 1.5388412, -5.2371845)
-visible = false
 mesh = SubResource("QuadMesh_rctsg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1530279419]
+libraries/ = SubResource("AnimationLibrary_me5wn")

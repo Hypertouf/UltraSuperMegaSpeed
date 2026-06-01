@@ -2,11 +2,18 @@
 
 [ext_resource type="FontFile" uid="uid://dwp7apxjdqobd" path="res://assets/FOnt/LazyFox Pixel Font 2.ttf" id="1_6u7pw"]
 [ext_resource type="Script" uid="uid://5iwebwtlg236" path="res://Scripts/MainMenu.gd" id="1_fqhod"]
+[ext_resource type="Shader" uid="uid://bwfye5q5nnp0o" path="res://Scenes/Test_scenes/controltest.gdshader" id="3_1wlsk"]
 [ext_resource type="Material" uid="uid://b10yrunmje1il" path="res://assets/Materials/PerspecShader.tres" id="3_8iibg"]
 [ext_resource type="Texture2D" uid="uid://dleyiu3b6afwl" path="res://assets/Textures/MainMenu/Button_bg.png" id="3_j8467"]
 [ext_resource type="AnimationLibrary" uid="uid://behgmw2npan8u" path="res://Anims/Main_Menu_anim.res" id="4_lb7jp"]
-[ext_resource type="PackedScene" uid="uid://cjfegaxh6ch38" path="res://Scenes/menu_principal_scene3D.tscn" id="5_si2q2"]
 [ext_resource type="PackedScene" uid="uid://bthsbu6p7vg6" path="res://addons/srcoder_simplecar/car_custom_menu.tscn" id="6_n14xd"]
+[ext_resource type="PackedScene" uid="uid://c0hsfkgf6dwv" path="res://assets/Models/props/garage.tscn" id="7_n14xd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1wlsk"]
+shader = ExtResource("3_1wlsk")
+shader_parameter/outerRadius = 1.4910000708225
+shader_parameter/MainAlpha = 0.50000002375
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6u7pw"]
 
@@ -86,217 +93,162 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfi8x"]
 
+[sub_resource type="Environment" id="Environment_n14xd"]
+glow_enabled = true
+glow_bloom = 0.2
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8iibg"]
 
-[sub_resource type="Animation" id="Animation_n14xd"]
+[sub_resource type="Animation" id="Animation_1wlsk"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/car:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.1177876, 1.7087938, 2.9350123)]
+"values": [Vector3(0.069239765, 0.43648356, 1.1472958)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:fov")
+tracks/1/path = NodePath("Interface/ColorRect:material:shader_parameter/outerRadius")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [97.2]
+"values": [1.4910000708225]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/2/path = NodePath("Interface/ColorRect:material:shader_parameter/MainAlpha")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [0.50000002375]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Interface/ColorRect:z_index")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_7tkp3"]
-resource_name = "ToCredits"
-length = 0.2
+resource_name = "fadetoblack"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/path = NodePath("Interface/ColorRect:material:shader_parameter/MainAlpha")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-0.27859956, 1.7087938, -0.8562672)]
+"values": [0.50000002375, 1.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:fov")
+tracks/1/path = NodePath("Interface/ColorRect:material:shader_parameter/outerRadius")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [75.0]
+"values": [1.4910000708225, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/2/path = NodePath("Interface/ColorRect:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -1.5707964, 0)]
+"update": 1,
+"values": [6]
 }
 
-[sub_resource type="Animation" id="Animation_s3bng"]
-resource_name = "ToOptions"
-length = 0.2
+[sub_resource type="Animation" id="Animation_n14xd"]
+resource_name = "tuturevroum"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/car:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.56666666, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-1.3164513, 0.76385415, 0.3533752)]
+"values": [Vector3(0.069239765, 0.43648356, 1.1472958), Vector3(0.069, 0.436, 0.4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/1/path = NodePath("Interface/ColorRect:material:shader_parameter/outerRadius")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.55968255, -2.7289512, -0.0047752084)]
+"values": [1.4910000708225, 1.4910000708225, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:fov")
+tracks/2/path = NodePath("Interface/ColorRect:material:shader_parameter/MainAlpha")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [75.0]
+"values": [0.50000002375, 0.50000002375, 1.0]
 }
-
-[sub_resource type="Animation" id="Animation_1wlsk"]
-resource_name = "ToPlay"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.030565068, 1.7087938, 2.9350123)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:fov")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [97.2]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.5235988, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_nhbm6"]
-resource_name = "ToQuit"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.88766426, 1.867855, -0.6663994)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.23578751, 1.5853179, -0.0033925734)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:fov")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [99.7]
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Interface/ColorRect:z_index")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.78441703),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 6]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7tkp3"]
 _data = {
-&"RESET": SubResource("Animation_n14xd"),
-&"ToCredits": SubResource("Animation_7tkp3"),
-&"ToOptions": SubResource("Animation_s3bng"),
-&"ToPlay": SubResource("Animation_1wlsk"),
-&"ToQuit": SubResource("Animation_nhbm6")
+&"RESET": SubResource("Animation_1wlsk"),
+&"fadetoblack": SubResource("Animation_7tkp3"),
+&"tuturevroum": SubResource("Animation_n14xd")
 }
 
-[node name="MainMenu" type="Control" unique_id=219685995 node_paths=PackedStringArray("Anim_enter", "Anim_exit", "Anim_credits", "Anim_quit", "Anim_cam", "cam", "Buttons_detect", "Buttons_display")]
+[node name="MainMenu" type="Control" unique_id=219685995 node_paths=PackedStringArray("Anim_enter", "Anim_exit", "Anim_credits", "Anim_quit", "Anim_cam", "cam", "Buttons_detect", "Buttons_display", "garage", "menu_option", "menu_credits")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -308,12 +260,25 @@ Anim_enter = NodePath("AnimationPlayer_enters")
 Anim_exit = NodePath("AnimationPlayer_exit")
 Anim_credits = NodePath("AnimationPlayer_Credits")
 Anim_quit = NodePath("AnimationPlayer_Quit")
-Anim_cam = NodePath("AnimationPlayer_camera")
+Anim_cam = NodePath("AnimationPlayer_Tranzi")
 cam = NodePath("Background/SubViewportContainer/SubViewport/Camera3D")
 Buttons_detect = [NodePath("Interface/Button"), NodePath("Interface/Button2"), NodePath("Interface/Button3"), NodePath("Interface/Button4")]
-Buttons_display = [NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/PLAY"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/OPTIONS"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/CREDITS"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/QUIT")]
+Buttons_display = [NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer/PLAY"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer2/OPTIONS"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer3/CREDITS"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer4/QUIT")]
+garage = NodePath("Background/SubViewportContainer/SubViewport/Garage")
+menu_option = NodePath("Interface/Menu_option")
+menu_credits = NodePath("Interface/Credits")
 
 [node name="Interface" type="CanvasLayer" parent="." unique_id=1536787682]
+
+[node name="ColorRect" type="ColorRect" parent="Interface" unique_id=1357874549]
+z_index = 4
+material = SubResource("ShaderMaterial_1wlsk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Interface" unique_id=1537727002]
 z_index = 5
@@ -346,7 +311,7 @@ layout_mode = 0
 offset_left = -500.0
 offset_top = 111.0
 offset_right = -50.0
-offset_bottom = 311.00046
+offset_bottom = 311.00037
 rotation = 0.27750736
 scale = Vector2(1.2, 0.8)
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -385,7 +350,7 @@ layout_mode = 0
 offset_left = -500.0
 offset_top = 458.0
 offset_right = -50.0
-offset_bottom = 658.00073
+offset_bottom = 658.0006
 rotation = -0.3700098
 scale = Vector2(1.2, 0.8)
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -404,7 +369,11 @@ offset_bottom = -12.000427
 grow_vertical = 0
 theme_override_constants/separation = 20
 
-[node name="PLAY" type="Button" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=1732073430]
+[node name="HBoxContainer" type="HBoxContainer" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=961727216]
+layout_mode = 2
+alignment = 1
+
+[node name="PLAY" type="Button" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer" unique_id=1732073430]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
@@ -420,7 +389,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_lb7jp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8iibg")
 text = "PLAY"
 
-[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/PLAY" unique_id=659988878]
+[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer/PLAY" unique_id=659988878]
 show_behind_parent = true
 texture_filter = 1
 custom_minimum_size = Vector2(0, 60)
@@ -447,7 +416,11 @@ text = "PLAY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OPTIONS" type="Button" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=617670709]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=1201284485]
+layout_mode = 2
+alignment = 1
+
+[node name="OPTIONS" type="Button" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer2" unique_id=617670709]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
@@ -463,7 +436,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_f4t6n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hdffe")
 text = "OPTIONS"
 
-[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/OPTIONS" unique_id=337210617]
+[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer2/OPTIONS" unique_id=337210617]
 show_behind_parent = true
 texture_filter = 1
 custom_minimum_size = Vector2(0, 60)
@@ -483,7 +456,15 @@ text = "OPTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CREDITS" type="Button" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=433168592]
+[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer2" unique_id=1067850060]
+layout_mode = 2
+text = "             "
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=917205973]
+layout_mode = 2
+alignment = 1
+
+[node name="CREDITS" type="Button" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer3" unique_id=433168592]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
@@ -499,7 +480,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_tq2m7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rcnuh")
 text = "CREDITS"
 
-[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/CREDITS" unique_id=48269449]
+[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer3/CREDITS" unique_id=48269449]
 show_behind_parent = true
 texture_filter = 1
 custom_minimum_size = Vector2(0, 60)
@@ -520,13 +501,21 @@ text = "CREDITS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer3" unique_id=1177794176]
+layout_mode = 2
+text = "            "
+
 [node name="Panel" type="Panel" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=340966567]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_s82po")
 
-[node name="QUIT" type="Button" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=144643600]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer" unique_id=1390225006]
+layout_mode = 2
+alignment = 1
+
+[node name="QUIT" type="Button" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer4" unique_id=144643600]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
@@ -541,7 +530,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_nhbm6")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_c2k0a")
 text = "QUIT"
 
-[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/QUIT" unique_id=352842259]
+[node name="Label" type="Label" parent="Interface/SubViewportContainer/SubViewport/VBoxContainer/HBoxContainer4/QUIT" unique_id=352842259]
 show_behind_parent = true
 texture_filter = 1
 custom_minimum_size = Vector2(0, 60)
@@ -575,10 +564,10 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_kbrf8")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7tdj5")
 
 [node name="Button2" type="Button" parent="Interface" unique_id=1016459723]
-offset_left = 159.0
-offset_top = 286.0
-offset_right = 409.0
-offset_bottom = 386.0
+offset_left = 110.0
+offset_top = 307.0
+offset_right = 360.0
+offset_bottom = 407.0
 rotation = -0.2984513
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ds5c1")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ypmva")
@@ -593,10 +582,10 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ek5bi")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wfi8x")
 
 [node name="Button3" type="Button" parent="Interface" unique_id=903130098]
-offset_left = 245.0
-offset_top = 451.99997
-offset_right = 465.0
-offset_bottom = 522.0
+offset_left = 212.99997
+offset_top = 472.99997
+offset_right = 432.99997
+offset_bottom = 543.0
 rotation = -0.5837431
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ds5c1")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ypmva")
@@ -611,10 +600,10 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ek5bi")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wfi8x")
 
 [node name="Button4" type="Button" parent="Interface" unique_id=455419199]
-offset_left = 356.99997
-offset_top = 624.0
-offset_right = 506.99997
-offset_bottom = 674.0
+offset_left = 359.00003
+offset_top = 622.00006
+offset_right = 509.00003
+offset_bottom = 672.00006
 rotation = -0.80808747
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ds5c1")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ypmva")
@@ -627,6 +616,274 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fylur"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ynl7q")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ek5bi")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wfi8x")
+
+[node name="Menu_option" type="ColorRect" parent="Interface" unique_id=864186163]
+visible = false
+self_modulate = Color(1, 1, 1, 0.3019608)
+offset_left = 620.0
+offset_top = 40.0
+offset_right = 1120.0
+offset_bottom = 540.0
+rotation = 0.08726646
+color = Color(0.3792632, 0.68619573, 0.82716703, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Interface/Menu_option" unique_id=1213045483]
+self_modulate = Color(1, 1, 1, 0.3019608)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 20.434637
+offset_top = -18.852737
+offset_right = 520.4347
+offset_bottom = 481.14728
+rotation = 0.08726646
+color = Color(1, 0.30092052, 0.72520626, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Interface/Menu_option/ColorRect3" unique_id=639071343]
+self_modulate = Color(1, 1, 1, 0.3019608)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 21.377958
+offset_top = -16.970055
+offset_right = 521.378
+offset_bottom = 483.02994
+rotation = 0.08726646
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/Menu_option" unique_id=2009428353]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.4871335
+offset_top = 40.45788
+offset_right = -29.487122
+offset_bottom = -59.542114
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.08726646
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Interface/Menu_option/MarginContainer" unique_id=1444033747]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Interface/Menu_option/MarginContainer/VBoxContainer2" unique_id=468660428]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer" unique_id=1434832819]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+text = "Resolution"
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer" unique_id=1268951934]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label2" type="HSlider" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer" unique_id=1792941267]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Interface/Menu_option/MarginContainer/VBoxContainer2" unique_id=862583450]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer2" unique_id=1561974883]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+text = "Volume"
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer2" unique_id=1328419531]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label2" type="HSlider" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer" unique_id=1230265137]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Interface/Menu_option/MarginContainer/VBoxContainer2" unique_id=464186709]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer3" unique_id=616196555]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+text = "Frites à la cantine"
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer3" unique_id=77647241]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label2" type="HSlider" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer3/MarginContainer" unique_id=843055029]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Interface/Menu_option/MarginContainer/VBoxContainer2" unique_id=193294631]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer4" unique_id=2033694825]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+text = "Number of dogs"
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer4" unique_id=2091060158]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label2" type="HSlider" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer4/MarginContainer" unique_id=447962211]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Interface/Menu_option/MarginContainer/VBoxContainer2" unique_id=736802666]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer5" unique_id=1397715717]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+text = "Pokemon preferé"
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer5" unique_id=1825248413]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label2" type="OptionButton" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer5/MarginContainer" unique_id=259609076]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+selected = 0
+item_count = 5
+popup/item_0/text = "aucun"
+popup/item_0/id = 0
+popup/item_1/text = "Brazegali"
+popup/item_1/id = 1
+popup/item_2/text = "Pharamp"
+popup/item_2/id = 2
+popup/item_3/text = "Jellymon"
+popup/item_3/id = 3
+popup/item_4/text = "Dragon blanc aux yeux bleus"
+popup/item_4/id = 4
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Interface/Menu_option/MarginContainer/VBoxContainer2" unique_id=1903026762]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer6" unique_id=223479082]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+text = "Spawn pop-up"
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer6" unique_id=303164695]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="MenuButton" type="MenuButton" parent="Interface/Menu_option/MarginContainer/VBoxContainer2/HBoxContainer6/MarginContainer" unique_id=210339600]
+layout_mode = 2
+text = "Cliquer ici"
+
+[node name="Credits" type="ColorRect" parent="Interface" unique_id=14776662]
+visible = false
+self_modulate = Color(1, 1, 1, 0.38431373)
+offset_left = 620.0
+offset_top = 40.0
+offset_right = 1120.0
+offset_bottom = 540.0
+rotation = 0.08726646
+color = Color(0.3792632, 0.68619573, 0.82716703, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Interface/Credits" unique_id=1437773314]
+self_modulate = Color(1, 1, 1, 0.38431373)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 20.434637
+offset_top = -18.852737
+offset_right = 520.4347
+offset_bottom = 481.14728
+rotation = 0.08726646
+color = Color(1, 0.30092052, 0.72520626, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Interface/Credits/ColorRect3" unique_id=1368529755]
+self_modulate = Color(1, 1, 1, 0.38431373)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 21.377958
+offset_top = -16.970055
+offset_right = 521.378
+offset_bottom = 483.02994
+rotation = 0.08726646
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/Credits" unique_id=40045238]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.4871335
+offset_top = 40.45788
+offset_right = -29.487122
+offset_bottom = -59.542114
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.08726646
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/Credits/MarginContainer" unique_id=2004533335]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Interface/Credits/MarginContainer/VBoxContainer" unique_id=376648307]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Crédits :"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Interface/Credits/MarginContainer/VBoxContainer" unique_id=1126199878]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="Interface/Credits/MarginContainer/VBoxContainer/HBoxContainer" unique_id=150965505]
+layout_mode = 2
+text = "Vinnie"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Interface/Credits/MarginContainer/VBoxContainer" unique_id=979030685]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="Interface/Credits/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1758953194]
+layout_mode = 2
+text = "Pi"
+
+[node name="Label2" type="Label" parent="Interface/Credits/MarginContainer/VBoxContainer" unique_id=285620915]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Remercivements :"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Interface/Credits/MarginContainer/VBoxContainer" unique_id=410312830]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="Interface/Credits/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1026114375]
+layout_mode = 2
+text = "familles"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Interface/Credits/MarginContainer/VBoxContainer" unique_id=1568696816]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="Interface/Credits/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=804879789]
+layout_mode = 2
+text = "ami.es"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Interface/Credits/MarginContainer/VBoxContainer" unique_id=1833985182]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="Interface/Credits/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=2033557541]
+layout_mode = 2
+text = "d'autres gens"
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=2020584296]
 layer = 0
@@ -643,7 +900,10 @@ handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="MenuPrincipal_Scene" parent="Background/SubViewportContainer/SubViewport" unique_id=1889819343 instance=ExtResource("5_si2q2")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Background/SubViewportContainer/SubViewport" unique_id=1413904766]
+environment = SubResource("Environment_n14xd")
+
+[node name="Garage" parent="Background/SubViewportContainer/SubViewport" unique_id=679176269 instance=ExtResource("7_n14xd")]
 
 [node name="car" parent="Background/SubViewportContainer/SubViewport" unique_id=585784445 instance=ExtResource("6_n14xd")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.069239765, 0.43648356, 1.1472958)
@@ -707,8 +967,20 @@ spot_attenuation = 2.24
 spot_angle = 86.04
 
 [node name="Camera3D" type="Camera3D" parent="Background/SubViewportContainer/SubViewport" unique_id=2031154399]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0.1177876, 1.7087938, 2.9350123)
-fov = 97.2
+transform = Transform3D(-1, 0, -8.742277e-08, -2.988601e-08, 0.9397523, 0.34185612, 8.215575e-08, 0.34185612, -0.9397523, 0.09310365, 1.6298285, -1.2887223)
+fov = 90.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Background/SubViewportContainer/SubViewport" unique_id=1820261807]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.4571514, 1.7912722)
+light_color = Color(0.9266485, 0.87448394, 0.74900985, 1)
+light_energy = 2.0
+spot_angle = 59.94
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Background/SubViewportContainer/SubViewport" unique_id=746978751]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.4571514, -2.0872495)
+light_color = Color(0.9266485, 0.87448394, 0.74900985, 1)
+light_energy = 2.0
+spot_angle = 59.94
 
 [node name="AnimationPlayer_enters" type="AnimationPlayer" parent="." unique_id=566951878]
 libraries/ = ExtResource("4_lb7jp")
@@ -725,14 +997,21 @@ libraries/Main_Menu_anim = ExtResource("4_lb7jp")
 libraries/ = SubResource("AnimationLibrary_8iibg")
 libraries/Main_Menu_anim = ExtResource("4_lb7jp")
 
-[node name="AnimationPlayer_camera" type="AnimationPlayer" parent="." unique_id=1851547186]
+[node name="AnimationPlayer_Tranzi" type="AnimationPlayer" parent="." unique_id=1851547186]
 libraries/ = SubResource("AnimationLibrary_7tkp3")
+
+[node name="AnimationPlayer_Idlecamera" type="AnimationPlayer" parent="." unique_id=1190801390]
 
 [connection signal="mouse_entered" from="Interface/Button" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="Interface/Button" to="." method="_on_play_mouse_exited"]
+[connection signal="pressed" from="Interface/Button" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="Interface/Button2" to="." method="_on_options_mouse_entered"]
 [connection signal="mouse_exited" from="Interface/Button2" to="." method="_on_options_mouse_exited"]
+[connection signal="pressed" from="Interface/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="mouse_entered" from="Interface/Button3" to="." method="_on_credits_mouse_entered"]
 [connection signal="mouse_exited" from="Interface/Button3" to="." method="_on_credits_mouse_exited"]
+[connection signal="pressed" from="Interface/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="mouse_entered" from="Interface/Button4" to="." method="_on_quit_mouse_entered"]
 [connection signal="mouse_exited" from="Interface/Button4" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="Interface/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer_Tranzi" to="." method="_on_animation_player_camera_animation_finished"]
