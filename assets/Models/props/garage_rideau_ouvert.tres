@@ -1,0 +1,42 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://066x7vijtrek"]
+
+[ext_resource type="Texture2D" uid="uid://88pwy3dykwkn" path="res://assets/Models/Garage_rideau_Garage5.png" id="1_3nctb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_calor"]
+resource_name = "Garage"
+cull_mode = 2
+albedo_texture = ExtResource("1_3nctb")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8uele"]
+_surfaces = [{
+"aabb": AABB(-2.0528007, -0.4223994, -0.0055565834, 4.1056013, 0.8448725, 0.01521492),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"name": "Garage",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("///z////AAAAAAAA+nUAAAAA8////wAA//8AAPp1AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Garage_rideau_Cube_021"
+_surfaces = [{
+"aabb": AABB(-2.0528007, -0.4223994, -0.0055565834, 4.1056013, 0.8448725, 0.01521492),
+"attribute_data": PackedByteArray("1ug/gVDdPknW6D5JUN0/gbDw/0g3/AGBsPABgTf8/0g="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_calor"),
+"name": "Garage",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("///z/////78AAAAA+nX/vwAA8/////+///8AAPp1/78AAP//AAD/////AAAAAP///////wAA//8AAAAAAAD//50AYf+dAGH/nQBh/50AYf//P/+//z//v/8//7//P/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8uele")

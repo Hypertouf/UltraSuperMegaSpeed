@@ -1,32 +1,7 @@
 [gd_scene format=3 uid="uid://cwup7gy5qo7dj"]
 
 [ext_resource type="Script" uid="uid://dwiw4thv3vre7" path="res://Scripts/menu_principal.gd" id="1_2dvkh"]
-[ext_resource type="Material" uid="uid://b10yrunmje1il" path="res://assets/Materials/PerspecShader.tres" id="1_mwl8v"]
-[ext_resource type="FontFile" uid="uid://dwp7apxjdqobd" path="res://assets/FOnt/LazyFox Pixel Font 2.ttf" id="1_xy1un"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mwl8v"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2dvkh"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yl6lt"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cs1fg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esu2a"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u730f"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wt08n"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_24eud"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sfxxo"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g0ms0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1xkh"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xy1un"]
+[ext_resource type="PackedScene" uid="uid://bwb5pbwyy5ggx" path="res://Scenes/Test_scenes/controltest.tscn" id="2_mwl8v"]
 
 [node name="MenuPrincipal" type="Control" unique_id=1102630964 node_paths=PackedStringArray("Anim", "Buttons")]
 layout_mode = 3
@@ -37,119 +12,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_2dvkh")
-Anim = NodePath("AnimationPlayer")
-Buttons = [NodePath("Interface/Holder/VBoxContainer/PLAY"), NodePath("Interface/Holder/VBoxContainer/OPTIONS"), NodePath("Interface/Holder/VBoxContainer/CREDITS"), NodePath("Interface/Holder/VBoxContainer/EXIT")]
+Anim = NodePath("")
+Buttons = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
 
-[node name="Interface" type="CanvasLayer" parent="." unique_id=1514493609]
-
-[node name="Holder" type="Control" parent="Interface" unique_id=1780295203]
-z_index = 1
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Interface/Holder" unique_id=699814043]
-material = ExtResource("1_mwl8v")
+[node name="MainMenu" parent="." unique_id=219685995 instance=ExtResource("2_mwl8v")]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -451.0
-offset_right = 300.0
-offset_bottom = -1.0003662
-grow_vertical = 0
-
-[node name="PLAY" type="Button" parent="Interface/Holder/VBoxContainer" unique_id=1544604280]
-material = ExtResource("1_mwl8v")
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_xy1un")
-theme_override_font_sizes/font_size = 32
-text = "PLAY"
-
-[node name="OPTIONS" type="Button" parent="Interface/Holder/VBoxContainer" unique_id=255005059]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_xy1un")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_mwl8v")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2dvkh")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_yl6lt")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_cs1fg")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_esu2a")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_u730f")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wt08n")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_24eud")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_sfxxo")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_g0ms0")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_e1xkh")
-text = "OPTIONS"
-
-[node name="CREDITS" type="Button" parent="Interface/Holder/VBoxContainer" unique_id=1756148940]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_xy1un")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_mwl8v")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2dvkh")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_yl6lt")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_cs1fg")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_esu2a")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_u730f")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wt08n")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_24eud")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_sfxxo")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_g0ms0")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_e1xkh")
-text = "CREDITS"
-
-[node name="Button5" type="Panel" parent="Interface/Holder/VBoxContainer" unique_id=2043112945]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_xy1un")
-
-[node name="EXIT" type="Button" parent="Interface/Holder/VBoxContainer" unique_id=283742781]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_xy1un")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_mwl8v")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2dvkh")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_yl6lt")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_cs1fg")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_esu2a")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_u730f")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wt08n")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_24eud")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_sfxxo")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_g0ms0")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_e1xkh")
-text = "QUIT"
-
-[node name="Background" type="CanvasLayer" parent="." unique_id=1381760641]
-layer = 0
-visible = false
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Background" unique_id=1744349254]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SubViewport" type="SubViewport" parent="Background/SubViewportContainer" unique_id=910107815]
-handle_input_locally = false
-size = Vector2i(1152, 648)
-render_target_update_mode = 0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1139801424]
-
-[connection signal="focus_entered" from="Interface/Holder/VBoxContainer/PLAY" to="." method="_on_play_focus_entered"]
-[connection signal="focus_entered" from="Interface/Holder/VBoxContainer/OPTIONS" to="." method="_on_options_focus_entered"]
-[connection signal="focus_entered" from="Interface/Holder/VBoxContainer/CREDITS" to="." method="_on_credits_focus_entered"]
-[connection signal="focus_entered" from="Interface/Holder/VBoxContainer/EXIT" to="." method="_on_exit_focus_entered"]

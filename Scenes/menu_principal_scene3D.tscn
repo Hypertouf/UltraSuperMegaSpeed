@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cjfegaxh6ch38"]
+
+[ext_resource type="PackedScene" uid="uid://c0hsfkgf6dwv" path="res://assets/Models/props/garage.tscn" id="1_lk50v"]
+
+[node name="MenuPrincipal_Scene" type="Node3D" unique_id=1889819343]
+
+[node name="Garage" parent="." unique_id=679176269 instance=ExtResource("1_lk50v")]

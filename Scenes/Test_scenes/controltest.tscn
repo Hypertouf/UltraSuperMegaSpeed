@@ -5,6 +5,8 @@
 [ext_resource type="Material" uid="uid://b10yrunmje1il" path="res://assets/Materials/PerspecShader.tres" id="3_8iibg"]
 [ext_resource type="Texture2D" uid="uid://dleyiu3b6afwl" path="res://assets/Textures/MainMenu/Button_bg.png" id="3_j8467"]
 [ext_resource type="AnimationLibrary" uid="uid://behgmw2npan8u" path="res://Anims/Main_Menu_anim.res" id="4_lb7jp"]
+[ext_resource type="PackedScene" uid="uid://cjfegaxh6ch38" path="res://Scenes/menu_principal_scene3D.tscn" id="5_si2q2"]
+[ext_resource type="PackedScene" uid="uid://bthsbu6p7vg6" path="res://addons/srcoder_simplecar/car_custom_menu.tscn" id="6_n14xd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6u7pw"]
 
@@ -48,9 +50,253 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c2k0a"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iijxq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gqthv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rgwo6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7tlu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qcxie"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kbrf8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7tdj5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ds5c1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ypmva"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2vwq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1idmt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4b24l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_52val"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xjv88"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fylur"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynl7q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ek5bi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfi8x"]
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8iibg"]
 
-[node name="MainMenu" type="Control" unique_id=219685995 node_paths=PackedStringArray("Anim_enter", "Anim_exit", "Anim_credits", "Anim_quit", "Buttons")]
+[sub_resource type="Animation" id="Animation_n14xd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1177876, 1.7087938, 2.9350123)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [97.2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7tkp3"]
+resource_name = "ToCredits"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.27859956, 1.7087938, -0.8562672)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s3bng"]
+resource_name = "ToOptions"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.3164513, 0.76385415, 0.3533752)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.55968255, -2.7289512, -0.0047752084)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+
+[sub_resource type="Animation" id="Animation_1wlsk"]
+resource_name = "ToPlay"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.030565068, 1.7087938, 2.9350123)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [97.2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.5235988, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nhbm6"]
+resource_name = "ToQuit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.88766426, 1.867855, -0.6663994)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.23578751, 1.5853179, -0.0033925734)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [99.7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7tkp3"]
+_data = {
+&"RESET": SubResource("Animation_n14xd"),
+&"ToCredits": SubResource("Animation_7tkp3"),
+&"ToOptions": SubResource("Animation_s3bng"),
+&"ToPlay": SubResource("Animation_1wlsk"),
+&"ToQuit": SubResource("Animation_nhbm6")
+}
+
+[node name="MainMenu" type="Control" unique_id=219685995 node_paths=PackedStringArray("Anim_enter", "Anim_exit", "Anim_credits", "Anim_quit", "Anim_cam", "cam", "Buttons_detect", "Buttons_display")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,7 +308,10 @@ Anim_enter = NodePath("AnimationPlayer_enters")
 Anim_exit = NodePath("AnimationPlayer_exit")
 Anim_credits = NodePath("AnimationPlayer_Credits")
 Anim_quit = NodePath("AnimationPlayer_Quit")
-Buttons = [NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/PLAY"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/OPTIONS"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/CREDITS"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/QUIT")]
+Anim_cam = NodePath("AnimationPlayer_camera")
+cam = NodePath("Background/SubViewportContainer/SubViewport/Camera3D")
+Buttons_detect = [NodePath("Interface/Button"), NodePath("Interface/Button2"), NodePath("Interface/Button3"), NodePath("Interface/Button4")]
+Buttons_display = [NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/PLAY"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/OPTIONS"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/CREDITS"), NodePath("Interface/SubViewportContainer/SubViewport/VBoxContainer/QUIT")]
 
 [node name="Interface" type="CanvasLayer" parent="." unique_id=1536787682]
 
@@ -76,6 +325,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SubViewport" type="SubViewport" parent="Interface/SubViewportContainer" unique_id=1084241149]
+transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1152, 567)
 render_target_update_mode = 4
@@ -135,7 +385,7 @@ layout_mode = 0
 offset_left = -500.0
 offset_top = 458.0
 offset_right = -50.0
-offset_bottom = 658.0008
+offset_bottom = 658.00073
 rotation = -0.3700098
 scale = Vector2(1.2, 0.8)
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -187,6 +437,7 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.96862745, 0.10980392, 0.43137255, 1)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 3
@@ -306,6 +557,7 @@ theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("1_6u7pw")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iijxq")
 text = "QUIT"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -315,6 +567,12 @@ offset_left = 113.0
 offset_top = 25.0
 offset_right = 333.0
 offset_bottom = 145.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gqthv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rgwo6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v7tlu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qcxie")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_kbrf8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7tdj5")
 
 [node name="Button2" type="Button" parent="Interface" unique_id=1016459723]
 offset_left = 159.0
@@ -322,6 +580,17 @@ offset_top = 286.0
 offset_right = 409.0
 offset_bottom = 386.0
 rotation = -0.2984513
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ds5c1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ypmva")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s2vwq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_1idmt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4b24l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_52val")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xjv88")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fylur")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ynl7q")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ek5bi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wfi8x")
 
 [node name="Button3" type="Button" parent="Interface" unique_id=903130098]
 offset_left = 245.0
@@ -329,6 +598,17 @@ offset_top = 451.99997
 offset_right = 465.0
 offset_bottom = 522.0
 rotation = -0.5837431
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ds5c1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ypmva")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s2vwq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_1idmt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4b24l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_52val")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xjv88")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fylur")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ynl7q")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ek5bi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wfi8x")
 
 [node name="Button4" type="Button" parent="Interface" unique_id=455419199]
 offset_left = 356.99997
@@ -336,6 +616,17 @@ offset_top = 624.0
 offset_right = 506.99997
 offset_bottom = 674.0
 rotation = -0.80808747
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ds5c1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ypmva")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s2vwq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_1idmt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4b24l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_52val")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xjv88")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fylur")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ynl7q")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ek5bi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wfi8x")
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=2020584296]
 layer = 0
@@ -352,6 +643,73 @@ handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
+[node name="MenuPrincipal_Scene" parent="Background/SubViewportContainer/SubViewport" unique_id=1889819343 instance=ExtResource("5_si2q2")]
+
+[node name="car" parent="Background/SubViewportContainer/SubViewport" unique_id=585784445 instance=ExtResource("6_n14xd")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.069239765, 0.43648356, 1.1472958)
+
+[node name="Feu" type="SpotLight3D" parent="Background/SubViewportContainer/SubViewport/car" unique_id=453586489]
+transform = Transform3D(0.9942523, -0.018806366, -0.10539755, 0.10415537, -0.057936434, 0.9928721, -0.024778673, -0.99814314, -0.05564465, 0.3658125, 0.31625772, -1.3989836)
+light_color = Color(0.79179966, 0.17666435, 0.23020718, 1)
+spot_angle = 71.1
+
+[node name="Feu2" type="SpotLight3D" parent="Background/SubViewportContainer/SubViewport/car" unique_id=154284479]
+transform = Transform3D(0.9942523, -0.018806364, -0.10539755, 0.10415537, -0.057936434, 0.9928721, -0.024778673, -0.99814314, -0.05564465, -0.4288267, 0.31625772, -1.3989836)
+light_color = Color(0.79179966, 0.17666435, 0.23020718, 1)
+spot_angle = 71.1
+
+[node name="Feu3" type="SpotLight3D" parent="Background/SubViewportContainer/SubViewport/car" unique_id=687957580]
+transform = Transform3D(-0.9939353, 0.029344844, 0.10597934, 0.032036316, 0.99920374, 0.023783376, -0.10519703, 0.027034324, -0.9940839, -0.4288048, 0.28733617, 1.2118578)
+light_color = Color(0.95363563, 0.8519075, 0.5964859, 1)
+light_energy = 3.085
+light_indirect_energy = 4.231
+spot_range = 8.0
+spot_angle = 22.5
+
+[node name="Feu4" type="SpotLight3D" parent="Background/SubViewportContainer/SubViewport/car" unique_id=377171609]
+transform = Transform3D(-0.9939353, 0.029344844, 0.10597934, 0.032036316, 0.99920374, 0.023783376, -0.10519703, 0.027034324, -0.9940839, 0.42028862, 0.26724958, 1.2355433)
+light_color = Color(0.95363563, 0.8519075, 0.5964859, 1)
+light_energy = 3.085
+light_indirect_energy = 4.231
+spot_range = 8.0
+spot_angle = 22.5
+
+[node name="roue1" type="SpotLight3D" parent="Background/SubViewportContainer/SubViewport/car" unique_id=157406097]
+transform = Transform3D(0.46134907, -0.060797382, 0.88513315, -0.88687265, -0.0037391016, 0.4619989, -0.02477872, -0.99814314, -0.05564456, -0.6954978, 0.00092047453, -0.707937)
+light_color = Color(0.16535428, 0.72154593, 0.6203244, 1)
+light_energy = 3.0
+spot_range = 0.792
+spot_attenuation = 2.24
+spot_angle = 86.04
+
+[node name="roue2" type="SpotLight3D" parent="Background/SubViewportContainer/SubViewport/car" unique_id=32519626]
+transform = Transform3D(0.46134907, -0.060797382, 0.88513315, -0.88687265, -0.0037391, 0.46199888, -0.02477872, -0.99814314, -0.05564456, -0.69549793, 0.00092047453, 0.6316336)
+light_color = Color(0.16535428, 0.72154593, 0.6203244, 1)
+light_energy = 3.0
+spot_range = 0.792
+spot_attenuation = 2.24
+spot_angle = 86.04
+
+[node name="roue3" type="SpotLight3D" parent="Background/SubViewportContainer/SubViewport/car" unique_id=1354016648]
+transform = Transform3D(-0.46199477, -0.0019478248, -0.8868805, -0.88687265, -0.0037390767, 0.46199888, -0.004216007, 0.9999911, -3.8651187e-08, 0.6435934, 0.00092047453, -0.67251563)
+light_color = Color(0.16535428, 0.72154593, 0.6203244, 1)
+light_energy = 3.0
+spot_range = 0.792
+spot_attenuation = 2.24
+spot_angle = 86.04
+
+[node name="roue4" type="SpotLight3D" parent="Background/SubViewportContainer/SubViewport/car" unique_id=726969526]
+transform = Transform3D(-0.46199477, -0.0019478248, -0.8868805, -0.88687265, -0.0037390767, 0.46199888, -0.004216007, 0.9999911, -3.8651187e-08, 0.64359325, 0.00092047453, 0.6670549)
+light_color = Color(0.16535428, 0.72154593, 0.6203244, 1)
+light_energy = 3.0
+spot_range = 0.792
+spot_attenuation = 2.24
+spot_angle = 86.04
+
+[node name="Camera3D" type="Camera3D" parent="Background/SubViewportContainer/SubViewport" unique_id=2031154399]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0.1177876, 1.7087938, 2.9350123)
+fov = 97.2
+
 [node name="AnimationPlayer_enters" type="AnimationPlayer" parent="." unique_id=566951878]
 libraries/ = ExtResource("4_lb7jp")
 
@@ -366,6 +724,9 @@ libraries/Main_Menu_anim = ExtResource("4_lb7jp")
 [node name="AnimationPlayer_Quit" type="AnimationPlayer" parent="." unique_id=590250837]
 libraries/ = SubResource("AnimationLibrary_8iibg")
 libraries/Main_Menu_anim = ExtResource("4_lb7jp")
+
+[node name="AnimationPlayer_camera" type="AnimationPlayer" parent="." unique_id=1851547186]
+libraries/ = SubResource("AnimationLibrary_7tkp3")
 
 [connection signal="mouse_entered" from="Interface/Button" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="Interface/Button" to="." method="_on_play_mouse_exited"]
