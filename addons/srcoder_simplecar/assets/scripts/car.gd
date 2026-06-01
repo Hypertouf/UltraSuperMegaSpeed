@@ -82,6 +82,7 @@ func _ready() -> void:
 	#set wheel friction slip
 	nitro_oldvalue = torbo.value
 	Radio.play()
+	AnimPlayer.play("spawn")
 	for wheel in steering_wheels:
 		wheel.wheel_friction_slip = front_wheel_grip
 	for wheel in driving_wheels:

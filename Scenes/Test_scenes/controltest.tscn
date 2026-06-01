@@ -904,6 +904,7 @@ render_target_update_mode = 4
 environment = SubResource("Environment_n14xd")
 
 [node name="Garage" parent="Background/SubViewportContainer/SubViewport" unique_id=679176269 instance=ExtResource("7_n14xd")]
+in_menu = true
 
 [node name="car" parent="Background/SubViewportContainer/SubViewport" unique_id=585784445 instance=ExtResource("6_n14xd")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.069239765, 0.43648356, 1.1472958)

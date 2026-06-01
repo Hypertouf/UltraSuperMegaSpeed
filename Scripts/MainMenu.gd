@@ -12,6 +12,8 @@ extends Control
 @export var garage : StaticBody3D
 @export var menu_option : Control
 @export var menu_credits : Control
+var lvl1 = preload("uid://754vjwcs50eq")
+var lvl1_node = lvl1.instantiate()
 
 var exit : bool = false
 
@@ -100,6 +102,10 @@ func _on_button_4_pressed() -> void:
 func _on_animation_player_camera_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fadetoblack" and exit == true:
 			get_tree().quit()
+	if anim_name == "tuturevroum":
+		add_sibling(lvl1_node)
+		queue_free()
+		pass
 	pass # Replace with function body.
 
 

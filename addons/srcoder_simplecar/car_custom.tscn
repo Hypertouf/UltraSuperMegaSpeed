@@ -45,6 +45,7 @@
 [ext_resource type="AudioStream" uid="uid://cog2p8rgji4tq" path="res://assets/Audio/Audio 2.mp3" id="33_vqadn"]
 [ext_resource type="AudioStream" uid="uid://bfap835lsftgs" path="res://assets/Audio/Audio 1.mp3" id="34_vh4ao"]
 [ext_resource type="AudioStream" uid="uid://ta83b0ntrv7n" path="res://assets/Audio/freesound_community-fm-radio-static-82334.mp3" id="35_hvcv4"]
+[ext_resource type="Shader" uid="uid://bwfye5q5nnp0o" path="res://Scenes/Test_scenes/controltest.gdshader" id="43_t8xh1"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xtq8k"]
 streams_count = 6
@@ -132,6 +133,12 @@ scale_curve = SubResource("CurveTexture_urq10")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtq8k"]
 bg_color = Color(0.169211, 0.657799, 0.817548, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b7us2"]
+shader = ExtResource("43_t8xh1")
+shader_parameter/outerRadius = 0.0
+shader_parameter/MainAlpha = 1.0
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_jjlsn"]
 length = 0.001
 tracks/0/type = "value"
@@ -145,6 +152,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("12_cgcc8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ui_Holder/OUI/Vignette:material:shader_parameter/outerRadius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ui_Holder/OUI/Vignette:material:shader_parameter/MainAlpha")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_u3kq8"]
@@ -181,11 +212,40 @@ tracks/0/keys = {
 "values": [ExtResource("12_cgcc8"), ExtResource("20_wj4kd"), ExtResource("12_cgcc8"), ExtResource("21_0acjl")]
 }
 
+[sub_resource type="Animation" id="Animation_t8xh1"]
+resource_name = "spawn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ui_Holder/OUI/Vignette:material:shader_parameter/outerRadius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 5.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ui_Holder/OUI/Vignette:material:shader_parameter/MainAlpha")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u3kq8"]
 _data = {
 &"RESET": SubResource("Animation_jjlsn"),
 &"RadioIdle": SubResource("Animation_u3kq8"),
-&"Radio_talk": SubResource("Animation_cgcc8")
+&"Radio_talk": SubResource("Animation_cgcc8"),
+&"spawn": SubResource("Animation_t8xh1")
 }
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jjlsn"]
@@ -464,6 +524,15 @@ offset_bottom = 1080.0
 stream = ExtResource("19_854qw")
 autoplay = true
 paused = true
+
+[node name="Vignette" type="ColorRect" parent="Ui_Holder/OUI" unique_id=489306703]
+z_index = 1
+material = SubResource("ShaderMaterial_b7us2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BalloonHolder" type="CanvasLayer" parent="Ui_Holder" unique_id=1826505556]
 layer = 128

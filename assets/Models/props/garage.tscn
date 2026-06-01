@@ -230,9 +230,10 @@ _data = {
 &"menu": SubResource("Animation_edl5g")
 }
 
-[node name="Garage" type="StaticBody3D" unique_id=679176269 node_paths=PackedStringArray("anim")]
+[node name="Garage" type="StaticBody3D" unique_id=679176269 node_paths=PackedStringArray("anim", "lights")]
 script = ExtResource("1_me5wn")
 anim = NodePath("AnimationPlayer")
+lights = [NodePath("MeshInstance3D"), NodePath("MeshInstance3D2"), NodePath("MeshInstance3D3")]
 
 [node name="Garage" type="MeshInstance3D" parent="." unique_id=149018131]
 mesh = ExtResource("1_djmrx")
