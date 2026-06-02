@@ -101,6 +101,24 @@ size = Vector3(1.3043213, 2.1713247, 16.643023)
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpguo"]
 size = Vector3(2.1978302, 3.2127867, 18.24362)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_37tu7"]
+size = Vector3(0.6652832, 12.217888, 50.652046)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xo20m"]
+size = Vector3(1.5658264, 12.683193, 50.688873)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46dh4"]
+size = Vector3(0.6652832, 12.217888, 50.652046)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qrtif"]
+size = Vector3(1.5658264, 12.683193, 50.688873)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hilit"]
+size = Vector3(0.6652832, 12.217888, 50.652046)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4it2w"]
+size = Vector3(1.5658264, 12.683193, 50.688873)
+
 [node name="The_BIG_city" type="Node3D" unique_id=234967597 node_paths=PackedStringArray("Player")]
 script = ExtResource("1_nkwo0")
 Player = NodePath("car")
@@ -1074,19 +1092,19 @@ sides = 30
 transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, 3.3958282, -1.5906506, -55.44443)
 
 [node name="pipe4" type="CSGCylinder3D" parent="pipesystem" unique_id=742080114]
-transform = Transform3D(-4.3711385e-08, -0.99999994, 4.371139e-08, 0, -4.3711385e-08, -1, 0.99999994, -4.3711385e-08, 1.9106855e-15, 107.41196, -1.2454548, -56.589153)
+transform = Transform3D(-4.3711385e-08, -0.99999994, 4.371139e-08, 0, -4.3711385e-08, -1, 0.99999994, -4.3711385e-08, 1.9106855e-15, 71.72405, -1.2454567, -56.589153)
 use_collision = true
 radius = 4.0249023
-height = 189.62634
+height = 118.250534
 sides = 30
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="pipesystem/pipe4" unique_id=1360891005]
 operation = 2
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="pipesystem/pipe4/CSGCombiner3D" unique_id=316486217]
-transform = Transform3D(0.9999861, 2.2026825e-13, 0, -2.2026825e-13, 0.9999861, -8.351872e-23, 4.5316263e-20, 6.0751404e-13, 1, 4.7683716e-07, 2.33601, 0)
+transform = Transform3D(0.99998075, 3.0553338e-13, 0, -3.0553338e-13, 0.99998075, -8.351872e-23, 6.331571e-20, 8.4199314e-13, 1, 4.7683716e-07, 18.798935, 0)
 radius = 3.9960938
-height = 202.20319
+height = 169.27689
 sides = 30
 
 [node name="Garage" parent="." unique_id=679176269 instance=ExtResource("32_00tu3")]
@@ -1131,3 +1149,139 @@ transform = Transform3D(1, 3.3407487e-22, 0, 3.3407487e-22, 1, 0, 0, 0, 1, 4.768
 radius = 3.9960938
 height = 163.73944
 sides = 30
+
+[node name="Bigbillboard" parent="." unique_id=347271015 instance=ExtResource("17_vylv8")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 50.03, 7.1539936, -4.685)
+
+[node name="enter" type="Area3D" parent="Bigbillboard" unique_id=1650043941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("17_csgam")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bigbillboard/enter" unique_id=412089684]
+transform = Transform3D(0.9999992, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999992, 2.648571, 7.0787544, 0.04247284)
+shape = SubResource("BoxShape3D_lsos7")
+
+[node name="exit" type="Area3D" parent="Bigbillboard" unique_id=880313000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("18_pmuua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bigbillboard/exit" unique_id=1714526339]
+transform = Transform3D(0.9999992, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999992, 2.785431, 7.1363716, -0.31674194)
+shape = SubResource("BoxShape3D_4vynd")
+
+[node name="Bigbillboard2" parent="." unique_id=310592636 instance=ExtResource("17_vylv8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 89.709, 7.1573324, 35.688)
+
+[node name="enter" type="Area3D" parent="Bigbillboard2" unique_id=262670528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("17_csgam")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bigbillboard2/enter" unique_id=732722753]
+transform = Transform3D(0.9999992, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999992, 2.648571, 7.0787544, 0.04247284)
+shape = SubResource("BoxShape3D_37tu7")
+
+[node name="exit" type="Area3D" parent="Bigbillboard2" unique_id=1916928235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("18_pmuua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bigbillboard2/exit" unique_id=2056720771]
+transform = Transform3D(0.9999992, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999992, 2.785431, 7.1363716, -0.31674194)
+shape = SubResource("BoxShape3D_xo20m")
+
+[node name="Bigbillboard3" parent="." unique_id=1123013621 instance=ExtResource("17_vylv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.09265, 7.2185574, -3.9764109)
+
+[node name="enter" type="Area3D" parent="Bigbillboard3" unique_id=338352655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("17_csgam")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bigbillboard3/enter" unique_id=2030930482]
+transform = Transform3D(0.9999992, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999992, 2.648571, 7.0787544, 0.04247284)
+shape = SubResource("BoxShape3D_46dh4")
+
+[node name="exit" type="Area3D" parent="Bigbillboard3" unique_id=589324406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("18_pmuua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bigbillboard3/exit" unique_id=98866162]
+transform = Transform3D(0.9999992, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999992, 2.785431, 7.1363716, -0.31674194)
+shape = SubResource("BoxShape3D_qrtif")
+
+[node name="Bigbillboard4" parent="." unique_id=1955706202 instance=ExtResource("17_vylv8")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 90.391716, 7.15217, -44.363243)
+
+[node name="enter" type="Area3D" parent="Bigbillboard4" unique_id=69575202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("17_csgam")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bigbillboard4/enter" unique_id=1715724194]
+transform = Transform3D(0.9999992, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999992, 2.648571, 7.0787544, 0.04247284)
+shape = SubResource("BoxShape3D_hilit")
+
+[node name="exit" type="Area3D" parent="Bigbillboard4" unique_id=18327298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("18_pmuua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bigbillboard4/exit" unique_id=262768342]
+transform = Transform3D(0.9999992, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999992, 2.785431, 7.1363716, -0.31674194)
+shape = SubResource("BoxShape3D_4it2w")
+
+[node name="grosserampe3" type="CSGBox3D" parent="." unique_id=1555800795]
+transform = Transform3D(4.5822057e-12, 0.00010482867, -0.9999999, 0.9999999, -4.3711385e-08, 7.3414884e-22, -4.371138e-08, -1, -0.00010482866, 57.48927, 14.31093, 27.9042)
+use_collision = true
+size = Vector3(14.428574, 11.208412, 10.399515)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe3" unique_id=2003779917]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe3/CSGCombiner3D" unique_id=505837186]
+transform = Transform3D(-4.3711754e-08, 0.99999386, -2.1031714e-12, -1, -4.3712006e-08, 1.2441888e-09, 1.2441888e-09, 2.1031746e-12, 0.99999386, 0.056135178, 5.391884, -5.739849)
+radius = 10.90625
+height = 15.025122
+sides = 64
+
+[node name="grosserampe4" type="CSGBox3D" parent="." unique_id=1919482481]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.9999999, -4.3711385e-08, 0, 0, 0, 0.9999998, 122.324646, 14.31093, 28.238333)
+use_collision = true
+size = Vector3(14.428574, 11.208412, 10.399515)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe4" unique_id=342778586]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe4/CSGCombiner3D" unique_id=1492131164]
+transform = Transform3D(-4.3711754e-08, 0.99999386, -2.1031714e-12, -1, -4.3712006e-08, 1.2441888e-09, 1.2441888e-09, 2.1031746e-12, 0.99999386, 0.056135178, 5.391884, -5.739849)
+radius = 10.90625
+height = 15.025122
+sides = 64
+
+[node name="grosserampe5" type="CSGBox3D" parent="." unique_id=135117147]
+transform = Transform3D(1.9106853e-15, 4.371138e-08, 0.9999997, 0.9999999, -4.371138e-08, 0, 4.3711385e-08, 0.9999998, -4.3711374e-08, 122.622154, 14.31093, -36.62143)
+use_collision = true
+size = Vector3(14.428574, 11.208412, 10.399515)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe5" unique_id=1221248787]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe5/CSGCombiner3D" unique_id=82163088]
+transform = Transform3D(-4.3711754e-08, 0.99999386, -2.1031714e-12, -1, -4.3712006e-08, 1.2441888e-09, 1.2441888e-09, 2.1031746e-12, 0.99999386, 0.056135178, 5.391884, -5.739849)
+radius = 10.90625
+height = 15.025122
+sides = 64
+
+[node name="grosserampe6" type="CSGBox3D" parent="." unique_id=976610577]
+transform = Transform3D(4.3711385e-08, 0.99999976, 8.742275e-08, 0.9999999, -4.3711378e-08, 0, 3.8213705e-15, 8.7422755e-08, -0.99999964, 57.847763, 14.31093, -36.90029)
+use_collision = true
+size = Vector3(14.428574, 11.208412, 10.399515)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe6" unique_id=1494882158]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe6/CSGCombiner3D" unique_id=1390694828]
+transform = Transform3D(-4.3711754e-08, 0.99999386, -2.1031714e-12, -1, -4.3712006e-08, 1.2441888e-09, 1.2441888e-09, 2.1031746e-12, 0.99999386, 0.056135178, 5.391884, -5.739849)
+radius = 10.90625
+height = 15.025122
+sides = 64
