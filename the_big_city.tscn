@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bunpfwsn8y2rj" path="res://assets/Models/props/Roads/road_4_ways.tscn" id="29_qn0af"]
 [ext_resource type="PackedScene" uid="uid://bfq0fd2nsskmy" path="res://assets/Models/CSG_scenes/turnpipe.tscn" id="30_00tu3"]
 [ext_resource type="PlaneMesh" uid="uid://uej1ixsmgesg" path="res://assets/BabyMesh.tres" id="30_ffspi"]
-[ext_resource type="PackedScene" uid="uid://ddk1ni0j2vby3" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
+[ext_resource type="PackedScene" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
 [ext_resource type="PackedScene" uid="uid://jaavrwy3gfo1" path="res://assets/Models/props/TV.tscn" id="31_ffspi"]
 [ext_resource type="PackedScene" uid="uid://c0hsfkgf6dwv" path="res://assets/Models/props/garage.tscn" id="32_00tu3"]
 [ext_resource type="PackedScene" uid="uid://denjrfospc545" path="res://assets/Models/props/bumper.tscn" id="32_62cfs"]
@@ -1451,3 +1451,24 @@ transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.0
 
 [node name="Barriere_small6" parent="." unique_id=1817351361 instance=ExtResource("34_1uvwm")]
 transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.074665464, 106.017715, 2.0201683, -12.88681)
+
+[node name="Barriere_small7" parent="." unique_id=199317467 instance=ExtResource("34_1uvwm")]
+transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.074665464, 106.017715, 2.0201683, -9.479086)
+
+[node name="Barriere_small8" parent="." unique_id=1614375146 instance=ExtResource("34_1uvwm")]
+transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.074665464, 106.017715, 2.0201683, -6.1768546)
+
+[node name="grosserampe7" type="CSGBox3D" parent="." unique_id=145445239]
+transform = Transform3D(-0.99666876, 0, 0.08155597, 0, 1, 0, -0.08155597, 0, -0.99666876, 105.801674, 3.9596076, -0.7163391)
+use_collision = true
+size = Vector3(4.1373324, 4.67984, 4.4098673)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe7" unique_id=684780989]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe7/CSGCombiner3D" unique_id=271441036]
+transform = Transform3D(-4.3711246e-08, 0.99999386, 1.3038516e-08, -1, -4.37114e-08, 0, -1.9428903e-16, -1.3038516e-08, 0.99999386, 0.032169342, 10.390539, -1.9758224)
+radius = 12.325195
+height = 7.6664004
+sides = 64
