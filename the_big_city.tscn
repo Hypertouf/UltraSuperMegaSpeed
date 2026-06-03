@@ -1472,3 +1472,6 @@ transform = Transform3D(-4.3711246e-08, 0.99999386, 1.3038516e-08, -1, -4.37114e
 radius = 12.325195
 height = 7.6664004
 sides = 64
+
+[node name="Barriere_small9" parent="." unique_id=462086150 instance=ExtResource("34_1uvwm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.38639, 2.020019, 8.585191)
