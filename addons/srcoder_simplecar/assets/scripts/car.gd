@@ -36,6 +36,7 @@ extends VehicleBody3D
 @export var videofin : VideoStreamTheora
 @export var VStraemPlay : VideoStreamPlayer
 @export var exploParticles : GPUParticles3D
+@export var trails : Array[MeshInstance3D]
 
 var Dlg_Sct = load("uid://bbbh1af5b4qeb") #La ou est rangé le dialogue qui est lu dans le ballon
 var balloon_path : String = ProjectSettings.get_setting("dialogue_manager/runtime/balloon_path")
@@ -148,7 +149,6 @@ func _physics_process(delta: float) -> void:
 		#linearly reduce engine force based on the wheels current rpm and the player input
 		var actual_force : float = player_acceleration * ((-max_torque/max_wheel_rpm) * abs(wheel.get_rpm()) + max_torque) 
 		wheel.engine_force = actual_force
-		
 	
 	followcamera.mycamera.fov = 75 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) #adaptive FOV, when the car go faster the FOV go wider to make it feel faster.
 																									   #the math used here is simply calculating the hypothenus of the triangle formed by the x axis vector and the z axis vector. this allows the fov adaptation to remain stable no matter the direction in which the car is turning.

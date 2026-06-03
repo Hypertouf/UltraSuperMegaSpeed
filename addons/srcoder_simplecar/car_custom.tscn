@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://c0llask5xjo1d" path="res://assets/Audio/deltarune explosion greenscreen.mp3" id="5_y1lln"]
 [ext_resource type="ArrayMesh" uid="uid://dg5won52i52g8" path="res://assets/Models/Tuture/wheel-front-right.tres" id="6_2cqij"]
 [ext_resource type="ArrayMesh" uid="uid://ctkojq0qsv21s" path="res://assets/Models/Tuture/wheel-front-left.tres" id="7_syhvw"]
+[ext_resource type="Script" uid="uid://dorbs33inxlh7" path="res://addons/srcoder_simplecar/trail_3d.gd" id="12_b7us2"]
 [ext_resource type="Texture2D" uid="uid://cpii4stj8dfvy" path="res://assets/Textures/Radio/frame0000.png" id="12_cgcc8"]
 [ext_resource type="AudioStream" uid="uid://cr1dm65ox7iaf" path="res://assets/Audio/Death_quotes/ChewOnThis.wav" id="13_sdpfv"]
 [ext_resource type="Texture2D" uid="uid://du53j3hwuqhej" path="res://assets/Textures/UI_Cursor.png" id="13_u3kq8"]
@@ -272,7 +273,35 @@ material = SubResource("StandardMaterial3D_g33e6")
 size = Vector2(4, 4)
 orientation = 2
 
-[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "Tv_quotes", "Radio", "VStraemPlay", "exploParticles", "LayBa")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iux6i"]
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(3.7541986e-06, 0.94921654, 0.64474994, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7us2"]
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.8516507, 0.10439276, 0.4250917, 1)
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_u08v7"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_8jbr4"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_b7us2"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_5fmnu"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_iux6i"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_vqadn"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_vh4ao"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_hhcwt"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_3gxnf"]
+
+[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "Tv_quotes", "Radio", "VStraemPlay", "exploParticles", "trails", "LayBa")]
 collision_layer = 2
 physics_material_override = ExtResource("1_gdthg")
 center_of_mass_mode = 1
@@ -296,6 +325,7 @@ Radio = NodePath("Radio")
 videofin = ExtResource("19_854qw")
 VStraemPlay = NodePath("Ui_Holder/OUI/Panel/VideoStreamPlayer")
 exploParticles = NodePath("GPUParticles3D")
+trails = [NodePath("Trail3d"), NodePath("Trail3d2"), NodePath("Trail3d3"), NodePath("Trail3d4"), NodePath("Trail3d5"), NodePath("Trail3d6"), NodePath("Trail3d7"), NodePath("Trail3d8")]
 LayBa = NodePath("Ui_Holder/BalloonHolder")
 
 [node name="body" type="MeshInstance3D" parent="." unique_id=787695455]
@@ -545,6 +575,115 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.20132e-08, -0.732376)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_jjlsn")
 draw_pass_1 = SubResource("PlaneMesh_e70ve")
+
+[node name="Trail3d" type="MeshInstance3D" parent="." unique_id=1425037322]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, 0.16494739, -0.6830325)
+material_override = SubResource("StandardMaterial3D_iux6i")
+cast_shadow = 0
+skeleton = NodePath("../WheelBackLeft")
+script = ExtResource("12_b7us2")
+fromWidth = 0.08
+lifespan = 0.1
+startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
+
+[node name="Trail3d9" type="MeshInstance3D" parent="." unique_id=2144895890]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.43419406, 0.30833566, -1.3361323)
+material_override = SubResource("StandardMaterial3D_b7us2")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_u08v7")
+skeleton = NodePath("../WheelBackLeft")
+script = ExtResource("12_b7us2")
+fromWidth = 0.08
+lifespan = 0.1
+startColor = Color(0.86993164, 0.15957409, 0.39749965, 1)
+
+[node name="Trail3d10" type="MeshInstance3D" parent="." unique_id=705258064]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.44745758, 0.30833566, -1.3361323)
+material_override = SubResource("StandardMaterial3D_b7us2")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_8jbr4")
+skeleton = NodePath("../WheelBackLeft")
+script = ExtResource("12_b7us2")
+fromWidth = 0.08
+lifespan = 0.1
+startColor = Color(0.86993164, 0.15957409, 0.39749965, 1)
+
+[node name="Trail3d2" type="MeshInstance3D" parent="." unique_id=633410569]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, -0.16910112, -0.6830325)
+material_override = SubResource("StandardMaterial3D_iux6i")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_b7us2")
+skeleton = NodePath("../WheelBackLeft")
+script = ExtResource("12_b7us2")
+fromWidth = 0.08
+lifespan = 0.1
+startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
+
+[node name="Trail3d3" type="MeshInstance3D" parent="." unique_id=1644025789]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, 0.16494739, 0.60499716)
+material_override = SubResource("StandardMaterial3D_iux6i")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_5fmnu")
+skeleton = NodePath("../WheelBackLeft")
+script = ExtResource("12_b7us2")
+fromWidth = 0.08
+lifespan = 0.1
+startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
+
+[node name="Trail3d4" type="MeshInstance3D" parent="." unique_id=1135858230]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, -0.16910112, 0.60499716)
+material_override = SubResource("StandardMaterial3D_iux6i")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_iux6i")
+skeleton = NodePath("../WheelBackLeft")
+script = ExtResource("12_b7us2")
+fromWidth = 0.08
+lifespan = 0.1
+startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
+
+[node name="Trail3d5" type="MeshInstance3D" parent="." unique_id=717174320]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, 0.16494739, -0.6830325)
+material_override = SubResource("StandardMaterial3D_iux6i")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_vqadn")
+skeleton = NodePath("../WheelBackLeft")
+script = ExtResource("12_b7us2")
+fromWidth = 0.08
+lifespan = 0.1
+startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
+
+[node name="Trail3d6" type="MeshInstance3D" parent="." unique_id=649443701]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, -0.16910112, -0.6830325)
+material_override = SubResource("StandardMaterial3D_iux6i")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_vh4ao")
+skeleton = NodePath("../WheelBackLeft")
+script = ExtResource("12_b7us2")
+fromWidth = 0.08
+lifespan = 0.1
+startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
+
+[node name="Trail3d7" type="MeshInstance3D" parent="." unique_id=1530861115]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, 0.16494739, 0.60499716)
+material_override = SubResource("StandardMaterial3D_iux6i")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_hhcwt")
+skeleton = NodePath("../WheelBackLeft")
+script = ExtResource("12_b7us2")
+fromWidth = 0.08
+lifespan = 0.1
+startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
+
+[node name="Trail3d8" type="MeshInstance3D" parent="." unique_id=1605269926]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, -0.16910112, 0.60499716)
+material_override = SubResource("StandardMaterial3D_iux6i")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_3gxnf")
+skeleton = NodePath("../WheelBackLeft")
+script = ExtResource("12_b7us2")
+fromWidth = 0.08
+lifespan = 0.1
+startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 
 [connection signal="finished" from="Radio" to="." method="_on_radio_finished"]
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
