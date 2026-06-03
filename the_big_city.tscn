@@ -1306,7 +1306,7 @@ sides = 64
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=105023332]
 transform = Transform3D(0.71023464, 0, -0.70396507, 0, 1, 0, 0.70396507, 0, 0.71023464, 88.53285, 3.5111365, -3.2575884)
 use_collision = true
-polygon = PackedVector2Array(0, -3.618, 59.99092, -3.3649573, 45.55378, -1.491817, 0, -1.49)
+polygon = PackedVector2Array(0, -3.618, 60.258793, -3.5562968, 45.55378, -1.491817, 0, -1.49)
 mode = 1
 spin_degrees = 360.0
 spin_sides = 4
@@ -1424,3 +1424,30 @@ sides = 64
 
 [node name="Barriere_small2" parent="." unique_id=715660970 instance=ExtResource("34_1uvwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.32697, 2.0202544, 12.98268)
+
+[node name="Barriere_small3" parent="." unique_id=675706123 instance=ExtResource("34_1uvwm")]
+transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.074665464, 106.017715, 2.0201683, -22.923363)
+
+[node name="grosserampe6" type="CSGBox3D" parent="." unique_id=666940323]
+transform = Transform3D(0.9990851, 0, -0.04276503, 0, 1, 0, 0.04276503, 0, 0.9990851, 106.23092, 3.9596076, -28.560904)
+use_collision = true
+size = Vector3(4.1373324, 4.67984, 4.4098673)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe6" unique_id=66185593]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe6/CSGCombiner3D" unique_id=1321944089]
+transform = Transform3D(-4.3711246e-08, 0.99999386, 1.3038516e-08, -1, -4.37114e-08, 0, -1.9428903e-16, -1.3038516e-08, 0.99999386, 0.032169342, 10.390539, -1.9758224)
+radius = 12.325195
+height = 7.6664004
+sides = 64
+
+[node name="Barriere_small4" parent="." unique_id=1730743005 instance=ExtResource("34_1uvwm")]
+transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.074665464, 106.017715, 2.0201683, -19.621132)
+
+[node name="Barriere_small5" parent="." unique_id=1503434026 instance=ExtResource("34_1uvwm")]
+transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.074665464, 106.017715, 2.0201683, -16.189041)
+
+[node name="Barriere_small6" parent="." unique_id=1817351361 instance=ExtResource("34_1uvwm")]
+transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.074665464, 106.017715, 2.0201683, -12.88681)
