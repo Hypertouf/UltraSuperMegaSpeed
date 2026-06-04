@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bunpfwsn8y2rj" path="res://assets/Models/props/Roads/road_4_ways.tscn" id="29_qn0af"]
 [ext_resource type="PackedScene" uid="uid://bfq0fd2nsskmy" path="res://assets/Models/CSG_scenes/turnpipe.tscn" id="30_00tu3"]
 [ext_resource type="PlaneMesh" uid="uid://uej1ixsmgesg" path="res://assets/BabyMesh.tres" id="30_ffspi"]
-[ext_resource type="PackedScene" uid="uid://ddk1ni0j2vby3" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
+[ext_resource type="PackedScene" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
 [ext_resource type="PackedScene" uid="uid://jaavrwy3gfo1" path="res://assets/Models/props/TV.tscn" id="31_ffspi"]
 [ext_resource type="PackedScene" uid="uid://c0hsfkgf6dwv" path="res://assets/Models/props/garage.tscn" id="32_00tu3"]
 [ext_resource type="PackedScene" uid="uid://denjrfospc545" path="res://assets/Models/props/bumper.tscn" id="32_62cfs"]
@@ -154,7 +154,7 @@ height = 18.584286
 sides = 30
 
 [node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("followcamera") instance=ExtResource("1_0nkrw")]
-transform = Transform3D(-0.09791307, 0, 0.99519503, 0, 1, 0, -0.99519503, 0, -0.09791307, 23.244768, 0.5518954, -4.8204765)
+transform = Transform3D(-0.09791307, 0, 0.99519503, 0, 1, 0, -0.99519503, 0, -0.09791307, -128.00452, 32.028866, 54.10061)
 rear_wheel_grip = 5.0
 followcamera = NodePath("../FollowCamera")
 shortjump = ExtResource("3_kb7yh")
@@ -1117,9 +1117,36 @@ sides = 30
 operation = 2
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="pipesystem/pipe4/CSGCombiner3D" unique_id=316486217]
-transform = Transform3D(0.99998075, 3.0553338e-13, 0, -3.0553338e-13, 0.99998075, -8.351872e-23, 6.331571e-20, 8.4199314e-13, 1, 4.7683716e-07, 18.798935, 0)
+transform = Transform3D(0.9999743, 4.0856207e-13, 0, -4.0856207e-13, 0.9999743, -8.351872e-23, 8.3644504e-20, 1.1226575e-12, 1, 4.7683716e-07, 18.798935, 0)
 radius = 3.9960938
 height = 169.27689
+sides = 30
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="pipesystem/pipe4/CSGCombiner3D" unique_id=861230092]
+transform = Transform3D(-4.3708976e-08, -0.9999679, 0, 0.9999679, -4.3708976e-08, -8.351872e-23, 1.389111e-12, -1.8634725e-19, 1, -2.4970217, 16.258759, 0.62286663)
+radius = 3.4082031
+height = 4.484253
+sides = 30
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=1196804817]
+transform = Transform3D(-0.9999699, 8.74192e-08, 4.371139e-08, -4.371137e-08, 1.9107609e-15, -1, -8.74192e-08, -0.9999699, 1.9106855e-15, -64.91751, 14.284573, -8.450338)
+radius = 3.6591797
+height = 4.484253
+sides = 30
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGCylinder3D3" unique_id=1962572512]
+operation = 2
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D3/CSGCombiner3D" unique_id=193511898]
+transform = Transform3D(0.99999326, 5.3290705e-13, 4.0145665e-13, -5.3290705e-13, 0.99999326, 2.5410988e-20, -2.6645353e-13, 4.1081098e-20, 1, 0, 0.40977478, 0)
+radius = 3.5888672
+height = 5.461151
+sides = 30
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCylinder3D3/CSGCombiner3D" unique_id=749775463]
+transform = Transform3D(-0.00082031096, -0.99998736, 4.374722e-08, 0.99998736, -0.00082031096, -4.371192e-08, 4.3747104e-08, 4.3711722e-08, 1, 0.06793213, -2.296556, -0.21770096)
+radius = 3.802246
+height = 12.162746
 sides = 30
 
 [node name="Garage" parent="." unique_id=679176269 instance=ExtResource("32_00tu3")]
@@ -1480,3 +1507,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.38639, 2.020019, 8.585191
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.738785, 1, 0.63140523)
 script = ExtResource("33_rvk64")
 bump_x = 8.0
+
+[node name="turnpipe" parent="." unique_id=420055876 instance=ExtResource("30_00tu3")]
+transform = Transform3D(-0.2760232, -0.9611508, -8.402648e-08, -0.96115106, 0.27602315, 2.4130715e-08, -3.8213714e-15, 8.742277e-08, -1, -66.12258, 14.177587, -19.313763)
+
+[node name="turnpipe2" parent="." unique_id=1369693028 instance=ExtResource("30_00tu3")]
+transform = Transform3D(-0.25903934, 0.08170408, -0.9624048, -0.9195147, 0.28410935, 0.27161473, 0.29562038, 0.95530415, 0.001532577, -78.059555, 17.898777, -21.824972)
+
+[node name="turnpipe3" parent="." unique_id=802837513 instance=ExtResource("30_00tu3")]
+transform = Transform3D(0.3712943, 0.9217175, 0.11214753, -0.89251614, 0.32098043, 0.3168387, 0.25603878, -0.21773383, 0.9418258, -79.023735, 23.353462, -9.467998)
+
+[node name="turnpipe4" parent="." unique_id=901592789 instance=ExtResource("30_00tu3")]
+transform = Transform3D(0.31708866, -0.2169992, 0.9232369, -0.92636913, 0.1377184, 0.350534, -0.20321247, -0.96640813, -0.15735233, -67.32491, 28.412949, -9.896764)
+
+[node name="turnpipe5" parent="." unique_id=1449577534 instance=ExtResource("30_00tu3")]
+transform = Transform3D(-0.46077335, -0.8656425, -0.19583336, -0.8870027, 0.44163802, 0.13484055, -0.030236281, 0.23583558, -0.9713223, -67.98371, 32.186653, -22.96055)
+
+[node name="turnpipe6" parent="." unique_id=831980272 instance=ExtResource("30_00tu3")]
+transform = Transform3D(-0.37809885, 0.32339048, -0.8674444, -0.8893434, 0.13335752, 0.43736115, 0.2571186, 0.9368211, 0.23718269, -79.16652, 38.295807, -22.4432)
