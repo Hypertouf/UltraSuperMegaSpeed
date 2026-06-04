@@ -797,7 +797,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99429893, -0.10662851, 0, 0.10662851, 0.99
 
 [node name="Bumper" parent="Jump_parkour" unique_id=615511247 instance=ExtResource("32_62cfs")]
 transform = Transform3D(-0.9999997, -6.4967786e-08, -5.849725e-08, 0, 0.66913056, -0.7431448, 8.742275e-08, -0.74314487, -0.6691305, -89.81366, 23.504791, -28.143103)
-bump_y = 5.0
+bump_y = 4.0
 bump_x = 0.0
 bump_z = -20.0
 
@@ -1684,7 +1684,7 @@ power = 15.0
 
 [node name="Bumper2" parent="." unique_id=1450576671 instance=ExtResource("32_62cfs")]
 transform = Transform3D(-0.093482815, 0, 0.9956209, 0, 1, 0, -0.9956209, 0, -0.093482815, 104.45773, 0.10194087, 63.19014)
-bump_y = 8.0
+bump_y = 10.0
 bump_z = -2.0
 
 [node name="Pieton3" parent="." unique_id=2066491939 instance=ExtResource("15_qn0af")]
