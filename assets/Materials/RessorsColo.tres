@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bwo5qjtokk5ag"]
+
+[ext_resource type="Texture2D" uid="uid://l677foy4562c" path="res://assets/Models/props/ressors_colo_RessorsBaked.png" id="1_njtlw"]
+
+[resource]
+albedo_texture = ExtResource("1_njtlw")
+emission_enabled = true
+emission_texture = ExtResource("1_njtlw")
