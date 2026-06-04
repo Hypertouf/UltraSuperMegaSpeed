@@ -1504,7 +1504,7 @@ sides = 64
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.38639, 2.020019, 8.585191)
 
 [node name="Bumper" parent="." unique_id=462622789 instance=ExtResource("32_62cfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.738785, 1, 0.63140523)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.738785, -0.013490677, 0.63140523)
 script = ExtResource("33_rvk64")
 bump_x = 8.0
 

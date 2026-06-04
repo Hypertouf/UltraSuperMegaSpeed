@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dsy5twty10ykf"]
 
 [ext_resource type="Script" uid="uid://ctomnfll1nest" path="res://assets/Models/props/ressors.gd" id="2_cgwvx"]
-[ext_resource type="ArrayMesh" uid="uid://ct3f60eg6ue8u" path="res://assets/Models/props/Ressors.tres" id="2_rtnjy"]
+[ext_resource type="ArrayMesh" uid="uid://c0mannauvhulj" path="res://assets/Models/props/Ressors.tres" id="2_rtnjy"]
 
 [sub_resource type="Animation" id="Animation_wbv76"]
 resource_name = "Trigger"

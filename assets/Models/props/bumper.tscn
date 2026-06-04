@@ -1,16 +1,14 @@
 [gd_scene format=3 uid="uid://denjrfospc545"]
 
 [ext_resource type="Script" uid="uid://bw4tstdbc6htr" path="res://Scripts/bumper.gd" id="1_hrt4a"]
-[ext_resource type="PackedScene" uid="uid://dsy5twty10ykf" path="res://assets/Models/props/ressors.tscn" id="2_h31vo"]
 [ext_resource type="AudioStream" uid="uid://b4l15yvn8ce5t" path="res://assets/Audio/spring_sound_1.wav" id="3_sn2yj"]
+[ext_resource type="PackedScene" uid="uid://d28hi3ij330ws" path="res://assets/Models/ressors_colo.tscn" id="4_d1s3b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_630l8"]
-size = Vector3(0.3812256, 0.9718628, 0.2998047)
+size = Vector3(1.1598206, 0.9718628, 1.2034302)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gyrsk"]
-size = Vector3(0.3812256, 0.9718628, 0.2998047)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_2f0gt"]
+size = Vector3(1.2608337, 0.9718628, 1.3084106)
 
 [node name="Bumper" type="Node3D" unique_id=1560870479]
 
@@ -19,11 +17,11 @@ lock_rotation = true
 freeze = true
 script = ExtResource("1_hrt4a")
 Colbumper = NodePath("CollisionShape3D")
-Meesh = NodePath("ressors")
+Meesh = NodePath("ressors_colo")
 Sound = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=17618427]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00030517578, 0.25125122, 0.00048828125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049819946, 0.25125122, -0.03274536)
 shape = SubResource("BoxShape3D_630l8")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=1246359045]
@@ -33,14 +31,10 @@ volume_db = -20.0
 [node name="Area3D" type="Area3D" parent="RigidBody3D" unique_id=352008786]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D" unique_id=84341354]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00030517578, 0.25125122, 0.00048828125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06919861, 0.25125122, -0.08718872)
 shape = SubResource("BoxShape3D_gyrsk")
 
-[node name="ressors" parent="RigidBody3D" unique_id=1538105530 instance=ExtResource("2_h31vo")]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1787238174]
-visible = false
-mesh = SubResource("CapsuleMesh_2f0gt")
-skeleton = NodePath("../CollisionShape3D")
+[node name="ressors_colo" parent="RigidBody3D" unique_id=2035455600 instance=ExtResource("4_d1s3b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03225097, 0.033345878, -0.0016749501)
 
 [connection signal="area_entered" from="RigidBody3D/Area3D" to="RigidBody3D" method="_on_area_3d_area_entered"]
