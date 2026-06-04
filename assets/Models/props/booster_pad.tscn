@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://loy552u5ob8l"]
 
+[ext_resource type="Script" uid="uid://ch2eb3kd44dac" path="res://Scripts/booster.gd" id="1_keaa2"]
 [ext_resource type="Script" uid="uid://cwt4jtj0qyd3w" path="res://Scripts/booster_pad.gd" id="2_6v7ex"]
 [ext_resource type="ArrayMesh" uid="uid://drya6dl5ful1u" path="res://assets/Models/props/Powerup.tres" id="2_bo13x"]
 [ext_resource type="AudioStream" uid="uid://c0xlfnh4cxtyw" path="res://assets/Audio/airzipper_sound.wav" id="3_bo13x"]
@@ -11,6 +12,7 @@ size = Vector3(0.6903076, 0.46936035, 0.6348572)
 size = Vector3(0.6903076, 0.46936035, 0.6348572)
 
 [node name="booster_pad" type="Node3D" unique_id=1560870479]
+script = ExtResource("1_keaa2")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1686974564 node_paths=PackedStringArray("Colbumper", "bumperHitbox", "Sound")]
 lock_rotation = true

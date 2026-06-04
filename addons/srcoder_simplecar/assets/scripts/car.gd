@@ -409,15 +409,24 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 		# Set the default gravity direction the x coordinates of the wall.																					
 		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, area.get_parent().global_transform.basis.x * 2)
 		
+	if area is enterGRAVloop :
+		print("gravity looping")
+		gravity_change = true
+		$cockpit.fov = 90
+		$cockpit.make_current()
+		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN * 0.1)
 
+		
 																																			
 func _on_hitbox_area_exited(area: Area3D) -> void:
 	if area is exitLoop :
 		followcamera.mycamera.make_current()
 	
 	if area is exitWall :
+		print("wall exited")
 		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
 		gravity_change = false
+		followcamera.mycamera.make_current()
 		
 		
 	#region story stuff

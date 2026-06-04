@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://o07dklbbc76n" path="res://assets/Models/props/billboard_big_scene.tscn" id="17_vylv8"]
 [ext_resource type="PackedScene" uid="uid://loy552u5ob8l" path="res://assets/Models/props/booster_pad.tscn" id="18_csgam"]
 [ext_resource type="Script" uid="uid://dnh8ii3bbkx1o" path="res://Scripts/exitWall.gd" id="18_pmuua"]
+[ext_resource type="Script" uid="uid://ch2eb3kd44dac" path="res://Scripts/booster.gd" id="19_pmuua"]
 [ext_resource type="PackedScene" uid="uid://1n6vxhapemow" path="res://assets/Models/props/looping_scene.tscn" id="22_vajfm"]
 [ext_resource type="ArrayMesh" uid="uid://bupymsslvhuu7" path="res://assets/Models/props/Lampadaire.tres" id="23_bg4fq"]
 [ext_resource type="ArrayMesh" uid="uid://b13gjyi1ur5sa" path="res://assets/Models/props/Bouche_Incendie.tres" id="24_4vynd"]
@@ -28,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://c0hsfkgf6dwv" path="res://assets/Models/props/garage.tscn" id="32_00tu3"]
 [ext_resource type="PackedScene" uid="uid://denjrfospc545" path="res://assets/Models/props/bumper.tscn" id="32_62cfs"]
 [ext_resource type="PackedScene" uid="uid://b855nbwddsohx" path="res://assets/Models/props/looping_barrierless_scene.tscn" id="32_rvk64"]
-[ext_resource type="Script" uid="uid://7rjithirc7hi" path="res://enterGRAVloop.gd" id="33_62cfs"]
+[ext_resource type="Script" uid="uid://c5nyf0lcaibsq" path="res://Scripts/bump1.gd" id="33_rvk64"]
 [ext_resource type="PackedScene" uid="uid://bj41ndm0i4rlx" path="res://assets/Models/props/Barriere/barriere_small.tscn" id="34_1uvwm"]
 [ext_resource type="PackedScene" uid="uid://cvh2oig7trskq" path="res://assets/Models/props/Barriere/barriere_default.tscn" id="35_kb7yh"]
 
@@ -131,25 +132,11 @@ size = Vector3(0.6652832, 12.217888, 58.68297)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4it2w"]
 size = Vector3(1.5658264, 12.683193, 65.31278)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_rvk64"]
-height = 3.0711355
-radius = 1.2963867
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_62cfs"]
-height = 84.532074
-radius = 12.409668
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_55y6p"]
-size = Vector3(0.6652832, 11.976547, 30.687473)
+size = Vector3(0.6652832, 11.976547, 32.77594)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sg5iw"]
-size = Vector3(1.5658264, 12.683193, 32.17897)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7fn5l"]
-size = Vector3(0.6652832, 11.976547, 28.421848)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_025wx"]
-size = Vector3(1.5658264, 12.683193, 29.507828)
+size = Vector3(1.5658264, 12.683193, 33.377182)
 
 [node name="The_BIG_city" type="Node3D" unique_id=234967597 node_paths=PackedStringArray("Player")]
 script = ExtResource("1_nkwo0")
@@ -186,7 +173,7 @@ height = 18.584286
 sides = 30
 
 [node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("followcamera") instance=ExtResource("1_0nkrw")]
-transform = Transform3D(-0.08296169, 0.0041113994, 0.9965446, 0.015588596, 0.9998748, -0.002827345, -0.99643105, 0.015300151, -0.0830154, 90.247284, 0.36241764, 67.00445)
+transform = Transform3D(-0.09791307, 0, 0.99519503, 0, 1, 0, -0.99519503, 0, -0.09791307, 79.4424, 0.3493979, 66.68478)
 rear_wheel_grip = 5.0
 followcamera = NodePath("../FollowCamera")
 shortjump = ExtResource("3_kb7yh")
@@ -534,12 +521,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.74825, 9.989719, 13.93299
 
 [node name="booster_pad5" parent="semiLoop" unique_id=1331006584 instance=ExtResource("18_csgam")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -93.194275, 30.628244, 15.5206585)
+script = ExtResource("19_pmuua")
 
 [node name="booster_pad6" parent="semiLoop" unique_id=1330876012 instance=ExtResource("18_csgam")]
 transform = Transform3D(-1, 1.509958e-07, 0, -1.509958e-07, -1, 0, 0, 0, 1, -94.62836, 30.548899, 17.847902)
+script = ExtResource("19_pmuua")
 
 [node name="booster_pad4" parent="semiLoop" unique_id=905876156 instance=ExtResource("18_csgam")]
 transform = Transform3D(-5.428484e-08, -0.5900422, 0.80737245, 1, -4.371139e-08, 3.5291364e-08, 1.4467979e-08, 0.80737245, 0.5900422, -97.63284, 30.546347, 6.3803263)
+script = ExtResource("19_pmuua")
 
 [node name="bbwalljump" type="Node3D" parent="." unique_id=2029392170]
 
@@ -617,6 +607,7 @@ sides = 64
 
 [node name="booster_pad7" parent="bbwalljump" unique_id=1684222144 instance=ExtResource("18_csgam")]
 transform = Transform3D(0.9692566, 0, 0.24605176, 0, 1, 0, -0.24605176, 0, 0.9692566, -62.040154, 0.0113892555, -139.23648)
+script = ExtResource("19_pmuua")
 power = 25.0
 
 [node name="Tv2" parent="bbwalljump" unique_id=1020148099 instance=ExtResource("31_ffspi")]
@@ -691,11 +682,13 @@ sides = 64
 
 [node name="Bumper" parent="ezRoute" unique_id=984964292 instance=ExtResource("32_62cfs")]
 transform = Transform3D(-0.0789703, -0.56429005, -0.82179105, -0.053977013, 0.82557666, -0.5617025, 0.9954146, 0, -0.09565468, -101.200676, 2.909862, -77.317825)
+script = ExtResource("33_rvk64")
 bump_y = 16.0
 bump_x = -10.0
 
 [node name="booster_pad" parent="ezRoute" unique_id=191403215 instance=ExtResource("18_csgam")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -92.420456, 0.038808167, -77.06279)
+script = ExtResource("19_pmuua")
 
 [node name="Echaffaudage8" parent="ezRoute" unique_id=1425963668 instance=ExtResource("30_pjy18")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -119.35106, 10.5954, -76.93764)
@@ -708,12 +701,15 @@ transform = Transform3D(1, 0, 0, 0, 0.92879015, 0.37060603, 0, -0.37060603, 0.92
 
 [node name="booster_pad2" parent="ezRoute" unique_id=1560870479 instance=ExtResource("18_csgam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.769615, 14.083752, -77.464005)
+script = ExtResource("19_pmuua")
 
 [node name="booster_pad3" parent="ezRoute" unique_id=1979526336 instance=ExtResource("18_csgam")]
 transform = Transform3D(1, 0, 0, 0, 0.92879015, 0.37060603, 0, -0.37060603, 0.92879015, -121.750824, 14.594132, -74.60531)
+script = ExtResource("19_pmuua")
 
 [node name="booster_pad4" parent="ezRoute" unique_id=9854485 instance=ExtResource("18_csgam")]
 transform = Transform3D(1, 0, 0, 0, 0.92879015, 0.37060603, 0, -0.37060603, 0.92879015, -121.750824, 20.296465, -60.277878)
+script = ExtResource("19_pmuua")
 
 [node name="Barriere_small" parent="ezRoute" unique_id=2019709630 instance=ExtResource("34_1uvwm")]
 transform = Transform3D(1, 0, 0, 0, 0.9470143, 0.32119155, 0, -0.32119155, 0.9470143, -112.061226, 23.910852, -6.8438573)
@@ -723,12 +719,14 @@ transform = Transform3D(-0.000874646, -0.97903687, 0.20368136, -0.99862516, 0.01
 
 [node name="Bumper2" parent="ezRoute" unique_id=342060064 instance=ExtResource("32_62cfs")]
 transform = Transform3D(0.44446805, -0.88568634, 0.13419297, 0.3617233, 0.040404648, -0.93140954, 0.8195147, 0.4625225, 0.338332, -120.772446, 24.463896, -48.161457)
+script = ExtResource("33_rvk64")
 bump_y = 5.0
 bump_x = -10.0
 bump_z = 10.0
 
 [node name="Bumper3" parent="ezRoute" unique_id=1562680424 instance=ExtResource("32_62cfs")]
 transform = Transform3D(0.5486507, 0.83546144, -0.03141193, -0.058974266, 0.0011956692, -0.99825877, -0.83396906, 0.5495479, 0.049926788, -131.74309, 24.058867, -37.64619)
+script = ExtResource("33_rvk64")
 bump_y = 5.0
 bump_x = 15.0
 bump_z = 15.0
@@ -750,9 +748,11 @@ transform = Transform3D(0.5983286, -0.0099536115, 0.8011888, -0.24327412, 0.9504
 
 [node name="booster_pad5" parent="ezRoute" unique_id=1195009236 instance=ExtResource("18_csgam")]
 transform = Transform3D(0.59832853, -0.009953633, 0.80118895, -0.24327412, 0.9504636, 0.19348548, -0.7634268, -0.31067646, 0.5662681, -111.54906, 25.795023, -1.6528795)
+script = ExtResource("19_pmuua")
 
 [node name="Bumper4" parent="ezRoute" unique_id=1763740292 instance=ExtResource("32_62cfs")]
 transform = Transform3D(0.3687804, 0.35258013, 0.8600513, 0.58539206, 0.63062567, -0.5095361, -0.72202295, 0.6913742, 0.026164785, -104.7603, 27.648024, 2.8876452)
+script = ExtResource("33_rvk64")
 bump_y = 5.0
 bump_x = 20.0
 bump_z = 10.0
@@ -762,6 +762,7 @@ transform = Transform3D(0.0032532949, -0.009953609, 0.99994516, -0.31065938, 0.9
 
 [node name="Bumper5" parent="ezRoute" unique_id=1987014073 instance=ExtResource("32_62cfs")]
 transform = Transform3D(0.20873198, -0.6837213, -0.6992539, 0.10957809, 0.726852, -0.67799634, 0.9718147, 0.06489661, 0.22663794, -127.6367, 25.581604, -2.0158465)
+script = ExtResource("33_rvk64")
 bump_y = 5.0
 bump_x = -15.0
 bump_z = -1.5
@@ -797,6 +798,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99429893, -0.10662851, 0, 0.10662851, 0.99
 
 [node name="Bumper" parent="Jump_parkour" unique_id=615511247 instance=ExtResource("32_62cfs")]
 transform = Transform3D(-0.9999997, -6.4967786e-08, -5.849725e-08, 0, 0.66913056, -0.7431448, 8.742275e-08, -0.74314487, -0.6691305, -89.81366, 23.504791, -28.143103)
+script = ExtResource("33_rvk64")
 bump_y = 5.0
 bump_x = 0.0
 bump_z = -20.0
@@ -827,6 +829,7 @@ sides = 64
 
 [node name="booster_pad" parent="Jump_parkour" unique_id=88403743 instance=ExtResource("18_csgam")]
 transform = Transform3D(-1, -3.9657584e-09, -8.733277e-08, 0, 0.99897057, -0.045362987, 8.742278e-08, -0.04536299, -0.9989705, -89.428185, 19.075506, -61.793003)
+script = ExtResource("19_pmuua")
 power = 15.0
 
 [node name="Echaffaudage5" parent="Jump_parkour" unique_id=942378753 instance=ExtResource("30_pjy18")]
@@ -946,9 +949,11 @@ transform = Transform3D(1.9106855e-15, 4.3711385e-08, -1, 1, -4.3711385e-08, 0, 
 
 [node name="booster_pad5" parent="VLoopSection" unique_id=1645263483 instance=ExtResource("18_csgam")]
 transform = Transform3D(0.0043037236, -0.009953633, -0.9999412, 0.31072962, 0.9504635, -0.008123696, 0.95048845, -0.3106764, 0.007183403, -117.59987, 25.631256, -1.9600397)
+script = ExtResource("19_pmuua")
 
 [node name="booster_pad2" parent="VLoopSection" unique_id=1028991571 instance=ExtResource("18_csgam")]
 transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -139.77432, 28.087387, -4.236662)
+script = ExtResource("19_pmuua")
 power = 30.0
 
 [node name="Cabine_Telephonique" parent="VLoopSection" unique_id=1364820621 instance=ExtResource("26_4vynd")]
@@ -991,6 +996,7 @@ shape = SubResource("BoxShape3D_ffspi")
 
 [node name="booster_pad3" parent="VLoopSection" unique_id=2006244904 instance=ExtResource("18_csgam")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -163.62256, 28.087387, 6.5588145)
+script = ExtResource("19_pmuua")
 power = 30.0
 
 [node name="Cabine_Telephonique3" parent="VLoopSection" unique_id=8538696 instance=ExtResource("26_4vynd")]
@@ -1033,10 +1039,12 @@ shape = SubResource("BoxShape3D_jpguo")
 
 [node name="booster_pad4" parent="VLoopSection" unique_id=907591236 instance=ExtResource("18_csgam")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -164.24748, 35.555264, 31.685051)
+script = ExtResource("19_pmuua")
 power = 30.0
 
 [node name="booster_pad6" parent="VLoopSection" unique_id=674543886 instance=ExtResource("18_csgam")]
 transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -154.67409, 35.555264, 56.252003)
+script = ExtResource("19_pmuua")
 power = 15.0
 
 [node name="Bighalfpipe" type="Node3D" parent="." unique_id=212954453]
@@ -1516,6 +1524,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.38639, 2.020019, 8.585191
 
 [node name="Bumper" parent="." unique_id=462622789 instance=ExtResource("32_62cfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.738785, 1, 0.63140523)
+script = ExtResource("33_rvk64")
 bump_x = 8.0
 
 [node name="turnpipe" parent="." unique_id=420055876 instance=ExtResource("30_00tu3")]
@@ -1538,21 +1547,6 @@ transform = Transform3D(-0.37809885, 0.32339048, -0.8674444, -0.8893434, 0.13335
 
 [node name="Looping_Barrierless_scene" parent="." unique_id=404991392 instance=ExtResource("32_rvk64")]
 transform = Transform3D(0.66858566, -0.7436351, 3.250532e-08, 4.0085534e-15, -4.3711395e-08, -1, 0.7436351, 0.66858566, -2.9224811e-08, 106.173416, 7.8756847, 58.65027)
-
-[node name="enter" type="Area3D" parent="Looping_Barrierless_scene" unique_id=1170391822]
-transform = Transform3D(1, 0, 0, 0, 1, 1.7763568e-15, 1.7763568e-15, 0, 1, 0, 0, 0)
-script = ExtResource("33_62cfs")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Looping_Barrierless_scene/enter" unique_id=1650794338]
-transform = Transform3D(1, 0, 0, 0, 0.05116809, -0.99868983, 6.6968653e-13, 0.99869007, 0.051165465, 0.04265836, 1.5775914, 2.8654048)
-shape = SubResource("CylinderShape3D_rvk64")
-
-[node name="exit2" type="Area3D" parent="Looping_Barrierless_scene" unique_id=1299497369]
-script = ExtResource("18_pmuua")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Looping_Barrierless_scene/exit2" unique_id=619925785]
-transform = Transform3D(0.7580645, 0.6500422, 0.052755773, -0.04019335, 0.12730587, -0.9910486, -0.6509399, 0.74915856, 0.12263073, -21.929123, 5.894169, -23.392448)
-shape = SubResource("CylinderShape3D_62cfs")
 
 [node name="Looping_Barrierless_scene2" parent="." unique_id=1653075893 instance=ExtResource("32_rvk64")]
 transform = Transform3D(0.5939807, -0.8044794, 3.5164902e-08, -8.6991427e-16, -4.3711385e-08, -1, 0.8044794, 0.5939807, -2.5963711e-08, 102.87308, 14.754663, 54.97946)
@@ -1578,21 +1572,6 @@ transform = Transform3D(0.26067293, -0.9654269, 4.220015e-08, -1.6496344e-15, -4
 [node name="Looping_Barrierless_scene9" parent="." unique_id=1652378164 instance=ExtResource("32_rvk64")]
 transform = Transform3D(-0.6098824, 0.792492, -3.4640923e-08, -2.397343e-15, -4.3711385e-08, -1, -0.792492, -0.6098824, 2.6658805e-08, 63.83731, 7.8756847, -67.78238)
 
-[node name="enter" type="Area3D" parent="Looping_Barrierless_scene9" unique_id=1821930370]
-transform = Transform3D(1, 0, 0, 0, 1, 1.7763568e-15, 1.7763568e-15, 0, 1, 0, 0, 0)
-script = ExtResource("33_62cfs")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Looping_Barrierless_scene9/enter" unique_id=1034546335]
-transform = Transform3D(1, 0, 0, 0, 0.05116809, -0.99868983, 6.6968653e-13, 0.99869007, 0.051165465, 0.04265836, 1.5775914, 2.8654048)
-shape = SubResource("CylinderShape3D_rvk64")
-
-[node name="exit2" type="Area3D" parent="Looping_Barrierless_scene9" unique_id=359649493]
-script = ExtResource("18_pmuua")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Looping_Barrierless_scene9/exit2" unique_id=831016526]
-transform = Transform3D(0.7580645, 0.6500422, 0.052755773, -0.04019335, 0.12730587, -0.9910486, -0.6509399, 0.74915856, 0.122631006, -21.929123, 5.894169, -23.392447)
-shape = SubResource("CylinderShape3D_62cfs")
-
 [node name="Looping_Barrierless_scene10" parent="." unique_id=728486223 instance=ExtResource("32_rvk64")]
 transform = Transform3D(-0.5308515, 0.8474648, -3.704386e-08, 3.596971e-15, -4.3711395e-08, -1, -0.8474648, -0.5308515, 2.3204256e-08, 66.84786, 14.754663, -63.870403)
 
@@ -1614,14 +1593,6 @@ transform = Transform3D(-0.27984592, 0.9600451, -4.1964896e-08, -1.6954741e-15, 
 [node name="Looping_Barrierless_scene16" parent="." unique_id=436832995 instance=ExtResource("32_rvk64")]
 transform = Transform3D(-0.18623264, 0.9825057, -4.294669e-08, -1.7312839e-15, -4.371139e-08, -1, -0.9825057, -0.18623264, 8.140482e-09, 81.81292, 55.92098, -30.824413)
 
-[node name="enter" type="Area3D" parent="Looping_Barrierless_scene16" unique_id=728842656]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
-script = ExtResource("17_csgam")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Looping_Barrierless_scene16/enter" unique_id=812387328]
-transform = Transform3D(1, 0, 0, 0, 0.05116809, -0.99868983, 6.6968653e-13, 0.99869007, 0.05116546, 4.246085, 1.2388971, -3.7453203)
-shape = SubResource("CylinderShape3D_rvk64")
-
 [node name="grosserampe8" type="CSGBox3D" parent="." unique_id=1753193155]
 transform = Transform3D(4.3711385e-08, 1, 8.742277e-08, 0.9999999, -4.371139e-08, 0, 3.8213705e-15, 8.742278e-08, -0.9999999, 91.51497, 5.481865, -0.18817356)
 use_collision = true
@@ -1637,9 +1608,6 @@ radius = 8.7109375
 height = 7.7
 sides = 64
 
-[node name="booster_pad2" parent="." unique_id=739522066 instance=ExtResource("18_csgam")]
-transform = Transform3D(-0.022322599, -0.9918027, -0.12581426, -0.99214417, 0.0064822156, 0.12493158, -0.1230919, 0.12761468, -0.98415595, 84.294334, 58.906384, 21.848015)
-
 [node name="Billboard_medium" parent="." unique_id=2115963977 instance=ExtResource("16_lvo3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.318245, 54.066303, -3.3482332)
 
@@ -1648,7 +1616,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07
 script = ExtResource("17_csgam")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Billboard_medium/enter" unique_id=809230246]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6485825, 6.958084, 0.06520271)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6485825, 6.958084, -0.16329956)
 shape = SubResource("BoxShape3D_55y6p")
 
 [node name="exit" type="Area3D" parent="Billboard_medium" unique_id=421976121]
@@ -1656,7 +1624,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07
 script = ExtResource("18_pmuua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Billboard_medium/exit" unique_id=1752633989]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.594635, 7.1363716, 0.45503426)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.785431, 7.1363716, -0.35678864)
 shape = SubResource("BoxShape3D_sg5iw")
 
 [node name="Billboard_medium2" parent="." unique_id=207517115 instance=ExtResource("16_lvo3j")]
@@ -1667,45 +1635,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07
 script = ExtResource("17_csgam")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Billboard_medium2/enter" unique_id=742560553]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6485825, 6.958084, 2.013746)
-shape = SubResource("BoxShape3D_7fn5l")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6485825, 6.958084, -0.16329956)
+shape = SubResource("BoxShape3D_55y6p")
 
 [node name="exit" type="Area3D" parent="Billboard_medium2" unique_id=1590434010]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
 script = ExtResource("18_pmuua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Billboard_medium2/exit" unique_id=1265381223]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.785431, 7.1363716, 1.5778883)
-shape = SubResource("BoxShape3D_025wx")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.785431, 7.1363716, -0.35678864)
+shape = SubResource("BoxShape3D_sg5iw")
 
 [node name="booster_pad" parent="." unique_id=104510735 instance=ExtResource("18_csgam")]
-transform = Transform3D(-0.12010056, -0.6733643, -0.7294904, -0.9853147, -0.008985579, 0.17051262, -0.12137206, 0.739256, -0.66239643, 107.45041, 4.4876804, 61.02188)
-power = 15.0
+transform = Transform3D(-0.0779052, -0.70002437, -0.7098568, -0.9937428, -0.0026389584, 0.11166335, -0.080040365, 0.714114, -0.69543844, 107.1292, 4.5531273, 60.808414)
+script = ExtResource("19_pmuua")
+
+[node name="booster_pad2" parent="." unique_id=1750826693 instance=ExtResource("18_csgam")]
+transform = Transform3D(-0.18074815, 0.49422196, -0.8503379, -0.9804707, -0.022407243, 0.19538592, 0.07751032, 0.8690469, 0.48862016, 94.71488, 6.5440674, 57.80492)
+script = ExtResource("19_pmuua")
+
+[node name="booster_pad3" parent="." unique_id=1078238969 instance=ExtResource("18_csgam")]
+transform = Transform3D(0.000847718, 0.9439956, 0.329957, -0.9998949, -0.00398046, 0.013956844, 0.014488544, -0.32993397, 0.9438927, 90.96184, 7.969487, 67.80568)
+script = ExtResource("19_pmuua")
+
+[node name="booster_pad4" parent="." unique_id=1636425842 instance=ExtResource("18_csgam")]
+transform = Transform3D(0.1508367, -0.1972941, 0.968671, -0.98855793, -0.031501513, 0.1475173, 0.0014102963, -0.9798381, -0.19978832, 100.6971, 8.425318, 73.43096)
+script = ExtResource("19_pmuua")
+
+[node name="booster_pad5" parent="." unique_id=1047370085 instance=ExtResource("18_csgam")]
+transform = Transform3D(0.04352206, -0.98236036, -0.18186192, -0.9803429, -0.077057764, 0.18163216, -0.19244212, 0.17038193, -0.96640384, 107.36608, 10.470745, 63.648994)
+script = ExtResource("19_pmuua")
 
 [node name="Bumper2" parent="." unique_id=1450576671 instance=ExtResource("32_62cfs")]
 transform = Transform3D(-0.093482815, 0, 0.9956209, 0, 1, 0, -0.9956209, 0, -0.093482815, 104.45773, 0.10194087, 63.19014)
+script = ExtResource("33_rvk64")
 bump_y = 8.0
 bump_z = -2.0
-
-[node name="Pieton3" parent="." unique_id=2066491939 instance=ExtResource("15_qn0af")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.920525, 1.23138, 71.21265)
-PietonMESH = ExtResource("30_ffspi")
-
-[node name="Pieton4" parent="." unique_id=778391326 instance=ExtResource("15_qn0af")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.028015, 1.23138, 74.385826)
-PietonMESH = ExtResource("30_ffspi")
-
-[node name="Pieton5" parent="." unique_id=75706857 instance=ExtResource("15_qn0af")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.60144, 1.23138, 73.8984)
-PietonMESH = ExtResource("30_ffspi")
-
-[node name="Pieton6" parent="." unique_id=1427802547 instance=ExtResource("15_qn0af")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.20721, 1.23138, 73.892075)
-PietonMESH = ExtResource("30_ffspi")
-
-[node name="Label3D" type="Label3D" parent="." unique_id=184925470]
-transform = Transform3D(-0.21425968, 0, -0.9767768, 0, 1, 0, 0.9767768, 0, -0.21425968, 106.52954, 3.8080363, 70.53067)
-pixel_size = 0.04
-modulate = Color(1.327, 0.12, 0, 1)
-text = "CAN YOU TAKE ON 
-THE DEATH SPIRAL ??"
