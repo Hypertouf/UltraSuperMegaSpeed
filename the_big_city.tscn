@@ -152,10 +152,10 @@ size = Vector3(0.6652832, 11.976547, 30.687473)
 size = Vector3(1.5658264, 12.683193, 32.17897)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fn5l"]
-size = Vector3(0.6652832, 11.976547, 29.7578)
+size = Vector3(0.6652832, 11.976547, 28.421848)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_025wx"]
-size = Vector3(1.5658264, 12.683193, 30.849857)
+size = Vector3(1.5658264, 12.683193, 29.507828)
 
 [node name="The_BIG_city" type="Node3D" unique_id=234967597 node_paths=PackedStringArray("Player")]
 script = ExtResource("1_nkwo0")
@@ -1659,24 +1659,6 @@ script = ExtResource("17_csgam")
 transform = Transform3D(1, 0, 0, 0, 0.05116809, -0.99868983, 6.6968653e-13, 0.99869007, 0.05116546, 4.246085, 1.2388971, -3.7453203)
 shape = SubResource("CylinderShape3D_rvk64")
 
-[node name="grosserampe8" type="CSGBox3D" parent="." unique_id=1753193155]
-transform = Transform3D(4.3711385e-08, 1, 8.742277e-08, 0.9999999, -4.371139e-08, 0, 3.8213705e-15, 8.742278e-08, -0.9999999, 91.51497, 5.481865, -0.18817356)
-use_collision = true
-size = Vector3(4.1373324, 8.215897, 8.328327)
-material = SubResource("StandardMaterial3D_vajfm")
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe8" unique_id=2140899182]
-operation = 2
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe8/CSGCombiner3D" unique_id=1496017717]
-transform = Transform3D(-4.3711147e-08, 0.99999386, -2.1032065e-12, -1, -4.37114e-08, 0, -6.662592e-16, 2.1032065e-12, 0.99999386, 0.012542725, 4.941349, -4.574814)
-radius = 8.7109375
-height = 7.7
-sides = 64
-
-[node name="booster_pad2" parent="." unique_id=739522066 instance=ExtResource("18_csgam")]
-transform = Transform3D(-0.022322599, -0.9918027, -0.12581426, -0.99214417, 0.0064822156, 0.12493158, -0.1230919, 0.12761468, -0.98415595, 58.720024, 59.073532, 25.138649)
-
 [node name="Billboard_medium" parent="." unique_id=2115963977 instance=ExtResource("16_lvo3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.318245, 54.066303, -3.3482332)
 
@@ -1746,6 +1728,36 @@ pixel_size = 0.04
 modulate = Color(1.327, 0.12, 0, 1)
 text = "CAN YOU TAKE ON 
 THE DEATH SPIRAL ??"
+
+[node name="grosserampe9" type="CSGBox3D" parent="." unique_id=978632260]
+transform = Transform3D(-0.9999999, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.9999999, 84.2247, 3.2729301, -24.305075)
+use_collision = true
+size = Vector3(4.1373324, 6.6449356, 6.455057)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe9" unique_id=571275755]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe9/CSGCombiner3D" unique_id=844032875]
+transform = Transform3D(-4.2608008e-08, 0.9999962, -2.2168933e-12, -1.0000046, -3.7020072e-08, 0, -1.6930969e-15, 1.7479351e-12, 0.99999386, 0.01254272, 4.1068187, -3.326336)
+radius = 5.357422
+height = 7.7
+sides = 64
+
+[node name="grosserampe10" type="CSGBox3D" parent="." unique_id=1512453871]
+transform = Transform3D(-0.9999999, -8.742278e-08, -3.8213705e-15, 0, -4.371139e-08, 0.9999999, -8.742277e-08, 1, 4.3711385e-08, 84.2247, 10.456569, -24.159557)
+use_collision = true
+size = Vector3(4.1373324, 6.2858467, 6.455057)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe10" unique_id=927455939]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe10/CSGCombiner3D" unique_id=654676433]
+transform = Transform3D(-4.2608008e-08, 0.9999962, -2.2168933e-12, -1.0000046, -3.7020072e-08, 0, -1.6930969e-15, 1.7479351e-12, 0.99999386, 0.012542683, 3.259748, -3.326336)
+radius = 5.357422
+height = 7.7
+sides = 64
 
 [connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_finished"]
 [connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone2" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_2_finished"]
