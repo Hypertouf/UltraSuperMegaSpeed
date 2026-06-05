@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
 [ext_resource type="PackedScene" uid="uid://jaavrwy3gfo1" path="res://assets/Models/props/TV.tscn" id="31_ffspi"]
 [ext_resource type="PackedScene" uid="uid://c0hsfkgf6dwv" path="res://assets/Models/props/garage.tscn" id="32_00tu3"]
+[ext_resource type="AudioStream" uid="uid://cfc4poswwb4g2" path="res://assets/Audio/bad-to-the-bone.mp3" id="32_1uvwm"]
 [ext_resource type="PackedScene" uid="uid://denjrfospc545" path="res://assets/Models/props/bumper.tscn" id="32_62cfs"]
 [ext_resource type="PackedScene" uid="uid://b855nbwddsohx" path="res://assets/Models/props/looping_barrierless_scene.tscn" id="32_rvk64"]
 [ext_resource type="Script" uid="uid://7rjithirc7hi" path="res://enterGRAVloop.gd" id="33_62cfs"]
@@ -135,6 +136,11 @@ size = Vector3(1.5658264, 12.683193, 65.31278)
 height = 3.0711355
 radius = 1.2963867
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kb7yh"]
+random_pitch = 1.365488
+streams_count = 1
+stream_0/stream = ExtResource("32_1uvwm")
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_62cfs"]
 height = 84.532074
 radius = 12.409668
@@ -146,10 +152,10 @@ size = Vector3(0.6652832, 11.976547, 30.687473)
 size = Vector3(1.5658264, 12.683193, 32.17897)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fn5l"]
-size = Vector3(0.6652832, 11.976547, 28.421848)
+size = Vector3(0.6652832, 11.976547, 29.7578)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_025wx"]
-size = Vector3(1.5658264, 12.683193, 29.507828)
+size = Vector3(1.5658264, 12.683193, 30.849857)
 
 [node name="The_BIG_city" type="Node3D" unique_id=234967597 node_paths=PackedStringArray("Player")]
 script = ExtResource("1_nkwo0")
@@ -1547,6 +1553,37 @@ script = ExtResource("33_62cfs")
 transform = Transform3D(1, 0, 0, 0, 0.05116809, -0.99868983, 6.6968653e-13, 0.99869007, 0.051165465, 0.04265836, 1.5775914, 2.8654048)
 shape = SubResource("CylinderShape3D_rvk64")
 
+[node name="badtothebone" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene/enter" unique_id=1408227453]
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="badtothebone2" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene/enter" unique_id=1289821145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.042307, 10.371939, -14.640793)
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="badtothebone3" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene/enter" unique_id=1123289309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3214, 5.8858423, -31.445438)
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="badtothebone4" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene/enter" unique_id=377403823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.685337, -2.3841858e-07, -52.840412)
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
 [node name="exit2" type="Area3D" parent="Looping_Barrierless_scene" unique_id=1299497369]
 script = ExtResource("18_pmuua")
 
@@ -1638,7 +1675,7 @@ height = 7.7
 sides = 64
 
 [node name="booster_pad2" parent="." unique_id=739522066 instance=ExtResource("18_csgam")]
-transform = Transform3D(-0.022322599, -0.9918027, -0.12581426, -0.99214417, 0.0064822156, 0.12493158, -0.1230919, 0.12761468, -0.98415595, 84.294334, 58.906384, 21.848015)
+transform = Transform3D(-0.022322599, -0.9918027, -0.12581426, -0.99214417, 0.0064822156, 0.12493158, -0.1230919, 0.12761468, -0.98415595, 58.720024, 59.073532, 25.138649)
 
 [node name="Billboard_medium" parent="." unique_id=2115963977 instance=ExtResource("16_lvo3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.318245, 54.066303, -3.3482332)
@@ -1667,7 +1704,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07
 script = ExtResource("17_csgam")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Billboard_medium2/enter" unique_id=742560553]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6485825, 6.958084, 2.013746)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6485825, 6.958084, 1.3457706)
 shape = SubResource("BoxShape3D_7fn5l")
 
 [node name="exit" type="Area3D" parent="Billboard_medium2" unique_id=1590434010]
@@ -1675,7 +1712,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07
 script = ExtResource("18_pmuua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Billboard_medium2/exit" unique_id=1265381223]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.785431, 7.1363716, 1.5778883)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.785431, 7.1363716, 0.90687346)
 shape = SubResource("BoxShape3D_025wx")
 
 [node name="booster_pad" parent="." unique_id=104510735 instance=ExtResource("18_csgam")]
@@ -1709,3 +1746,8 @@ pixel_size = 0.04
 modulate = Color(1.327, 0.12, 0, 1)
 text = "CAN YOU TAKE ON 
 THE DEATH SPIRAL ??"
+
+[connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_finished"]
+[connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone2" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_2_finished"]
+[connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone3" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_3_finished"]
+[connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone4" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_4_finished"]
