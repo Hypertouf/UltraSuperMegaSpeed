@@ -1623,6 +1623,37 @@ script = ExtResource("33_62cfs")
 transform = Transform3D(1, 0, 0, 0, 0.05116809, -0.99868983, 6.6968653e-13, 0.99869007, 0.051165465, 0.04265836, 1.5775914, 2.8654048)
 shape = SubResource("CylinderShape3D_rvk64")
 
+[node name="badtothebone" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene9/enter" unique_id=1451423120]
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="badtothebone2" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene9/enter" unique_id=1913935886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.042307, 10.371939, -14.640793)
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="badtothebone3" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene9/enter" unique_id=399756978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3214, 5.8858423, -31.445438)
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="badtothebone4" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene9/enter" unique_id=1826307684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.685337, -2.3841858e-07, -52.840412)
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
 [node name="exit2" type="Area3D" parent="Looping_Barrierless_scene9" unique_id=359649493]
 script = ExtResource("18_pmuua")
 
@@ -1651,16 +1682,8 @@ transform = Transform3D(-0.27984592, 0.9600451, -4.1964896e-08, -1.6954741e-15, 
 [node name="Looping_Barrierless_scene16" parent="." unique_id=436832995 instance=ExtResource("32_rvk64")]
 transform = Transform3D(-0.18623264, 0.9825057, -4.294669e-08, -1.7312839e-15, -4.371139e-08, -1, -0.9825057, -0.18623264, 8.140482e-09, 81.81292, 55.92098, -30.824413)
 
-[node name="enter" type="Area3D" parent="Looping_Barrierless_scene16" unique_id=728842656]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
-script = ExtResource("17_csgam")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Looping_Barrierless_scene16/enter" unique_id=812387328]
-transform = Transform3D(1, 0, 0, 0, 0.05116809, -0.99868983, 6.6968653e-13, 0.99869007, 0.05116546, 4.246085, 1.2388971, -3.7453203)
-shape = SubResource("CylinderShape3D_rvk64")
-
 [node name="Billboard_medium" parent="." unique_id=2115963977 instance=ExtResource("16_lvo3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.318245, 54.066303, -3.3482332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.61332, 54.066303, -3.3482332)
 
 [node name="enter" type="Area3D" parent="Billboard_medium" unique_id=702916178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
@@ -1759,7 +1782,21 @@ radius = 5.357422
 height = 7.7
 sides = 64
 
+[node name="booster_pad2" parent="." unique_id=927680681 instance=ExtResource("18_csgam")]
+transform = Transform3D(0.11594698, 0.6978668, 0.7067801, -0.9853148, -0.008985595, 0.1705126, 0.12534598, -0.716171, 0.6865763, 62.344246, 4.4876804, -70.64628)
+power = 15.0
+
+[node name="Bumper3" parent="." unique_id=1186926702 instance=ExtResource("32_62cfs")]
+transform = Transform3D(0.059916295, 0, -0.9982034, 0, 1, 0, 0.9982034, 0, 0.059916295, 65.40821, 0.10194087, -72.71258)
+bump_y = 10.0
+bump_x = -5.0
+bump_z = 2.0
+
 [connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_finished"]
 [connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone2" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_2_finished"]
 [connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone3" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_3_finished"]
 [connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone4" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_4_finished"]
+[connection signal="finished" from="Looping_Barrierless_scene9/enter/badtothebone" to="Looping_Barrierless_scene9/enter" method="_on_badtothebone_finished"]
+[connection signal="finished" from="Looping_Barrierless_scene9/enter/badtothebone2" to="Looping_Barrierless_scene9/enter" method="_on_badtothebone_2_finished"]
+[connection signal="finished" from="Looping_Barrierless_scene9/enter/badtothebone3" to="Looping_Barrierless_scene9/enter" method="_on_badtothebone_3_finished"]
+[connection signal="finished" from="Looping_Barrierless_scene9/enter/badtothebone4" to="Looping_Barrierless_scene9/enter" method="_on_badtothebone_4_finished"]
