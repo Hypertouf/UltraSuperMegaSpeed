@@ -40,6 +40,10 @@ extends VehicleBody3D
 @export var FX_Figures : Array[CompressedTexture2D]
 @export var Particle_figure : GPUParticles2D
 var trans2d : Transform2D
+@export var Particle_material : ParticleProcessMaterial
+@export var particule_holder : Control
+var Particle = GPUParticles2D.new()
+
 
 var Dlg_Sct = load("uid://bbbh1af5b4qeb") #La ou est rangé le dialogue qui est lu dans le ballon
 var balloon_path : String = ProjectSettings.get_setting("dialogue_manager/runtime/balloon_path")
@@ -215,8 +219,19 @@ func get_input(delta : float):
 			total_rotation.x += 1
 			if total_rotation.x == 60:
 				#print("frontflip !!")
-				Particle_figure.texture = FX_Figures[2]
-				Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.texture = FX_Figures[2]
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				var Particle = GPUParticles2D.new()
+				Particle.one_shot = true
+				Particle.emitting = true
+				Particle.amount = 1
+				Particle.texture = FX_Figures[2]
+				Particle.process_material = Particle_material
+				Particle.position = Vector2(980.0,312.0)
+
+				particule_holder.add_child(Particle)
+
+				
 				total_rotation.x = 0
 				tricks[0] +=1
 		elif Input.is_action_pressed("backflip") :
@@ -226,8 +241,19 @@ func get_input(delta : float):
 			if total_rotation.x == -60:
 				total_rotation.x = 0
 				#print("backflipflip !!")
-				Particle_figure.texture = FX_Figures[3]
-				Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.texture = FX_Figures[3]
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				var Particle = GPUParticles2D.new()
+				Particle.one_shot = true
+				Particle.emitting = true
+				Particle.amount = 1
+				Particle.texture = FX_Figures[3]
+				Particle.process_material = Particle_material
+				Particle.position = Vector2(980.0,312.0)
+
+				particule_holder.add_child(Particle)
+
 				tricks[0] -=1
 		else : 
 			speed.x = lerp(speed.x, 0.0, 0.5)
@@ -239,8 +265,19 @@ func get_input(delta : float):
 			if total_rotation.y == 60:
 				total_rotation.y = 0
 				#print("front 360 !!")
-				Particle_figure.texture = FX_Figures[0]
-				Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.texture = FX_Figures[0]
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				var Particle = GPUParticles2D.new()
+				Particle.one_shot = true
+				Particle.emitting = true
+				Particle.amount = 1
+				Particle.texture = FX_Figures[0]
+				Particle.process_material = Particle_material
+				Particle.position = Vector2(980.0,312.0)
+
+				particule_holder.add_child(Particle)
+
 				tricks[1] +=1
 		elif Input.is_action_pressed("shuvright") :
 			speed.y = lerp(speed.y, 0.15, 0.05)
@@ -249,8 +286,19 @@ func get_input(delta : float):
 			if total_rotation.y == -60:
 				total_rotation.y = 0
 				#print("backflip 360 !!")
-				Particle_figure.texture = FX_Figures[1]
-				Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.texture = FX_Figures[1]
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				var Particle = GPUParticles2D.new()
+				Particle.one_shot = true
+				Particle.emitting = true
+				Particle.amount = 1
+				Particle.texture = FX_Figures[1]
+				Particle.process_material = Particle_material
+				Particle.position = Vector2(980.0,312.0)
+
+				particule_holder.add_child(Particle)
+
 				tricks[1] -=1
 		else : 
 			speed.y = lerp(speed.y, 0.0, 0.5)
@@ -265,8 +313,19 @@ func get_input(delta : float):
 			if total_rotation.z == 60:
 				total_rotation.z = 0
 				#print("heelflip !!")
-				Particle_figure.texture = FX_Figures[5]
-				Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.texture = FX_Figures[5]
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				var Particle = GPUParticles2D.new()
+				Particle.one_shot = true
+				Particle.emitting = true
+				Particle.amount = 1
+				Particle.texture = FX_Figures[5]
+				Particle.process_material = Particle_material
+				Particle.position = Vector2(980.0,312.0)
+
+				particule_holder.add_child(Particle)
+
 				tricks[2] += 1
 		elif Input.is_action_pressed("roll_right") :
 			speed.z = lerp(speed.z, 0.15, 0.05)
@@ -274,8 +333,19 @@ func get_input(delta : float):
 			if total_rotation.z == -60:
 				total_rotation.z = 0
 				#print("kickflip !!")
-				Particle_figure.texture = FX_Figures[4]
-				Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.texture = FX_Figures[4]
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				var Particle = GPUParticles2D.new()
+				Particle.one_shot = true
+				Particle.emitting = true
+				Particle.amount = 1
+				Particle.texture = FX_Figures[4]
+				Particle.process_material = Particle_material
+				Particle.position = Vector2(980.0,312.0)
+
+				particule_holder.add_child(Particle)
+
 				tricks[2] -=1
 		else : 
 			speed.z = lerp(speed.z, 0.0, 0.5)
@@ -290,26 +360,72 @@ func get_input(delta : float):
 			default_position = Vector3(0,0,0)
 		
 		if tricks == [0,-1,-1]:
-			Particle_figure.texture = FX_Figures[6]
-			Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			#Particle_figure.texture = FX_Figures[6]
+			#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			var Particle = GPUParticles2D.new()
+			Particle.one_shot = true
+			Particle.emitting = true
+			Particle.amount = 1
+			Particle.texture = FX_Figures[6]
+			Particle.process_material = Particle_material
+			Particle.position = Vector2(980.0,312.0)
+
+			particule_holder.add_child(Particle)
+
 			print("360 flip !!!")
 		if tricks == [0,1,1]:
-			Particle_figure.texture = FX_Figures[7]
-			Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			#Particle_figure.texture = FX_Figures[7]
+			#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			var Particle = GPUParticles2D.new()
+			Particle.one_shot = true
+			Particle.emitting = true
+			Particle.amount = 1
+			Particle.texture = FX_Figures[7]
+			Particle.process_material = Particle_material
+			Particle.position = Vector2(980.0,312.0)
+
+			particule_holder.add_child(Particle)
+			
 			print("360 hardflip !!!")
 		if tricks == [0,1,-1]:
-			Particle_figure.texture = FX_Figures[8]
-			Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			#Particle_figure.texture = FX_Figures[8]
+			#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			var Particle = GPUParticles2D.new()
+			Particle.one_shot = true
+			Particle.emitting = true
+			Particle.amount = 1
+			Particle.texture = FX_Figures[8]
+			Particle.process_material = Particle_material
+			Particle.position = Vector2(980.0,312.0)
+
+			particule_holder.add_child(Particle)
+			
 			print("360 heelflip !!!")
 		if tricks == [0,-1,1]:
-			Particle_figure.texture = FX_Figures[9]
-			Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			#Particle_figure.texture = FX_Figures[9]
+			#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			var Particle = GPUParticles2D.new()
+			Particle.one_shot = true
+			Particle.emitting = true
+			Particle.amount = 1
+			Particle.texture = FX_Figures[9]
+			Particle.process_material = Particle_material
+			Particle.position = Vector2(980.0,312.0)
+
+			particule_holder.add_child(Particle)
+			
 			print("360 inward heelfip !!!")
 		
 		
 	if $check_ground.is_colliding():
 		#print("it's non the ground")
+
 		if tricks != [0,0,0]:
+			_destroy_particle()
 			print(tricks)
 			#Sound.stream = trickLand
 			#Sound.play()
@@ -360,6 +476,13 @@ func get_input(delta : float):
 		axis_lock_angular_x = true
 
 		
+func _destroy_particle():
+	print("destroy particle appellé")
+	for n in particule_holder.get_children() :
+		if n.emitting == false :
+			print("destroy this")
+			n.queue_free()
+	pass
 ## helper function to see if we are moving forward
 func going_forward() -> bool:
 	var relative_speed : float = basis.z.dot(linear_velocity.normalized())
