@@ -1794,6 +1794,21 @@ bump_y = 10.0
 bump_x = -5.0
 bump_z = 2.0
 
+[node name="grosserampe11" type="CSGBox3D" parent="." unique_id=2115987454]
+transform = Transform3D(-0.023053676, 0, -0.99973416, 0, 1, 0, 0.99973416, 0, -0.023053676, 39.354095, 1.2511101, 67.943405)
+use_collision = true
+size = Vector3(4.1373324, 6.6449356, 6.455057)
+material = SubResource("StandardMaterial3D_vajfm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe11" unique_id=634913439]
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe11/CSGCombiner3D" unique_id=1785057195]
+transform = Transform3D(-4.2608008e-08, 0.9999962, -2.2168933e-12, -1.0000046, -3.7020072e-08, 0, -1.6930969e-15, 1.7479351e-12, 0.99999386, 0.01254272, 4.1068187, -3.326336)
+radius = 5.357422
+height = 7.7
+sides = 64
+
 [connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_finished"]
 [connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone2" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_2_finished"]
 [connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone3" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_3_finished"]
