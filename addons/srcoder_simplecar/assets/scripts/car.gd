@@ -25,6 +25,7 @@ extends VehicleBody3D
 @export var explosion : AudioStreamMP3
 @export var nitrousSound : AudioStreamMP3
 @export var static_sound : AudioStreamMP3
+@export var burnout_sound : AudioStreamWAV
 @export var trickLand : AudioStreamWAV
 @export var shortjump : AudioStreamWAV
 @export var bigjump : AudioStreamWAV
@@ -75,6 +76,7 @@ var score = 0
 var wheelie = false
 var gravity_change = false
 var exploCooldown = false
+var burnout = false
 #an exporetd array of driving wheels so we can limit rom of each wheel when we process input
 @onready var driving_wheels : Array[VehicleWheel3D] = [$WheelBackLeft,$WheelBackRight]
 @onready var steering_wheels : Array[VehicleWheel3D] = [$WheelFrontLeft,$WheelFrontRight]
@@ -200,6 +202,28 @@ func get_input(delta : float):
 		player_acceleration = 0.0
 		player_braking = 0.0
 		
+	if Input.is_action_pressed("forward") and Input.is_action_pressed("back") and $check_ground.is_colliding() :
+		for wheel in steering_wheels :
+			wheel.wheel_friction_slip = 0.0
+		burnout = true
+		if Sound.playing == false :
+			Sound.stream = burnout_sound
+			Sound.volume_db = -40
+			Sound.play()
+		if Input.is_action_pressed("gauche") :
+			speed.y = lerp(speed.y, 0.05, 0.05)
+			rotate_object_local(Vector3(0, 1, 0), speed.y)
+		if Input.is_action_pressed("droite") :
+			speed.y = lerp(speed.y, 0.05, 0.05)
+			rotate_object_local(Vector3(0, 1, 0), -speed.y)
+	
+	if (Input.is_action_just_released("forward") or Input.is_action_just_released("back")) and burnout == true :
+		Sound.stop()
+		Sound.volume_db = -30
+		for wheel in steering_wheels :
+			wheel.wheel_friction_slip = front_wheel_grip
+		
+	
 	if !$check_ground.is_colliding():
 		#if default_position == Vector3(0.0,0.0,0.0):
 			#print(rotation_degrees)

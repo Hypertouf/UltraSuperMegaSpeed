@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bunpfwsn8y2rj" path="res://assets/Models/props/Roads/road_4_ways.tscn" id="29_qn0af"]
 [ext_resource type="PackedScene" uid="uid://bfq0fd2nsskmy" path="res://assets/Models/CSG_scenes/turnpipe.tscn" id="30_00tu3"]
 [ext_resource type="PlaneMesh" uid="uid://uej1ixsmgesg" path="res://assets/BabyMesh.tres" id="30_ffspi"]
-[ext_resource type="PackedScene" uid="uid://ddk1ni0j2vby3" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
+[ext_resource type="PackedScene" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
 [ext_resource type="PackedScene" uid="uid://jaavrwy3gfo1" path="res://assets/Models/props/TV.tscn" id="31_ffspi"]
 [ext_resource type="PackedScene" uid="uid://c0hsfkgf6dwv" path="res://assets/Models/props/garage.tscn" id="32_00tu3"]
 [ext_resource type="AudioStream" uid="uid://cfc4poswwb4g2" path="res://assets/Audio/bad-to-the-bone.mp3" id="32_1uvwm"]
@@ -197,7 +197,6 @@ sides = 30
 
 [node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("followcamera") instance=ExtResource("1_0nkrw")]
 transform = Transform3D(-0.08296169, 0.0041113994, 0.9965446, 0.015588596, 0.9998748, -0.002827345, -0.99643105, 0.015300151, -0.0830154, 90.247284, 0.36241764, 67.00445)
-rear_wheel_grip = 5.0
 followcamera = NodePath("../FollowCamera")
 shortjump = ExtResource("3_kb7yh")
 bigjump = ExtResource("3_kb7yh")
@@ -1153,7 +1152,7 @@ sides = 30
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=1196804817]
 transform = Transform3D(-0.9999699, 8.74192e-08, 4.371139e-08, -4.371137e-08, 1.9107609e-15, -1, -8.74192e-08, -0.9999699, 1.9106855e-15, -64.91751, 14.284573, -8.450338)
-radius = 3.6591797
+radius = 4.4697266
 height = 4.484253
 sides = 30
 
@@ -1161,7 +1160,7 @@ sides = 30
 operation = 2
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D3/CSGCombiner3D" unique_id=193511898]
-transform = Transform3D(0.99999326, 5.3290705e-13, 4.0145665e-13, -5.3290705e-13, 0.99999326, 2.5410988e-20, -2.6645353e-13, 4.1081098e-20, 1, 0, 0.40977478, 0)
+transform = Transform3D(0.9999917, 7.81597e-13, 3.3573144e-13, -6.536993e-13, 0.9757294, -0.21894346, -3.2684966e-13, 0.21894212, 0.9757375, 0, 0.40977478, 0)
 radius = 3.5888672
 height = 5.461151
 sides = 30
