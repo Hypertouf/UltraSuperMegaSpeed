@@ -1042,7 +1042,6 @@ shape = SubResource("BoxShape3D_jpguo")
 
 [node name="booster_pad4" parent="VLoopSection" unique_id=907591236 instance=ExtResource("18_csgam")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -164.24748, 35.555264, 31.685051)
-power = 30.0
 
 [node name="booster_pad6" parent="VLoopSection" unique_id=674543886 instance=ExtResource("18_csgam")]
 transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -154.67409, 35.555264, 56.252003)
@@ -1060,7 +1059,7 @@ material = SubResource("StandardMaterial3D_vajfm")
 operation = 2
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Bighalfpipe/grosserampe5/CSGCombiner3D" unique_id=1489074053]
-transform = Transform3D(-4.371114e-08, 0.99999386, -2.8137492e-12, -1, -4.371138e-08, -6.1833405e-20, -6.6634346e-16, 2.8137492e-12, 0.99999386, -0.546318, 6.6433144, -4.574814)
+transform = Transform3D(-4.371114e-08, 0.99999386, -3.016254e-12, -1, -4.371138e-08, -7.8774064e-20, -6.663676e-16, 3.016254e-12, 0.99999386, -0.54631805, 6.6433144, -4.574814)
 radius = 8.7109375
 height = 25.375439
 sides = 64
