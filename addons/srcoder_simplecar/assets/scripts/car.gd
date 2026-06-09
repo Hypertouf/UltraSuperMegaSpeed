@@ -477,12 +477,11 @@ func get_input(delta : float):
 
 		
 func _destroy_particle():
-	print("destroy particle appellé")
+	await get_tree().create_timer(3.0).timeout
 	for n in particule_holder.get_children() :
-		if n.emitting == false :
-			print("destroy this")
-			n.queue_free()
+		n.queue_free()
 	pass
+
 ## helper function to see if we are moving forward
 func going_forward() -> bool:
 	var relative_speed : float = basis.z.dot(linear_velocity.normalized())
