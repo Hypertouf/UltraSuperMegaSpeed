@@ -133,8 +133,8 @@ size = Vector3(0.6652832, 12.217888, 58.68297)
 size = Vector3(1.5658264, 12.683193, 65.31278)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rvk64"]
-height = 3.0711355
-radius = 1.2963867
+height = 4.289757
+radius = 1.8774414
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kb7yh"]
 random_pitch = 1.365488
@@ -144,6 +144,10 @@ stream_0/stream = ExtResource("32_1uvwm")
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_62cfs"]
 height = 84.532074
 radius = 12.409668
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_00tu3"]
+height = 4.289757
+radius = 1.2963867
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_55y6p"]
 size = Vector3(0.6652832, 11.976547, 30.687473)
@@ -1552,12 +1556,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 1.7763568e-15, 1.7763568e-15, 0, 1, 0, 0,
 script = ExtResource("33_62cfs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Looping_Barrierless_scene/enter" unique_id=1650794338]
-transform = Transform3D(1, 0, 0, 0, 0.05116809, -0.99868983, 6.6968653e-13, 0.99869007, 0.051165465, 0.04265836, 1.5775914, 2.8654048)
+transform = Transform3D(1, 0, 0, 0, 0.05116809, -0.99868983, 6.6968653e-13, 0.99869007, 0.05116524, -3.1403198, 2.3328705, 2.874064)
 shape = SubResource("CylinderShape3D_rvk64")
 
 [node name="badtothebone" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene/enter" unique_id=1408227453]
 stream = SubResource("AudioStreamRandomizer_kb7yh")
 volume_db = -20.0
+max_db = -20.0
 autoplay = true
 max_distance = 20.0
 doppler_tracking = 1
@@ -1566,6 +1571,7 @@ doppler_tracking = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.042307, 10.371939, -14.640793)
 stream = SubResource("AudioStreamRandomizer_kb7yh")
 volume_db = -20.0
+max_db = -20.0
 autoplay = true
 max_distance = 20.0
 doppler_tracking = 1
@@ -1574,6 +1580,7 @@ doppler_tracking = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3214, 5.8858423, -31.445438)
 stream = SubResource("AudioStreamRandomizer_kb7yh")
 volume_db = -20.0
+max_db = -20.0
 autoplay = true
 max_distance = 20.0
 doppler_tracking = 1
@@ -1582,6 +1589,7 @@ doppler_tracking = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.685337, -2.3841858e-07, -52.840412)
 stream = SubResource("AudioStreamRandomizer_kb7yh")
 volume_db = -20.0
+max_db = -20.0
 autoplay = true
 max_distance = 20.0
 doppler_tracking = 1
@@ -1622,12 +1630,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 1.7763568e-15, 1.7763568e-15, 0, 1, 0, 0,
 script = ExtResource("33_62cfs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Looping_Barrierless_scene9/enter" unique_id=1034546335]
-transform = Transform3D(1, 0, 0, 0, 0.05116809, -0.99868983, 6.6968653e-13, 0.99869007, 0.051165465, 0.04265836, 1.5775914, 2.8654048)
-shape = SubResource("CylinderShape3D_rvk64")
+transform = Transform3D(0.9999999, -2.2351742e-08, 1.7881393e-07, 0, 0.05116809, -0.99868953, 6.82121e-13, 0.99869007, 0.05116544, -2.3325274, 2.7395906, 3.1264985)
+shape = SubResource("CylinderShape3D_00tu3")
 
 [node name="badtothebone" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene9/enter" unique_id=1451423120]
 stream = SubResource("AudioStreamRandomizer_kb7yh")
 volume_db = -20.0
+max_db = -20.0
 autoplay = true
 max_distance = 20.0
 doppler_tracking = 1
@@ -1636,6 +1645,7 @@ doppler_tracking = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.042307, 10.371939, -14.640793)
 stream = SubResource("AudioStreamRandomizer_kb7yh")
 volume_db = -20.0
+max_db = -20.0
 autoplay = true
 max_distance = 20.0
 doppler_tracking = 1
@@ -1644,6 +1654,7 @@ doppler_tracking = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3214, 5.8858423, -31.445438)
 stream = SubResource("AudioStreamRandomizer_kb7yh")
 volume_db = -20.0
+max_db = -20.0
 autoplay = true
 max_distance = 20.0
 doppler_tracking = 1
@@ -1652,6 +1663,7 @@ doppler_tracking = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.685337, -2.3841858e-07, -52.840412)
 stream = SubResource("AudioStreamRandomizer_kb7yh")
 volume_db = -20.0
+max_db = -20.0
 autoplay = true
 max_distance = 20.0
 doppler_tracking = 1
@@ -1770,7 +1782,7 @@ height = 7.7
 sides = 64
 
 [node name="grosserampe10" type="CSGBox3D" parent="." unique_id=1512453871]
-transform = Transform3D(-0.9999999, -8.742278e-08, -3.8213705e-15, 0, -4.371139e-08, 0.9999999, -8.742277e-08, 1, 4.3711385e-08, 84.2247, 10.456569, -24.159557)
+transform = Transform3D(-0.9999999, -8.742278e-08, -3.8213705e-15, 0, -4.371139e-08, 0.9999999, -8.742277e-08, 1, 4.3711385e-08, 84.2247, 10.456569, -24.205395)
 use_collision = true
 size = Vector3(4.1373324, 6.2858467, 6.455057)
 material = SubResource("StandardMaterial3D_vajfm")
@@ -1785,7 +1797,7 @@ height = 7.7
 sides = 64
 
 [node name="booster_pad2" parent="." unique_id=927680681 instance=ExtResource("18_csgam")]
-transform = Transform3D(0.11594698, 0.6978668, 0.7067801, -0.9853148, -0.008985595, 0.1705126, 0.12534598, -0.716171, 0.6865763, 62.344246, 4.4876804, -70.64628)
+transform = Transform3D(0.1182051, 0.6847403, 0.7191371, -0.9853148, -0.0089856, 0.1705126, 0.12321877, -0.72873145, 0.6736223, 62.272152, 4.4886265, -70.739525)
 power = 15.0
 
 [node name="Bumper3" parent="." unique_id=1186926702 instance=ExtResource("32_62cfs")]
