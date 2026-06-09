@@ -19,8 +19,8 @@ curve = SubResource("Curve_5fmnu")
 
 [sub_resource type="Curve" id="Curve_q5a12"]
 _limits = [-100.0, 50.0, 0.0, 1.0]
-_data = [Vector2(0.48930484, -0.05202484), 0.0, 0.0, 0, 0, Vector2(1, -100), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25460124, -60.985313), 0.0, 0.0, 0, 0, Vector2(1, -34.73072), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Curve" id="Curve_635pb"]
 

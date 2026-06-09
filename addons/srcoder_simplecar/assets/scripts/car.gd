@@ -43,6 +43,8 @@ extends VehicleBody3D
 var trans2d : Transform2D
 @export var Particle_material : ParticleProcessMaterial
 @export var particule_holder : Control
+@export var score_display : Control
+@onready var score_list : Control = score_display.get_child(0).get_child(0).get_child(0)
 var Particle = GPUParticles2D.new()
 
 
@@ -252,11 +254,12 @@ func get_input(delta : float):
 				Particle.texture = FX_Figures[2]
 				Particle.process_material = Particle_material
 				Particle.position = Vector2(980.0,312.0)
-
 				particule_holder.add_child(Particle)
-
 				
 				total_rotation.x = 0
+				var lbl = Label.new()
+				lbl.text = "+100"
+				score_list.add_child(lbl)
 				tricks[0] +=1
 		elif Input.is_action_pressed("backflip") :
 			speed.x = lerp(speed.x, 0.15, 0.05)
@@ -501,12 +504,11 @@ func get_input(delta : float):
 
 		
 func _destroy_particle():
-	print("destroy particle appellé")
+	await get_tree().create_timer(3.0).timeout
 	for n in particule_holder.get_children() :
-		if n.emitting == false :
-			print("destroy this")
-			n.queue_free()
+		n.queue_free()
 	pass
+
 ## helper function to see if we are moving forward
 func going_forward() -> bool:
 	var relative_speed : float = basis.z.dot(linear_velocity.normalized())
