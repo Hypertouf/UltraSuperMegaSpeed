@@ -11,16 +11,25 @@
 [ext_resource type="AudioStream" uid="uid://c0llask5xjo1d" path="res://assets/Audio/deltarune explosion greenscreen.mp3" id="5_y1lln"]
 [ext_resource type="ArrayMesh" uid="uid://dg5won52i52g8" path="res://assets/Models/Tuture/wheel-front-right.tres" id="6_2cqij"]
 [ext_resource type="ArrayMesh" uid="uid://ctkojq0qsv21s" path="res://assets/Models/Tuture/wheel-front-left.tres" id="7_syhvw"]
+[ext_resource type="Texture2D" uid="uid://6xlc83sp5c1v" path="res://assets/Textures/FX_Figure/Back360.png" id="9_ltdkq"]
+[ext_resource type="Texture2D" uid="uid://cso5pehkfd75x" path="res://assets/Textures/FX_Figure/Frontflip.png" id="10_q5a12"]
+[ext_resource type="Texture2D" uid="uid://dyig5xfbyvvq" path="res://assets/Textures/FX_Figure/Backflip.png" id="11_635pb"]
+[ext_resource type="Texture2D" uid="uid://b12i20k25mmvs" path="res://assets/Textures/FX_Figure/Kickflip.png" id="12_2oksv"]
 [ext_resource type="Script" uid="uid://dorbs33inxlh7" path="res://addons/srcoder_simplecar/trail_3d.gd" id="12_b7us2"]
 [ext_resource type="Texture2D" uid="uid://cpii4stj8dfvy" path="res://assets/Textures/Radio/frame0000.png" id="12_cgcc8"]
+[ext_resource type="Texture2D" uid="uid://bili3bthvhsm0" path="res://assets/Textures/FX_Figure/Heelflip.png" id="13_0wh4r"]
 [ext_resource type="AudioStream" uid="uid://cr1dm65ox7iaf" path="res://assets/Audio/Death_quotes/ChewOnThis.wav" id="13_sdpfv"]
 [ext_resource type="Texture2D" uid="uid://du53j3hwuqhej" path="res://assets/Textures/UI_Cursor.png" id="13_u3kq8"]
 [ext_resource type="AudioStream" uid="uid://dxjfrh48byiw2" path="res://assets/Audio/Death_quotes/CrashItAndTrashIt.wav" id="14_dmp2w"]
+[ext_resource type="Texture2D" uid="uid://daecc4dleuhss" path="res://assets/Textures/FX_Figure/360flip.png" id="14_u2f4k"]
 [ext_resource type="Texture2D" uid="uid://dh0qh2orsscla" path="res://assets/Textures/UI_MoralityMeter.png" id="14_wj4kd"]
 [ext_resource type="Texture2D" uid="uid://tcp5lww6uhxp" path="res://assets/Textures/Boost/Boost_Top.png" id="15_0acjl"]
 [ext_resource type="AudioStream" uid="uid://dksf6oy54kc85" path="res://assets/Audio/Death_quotes/DontEvenThinkAboutIt.wav" id="15_7sqjs"]
+[ext_resource type="Texture2D" uid="uid://bexx12rrj5bu7" path="res://assets/Textures/FX_Figure/360hardflip.png" id="15_fimmd"]
+[ext_resource type="Texture2D" uid="uid://bo403n3jsp68i" path="res://assets/Textures/FX_Figure/360heelflip.png" id="16_er80i"]
 [ext_resource type="Texture2D" uid="uid://bl8o73hlpy20e" path="res://assets/Textures/Boost/Boost_middle.png" id="16_jjlsn"]
 [ext_resource type="AudioStream" uid="uid://cx6hccrj6tvyu" path="res://assets/Audio/Death_quotes/DumpItAndBumpIt.wav" id="16_qh2ve"]
+[ext_resource type="Texture2D" uid="uid://mpvs51wxglsy" path="res://assets/Textures/FX_Figure/360Inwardflip.png" id="17_2qtt0"]
 [ext_resource type="Texture2D" uid="uid://dt5ju0rdepq2h" path="res://assets/Textures/Boost/bubble01.png" id="17_e70ve"]
 [ext_resource type="AudioStream" uid="uid://djxjl378nxfsm" path="res://assets/Audio/Death_quotes/LosinIt.wav" id="17_jkilt"]
 [ext_resource type="AudioStream" uid="uid://sfr5vpywosgn" path="res://assets/Audio/Death_quotes/NoCanDo.wav" id="18_cdysg"]
@@ -47,6 +56,7 @@
 [ext_resource type="AudioStream" uid="uid://bfap835lsftgs" path="res://assets/Audio/Audio 1.mp3" id="34_vh4ao"]
 [ext_resource type="AudioStream" uid="uid://ta83b0ntrv7n" path="res://assets/Audio/freesound_community-fm-radio-static-82334.mp3" id="35_hvcv4"]
 [ext_resource type="Shader" uid="uid://bwfye5q5nnp0o" path="res://Scenes/Test_scenes/controltest.gdshader" id="43_t8xh1"]
+[ext_resource type="Texture2D" uid="uid://0rgy786qbw43" path="res://assets/Textures/FX_Figure/Front360.png" id="44_5fmnu"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xtq8k"]
 streams_count = 6
@@ -139,6 +149,54 @@ shader = ExtResource("43_t8xh1")
 shader_parameter/outerRadius = 0.0
 shader_parameter/MainAlpha = 1.0
 shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_2oksv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.75, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0wh4r"]
+curve = SubResource("Curve_2oksv")
+
+[sub_resource type="Curve" id="Curve_5fmnu"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(0.25, -1), 0.0, 0.0, 0, 0, Vector2(0.4, 0.1), 0.0, 0.0, 0, 0, Vector2(0.45, -0.1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_iux6i"]
+curve = SubResource("Curve_5fmnu")
+
+[sub_resource type="Curve" id="Curve_ltdkq"]
+
+[sub_resource type="Curve" id="Curve_q5a12"]
+_limits = [-100.0, 50.0, 0.0, 1.0]
+_data = [Vector2(0.48930484, -0.05202484), 0.0, 0.0, 0, 0, Vector2(1, -100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_635pb"]
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_2oksv"]
+curve_x = SubResource("Curve_ltdkq")
+curve_y = SubResource("Curve_q5a12")
+curve_z = SubResource("Curve_635pb")
+
+[sub_resource type="Curve" id="Curve_iux6i"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.37843552, 0.3334658), 0.0, 0.0, 0, 0, Vector2(0.55179703, 0.3334658), 0.0, 0.0, 0, 0, Vector2(0.64270616, 0.21979332), 0.0, 0.0, 0, 0, Vector2(0.6871036, 0.4626391), 0.0, 0.0, 0, 0, Vector2(0.7484144, 0.31279808), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_vqadn"]
+curve = SubResource("Curve_iux6i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vh4ao"]
+particle_flag_disable_z = true
+angle_min = 184.00002
+angle_max = 184.00002
+angle_curve = SubResource("CurveTexture_iux6i")
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_2oksv")
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_vqadn")
+alpha_curve = SubResource("CurveTexture_0wh4r")
 
 [sub_resource type="Animation" id="Animation_jjlsn"]
 length = 0.001
@@ -278,16 +336,12 @@ cull_mode = 2
 shading_mode = 0
 albedo_color = Color(3.7541986e-06, 0.94921654, 0.64474994, 1)
 
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_b7us2"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7us2"]
 cull_mode = 2
 shading_mode = 0
 albedo_color = Color(0.8516507, 0.10439276, 0.4250917, 1)
-
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_u08v7"]
-
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_8jbr4"]
-
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_b7us2"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_5fmnu"]
 
@@ -301,7 +355,13 @@ albedo_color = Color(0.8516507, 0.10439276, 0.4250917, 1)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_3gxnf"]
 
-[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "Tv_quotes", "Radio", "VStraemPlay", "exploParticles", "trails", "LayBa")]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_u08v7"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_8jbr4"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_12m4d"]
+
+[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "Tv_quotes", "Radio", "VStraemPlay", "exploParticles", "trails", "Particle_figure", "LayBa")]
 collision_layer = 2
 physics_material_override = ExtResource("1_gdthg")
 center_of_mass_mode = 1
@@ -326,6 +386,8 @@ videofin = ExtResource("19_854qw")
 VStraemPlay = NodePath("Ui_Holder/OUI/Panel/VideoStreamPlayer")
 exploParticles = NodePath("GPUParticles3D")
 trails = [NodePath("Trail3d"), NodePath("Trail3d2"), NodePath("Trail3d3"), NodePath("Trail3d4"), NodePath("Trail3d5"), NodePath("Trail3d6"), NodePath("Trail3d7"), NodePath("Trail3d8")]
+FX_Figures = Array[CompressedTexture2D]([ExtResource("44_5fmnu"), ExtResource("9_ltdkq"), ExtResource("10_q5a12"), ExtResource("11_635pb"), ExtResource("12_2oksv"), ExtResource("13_0wh4r"), ExtResource("14_u2f4k"), ExtResource("15_fimmd"), ExtResource("16_er80i"), ExtResource("17_2qtt0")])
+Particle_figure = NodePath("Ui_Holder/OUI/GPUParticles2D")
 LayBa = NodePath("Ui_Holder/BalloonHolder")
 
 [node name="body" type="MeshInstance3D" parent="." unique_id=787695455]
@@ -556,6 +618,7 @@ autoplay = true
 paused = true
 
 [node name="Vignette" type="ColorRect" parent="Ui_Holder/OUI" unique_id=489306703]
+visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_b7us2")
 anchors_preset = 15
@@ -563,6 +626,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Ui_Holder/OUI" unique_id=2032981858]
+z_index = 1
+position = Vector2(980, 312)
+emitting = false
+amount = 1
+texture = ExtResource("12_2oksv")
+lifetime = 3.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_vh4ao")
 
 [node name="BalloonHolder" type="CanvasLayer" parent="Ui_Holder" unique_id=1826505556]
 layer = 128
@@ -580,6 +653,7 @@ draw_pass_1 = SubResource("PlaneMesh_e70ve")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, 0.16494739, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
+mesh = SubResource("ImmediateMesh_b7us2")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -590,7 +664,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.43419406, 0.30833566, -1.3361323)
 material_override = SubResource("StandardMaterial3D_b7us2")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_u08v7")
+mesh = SubResource("ImmediateMesh_5fmnu")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -601,7 +675,7 @@ startColor = Color(0.86993164, 0.15957409, 0.39749965, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.44745758, 0.30833566, -1.3361323)
 material_override = SubResource("StandardMaterial3D_b7us2")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_8jbr4")
+mesh = SubResource("ImmediateMesh_iux6i")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -612,7 +686,7 @@ startColor = Color(0.86993164, 0.15957409, 0.39749965, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, -0.16910112, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_b7us2")
+mesh = SubResource("ImmediateMesh_vqadn")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -623,7 +697,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, 0.16494739, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_5fmnu")
+mesh = SubResource("ImmediateMesh_vh4ao")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -634,7 +708,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, -0.16910112, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_iux6i")
+mesh = SubResource("ImmediateMesh_hhcwt")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -645,7 +719,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, 0.16494739, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_vqadn")
+mesh = SubResource("ImmediateMesh_3gxnf")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -656,7 +730,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, -0.16910112, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_vh4ao")
+mesh = SubResource("ImmediateMesh_u08v7")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -667,7 +741,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, 0.16494739, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_hhcwt")
+mesh = SubResource("ImmediateMesh_8jbr4")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -678,7 +752,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, -0.16910112, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_3gxnf")
+mesh = SubResource("ImmediateMesh_12m4d")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
