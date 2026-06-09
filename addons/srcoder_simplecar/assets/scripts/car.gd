@@ -234,9 +234,8 @@ func get_input(delta : float):
 		
 		if Input.is_action_pressed("shuvleft") :
 			speed.y = lerp(speed.y, 0.15, 0.05)
+			rotate_object_local(Vector3(0, 1, 0), speed.y)
 			total_rotation.y += 1
-			#if total_rotationx == 30:
-				#print("front shuv")
 			if total_rotation.y == 60:
 				total_rotation.y = 0
 				#print("front 360 !!")
@@ -245,9 +244,8 @@ func get_input(delta : float):
 				tricks[1] +=1
 		elif Input.is_action_pressed("shuvright") :
 			speed.y = lerp(speed.y, 0.15, 0.05)
+			rotate_object_local(Vector3(0, 1, 0), -speed.y)
 			total_rotation.y -= 1
-			#if total_rotationx == -30 :
-				#print("backflip shuv")
 			if total_rotation.y == -60:
 				total_rotation.y = 0
 				#print("backflip 360 !!")
@@ -257,7 +255,8 @@ func get_input(delta : float):
 		else : 
 			speed.y = lerp(speed.y, 0.0, 0.5)
 		
-		rotation.y += Input.get_axis("shuvright","shuvleft") * speed.y #makes the car do shuv-it rotation on the y axis
+		
+		#rotation.y += Input.get_axis("shuvright","shuvleft") * speed.y #makes the car do shuv-it rotation on the y axis
 
 		
 		if Input.is_action_pressed("roll_left") :
@@ -266,7 +265,7 @@ func get_input(delta : float):
 			if total_rotation.z == 60:
 				total_rotation.z = 0
 				#print("heelflip !!")
-				Particle_figure.texture = FX_Figures[6]
+				Particle_figure.texture = FX_Figures[5]
 				Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				tricks[2] += 1
 		elif Input.is_action_pressed("roll_right") :
@@ -288,8 +287,25 @@ func get_input(delta : float):
 		#print(total_rotationx)
 		if (default_position.y - rotation_degrees.y) >= 180	: #I need to learn about transformation matrix ugh
 			#print("shuvit !!!")
-			default_position = Vector3(0,0,0)	
-			
+			default_position = Vector3(0,0,0)
+		
+		if tricks == [0,-1,-1]:
+			Particle_figure.texture = FX_Figures[6]
+			Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			print("360 flip !!!")
+		if tricks == [0,1,1]:
+			Particle_figure.texture = FX_Figures[7]
+			Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			print("360 hardflip !!!")
+		if tricks == [0,1,-1]:
+			Particle_figure.texture = FX_Figures[8]
+			Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			print("360 heelflip !!!")
+		if tricks == [0,-1,1]:
+			Particle_figure.texture = FX_Figures[9]
+			Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			print("360 inward heelfip !!!")
+		
 		
 	if $check_ground.is_colliding():
 		#print("it's non the ground")
@@ -308,28 +324,14 @@ func get_input(delta : float):
 				print("frontflip !")
 			if tricks == [-1,0,0]:	
 
-				print("backflipflip !")
+				print("backflip !")
 			if tricks == [0,0,-1]:
 
 				print("kickflip !")
 			if tricks == [0,0,1]:
 
 				print("heelflip !")
-			if tricks == [0,-1,-1]:
-
-				print("360 flip !!!")
-			if tricks == [0,1,1]:
-				Particle_figure.texture = FX_Figures[7]
-				Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
-				print("360 hardflip !!!")
-			if tricks == [0,1,-1]:
-				Particle_figure.texture = FX_Figures[8]
-				Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
-				print("360 heelflip !!!")
-			if tricks == [0,-1,1]:
-				Particle_figure.texture = FX_Figures[9]
-				Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
-				print("360 inward heelfip !!!")
+			
 			
 			score = abs(tricks[0]) + abs(tricks[1]) + abs(tricks[2])
 			print(score)
