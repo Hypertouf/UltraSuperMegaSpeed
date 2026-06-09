@@ -85,10 +85,10 @@ size = Vector3(302.3974, 53.729736, 1)
 size = Vector3(304.74414, 53.729736, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00tu3"]
-size = Vector3(1.3043213, 2.1713247, 16.643023)
+size = Vector3(1.3043213, 2.1713247, 22.56831)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nseyi"]
-size = Vector3(2.1978302, 3.2127867, 18.24362)
+size = Vector3(2.1978302, 3.2127867, 23.6054)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pjy18"]
 size = Vector3(1.3043213, 2.1713247, 16.643023)
@@ -769,8 +769,8 @@ transform = Transform3D(0.0032532949, -0.009953609, 0.99994516, -0.31065938, 0.9
 [node name="Bumper5" parent="ezRoute" unique_id=1987014073 instance=ExtResource("32_62cfs")]
 transform = Transform3D(0.20873198, -0.6837213, -0.6992539, 0.10957809, 0.726852, -0.67799634, 0.9718147, 0.06489661, 0.22663794, -127.6367, 25.581604, -2.0158465)
 bump_y = 5.0
-bump_x = -15.0
-bump_z = -1.5
+bump_x = -5.0
+bump_z = -5.0
 
 [node name="Barriere_small2" parent="ezRoute" unique_id=1140086555 instance=ExtResource("34_1uvwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.47019, 21.896029, -15.192853)
@@ -893,6 +893,9 @@ Karma = 1
 
 [node name="VLoopSection" type="Node3D" parent="." unique_id=1043510002]
 
+[node name="Echaffaudage17" parent="VLoopSection" unique_id=2019200646 instance=ExtResource("30_pjy18")]
+transform = Transform3D(1.9106855e-15, 4.3711385e-08, 1, 1, -4.3711385e-08, 0, 4.371139e-08, 0.99999994, -4.371139e-08, -132.9936, 27.956919, -7.7340236)
+
 [node name="Echaffaudage9" parent="VLoopSection" unique_id=542398947 instance=ExtResource("30_pjy18")]
 transform = Transform3D(1.9106855e-15, 4.3711385e-08, 1, 1, -4.3711385e-08, 0, 4.371139e-08, 0.99999994, -4.371139e-08, -142.1638, 27.956919, -7.7340236)
 
@@ -954,7 +957,7 @@ transform = Transform3D(1.9106855e-15, 4.3711385e-08, -1, 1, -4.3711385e-08, 0, 
 transform = Transform3D(0.0043037236, -0.009953633, -0.9999412, 0.31072962, 0.9504635, -0.008123696, 0.95048845, -0.3106764, 0.007183403, -117.59987, 25.631256, -1.9600397)
 
 [node name="booster_pad2" parent="VLoopSection" unique_id=1028991571 instance=ExtResource("18_csgam")]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -139.77432, 28.087387, -4.236662)
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -130.8111, 28.087387, -4.236662)
 power = 30.0
 
 [node name="Cabine_Telephonique" parent="VLoopSection" unique_id=1364820621 instance=ExtResource("26_4vynd")]
@@ -965,7 +968,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.4156, 30.686172, -1.1920
 script = ExtResource("17_csgam")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VLoopSection/Cabine_Telephonique/enter" unique_id=1416601612]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.24152, -29.001787, -1.9174957)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.24152, -29.001787, 1.0451508)
 shape = SubResource("BoxShape3D_00tu3")
 
 [node name="exit" type="Area3D" parent="VLoopSection/Cabine_Telephonique" unique_id=1326925091]
@@ -973,7 +976,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.4156, 30.686172, -1.1920
 script = ExtResource("18_pmuua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VLoopSection/Cabine_Telephonique/exit" unique_id=1103694499]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.78654, -29.099987, -2.0147552)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.78654, -29.099987, 0.6661377)
 shape = SubResource("BoxShape3D_nseyi")
 
 [node name="Cabine_Telephonique2" parent="VLoopSection" unique_id=220265557 instance=ExtResource("26_4vynd")]
