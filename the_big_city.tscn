@@ -132,6 +132,12 @@ size = Vector3(0.6652832, 12.217888, 58.68297)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4it2w"]
 size = Vector3(1.5658264, 12.683193, 65.31278)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0nvkg"]
+size = Vector3(0.6652832, 59.733376, 60.242958)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_euwr1"]
+size = Vector3(1.5658264, 61.53724, 62.605034)
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rvk64"]
 height = 4.289757
 radius = 1.8774414
@@ -1150,22 +1156,40 @@ radius = 3.4082031
 height = 4.484253
 sides = 30
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=1196804817]
-transform = Transform3D(-0.9999699, 8.74192e-08, 4.371139e-08, -4.371137e-08, 1.9107609e-15, -1, -8.74192e-08, -0.9999699, 1.9106855e-15, -64.91751, 14.284573, -8.450338)
+[node name="turnpipe3" parent="pipesystem" unique_id=420055876 instance=ExtResource("30_00tu3")]
+transform = Transform3D(-0.2760232, -0.9611508, -8.402648e-08, -0.96115106, 0.27602315, 2.4130715e-08, -3.8213714e-15, 8.742277e-08, -1, 54.260223, -1.7625589, -69.9496)
+
+[node name="turnpipe4" parent="pipesystem" unique_id=1369693028 instance=ExtResource("30_00tu3")]
+transform = Transform3D(-0.25903934, 0.08170408, -0.9624048, -0.9195147, 0.28410935, 0.27161473, 0.29562038, 0.95530415, 0.001532577, 42.32325, 1.9586315, -72.46081)
+
+[node name="turnpipe5" parent="pipesystem" unique_id=802837513 instance=ExtResource("30_00tu3")]
+transform = Transform3D(0.3712943, 0.9217175, 0.11214753, -0.89251614, 0.32098043, 0.3168387, 0.25603878, -0.21773383, 0.9418258, 41.35907, 7.4133167, -60.103836)
+
+[node name="turnpipe6" parent="pipesystem" unique_id=901592789 instance=ExtResource("30_00tu3")]
+transform = Transform3D(0.31708866, -0.2169992, 0.9232369, -0.92636913, 0.1377184, 0.350534, -0.20321247, -0.96640813, -0.15735233, 53.05789, 12.472803, -60.5326)
+
+[node name="turnpipe7" parent="pipesystem" unique_id=1449577534 instance=ExtResource("30_00tu3")]
+transform = Transform3D(-0.46077335, -0.8656425, -0.19583336, -0.8870027, 0.44163802, 0.13484055, -0.030236281, 0.23583558, -0.9713223, 52.399094, 16.246508, -73.59639)
+
+[node name="turnpipe8" parent="pipesystem" unique_id=831980272 instance=ExtResource("30_00tu3")]
+transform = Transform3D(-0.37809885, 0.32339048, -0.8674444, -0.8893434, 0.13335752, 0.43736115, 0.2571186, 0.9368211, 0.23718269, 41.216286, 22.355661, -73.07904)
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="pipesystem" unique_id=1196804817]
+transform = Transform3D(-0.9999699, 8.74192e-08, 4.371139e-08, -4.371137e-08, 1.9107609e-15, -1, -8.74192e-08, -0.9999699, 1.9106855e-15, 55.465294, -1.6555729, -59.086174)
 radius = 4.4697266
 height = 4.484253
 sides = 30
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGCylinder3D3" unique_id=1962572512]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="pipesystem/CSGCylinder3D3" unique_id=1962572512]
 operation = 2
 
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D3/CSGCombiner3D" unique_id=193511898]
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="pipesystem/CSGCylinder3D3/CSGCombiner3D" unique_id=193511898]
 transform = Transform3D(0.9999917, 7.81597e-13, 3.3573144e-13, -6.536993e-13, 0.9757294, -0.21894346, -3.2684966e-13, 0.21894212, 0.9757375, 0, 0.40977478, 0)
 radius = 3.5888672
 height = 5.461151
 sides = 30
 
-[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCylinder3D3/CSGCombiner3D" unique_id=749775463]
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="pipesystem/CSGCylinder3D3/CSGCombiner3D" unique_id=749775463]
 transform = Transform3D(-0.00082031096, -0.99998736, 4.374722e-08, 0.99998736, -0.00082031096, -4.371192e-08, 4.3747104e-08, 4.3711722e-08, 1, 0.06793213, -2.296556, -0.21770096)
 radius = 3.802246
 height = 12.162746
@@ -1352,7 +1376,7 @@ radius = 10.90625
 height = 15.025122
 sides = 64
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=105023332]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="parking_lot" unique_id=105023332]
 transform = Transform3D(0.71023464, 0, -0.70396507, 0, 1, 0, 0.70396507, 0, 0.71023464, 88.53285, 3.5111365, -3.2575884)
 use_collision = true
 polygon = PackedVector2Array(0, -3.618, 60.258793, -3.5562968, 45.55378, -1.491817, 0, -1.49)
@@ -1360,440 +1384,220 @@ mode = 1
 spin_degrees = 360.0
 spin_sides = 4
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=484857423]
+[node name="CSGBox3D" type="CSGBox3D" parent="parking_lot" unique_id=484857423]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.845146, 13.471771, -3.261796)
 use_collision = true
 size = Vector3(64.20537, 23.130798, 64.366745)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGBox3D" unique_id=44061046]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="parking_lot/CSGBox3D" unique_id=44061046]
 operation = 2
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D" unique_id=397448165]
+[node name="CSGBox3D2" type="CSGBox3D" parent="parking_lot/CSGBox3D/CSGCombiner3D" unique_id=397448165]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05744934, 5.2457657, 0.060611725)
 size = Vector3(63.83433, 10.715256, 63.923073)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D" unique_id=598991478]
+[node name="CSGBox3D3" type="CSGBox3D" parent="parking_lot/CSGBox3D/CSGCombiner3D" unique_id=598991478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05744934, -6.418727, 0.060611725)
 size = Vector3(63.83433, 10.715256, 63.923073)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D" unique_id=1427468796]
+[node name="CSGBox3D4" type="CSGBox3D" parent="parking_lot/CSGBox3D/CSGCombiner3D" unique_id=1427468796]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.413048, -6.418727, -0.06114769)
 size = Vector3(2.9941664, 10.715256, 63.00256)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D" unique_id=1978191401]
+[node name="CSGBox3D6" type="CSGBox3D" parent="parking_lot/CSGBox3D/CSGCombiner3D" unique_id=1978191401]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.667305, -6.418727, -0.06114769)
 size = Vector3(2.9941664, 10.715256, 63.00256)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D" unique_id=2098365042]
+[node name="CSGBox3D7" type="CSGBox3D" parent="parking_lot/CSGBox3D/CSGCombiner3D" unique_id=2098365042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023841858, -6.418727, -31.44331)
 size = Vector3(63.26742, 10.715256, 2.4048958)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D" unique_id=2115623964]
+[node name="CSGBox3D8" type="CSGBox3D" parent="parking_lot/CSGBox3D/CSGCombiner3D" unique_id=2115623964]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11206055, -6.418727, 32.209515)
 size = Vector3(63.09099, 10.715256, 2.4048958)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D" unique_id=400729227]
+[node name="CSGBox3D5" type="CSGBox3D" parent="parking_lot/CSGBox3D/CSGCombiner3D" unique_id=400729227]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.413048, 5.882143, -0.06114769)
 size = Vector3(2.9941664, 10, 63.00256)
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D" unique_id=626052355]
+[node name="CSGBox3D9" type="CSGBox3D" parent="parking_lot/CSGBox3D/CSGCombiner3D" unique_id=626052355]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.667305, 5.882143, -0.06114769)
 size = Vector3(2.9941664, 10, 63.00256)
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D" unique_id=1381287222]
+[node name="CSGBox3D10" type="CSGBox3D" parent="parking_lot/CSGBox3D/CSGCombiner3D" unique_id=1381287222]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035560608, 5.882143, -31.44331)
 size = Vector3(63.243984, 10, 2.4048958)
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D" unique_id=1354249003]
+[node name="CSGBox3D11" type="CSGBox3D" parent="parking_lot/CSGBox3D/CSGCombiner3D" unique_id=1354249003]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11417389, 5.882143, 32.209515)
 size = Vector3(63.086758, 10, 2.4048958)
 
-[node name="grosserampe2" type="CSGBox3D" parent="." unique_id=1312676305]
+[node name="grosserampe2" type="CSGBox3D" parent="parking_lot" unique_id=1312676305]
 transform = Transform3D(0.006579846, 0, 0.9999783, 0, 1, 0, -0.9999783, 0, 0.006579846, 70.960464, 3.9596076, 12.899025)
 use_collision = true
 size = Vector3(4.1373324, 4.67984, 4.4098673)
 material = SubResource("StandardMaterial3D_vajfm")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe2" unique_id=1654949772]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="parking_lot/grosserampe2" unique_id=1654949772]
 operation = 2
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe2/CSGCombiner3D" unique_id=2108153916]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="parking_lot/grosserampe2/CSGCombiner3D" unique_id=2108153916]
 transform = Transform3D(-4.3711246e-08, 0.99999386, 1.3038516e-08, -1, -4.37114e-08, 0, -1.9428903e-16, -1.3038516e-08, 0.99999386, 0.032169342, 10.390539, -1.9758224)
 radius = 12.325195
 height = 7.6664004
 sides = 64
 
-[node name="grosserampe3" type="CSGBox3D" parent="." unique_id=356257530]
+[node name="grosserampe7" type="CSGBox3D" parent="parking_lot" unique_id=356257530]
 transform = Transform3D(-0.0030717542, 0, -0.99999523, 0, 1, 0, 0.99999523, 0, -0.0030717542, 82.896324, 3.9596076, 12.899025)
 use_collision = true
 size = Vector3(4.1373324, 4.67984, 4.4098673)
 material = SubResource("StandardMaterial3D_vajfm")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe3" unique_id=1712461009]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="parking_lot/grosserampe7" unique_id=1712461009]
 operation = 2
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe3/CSGCombiner3D" unique_id=1827153919]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="parking_lot/grosserampe7/CSGCombiner3D" unique_id=1827153919]
 transform = Transform3D(-4.3711246e-08, 0.99999386, 1.3038516e-08, -1, -4.37114e-08, 0, -1.9428903e-16, -1.3038516e-08, 0.99999386, 0.032169342, 10.390539, -1.9758224)
 radius = 12.325195
 height = 7.6664004
 sides = 64
 
-[node name="Barriere_small" parent="." unique_id=831546620 instance=ExtResource("34_1uvwm")]
+[node name="Barriere_small" parent="parking_lot" unique_id=831546620 instance=ExtResource("34_1uvwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.70143, 2.0202544, 12.98268)
 
-[node name="grosserampe4" type="CSGBox3D" parent="." unique_id=387672913]
+[node name="grosserampe8" type="CSGBox3D" parent="parking_lot" unique_id=387672913]
 transform = Transform3D(0.9997574, -3.5041296e-05, 0.022024306, -4.289175e-06, -0.999999, -0.001396323, 0.022024378, 0.00139589, -0.9997564, 77.05803, 1.1753519, 8.013049)
 use_collision = true
 size = Vector3(4.1373324, 4.67984, 4.4098673)
 material = SubResource("StandardMaterial3D_vajfm")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe4" unique_id=501589753]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="parking_lot/grosserampe8" unique_id=501589753]
 operation = 1
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe4/CSGCombiner3D" unique_id=729810688]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="parking_lot/grosserampe8/CSGCombiner3D" unique_id=729810688]
 transform = Transform3D(-4.3711246e-08, 0.99999386, 1.3038516e-08, -1, -4.37114e-08, 0, -1.9428903e-16, -1.3038516e-08, 0.99999386, 0.032169342, 10.390539, -1.9758224)
 radius = 12.325195
 height = 7.6664004
 sides = 64
 
-[node name="grosserampe5" type="CSGBox3D" parent="." unique_id=1630872175]
+[node name="grosserampe9" type="CSGBox3D" parent="parking_lot" unique_id=1630872175]
 transform = Transform3D(0.9998098, 1.29264445e-05, -0.01949405, -8.508108e-06, 1, 0.00022673322, 0.019494053, -0.00022652431, 0.9998098, 77.12883, 3.8846345, 4.533718)
 use_collision = true
 size = Vector3(4.1373324, 4.67984, 3.6913838)
 material = SubResource("StandardMaterial3D_vajfm")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe5" unique_id=1682422761]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="parking_lot/grosserampe9" unique_id=1682422761]
 operation = 2
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe5/CSGCombiner3D" unique_id=1681198816]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="parking_lot/grosserampe9/CSGCombiner3D" unique_id=1681198816]
 transform = Transform3D(-4.3711246e-08, 0.99999386, 1.3038516e-08, -1, -4.37114e-08, 0, -1.9428903e-16, -1.3038516e-08, 0.99999386, 0.032169342, 10.390539, -1.9758224)
 radius = 12.325195
 height = 7.6664004
 sides = 64
 
-[node name="Barriere_small2" parent="." unique_id=715660970 instance=ExtResource("34_1uvwm")]
+[node name="Barriere_small2" parent="parking_lot" unique_id=715660970 instance=ExtResource("34_1uvwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.32697, 2.0202544, 12.98268)
 
-[node name="Barriere_small3" parent="." unique_id=675706123 instance=ExtResource("34_1uvwm")]
+[node name="Barriere_small3" parent="parking_lot" unique_id=675706123 instance=ExtResource("34_1uvwm")]
 transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.074665464, 106.017715, 2.0201683, -22.923363)
 
-[node name="grosserampe6" type="CSGBox3D" parent="." unique_id=666940323]
+[node name="grosserampe10" type="CSGBox3D" parent="parking_lot" unique_id=666940323]
 transform = Transform3D(0.9990851, 0, -0.04276503, 0, 1, 0, 0.04276503, 0, 0.9990851, 106.23092, 3.9596076, -28.560904)
 use_collision = true
 size = Vector3(4.1373324, 4.67984, 4.4098673)
 material = SubResource("StandardMaterial3D_vajfm")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe6" unique_id=66185593]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="parking_lot/grosserampe10" unique_id=66185593]
 operation = 2
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe6/CSGCombiner3D" unique_id=1321944089]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="parking_lot/grosserampe10/CSGCombiner3D" unique_id=1321944089]
 transform = Transform3D(-4.3711246e-08, 0.99999386, 1.3038516e-08, -1, -4.37114e-08, 0, -1.9428903e-16, -1.3038516e-08, 0.99999386, 0.032169342, 10.390539, -1.9758224)
 radius = 12.325195
 height = 7.6664004
 sides = 64
 
-[node name="Barriere_small4" parent="." unique_id=1730743005 instance=ExtResource("34_1uvwm")]
+[node name="Barriere_small4" parent="parking_lot" unique_id=1730743005 instance=ExtResource("34_1uvwm")]
 transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.074665464, 106.017715, 2.0201683, -19.621132)
 
-[node name="Barriere_small5" parent="." unique_id=1503434026 instance=ExtResource("34_1uvwm")]
+[node name="Barriere_small5" parent="parking_lot" unique_id=1503434026 instance=ExtResource("34_1uvwm")]
 transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.074665464, 106.017715, 2.0201683, -16.189041)
 
-[node name="Barriere_small6" parent="." unique_id=1817351361 instance=ExtResource("34_1uvwm")]
+[node name="Barriere_small6" parent="parking_lot" unique_id=1817351361 instance=ExtResource("34_1uvwm")]
 transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.074665464, 106.017715, 2.0201683, -12.88681)
 
-[node name="Barriere_small7" parent="." unique_id=199317467 instance=ExtResource("34_1uvwm")]
+[node name="Barriere_small7" parent="parking_lot" unique_id=199317467 instance=ExtResource("34_1uvwm")]
 transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.074665464, 106.017715, 2.0201683, -9.479086)
 
-[node name="Barriere_small8" parent="." unique_id=1614375146 instance=ExtResource("34_1uvwm")]
+[node name="Barriere_small8" parent="parking_lot" unique_id=1614375146 instance=ExtResource("34_1uvwm")]
 transform = Transform3D(-0.074665464, 0, -0.9972093, 0, 1, 0, 0.9972093, 0, -0.074665464, 106.017715, 2.0201683, -6.1768546)
 
-[node name="grosserampe7" type="CSGBox3D" parent="." unique_id=145445239]
+[node name="grosserampe11" type="CSGBox3D" parent="parking_lot" unique_id=145445239]
 transform = Transform3D(-0.99666876, 0, 0.08155597, 0, 1, 0, -0.08155597, 0, -0.99666876, 105.801674, 3.9596076, -0.7163391)
 use_collision = true
 size = Vector3(4.1373324, 4.67984, 4.4098673)
 material = SubResource("StandardMaterial3D_vajfm")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe7" unique_id=684780989]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="parking_lot/grosserampe11" unique_id=684780989]
 operation = 2
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe7/CSGCombiner3D" unique_id=271441036]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="parking_lot/grosserampe11/CSGCombiner3D" unique_id=271441036]
 transform = Transform3D(-4.3711246e-08, 0.99999386, 1.3038516e-08, -1, -4.37114e-08, 0, -1.9428903e-16, -1.3038516e-08, 0.99999386, 0.032169342, 10.390539, -1.9758224)
 radius = 12.325195
 height = 7.6664004
 sides = 64
 
-[node name="Barriere_small9" parent="." unique_id=462086150 instance=ExtResource("34_1uvwm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.38639, 2.020019, 8.585191)
-
-[node name="Bumper" parent="." unique_id=462622789 instance=ExtResource("32_62cfs")]
+[node name="Bumper" parent="parking_lot" unique_id=462622789 instance=ExtResource("32_62cfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.738785, 1, 0.63140523)
 bump_x = 8.0
 
-[node name="turnpipe" parent="." unique_id=420055876 instance=ExtResource("30_00tu3")]
-transform = Transform3D(-0.2760232, -0.9611508, -8.402648e-08, -0.96115106, 0.27602315, 2.4130715e-08, -3.8213714e-15, 8.742277e-08, -1, -66.12258, 14.177587, -19.313763)
-
-[node name="turnpipe2" parent="." unique_id=1369693028 instance=ExtResource("30_00tu3")]
-transform = Transform3D(-0.25903934, 0.08170408, -0.9624048, -0.9195147, 0.28410935, 0.27161473, 0.29562038, 0.95530415, 0.001532577, -78.059555, 17.898777, -21.824972)
-
-[node name="turnpipe3" parent="." unique_id=802837513 instance=ExtResource("30_00tu3")]
-transform = Transform3D(0.3712943, 0.9217175, 0.11214753, -0.89251614, 0.32098043, 0.3168387, 0.25603878, -0.21773383, 0.9418258, -79.023735, 23.353462, -9.467998)
-
-[node name="turnpipe4" parent="." unique_id=901592789 instance=ExtResource("30_00tu3")]
-transform = Transform3D(0.31708866, -0.2169992, 0.9232369, -0.92636913, 0.1377184, 0.350534, -0.20321247, -0.96640813, -0.15735233, -67.32491, 28.412949, -9.896764)
-
-[node name="turnpipe5" parent="." unique_id=1449577534 instance=ExtResource("30_00tu3")]
-transform = Transform3D(-0.46077335, -0.8656425, -0.19583336, -0.8870027, 0.44163802, 0.13484055, -0.030236281, 0.23583558, -0.9713223, -67.98371, 32.186653, -22.96055)
-
-[node name="turnpipe6" parent="." unique_id=831980272 instance=ExtResource("30_00tu3")]
-transform = Transform3D(-0.37809885, 0.32339048, -0.8674444, -0.8893434, 0.13335752, 0.43736115, 0.2571186, 0.9368211, 0.23718269, -79.16652, 38.295807, -22.4432)
-
-[node name="Looping_Barrierless_scene" parent="." unique_id=404991392 instance=ExtResource("32_rvk64")]
-transform = Transform3D(0.66858566, -0.7436351, 3.250532e-08, 4.0085534e-15, -4.3711395e-08, -1, 0.7436351, 0.66858566, -2.9224811e-08, 106.173416, 7.8756847, 58.65027)
-
-[node name="enter" type="Area3D" parent="Looping_Barrierless_scene" unique_id=1170391822]
-transform = Transform3D(1, 0, 0, 0, 1, 1.7763568e-15, 1.7763568e-15, 0, 1, 0, 0, 0)
-script = ExtResource("33_62cfs")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Looping_Barrierless_scene/enter" unique_id=1650794338]
-transform = Transform3D(1, 0, 0, 0, 0.05116809, -0.99868983, 6.6968653e-13, 0.99869007, 0.05116524, -3.1403198, 2.3328705, 2.874064)
-shape = SubResource("CylinderShape3D_rvk64")
-
-[node name="badtothebone" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene/enter" unique_id=1408227453]
-stream = SubResource("AudioStreamRandomizer_kb7yh")
-volume_db = -20.0
-max_db = -20.0
-autoplay = true
-max_distance = 20.0
-doppler_tracking = 1
-
-[node name="badtothebone2" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene/enter" unique_id=1289821145]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.042307, 10.371939, -14.640793)
-stream = SubResource("AudioStreamRandomizer_kb7yh")
-volume_db = -20.0
-max_db = -20.0
-autoplay = true
-max_distance = 20.0
-doppler_tracking = 1
-
-[node name="badtothebone3" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene/enter" unique_id=1123289309]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3214, 5.8858423, -31.445438)
-stream = SubResource("AudioStreamRandomizer_kb7yh")
-volume_db = -20.0
-max_db = -20.0
-autoplay = true
-max_distance = 20.0
-doppler_tracking = 1
-
-[node name="badtothebone4" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene/enter" unique_id=377403823]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.685337, -2.3841858e-07, -52.840412)
-stream = SubResource("AudioStreamRandomizer_kb7yh")
-volume_db = -20.0
-max_db = -20.0
-autoplay = true
-max_distance = 20.0
-doppler_tracking = 1
-
-[node name="exit2" type="Area3D" parent="Looping_Barrierless_scene" unique_id=1299497369]
-script = ExtResource("18_pmuua")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Looping_Barrierless_scene/exit2" unique_id=619925785]
-transform = Transform3D(0.7580645, 0.6500422, 0.052755773, -0.04019335, 0.12730587, -0.9910486, -0.6509399, 0.74915856, 0.12263073, -21.929123, 5.894169, -23.392448)
-shape = SubResource("CylinderShape3D_62cfs")
-
-[node name="Looping_Barrierless_scene2" parent="." unique_id=1653075893 instance=ExtResource("32_rvk64")]
-transform = Transform3D(0.5939807, -0.8044794, 3.5164902e-08, -8.6991427e-16, -4.3711385e-08, -1, 0.8044794, 0.5939807, -2.5963711e-08, 102.87308, 14.754663, 54.97946)
-
-[node name="Looping_Barrierless_scene3" parent="." unique_id=1839426562 instance=ExtResource("32_rvk64")]
-transform = Transform3D(0.56688076, -0.8237998, 3.6009435e-08, 1.4363293e-15, -4.3711392e-08, -1, 0.8237998, 0.56688076, -2.4779144e-08, 98.56959, 21.615614, 49.18377)
-
-[node name="Looping_Barrierless_scene4" parent="." unique_id=2082844832 instance=ExtResource("32_rvk64")]
-transform = Transform3D(0.48503855, -0.8744927, 3.8225288e-08, -1.0017793e-15, -4.371138e-08, -1, 0.8744927, 0.48503855, -2.12017e-08, 95.77129, 28.494593, 45.117256)
-
-[node name="Looping_Barrierless_scene5" parent="." unique_id=692507843 instance=ExtResource("32_rvk64")]
-transform = Transform3D(0.4702881, -0.88251305, 3.857587e-08, -6.380482e-16, -4.37114e-08, -1, 0.88251305, 0.4702881, -2.0556946e-08, 92.27479, 35.30207, 38.80816)
-
-[node name="Looping_Barrierless_scene6" parent="." unique_id=1584225251 instance=ExtResource("32_rvk64")]
-transform = Transform3D(0.38324776, -0.9236456, 4.037382e-08, 1.3147423e-15, -4.371139e-08, -1, 0.9236456, 0.38324776, -1.6752283e-08, 89.9533, 42.18105, 34.451817)
-
-[node name="Looping_Barrierless_scene7" parent="." unique_id=1324199432 instance=ExtResource("32_rvk64")]
-transform = Transform3D(0.35229906, -0.9358875, 4.0908937e-08, 4.9540194e-16, -4.3711392e-08, -1, 0.9358875, 0.35229906, -1.5399475e-08, 87.1687, 49.041996, 27.791788)
-
-[node name="Looping_Barrierless_scene8" parent="." unique_id=100458106 instance=ExtResource("32_rvk64")]
-transform = Transform3D(0.26067293, -0.9654269, 4.220015e-08, -1.6496344e-15, -4.3711385e-08, -1, 0.9654269, 0.26067293, -1.139437e-08, 85.42965, 55.92098, 23.171963)
-
-[node name="Looping_Barrierless_scene9" parent="." unique_id=1652378164 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.6098824, 0.792492, -3.4640923e-08, -2.397343e-15, -4.3711385e-08, -1, -0.792492, -0.6098824, 2.6658805e-08, 63.83731, 7.8756847, -67.78238)
-
-[node name="enter" type="Area3D" parent="Looping_Barrierless_scene9" unique_id=1821930370]
-transform = Transform3D(1, 0, 0, 0, 1, 1.7763568e-15, 1.7763568e-15, 0, 1, 0, 0, 0)
-script = ExtResource("33_62cfs")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Looping_Barrierless_scene9/enter" unique_id=1034546335]
-transform = Transform3D(0.9999999, -2.2351742e-08, 1.7881393e-07, 0, 0.05116809, -0.99868953, 6.82121e-13, 0.99869007, 0.05116544, -2.3325274, 2.7395906, 3.1264985)
-shape = SubResource("CylinderShape3D_00tu3")
-
-[node name="badtothebone" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene9/enter" unique_id=1451423120]
-stream = SubResource("AudioStreamRandomizer_kb7yh")
-volume_db = -20.0
-max_db = -20.0
-autoplay = true
-max_distance = 20.0
-doppler_tracking = 1
-
-[node name="badtothebone2" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene9/enter" unique_id=1913935886]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.042307, 10.371939, -14.640793)
-stream = SubResource("AudioStreamRandomizer_kb7yh")
-volume_db = -20.0
-max_db = -20.0
-autoplay = true
-max_distance = 20.0
-doppler_tracking = 1
-
-[node name="badtothebone3" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene9/enter" unique_id=399756978]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3214, 5.8858423, -31.445438)
-stream = SubResource("AudioStreamRandomizer_kb7yh")
-volume_db = -20.0
-max_db = -20.0
-autoplay = true
-max_distance = 20.0
-doppler_tracking = 1
-
-[node name="badtothebone4" type="AudioStreamPlayer3D" parent="Looping_Barrierless_scene9/enter" unique_id=1826307684]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.685337, -2.3841858e-07, -52.840412)
-stream = SubResource("AudioStreamRandomizer_kb7yh")
-volume_db = -20.0
-max_db = -20.0
-autoplay = true
-max_distance = 20.0
-doppler_tracking = 1
-
-[node name="exit2" type="Area3D" parent="Looping_Barrierless_scene9" unique_id=359649493]
-script = ExtResource("18_pmuua")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Looping_Barrierless_scene9/exit2" unique_id=831016526]
-transform = Transform3D(0.7580645, 0.6500422, 0.052755773, -0.04019335, 0.12730587, -0.9910486, -0.6509399, 0.74915856, 0.122631006, -21.929123, 5.894169, -23.392447)
-shape = SubResource("CylinderShape3D_62cfs")
-
-[node name="Looping_Barrierless_scene10" parent="." unique_id=728486223 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.5308515, 0.8474648, -3.704386e-08, 3.596971e-15, -4.3711395e-08, -1, -0.8474648, -0.5308515, 2.3204256e-08, 66.84786, 14.754663, -63.870403)
-
-[node name="Looping_Barrierless_scene11" parent="." unique_id=991254038 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.5023562, 0.8646608, -3.7795502e-08, -1.2017892e-15, -4.371138e-08, -1, -0.8646608, -0.5023562, 2.1958675e-08, 70.69648, 21.615614, -57.76318)
-
-[node name="Looping_Barrierless_scene12" parent="." unique_id=747796766 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.4168839, 0.9089599, -3.973189e-08, -1.646952e-16, -4.371138e-08, -1, -0.9089599, -0.4168839, 1.8222567e-08, 73.17626, 28.494593, -53.49497)
-
-[node name="Looping_Barrierless_scene13" parent="." unique_id=1702738696 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.40156424, 0.91583085, -4.0032237e-08, -3.0027951e-15, -4.3711385e-08, -1, -0.91583085, -0.40156424, 1.7552928e-08, 76.181076, 35.30207, -46.937412)
-
-[node name="Looping_Barrierless_scene14" parent="." unique_id=1999289282 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.3116386, 0.95020086, -4.1534584e-08, 1.3598206e-15, -4.3711378e-08, -1, -0.95020086, -0.3116386, 1.362215e-08, 78.16333, 42.18105, -42.416607)
-
-[node name="Looping_Barrierless_scene15" parent="." unique_id=692824104 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.27984592, 0.9600451, -4.1964896e-08, -1.6954741e-15, -4.3711392e-08, -1, -0.9600451, -0.27984592, 1.2232451e-08, 80.431526, 49.041996, -35.563488)
-
-[node name="Looping_Barrierless_scene16" parent="." unique_id=436832995 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.18623264, 0.9825057, -4.294669e-08, -1.7312839e-15, -4.371139e-08, -1, -0.9825057, -0.18623264, 8.140482e-09, 81.81292, 55.92098, -30.824413)
-
-[node name="Billboard_medium" parent="." unique_id=2115963977 instance=ExtResource("16_lvo3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.61332, 54.066303, -3.3482332)
-
-[node name="enter" type="Area3D" parent="Billboard_medium" unique_id=702916178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
-script = ExtResource("17_csgam")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Billboard_medium/enter" unique_id=809230246]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6485825, 6.958084, 0.06520271)
-shape = SubResource("BoxShape3D_55y6p")
-
-[node name="exit" type="Area3D" parent="Billboard_medium" unique_id=421976121]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
-script = ExtResource("18_pmuua")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Billboard_medium/exit" unique_id=1752633989]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.594635, 7.1363716, 0.45503426)
-shape = SubResource("BoxShape3D_sg5iw")
-
-[node name="Billboard_medium2" parent="." unique_id=207517115 instance=ExtResource("16_lvo3j")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 77.59769, 54.066303, -3.3482332)
-
-[node name="enter" type="Area3D" parent="Billboard_medium2" unique_id=982441112]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
-script = ExtResource("17_csgam")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Billboard_medium2/enter" unique_id=742560553]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6485825, 6.958084, 1.3457706)
-shape = SubResource("BoxShape3D_7fn5l")
-
-[node name="exit" type="Area3D" parent="Billboard_medium2" unique_id=1590434010]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
-script = ExtResource("18_pmuua")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Billboard_medium2/exit" unique_id=1265381223]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.785431, 7.1363716, 0.90687346)
-shape = SubResource("BoxShape3D_025wx")
-
-[node name="booster_pad" parent="." unique_id=104510735 instance=ExtResource("18_csgam")]
-transform = Transform3D(-0.12010056, -0.6733643, -0.7294904, -0.9853147, -0.008985579, 0.17051262, -0.12137206, 0.739256, -0.66239643, 107.45041, 4.4876804, 61.02188)
-power = 15.0
-
-[node name="Bumper2" parent="." unique_id=1450576671 instance=ExtResource("32_62cfs")]
-transform = Transform3D(-0.093482815, 0, 0.9956209, 0, 1, 0, -0.9956209, 0, -0.093482815, 104.45773, 0.10194087, 63.19014)
-bump_y = 10.0
-bump_z = -2.0
-
-[node name="Pieton3" parent="." unique_id=2066491939 instance=ExtResource("15_qn0af")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.920525, 1.23138, 71.21265)
-PietonMESH = ExtResource("30_ffspi")
-
-[node name="Pieton4" parent="." unique_id=778391326 instance=ExtResource("15_qn0af")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.028015, 1.23138, 74.385826)
-PietonMESH = ExtResource("30_ffspi")
-
-[node name="Pieton5" parent="." unique_id=75706857 instance=ExtResource("15_qn0af")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.60144, 1.23138, 73.8984)
-PietonMESH = ExtResource("30_ffspi")
-
-[node name="Pieton6" parent="." unique_id=1427802547 instance=ExtResource("15_qn0af")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.20721, 1.23138, 73.892075)
-PietonMESH = ExtResource("30_ffspi")
-
-[node name="Label3D" type="Label3D" parent="." unique_id=184925470]
-transform = Transform3D(-0.21425968, 0, -0.9767768, 0, 1, 0, 0.9767768, 0, -0.21425968, 106.52954, 3.8080363, 70.53067)
-pixel_size = 0.04
-modulate = Color(1.327, 0.12, 0, 1)
-text = "CAN YOU TAKE ON 
-THE DEATH SPIRAL ??"
-
-[node name="grosserampe9" type="CSGBox3D" parent="." unique_id=978632260]
+[node name="grosserampe12" type="CSGBox3D" parent="parking_lot" unique_id=978632260]
 transform = Transform3D(-0.9999999, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.9999999, 84.2247, 3.2729301, -24.305075)
 use_collision = true
 size = Vector3(4.1373324, 6.6449356, 6.455057)
 material = SubResource("StandardMaterial3D_vajfm")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe9" unique_id=571275755]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="parking_lot/grosserampe12" unique_id=571275755]
 operation = 2
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe9/CSGCombiner3D" unique_id=844032875]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="parking_lot/grosserampe12/CSGCombiner3D" unique_id=844032875]
 transform = Transform3D(-4.2608008e-08, 0.9999962, -2.2168933e-12, -1.0000046, -3.7020072e-08, 0, -1.6930969e-15, 1.7479351e-12, 0.99999386, 0.01254272, 4.1068187, -3.326336)
 radius = 5.357422
 height = 7.7
 sides = 64
 
-[node name="grosserampe10" type="CSGBox3D" parent="." unique_id=1512453871]
+[node name="grosserampe13" type="CSGBox3D" parent="parking_lot" unique_id=1512453871]
 transform = Transform3D(-0.9999999, -8.742278e-08, -3.8213705e-15, 0, -4.371139e-08, 0.9999999, -8.742277e-08, 1, 4.3711385e-08, 84.2247, 10.456569, -24.205395)
 use_collision = true
 size = Vector3(4.1373324, 6.2858467, 6.455057)
 material = SubResource("StandardMaterial3D_vajfm")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="grosserampe10" unique_id=927455939]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="parking_lot/grosserampe13" unique_id=927455939]
 operation = 2
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grosserampe10/CSGCombiner3D" unique_id=654676433]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="parking_lot/grosserampe13/CSGCombiner3D" unique_id=654676433]
 transform = Transform3D(-4.2608008e-08, 0.9999962, -2.2168933e-12, -1.0000046, -3.7020072e-08, 0, -1.6930969e-15, 1.7479351e-12, 0.99999386, 0.012542683, 3.259748, -3.326336)
 radius = 5.357422
 height = 7.7
 sides = 64
+
+[node name="gravity_check" type="Node3D" parent="parking_lot" unique_id=1286718154]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, 84.56852, 10.156667, 0)
+
+[node name="enter" type="Area3D" parent="parking_lot/gravity_check" unique_id=1371004282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47055912, 0, -1.1920929e-07)
+script = ExtResource("17_csgam")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="parking_lot/gravity_check/enter" unique_id=785994721]
+transform = Transform3D(0.9999831, 2.5579538e-13, -2.9801841e-08, -2.593481e-13, 0.99998385, 7.6232965e-21, 2.9802322e-08, 0, 0.9999992, 2.648571, -3.9359055, -3.1896982)
+shape = SubResource("BoxShape3D_0nvkg")
+
+[node name="exit" type="Area3D" parent="parking_lot/gravity_check" unique_id=1905642224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47055912, 0, -1.1920929e-07)
+script = ExtResource("18_pmuua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="parking_lot/gravity_check/exit" unique_id=1548891788]
+transform = Transform3D(0.9999843, 2.3803182e-13, -2.9801878e-08, -2.3803182e-13, 0.9999851, 7.093901e-21, 2.9802322e-08, 0, 0.9999992, 2.7854319, -4.1191483, -3.1855536)
+shape = SubResource("BoxShape3D_euwr1")
 
 [node name="booster_pad2" parent="." unique_id=927680681 instance=ExtResource("18_csgam")]
 transform = Transform3D(0.1182051, 0.6847403, 0.7191371, -0.9853148, -0.0089856, 0.1705126, 0.12321877, -0.72873145, 0.6736223, 62.272152, 4.4886265, -70.739525)
@@ -1804,6 +1608,226 @@ transform = Transform3D(0.059916295, 0, -0.9982034, 0, 1, 0, 0.9982034, 0, 0.059
 bump_y = 10.0
 bump_x = -5.0
 bump_z = 2.0
+
+[node name="DEATH_SPIRAL" type="Node3D" parent="." unique_id=529918680]
+
+[node name="Looping_Barrierless_scene" parent="DEATH_SPIRAL" unique_id=404991392 instance=ExtResource("32_rvk64")]
+transform = Transform3D(0.66858566, -0.7436351, 3.250532e-08, 4.0085534e-15, -4.3711395e-08, -1, 0.7436351, 0.66858566, -2.9224811e-08, 106.173416, 7.8756847, 58.65027)
+
+[node name="enter" type="Area3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene" unique_id=1170391822]
+transform = Transform3D(1, 0, 0, 0, 1, 1.7763568e-15, 1.7763568e-15, 0, 1, 0, 0, 0)
+script = ExtResource("33_62cfs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene/enter" unique_id=1650794338]
+transform = Transform3D(1, 0, 0, 0, 0.05116809, -0.99868983, 6.6968653e-13, 0.99869007, 0.05116524, -3.1403198, 2.3328705, 2.874064)
+shape = SubResource("CylinderShape3D_rvk64")
+
+[node name="badtothebone" type="AudioStreamPlayer3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene/enter" unique_id=1408227453]
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+max_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="badtothebone2" type="AudioStreamPlayer3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene/enter" unique_id=1289821145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.042307, 10.371939, -14.640793)
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+max_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="badtothebone3" type="AudioStreamPlayer3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene/enter" unique_id=1123289309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3214, 5.8858423, -31.445438)
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+max_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="badtothebone4" type="AudioStreamPlayer3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene/enter" unique_id=377403823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.685337, -2.3841858e-07, -52.840412)
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+max_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="exit2" type="Area3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene" unique_id=1299497369]
+script = ExtResource("18_pmuua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene/exit2" unique_id=619925785]
+transform = Transform3D(0.7580645, 0.6500422, 0.052755773, -0.04019335, 0.12730587, -0.9910486, -0.6509399, 0.74915856, 0.12263073, -21.929123, 5.894169, -23.392448)
+shape = SubResource("CylinderShape3D_62cfs")
+
+[node name="Looping_Barrierless_scene2" parent="DEATH_SPIRAL" unique_id=1653075893 instance=ExtResource("32_rvk64")]
+transform = Transform3D(0.5939807, -0.8044794, 3.5164902e-08, -8.6991427e-16, -4.3711385e-08, -1, 0.8044794, 0.5939807, -2.5963711e-08, 102.87308, 14.754663, 54.97946)
+
+[node name="Looping_Barrierless_scene3" parent="DEATH_SPIRAL" unique_id=1839426562 instance=ExtResource("32_rvk64")]
+transform = Transform3D(0.56688076, -0.8237998, 3.6009435e-08, 1.4363293e-15, -4.3711392e-08, -1, 0.8237998, 0.56688076, -2.4779144e-08, 98.56959, 21.615614, 49.18377)
+
+[node name="Looping_Barrierless_scene4" parent="DEATH_SPIRAL" unique_id=2082844832 instance=ExtResource("32_rvk64")]
+transform = Transform3D(0.48503855, -0.8744927, 3.8225288e-08, -1.0017793e-15, -4.371138e-08, -1, 0.8744927, 0.48503855, -2.12017e-08, 95.77129, 28.494593, 45.117256)
+
+[node name="Looping_Barrierless_scene5" parent="DEATH_SPIRAL" unique_id=692507843 instance=ExtResource("32_rvk64")]
+transform = Transform3D(0.4702881, -0.88251305, 3.857587e-08, -6.380482e-16, -4.37114e-08, -1, 0.88251305, 0.4702881, -2.0556946e-08, 92.27479, 35.30207, 38.80816)
+
+[node name="Looping_Barrierless_scene6" parent="DEATH_SPIRAL" unique_id=1584225251 instance=ExtResource("32_rvk64")]
+transform = Transform3D(0.38324776, -0.9236456, 4.037382e-08, 1.3147423e-15, -4.371139e-08, -1, 0.9236456, 0.38324776, -1.6752283e-08, 89.9533, 42.18105, 34.451817)
+
+[node name="Looping_Barrierless_scene7" parent="DEATH_SPIRAL" unique_id=1324199432 instance=ExtResource("32_rvk64")]
+transform = Transform3D(0.35229906, -0.9358875, 4.0908937e-08, 4.9540194e-16, -4.3711392e-08, -1, 0.9358875, 0.35229906, -1.5399475e-08, 87.1687, 49.041996, 27.791788)
+
+[node name="Looping_Barrierless_scene8" parent="DEATH_SPIRAL" unique_id=100458106 instance=ExtResource("32_rvk64")]
+transform = Transform3D(0.26067293, -0.9654269, 4.220015e-08, -1.6496344e-15, -4.3711385e-08, -1, 0.9654269, 0.26067293, -1.139437e-08, 85.42965, 55.92098, 23.171963)
+
+[node name="Looping_Barrierless_scene9" parent="DEATH_SPIRAL" unique_id=1652378164 instance=ExtResource("32_rvk64")]
+transform = Transform3D(-0.6098824, 0.792492, -3.4640923e-08, -2.397343e-15, -4.3711385e-08, -1, -0.792492, -0.6098824, 2.6658805e-08, 63.83731, 7.8756847, -67.78238)
+
+[node name="enter" type="Area3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene9" unique_id=1821930370]
+transform = Transform3D(1, 0, 0, 0, 1, 1.7763568e-15, 1.7763568e-15, 0, 1, 0, 0, 0)
+script = ExtResource("33_62cfs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene9/enter" unique_id=1034546335]
+transform = Transform3D(0.9999999, -2.2351742e-08, 1.7881393e-07, 0, 0.05116809, -0.99868953, 6.82121e-13, 0.99869007, 0.05116544, -2.3325274, 2.7395906, 3.1264985)
+shape = SubResource("CylinderShape3D_00tu3")
+
+[node name="badtothebone" type="AudioStreamPlayer3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene9/enter" unique_id=1451423120]
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+max_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="badtothebone2" type="AudioStreamPlayer3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene9/enter" unique_id=1913935886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.042307, 10.371939, -14.640793)
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+max_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="badtothebone3" type="AudioStreamPlayer3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene9/enter" unique_id=399756978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3214, 5.8858423, -31.445438)
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+max_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="badtothebone4" type="AudioStreamPlayer3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene9/enter" unique_id=1826307684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.685337, -2.3841858e-07, -52.840412)
+stream = SubResource("AudioStreamRandomizer_kb7yh")
+volume_db = -20.0
+max_db = -20.0
+autoplay = true
+max_distance = 20.0
+doppler_tracking = 1
+
+[node name="exit2" type="Area3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene9" unique_id=359649493]
+script = ExtResource("18_pmuua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene9/exit2" unique_id=831016526]
+transform = Transform3D(0.7580645, 0.6500422, 0.052755773, -0.04019335, 0.12730587, -0.9910486, -0.6509399, 0.74915856, 0.122631006, -21.929123, 5.894169, -23.392447)
+shape = SubResource("CylinderShape3D_62cfs")
+
+[node name="Looping_Barrierless_scene10" parent="DEATH_SPIRAL" unique_id=728486223 instance=ExtResource("32_rvk64")]
+transform = Transform3D(-0.5308515, 0.8474648, -3.704386e-08, 3.596971e-15, -4.3711395e-08, -1, -0.8474648, -0.5308515, 2.3204256e-08, 66.84786, 14.754663, -63.870403)
+
+[node name="Looping_Barrierless_scene11" parent="DEATH_SPIRAL" unique_id=991254038 instance=ExtResource("32_rvk64")]
+transform = Transform3D(-0.5023562, 0.8646608, -3.7795502e-08, -1.2017892e-15, -4.371138e-08, -1, -0.8646608, -0.5023562, 2.1958675e-08, 70.69648, 21.615614, -57.76318)
+
+[node name="Looping_Barrierless_scene12" parent="DEATH_SPIRAL" unique_id=747796766 instance=ExtResource("32_rvk64")]
+transform = Transform3D(-0.4168839, 0.9089599, -3.973189e-08, -1.646952e-16, -4.371138e-08, -1, -0.9089599, -0.4168839, 1.8222567e-08, 73.17626, 28.494593, -53.49497)
+
+[node name="Looping_Barrierless_scene13" parent="DEATH_SPIRAL" unique_id=1702738696 instance=ExtResource("32_rvk64")]
+transform = Transform3D(-0.40156424, 0.91583085, -4.0032237e-08, -3.0027951e-15, -4.3711385e-08, -1, -0.91583085, -0.40156424, 1.7552928e-08, 76.181076, 35.30207, -46.937412)
+
+[node name="Looping_Barrierless_scene14" parent="DEATH_SPIRAL" unique_id=1999289282 instance=ExtResource("32_rvk64")]
+transform = Transform3D(-0.3116386, 0.95020086, -4.1534584e-08, 1.3598206e-15, -4.3711378e-08, -1, -0.95020086, -0.3116386, 1.362215e-08, 78.16333, 42.18105, -42.416607)
+
+[node name="Looping_Barrierless_scene15" parent="DEATH_SPIRAL" unique_id=692824104 instance=ExtResource("32_rvk64")]
+transform = Transform3D(-0.27984592, 0.9600451, -4.1964896e-08, -1.6954741e-15, -4.3711392e-08, -1, -0.9600451, -0.27984592, 1.2232451e-08, 80.431526, 49.041996, -35.563488)
+
+[node name="Looping_Barrierless_scene16" parent="DEATH_SPIRAL" unique_id=436832995 instance=ExtResource("32_rvk64")]
+transform = Transform3D(-0.18623264, 0.9825057, -4.294669e-08, -1.7312839e-15, -4.371139e-08, -1, -0.9825057, -0.18623264, 8.140482e-09, 81.81292, 55.92098, -30.824413)
+
+[node name="Billboard_medium" parent="DEATH_SPIRAL" unique_id=2115963977 instance=ExtResource("16_lvo3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.61332, 54.066303, -3.3482332)
+
+[node name="enter" type="Area3D" parent="DEATH_SPIRAL/Billboard_medium" unique_id=702916178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("17_csgam")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH_SPIRAL/Billboard_medium/enter" unique_id=809230246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6485825, 6.958084, 0.06520271)
+shape = SubResource("BoxShape3D_55y6p")
+
+[node name="exit" type="Area3D" parent="DEATH_SPIRAL/Billboard_medium" unique_id=421976121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("18_pmuua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH_SPIRAL/Billboard_medium/exit" unique_id=1752633989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.594635, 7.1363716, 0.45503426)
+shape = SubResource("BoxShape3D_sg5iw")
+
+[node name="Billboard_medium2" parent="DEATH_SPIRAL" unique_id=207517115 instance=ExtResource("16_lvo3j")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 77.59769, 54.066303, -3.3482332)
+
+[node name="enter" type="Area3D" parent="DEATH_SPIRAL/Billboard_medium2" unique_id=982441112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("17_csgam")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH_SPIRAL/Billboard_medium2/enter" unique_id=742560553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6485825, 6.958084, 1.3457706)
+shape = SubResource("BoxShape3D_7fn5l")
+
+[node name="exit" type="Area3D" parent="DEATH_SPIRAL/Billboard_medium2" unique_id=1590434010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+script = ExtResource("18_pmuua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH_SPIRAL/Billboard_medium2/exit" unique_id=1265381223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.785431, 7.1363716, 0.90687346)
+shape = SubResource("BoxShape3D_025wx")
+
+[node name="booster_pad" parent="DEATH_SPIRAL" unique_id=104510735 instance=ExtResource("18_csgam")]
+transform = Transform3D(-0.12010056, -0.6733643, -0.7294904, -0.9853147, -0.008985579, 0.17051262, -0.12137206, 0.739256, -0.66239643, 107.45041, 4.4876804, 61.02188)
+power = 15.0
+
+[node name="Bumper2" parent="DEATH_SPIRAL" unique_id=1450576671 instance=ExtResource("32_62cfs")]
+transform = Transform3D(-0.093482815, 0, 0.9956209, 0, 1, 0, -0.9956209, 0, -0.093482815, 104.45773, 0.10194087, 63.19014)
+bump_y = 10.0
+bump_z = -2.0
+
+[node name="Pieton3" parent="DEATH_SPIRAL" unique_id=2066491939 instance=ExtResource("15_qn0af")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.920525, 1.23138, 71.21265)
+PietonMESH = ExtResource("30_ffspi")
+
+[node name="Pieton4" parent="DEATH_SPIRAL" unique_id=778391326 instance=ExtResource("15_qn0af")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.028015, 1.23138, 74.385826)
+PietonMESH = ExtResource("30_ffspi")
+
+[node name="Pieton5" parent="DEATH_SPIRAL" unique_id=75706857 instance=ExtResource("15_qn0af")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.60144, 1.23138, 73.8984)
+PietonMESH = ExtResource("30_ffspi")
+
+[node name="Pieton6" parent="DEATH_SPIRAL" unique_id=1427802547 instance=ExtResource("15_qn0af")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.20721, 1.23138, 73.892075)
+PietonMESH = ExtResource("30_ffspi")
+
+[node name="Label3D" type="Label3D" parent="DEATH_SPIRAL" unique_id=184925470]
+transform = Transform3D(-0.21425968, 0, -0.9767768, 0, 1, 0, 0.9767768, 0, -0.21425968, 106.52954, 3.8080363, 70.53067)
+pixel_size = 0.04
+modulate = Color(1.327, 0.12, 0, 1)
+text = "CAN YOU TAKE ON 
+THE DEATH SPIRAL ??"
 
 [node name="grosserampe11" type="CSGBox3D" parent="." unique_id=2115987454]
 transform = Transform3D(-0.023053676, 0, -0.99973416, 0, 1, 0, 0.99973416, 0, -0.023053676, 39.354095, 1.2511101, 67.943405)
@@ -1820,11 +1844,11 @@ radius = 5.357422
 height = 7.7
 sides = 64
 
-[connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_finished"]
-[connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone2" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_2_finished"]
-[connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone3" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_3_finished"]
-[connection signal="finished" from="Looping_Barrierless_scene/enter/badtothebone4" to="Looping_Barrierless_scene/enter" method="_on_badtothebone_4_finished"]
-[connection signal="finished" from="Looping_Barrierless_scene9/enter/badtothebone" to="Looping_Barrierless_scene9/enter" method="_on_badtothebone_finished"]
-[connection signal="finished" from="Looping_Barrierless_scene9/enter/badtothebone2" to="Looping_Barrierless_scene9/enter" method="_on_badtothebone_2_finished"]
-[connection signal="finished" from="Looping_Barrierless_scene9/enter/badtothebone3" to="Looping_Barrierless_scene9/enter" method="_on_badtothebone_3_finished"]
-[connection signal="finished" from="Looping_Barrierless_scene9/enter/badtothebone4" to="Looping_Barrierless_scene9/enter" method="_on_badtothebone_4_finished"]
+[connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_finished"]
+[connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone2" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_2_finished"]
+[connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone3" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_3_finished"]
+[connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone4" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_4_finished"]
+[connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene9/enter/badtothebone" to="DEATH_SPIRAL/Looping_Barrierless_scene9/enter" method="_on_badtothebone_finished"]
+[connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene9/enter/badtothebone2" to="DEATH_SPIRAL/Looping_Barrierless_scene9/enter" method="_on_badtothebone_2_finished"]
+[connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene9/enter/badtothebone3" to="DEATH_SPIRAL/Looping_Barrierless_scene9/enter" method="_on_badtothebone_3_finished"]
+[connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene9/enter/badtothebone4" to="DEATH_SPIRAL/Looping_Barrierless_scene9/enter" method="_on_badtothebone_4_finished"]
