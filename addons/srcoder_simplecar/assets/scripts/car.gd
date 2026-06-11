@@ -118,6 +118,7 @@ func _input(event): #
 		print("big_jump")
 		Sound.stream = bigjump
 		Sound.play()
+		$ground_timer.start(0.5)
 		linear_velocity += (transform.basis.y * 6) + transform.basis.z #HOLY SHIT IT WORKS
 		linear_velocity.y += 7 #add a little global vertical boost for cleaner walljumps 
 				#transform.basis.y + 10 makes the car jump from local position and transform.basis.z makes the car keep it's rolling speed when jumping
@@ -508,6 +509,9 @@ func get_input(delta : float):
 		axis_lock_angular_y = true
 		axis_lock_angular_z = true
 		axis_lock_angular_x = true
+		
+	#if !$ground_timer.is_stopped() :
+		#$check_ground.enabled = false
 
 		
 func _destroy_particle():
@@ -711,3 +715,7 @@ func _on_radio_finished() -> void:
 	#Sound.stream = static_sound
 	#Sound.play()
 	Radio.play()
+
+
+#func _on_ground_timer_timeout() -> void:
+	#$check_ground.enabled = true

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://chm4ifhu8twhl"]
+[gd_scene format=3 uid="uid://2sm8xmqmpnxg"]
 
-[ext_resource type="ArrayMesh" uid="uid://dw267cr4hiptg" path="res://assets/Models/props/Roads/road_default_barriere.tres" id="1_040yn"]
+[ext_resource type="ArrayMesh" uid="uid://bmkm0jpginpc7" path="res://assets/Models/props/Roads/road_default_barriere.tres" id="1_040yn"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ssa08"]
 points = PackedVector3Array(5, 0.04, 10, -5, 0.04, 10, 5, 0, 10, 5, 0.04, -10, -5, 0, 10, -5, 0.04, -10, 5, 0, -10, -5, 0, -10)
