@@ -290,14 +290,12 @@ cull_mode = 2
 shading_mode = 0
 albedo_color = Color(3.7541986e-06, 0.94921654, 0.64474994, 1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_q5a12"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_635pb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7us2"]
 cull_mode = 2
 shading_mode = 0
 albedo_color = Color(0.8516507, 0.10439276, 0.4250917, 1)
-
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_635pb"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_2oksv"]
 
@@ -314,6 +312,8 @@ albedo_color = Color(0.8516507, 0.10439276, 0.4250917, 1)
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_t48tg"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_8ngsy"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_clvmh"]
 
 [node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "Tv_quotes", "Radio", "VStraemPlay", "exploParticles", "trails", "Particle_figure", "particule_holder", "score_display", "LayBa")]
 collision_layer = 2
@@ -463,6 +463,9 @@ one_shot = true
 one_shot = true
 
 [node name="exploCoolDown" type="Timer" parent="." unique_id=1524377064]
+one_shot = true
+
+[node name="ground_timer" type="Timer" parent="." unique_id=1432755134]
 one_shot = true
 
 [node name="cockpit" type="Camera3D" parent="." unique_id=62731619]
@@ -657,7 +660,7 @@ draw_pass_1 = SubResource("PlaneMesh_e70ve")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, 0.16494739, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_q5a12")
+mesh = SubResource("ImmediateMesh_635pb")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -668,7 +671,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.43419406, 0.30833566, -1.3361323)
 material_override = SubResource("StandardMaterial3D_b7us2")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_635pb")
+mesh = SubResource("ImmediateMesh_2oksv")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -679,7 +682,7 @@ startColor = Color(0.86993164, 0.15957409, 0.39749965, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.44745758, 0.30833566, -1.3361323)
 material_override = SubResource("StandardMaterial3D_b7us2")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_2oksv")
+mesh = SubResource("ImmediateMesh_0wh4r")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -690,7 +693,7 @@ startColor = Color(0.86993164, 0.15957409, 0.39749965, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, -0.16910112, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_0wh4r")
+mesh = SubResource("ImmediateMesh_u2f4k")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -701,7 +704,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, 0.16494739, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_u2f4k")
+mesh = SubResource("ImmediateMesh_fimmd")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -712,7 +715,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, -0.16910112, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_fimmd")
+mesh = SubResource("ImmediateMesh_er80i")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -723,7 +726,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, 0.16494739, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_er80i")
+mesh = SubResource("ImmediateMesh_2qtt0")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -734,7 +737,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, -0.16910112, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_2qtt0")
+mesh = SubResource("ImmediateMesh_t48tg")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -745,7 +748,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, 0.16494739, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_t48tg")
+mesh = SubResource("ImmediateMesh_8ngsy")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -756,7 +759,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, -0.16910112, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_8ngsy")
+mesh = SubResource("ImmediateMesh_clvmh")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -771,4 +774,5 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 [connection signal="timeout" from="boostTimer" to="." method="_on_boost_timer_timeout"]
 [connection signal="timeout" from="bumpTimer" to="." method="_on_bump_timer_timeout"]
 [connection signal="timeout" from="exploCoolDown" to="." method="_on_explo_cool_down_timeout"]
+[connection signal="timeout" from="ground_timer" to="." method="_on_ground_timer_timeout"]
 [connection signal="value_changed" from="Ui_Holder/OUI/Nitro" to="." method="_on_nitro_value_changed"]

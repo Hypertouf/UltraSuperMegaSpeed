@@ -103,6 +103,9 @@ func _ready() -> void:
 func hypothenuse(a, b): #urhm it might look silly but it is necessary for correctly calculating the adaptive FOV
 	return sqrt((a*a) + (b*b))
 	
+func gravity_changing() :
+	PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, -transform.basis.y)
+	gravity_change = true
 	
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
@@ -175,9 +178,9 @@ func _physics_process(delta: float) -> void:
 	else :
 		followcamera.rotation_damping = 3.11
 	
-	if gravity_change and (basis.z.dot(linear_velocity) <= 4 or Input.is_action_just_released("sauter")):
+	if basis.z.dot(linear_velocity) <= 4 or Input.is_action_just_released("sauter") or gravity_change == false:
 		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
-		gravity_change = false
+		
 		
 ## sets the variables player_steer, player_brake and player_acceleration based on the player input
 func get_input(delta : float):
@@ -227,6 +230,8 @@ func get_input(delta : float):
 		
 	
 	if !$check_ground.is_colliding():
+		
+		gravity_change = false
 		#if default_position == Vector3(0.0,0.0,0.0):
 			#print(rotation_degrees)
 			#default_position = rotation_degrees
@@ -449,6 +454,8 @@ func get_input(delta : float):
 		
 		
 	if $check_ground.is_colliding():
+		
+		gravity_changing()
 		#print("it's non the ground")
 
 		if tricks != [0,0,0]:
@@ -584,16 +591,17 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 	
 	if area is enterWall :
 		print("WALLING")
-		gravity_change = true
+		#gravity_changing()
+		#gravity_change = true
 		# Set the default gravity direction the x coordinates of the wall.																					
-		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, area.get_parent().global_transform.basis.x * 2)
+		#PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, area.get_parent().global_transform.basis.x * 2)
 		
 	if area is enterGRAVloop :
 		print("gravity looping")
-		gravity_change = true
+		#gravity_change = true
 		$cockpit.fov = 90
 		$cockpit.make_current()
-		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN * 0.1)
+		#PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN * 0.1)
 
 		
 																																			
@@ -603,8 +611,8 @@ func _on_hitbox_area_exited(area: Area3D) -> void:
 	
 	if area is exitWall :
 		print("wall exited")
-		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
-		gravity_change = false
+		#PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
+		#gravity_change = false
 		followcamera.mycamera.make_current()
 		
 		

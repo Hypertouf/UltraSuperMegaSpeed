@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bunpfwsn8y2rj" path="res://assets/Models/props/Roads/road_4_ways.tscn" id="29_qn0af"]
 [ext_resource type="PackedScene" uid="uid://bfq0fd2nsskmy" path="res://assets/Models/CSG_scenes/turnpipe.tscn" id="30_00tu3"]
 [ext_resource type="PlaneMesh" uid="uid://uej1ixsmgesg" path="res://assets/BabyMesh.tres" id="30_ffspi"]
-[ext_resource type="PackedScene" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
+[ext_resource type="PackedScene" uid="uid://ddk1ni0j2vby3" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
 [ext_resource type="PackedScene" uid="uid://jaavrwy3gfo1" path="res://assets/Models/props/TV.tscn" id="31_ffspi"]
 [ext_resource type="PackedScene" uid="uid://c0hsfkgf6dwv" path="res://assets/Models/props/garage.tscn" id="32_00tu3"]
 [ext_resource type="AudioStream" uid="uid://cfc4poswwb4g2" path="res://assets/Audio/bad-to-the-bone.mp3" id="32_1uvwm"]
@@ -542,19 +542,19 @@ sides = 64
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.3711392e-08, 0, 0, 3.5527137e-15, 1, -89.62132, 30.171368, 16.858522)
 
 [node name="Echaffaudage7" parent="semiLoop" unique_id=1976483596 instance=ExtResource("30_pjy18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.95392, 9.9764185, 13.941899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.874916, 9.9764185, 13.941899)
 
 [node name="Echaffaudage10" parent="semiLoop" unique_id=1693421754 instance=ExtResource("30_pjy18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.74825, 9.989719, 13.932999)
 
 [node name="booster_pad5" parent="semiLoop" unique_id=1331006584 instance=ExtResource("18_csgam")]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -93.194275, 30.628244, 15.5206585)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -93.194275, 30.200012, 15.5206585)
 
 [node name="booster_pad6" parent="semiLoop" unique_id=1330876012 instance=ExtResource("18_csgam")]
-transform = Transform3D(-1, 1.509958e-07, 0, -1.509958e-07, -1, 0, 0, 0, 1, -94.62836, 30.548899, 17.847902)
+transform = Transform3D(-1, 1.509958e-07, 0, -1.509958e-07, -1, 0, 0, 0, 1, -94.62836, 30.173819, 17.847902)
 
 [node name="booster_pad4" parent="semiLoop" unique_id=905876156 instance=ExtResource("18_csgam")]
-transform = Transform3D(-5.428484e-08, -0.5900422, 0.80737245, 1, -4.371139e-08, 3.5291364e-08, 1.4467979e-08, 0.80737245, 0.5900422, -97.63284, 30.546347, 6.3803263)
+transform = Transform3D(-5.428484e-08, -0.5900422, 0.80737245, 1, -4.371139e-08, 3.5291364e-08, 1.4467979e-08, 0.80737245, 0.5900422, -97.63284, 30.219322, 6.3803263)
 
 [node name="bbwalljump" type="Node3D" parent="." unique_id=2029392170]
 
@@ -1176,6 +1176,7 @@ transform = Transform3D(-0.37809885, 0.32339048, -0.8674444, -0.8893434, 0.13335
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="pipesystem" unique_id=1196804817]
 transform = Transform3D(-0.9999699, 8.74192e-08, 4.371139e-08, -4.371137e-08, 1.9107609e-15, -1, -8.74192e-08, -0.9999699, 1.9106855e-15, 55.465294, -1.6555729, -59.086174)
+use_collision = true
 radius = 4.4697266
 height = 4.484253
 sides = 30
