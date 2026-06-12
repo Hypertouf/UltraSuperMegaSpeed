@@ -44,12 +44,15 @@ var trans2d : Transform2D
 @export var Particle_material : ParticleProcessMaterial
 @export var particule_holder : Control
 @export var score_display : Control
+@export var colorrectanchor : PackedScene
 @onready var score_list : Control = score_display.get_child(0).get_child(0).get_child(0)
 @onready var score_bilan : Control = score_display.get_child(0).get_child(0).get_child(2).get_child(1)
+@export var font : FontFile
 var score_int : int = 0
 var score_string : String = "0"
 var Particle = GPUParticles2D.new()
 
+@export var timy : Timer
 
 var Dlg_Sct = load("uid://bbbh1af5b4qeb") #La ou est rangé le dialogue qui est lu dans le ballon
 var balloon_path : String = ProjectSettings.get_setting("dialogue_manager/runtime/balloon_path")
@@ -110,6 +113,24 @@ func gravity_changing() :
 	PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, -transform.basis.y)
 	gravity_change = true
 	
+	
+func _spawn_lbl_score(a):
+	var lbl = Label.new()
+	var rect = colorrectanchor.instantiate()
+	lbl.set("theme_override_colors/font_color", true)
+	lbl.set("theme_override_colors/font_color", Color(0.0, 0.0, 0.0, 1.0))
+	lbl.set("clip_contents", true)
+	lbl.set("theme_override_fonts/font", font )
+	lbl.text = "   +" + str(a)
+	rect.set("size", Vector2(0, 648))
+	score_list.add_child(lbl)
+	lbl.add_child(rect)
+	var tween = get_tree().create_tween()
+	tween.tween_property(rect, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.2)
+	#tween.tween_property(rect, "size", Vector2(0,648), 0.01)
+	tween.tween_property(rect, "scale", Vector2(0.8,1), 0.3)
+	pass
+
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
 		print("pressed")
@@ -238,7 +259,7 @@ func get_input(delta : float):
 		Sound.volume_db = -30
 		for wheel in steering_wheels :
 			wheel.wheel_friction_slip = front_wheel_grip
-		
+	
 	
 	if !$check_ground.is_colliding():
 		
@@ -274,11 +295,9 @@ func get_input(delta : float):
 				particule_holder.add_child(Particle)
 				
 				total_rotation.x = 0
-				var lbl = Label.new()
-				lbl.set("theme_override_colors/font_color", true)
-				lbl.set("theme_override_colors/font_color", Color(1.0, 1.0, 1.0, 1.0))
-				lbl.text = "+100"
-				score_list.add_child(lbl)
+				_spawn_lbl_score(100)
+
+				
 				tricks[0] +=1
 		elif Input.is_action_pressed("backflip") :
 			speed.x = lerp(speed.x, 0.15, 0.05)
@@ -300,9 +319,7 @@ func get_input(delta : float):
 
 				particule_holder.add_child(Particle)
 
-				var lbl = Label.new()
-				lbl.text = "+100"
-				score_list.add_child(lbl)
+				_spawn_lbl_score(100)
 				tricks[0] -=1
 		else : 
 			speed.x = lerp(speed.x, 0.0, 0.5)
@@ -326,10 +343,7 @@ func get_input(delta : float):
 				Particle.position = Vector2(980.0,312.0)
 
 				particule_holder.add_child(Particle)
-
-				var lbl = Label.new()
-				lbl.text = "+100"
-				score_list.add_child(lbl)
+				_spawn_lbl_score(100)
 				tricks[1] +=1
 		elif Input.is_action_pressed("shuvright") :
 			speed.y = lerp(speed.y, 0.15, 0.05)
@@ -349,10 +363,7 @@ func get_input(delta : float):
 				Particle.process_material = Particle_material
 				Particle.position = Vector2(980.0,312.0)
 
-				particule_holder.add_child(Particle)
-				var lbl = Label.new()
-				lbl.text = "+100"
-				score_list.add_child(lbl)
+				_spawn_lbl_score(100)
 				tricks[1] -=1
 		else : 
 			speed.y = lerp(speed.y, 0.0, 0.5)
@@ -380,9 +391,7 @@ func get_input(delta : float):
 
 				particule_holder.add_child(Particle)
 				
-				var lbl = Label.new()
-				lbl.text = "+100"
-				score_list.add_child(lbl)
+				_spawn_lbl_score(100)
 				tricks[2] += 1
 		elif Input.is_action_pressed("roll_right") :
 			speed.z = lerp(speed.z, 0.15, 0.05)
@@ -402,9 +411,7 @@ func get_input(delta : float):
 				Particle.position = Vector2(980.0,312.0)
 
 				particule_holder.add_child(Particle)
-				var lbl = Label.new()
-				lbl.text = "+100"
-				score_list.add_child(lbl)
+				_spawn_lbl_score(100)
 				tricks[2] -=1
 		else : 
 			speed.z = lerp(speed.z, 0.0, 0.5)
@@ -431,10 +438,7 @@ func get_input(delta : float):
 			Particle.position = Vector2(980.0,312.0)
 
 			particule_holder.add_child(Particle)
-			var lbl = Label.new()
-			lbl.theme_override_colors.font_color = true
-			lbl.text = "+100"
-			score_list.add_child(lbl)
+			_spawn_lbl_score(100)
 			print("360 flip !!!")
 		if tricks == [0,1,1]:
 			#Particle_figure.texture = FX_Figures[7]
@@ -449,9 +453,7 @@ func get_input(delta : float):
 			Particle.position = Vector2(980.0,312.0)
 
 			particule_holder.add_child(Particle)
-			var lbl = Label.new()
-			lbl.text = "+100"
-			score_list.add_child(lbl)
+			_spawn_lbl_score(100)
 			print("360 hardflip !!!")
 		if tricks == [0,1,-1]:
 			#Particle_figure.texture = FX_Figures[8]
@@ -466,9 +468,7 @@ func get_input(delta : float):
 			Particle.position = Vector2(980.0,312.0)
 
 			particule_holder.add_child(Particle)
-			var lbl = Label.new()
-			lbl.text = "+100"
-			score_list.add_child(lbl)
+			_spawn_lbl_score(100)
 			print("360 heelflip !!!")
 		if tricks == [0,-1,1]:
 			#Particle_figure.texture = FX_Figures[9]
@@ -483,9 +483,7 @@ func get_input(delta : float):
 			Particle.position = Vector2(980.0,312.0)
 
 			particule_holder.add_child(Particle)
-			var lbl = Label.new()
-			lbl.text = "+100"
-			score_list.add_child(lbl)
+			_spawn_lbl_score(100)
 			print("360 inward heelfip !!!")
 		
 		
@@ -527,23 +525,33 @@ func get_input(delta : float):
 			for n in score_list.get_children() :
 				if n :
 					var tween = create_tween()
-					tween.tween_property(score_list.get_child(-1), "theme_override_colors/font_color", Color(0.156, 0.708, 0.857, 1.0), 1) # Uses TRANS_LINEAR.
-					tween.tween_callback(score_list.get_child(-1).queue_free)
-					await get_tree().create_timer(1.0).timeout
+					var tween3 = create_tween()
+					tween3.tween_property(n.get_child(0), "scale", Vector2(0,1), 0.1) # Uses TRANS_LINEAR.
+					tween.tween_property(n, "theme_override_colors/font_color", Color(0.913, 0.742, 0.198, 1.0), 0.1) # Uses TRANS_LINEAR.
+					tween.tween_property(n, "theme_override_colors/font_color", Color(0.0, 0.0, 0.0, 0.0), 0.2) # Uses TRANS_LINEAR.
+					tween.tween_callback(n.queue_free)
+					await get_tree().create_timer(0.2).timeout
 				pass
-			var newtorbovalue = torbo.value
-			newtorbovalue = torbo.value + score * 10
+			#var newtorbovalue = torbo.value
+			#newtorbovalue = torbo.value + (score * 10)
 			#
 			var tween = create_tween()
-			tween.tween_property(torbo, "value", newtorbovalue, 0.3) # Uses TRANS_LINEAR.
+			tween.tween_property(torbo, "value", torbo.value + score * 10, 0.3) # Uses TRANS_LINEAR.
 			#torbo.value += score * 10
 			score = 0
-			score_int = 0
+			
+			#timy.start()
  				
 		tricks = [0,0,0]
 		default_position = Vector3(0,0,0)
 		total_rotation = Vector3.ZERO
+
+		if score_bilan.text != "0" and timy.is_stopped():
+			timy.start()
+			print("timer lancé ?")
+			pass
 	score_bilan.text = str(score_int)
+
 	if !$boostTimer.is_stopped() :
 		axis_lock_angular_y = true
 		axis_lock_angular_z = true
@@ -726,6 +734,21 @@ func _on_death_hitbox_body_entered(body: Node3D) -> void:
 		exploParticles.emitting = true
 		Sound.stream = explosion
 		tricks = [0,0,0]
+		for n in score_list.get_children() :
+			if n :
+				var tween = create_tween()
+				var tween3 = create_tween()
+
+				tween3.tween_property(n.get_child(0), "modulate", Color(), 0.1) # Uses TRANS_LINEAR.
+				tween3.tween_property(n.get_child(0), "modulate", Color(), 1) # Uses TRANS_LINEAR.
+				tween3.tween_property(n.get_child(0), "scale", Vector2(0,1), 0.1) # Uses TRANS_LINEAR.
+				#tween3.tween_property(n.get_child(0), "modulate", Color(0.0, 0.0, 0.0, 0.0), 0.5) # Uses TRANS_LINEAR.
+				tween.tween_property(n, "theme_override_colors/font_color", Color(0.839, 0.0, 0.143, 1.0), 0.2) # Uses TRANS_LINEAR.
+				tween.tween_property(n, "theme_override_colors/font_color", Color(0.839, 0.0, 0.143, 1.0), 1) # Uses TRANS_LINEAR.
+				tween.tween_property(n, "theme_override_colors/font_color", Color(0.0, 0.0, 0.0, 0.0), 0.1) # Uses TRANS_LINEAR.
+				tween.tween_callback(n.queue_free)
+				await get_tree().create_timer(0.2).timeout
+			pass
 		if $exploCoolDown.time_left == 0 :
 			$exploCoolDown.start(0.5)
 			Sound.play()
@@ -766,3 +789,10 @@ func _on_radio_finished() -> void:
 
 #func _on_ground_timer_timeout() -> void:
 	#$check_ground.enabled = true
+
+
+func _on_reset_style_board_timeout() -> void:
+	print("Rest style timer")
+	var tween2 = get_tree().create_tween()
+	tween2.tween_property(self, "score_int", 0, 0.5)
+	pass # Replace with function body.
