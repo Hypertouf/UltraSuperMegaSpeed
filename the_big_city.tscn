@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://rjx8tx5y7j2p" path="res://addons/srcoder_simplecar/follow_camera.tscn" id="2_fq8mh"]
 [ext_resource type="AudioStream" uid="uid://bic4a206esrbb" path="res://assets/Audio/005.Synth_MLT_se_ac_ce_bounce sound.wav" id="3_kb7yh"]
 [ext_resource type="Material" uid="uid://dh6ykun8bv60u" path="res://examples/day_sky.tres" id="4_fq8mh"]
-[ext_resource type="PackedScene" uid="uid://dyr831iovtxg" path="res://assets/Models/props/Roads/road_turning_barriere.tscn" id="10_rvk64"]
-[ext_resource type="PackedScene" uid="uid://chm4ifhu8twhl" path="res://assets/Models/props/Roads/road_default_barriere.tscn" id="11_1uvwm"]
+[ext_resource type="PackedScene" uid="uid://obvslhiy73ih" path="res://assets/Models/props/Roads/road_turning_barriere.tscn" id="10_rvk64"]
+[ext_resource type="PackedScene" uid="uid://2sm8xmqmpnxg" path="res://assets/Models/props/Roads/road_default_barriere.tscn" id="11_1uvwm"]
 [ext_resource type="PackedScene" uid="uid://cwsm84uy55vlh" path="res://assets/Models/props/Roads/road_default.tscn" id="14_ffspi"]
 [ext_resource type="PackedScene" uid="uid://c11e3npj6453m" path="res://Scenes/pieton.tscn" id="15_qn0af"]
 [ext_resource type="PackedScene" uid="uid://cna0whqbhy737" path="res://assets/Models/props/building_scene.tscn" id="15_xib5o"]
@@ -173,9 +173,10 @@ script = ExtResource("1_nkwo0")
 Player = NodePath("car")
 
 [node name="Ground" type="CSGBox3D" parent="." unique_id=655146880]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -3.511283, -4, 1.4582828)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -3.4689665, -4.000001, 1.4937671)
 use_collision = true
 size = Vector3(309.36572, 8, 300)
+metadata/_edit_lock_ = true
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Ground" unique_id=2017698729]
 operation = 2
@@ -195,6 +196,7 @@ size = Vector3(265.37433, 12.806702, 40.46776)
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -3.511283, -4.25753, 1.4582828)
 use_collision = true
 size = Vector3(309.36572, 7.095703, 300)
+metadata/_edit_lock_ = true
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Ground2" unique_id=568140438]
 operation = 2
@@ -217,6 +219,7 @@ shortjump = ExtResource("3_kb7yh")
 bigjump = ExtResource("3_kb7yh")
 
 [node name="FollowCamera" parent="." unique_id=670489488 node_paths=PackedStringArray("follow_target") instance=ExtResource("2_fq8mh")]
+transform = Transform3D(0.9999054, 0.01375276, 0, -0.01375276, 0.9999054, 0, 0, 0, 1, 0, 0, 0)
 follow_target = NodePath("../car")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1611002276]
@@ -277,8 +280,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0, -11.698502)
 [node name="RoadDefaultbarriere15" parent="Main_road" unique_id=1112716339 instance=ExtResource("11_1uvwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0, 8.301498)
 
+[node name="RoadDefaultbarriere15" parent="Main_road/RoadDefaultbarriere15" unique_id=1033175381 instance=ExtResource("11_1uvwm")]
+transform = Transform3D(0.9821102, 0, 0.188307, 0, 1, 0, -0.188307, 0, 0.9821102, -0.478195, 6.9892535, 0.5475445)
+
+[node name="RoadDefaultbarriere15" parent="Main_road/RoadDefaultbarriere15/RoadDefaultbarriere15" unique_id=53881181 instance=ExtResource("11_1uvwm")]
+transform = Transform3D(1.0000011, 0, 0, 0, 1, 0, 0, 0, 1.0000011, -0.0036964417, -0.011082172, 19.906685)
+
 [node name="RoadDefaultbarriere17" parent="Main_road" unique_id=1156443192 instance=ExtResource("11_1uvwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0, 48.3015)
+
+[node name="RoadDefaultbarriere17" parent="Main_road/RoadDefaultbarriere17" unique_id=1989159167 instance=ExtResource("11_1uvwm")]
+transform = Transform3D(0.9959773, 0, 0.08960703, -0.009773891, 0.9940335, 0.10863627, -0.08907239, -0.10907508, 0.9900348, -2.2142384, 8.5155525, 7.863945)
 
 [node name="RoadDefaultbarriere19" parent="Main_road" unique_id=381435105 instance=ExtResource("11_1uvwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0, 88.3015)
@@ -323,7 +335,10 @@ height = 10.052098
 sides = 64
 
 [node name="Looping_scene" parent="Main_road" unique_id=1527651806 instance=ExtResource("22_vajfm")]
-transform = Transform3D(0.27456343, 0, -0.96156895, 0, 1, 0, 0.96156895, 0, 0.27456343, -0.35052752, 4.702025, -5.4368286)
+transform = Transform3D(0.27456343, 0, -0.96156895, 0, 1, 0, 0.96156895, 0, 0.27456343, -0.82704854, 6.8387623, -5.253315)
+
+[node name="Looping_scene" parent="Main_road/Looping_scene" unique_id=385988853 instance=ExtResource("22_vajfm")]
+transform = Transform3D(-0.97958416, -0.119038515, 0.16200857, -0.11757439, 0.99288934, 0.018627983, -0.16307423, -0.00080017373, -0.9866142, 45.95839, 0.35104752, 12.355276)
 
 [node name="Billboard_medium" parent="Main_road" unique_id=2116713389 instance=ExtResource("16_lvo3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0102005, 2.251462, -99.944984)
@@ -1711,16 +1726,17 @@ transform = Transform3D(0.9999843, 2.3803182e-13, -2.9801878e-08, -2.3803182e-13
 shape = SubResource("BoxShape3D_euwr1")
 
 [node name="booster_pad2" parent="." unique_id=927680681 instance=ExtResource("18_csgam")]
-transform = Transform3D(0.1182051, 0.6847403, 0.7191371, -0.9853148, -0.0089856, 0.1705126, 0.12321877, -0.72873145, 0.6736223, 62.272152, 4.4886265, -70.739525)
+transform = Transform3D(0.0952484, 0.6653645, 0.7404171, -0.9879499, -0.02797009, 0.15222618, 0.12199558, -0.74599403, 0.6546826, 62.56026, 3.8643236, -78.181175)
 power = 15.0
 
 [node name="Bumper3" parent="." unique_id=1186926702 instance=ExtResource("32_62cfs")]
-transform = Transform3D(0.059916295, 0, -0.9982034, 0, 1, 0, 0.9982034, 0, 0.059916295, 65.40821, 0.10194087, -72.71258)
+transform = Transform3D(0.059916295, 0, -0.9982034, 0, 1, 0, 0.9982034, 0, 0.059916295, 65.69632, 0.009329081, -80.15423)
 bump_y = 10.0
 bump_x = -5.0
 bump_z = 2.0
 
 [node name="DEATH_SPIRAL" type="Node3D" parent="." unique_id=529918680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5116577, 0, 6.060837)
 
 [node name="Looping_Barrierless_scene" parent="DEATH_SPIRAL" unique_id=404991392 instance=ExtResource("32_rvk64")]
 transform = Transform3D(0.66858566, -0.7436351, 3.250532e-08, 4.0085534e-15, -4.3711395e-08, -1, 0.7436351, 0.66858566, -2.9224811e-08, 106.173416, 7.8756847, 58.65027)
@@ -1797,14 +1813,14 @@ transform = Transform3D(0.35229906, -0.9358875, 4.0908937e-08, 4.9540194e-16, -4
 transform = Transform3D(0.26067293, -0.9654269, 4.220015e-08, -1.6496344e-15, -4.3711385e-08, -1, 0.9654269, 0.26067293, -1.139437e-08, 85.42965, 55.92098, 23.171963)
 
 [node name="Looping_Barrierless_scene9" parent="DEATH_SPIRAL" unique_id=1652378164 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.6098824, 0.792492, -3.4640923e-08, -2.397343e-15, -4.3711385e-08, -1, -0.792492, -0.6098824, 2.6658805e-08, 63.83731, 7.8756847, -67.78238)
+transform = Transform3D(-0.6098824, 0.792492, -3.4640923e-08, -2.397343e-15, -4.3711385e-08, -1, -0.792492, -0.6098824, 2.6658805e-08, 58.051224, 7.8756847, -88.469185)
 
 [node name="enter" type="Area3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene9" unique_id=1821930370]
-transform = Transform3D(1, 0, 0, 0, 1, 1.7763568e-15, 1.7763568e-15, 0, 1, 0, 0, 0)
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 1.7763568e-15, 1.4210855e-14, 1.7763568e-15, 1, 3.2383003, 0.064193726, 4.7683716e-07)
 script = ExtResource("33_62cfs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene9/enter" unique_id=1034546335]
-transform = Transform3D(0.9999999, -2.2351742e-08, 1.7881393e-07, 0, 0.05116809, -0.99868953, 6.82121e-13, 0.99869007, 0.05116544, -2.3325274, 2.7395906, 3.1264985)
+transform = Transform3D(0.9999994, -2.2351742e-08, 1.4901161e-07, -5.364418e-07, 0.05116809, -0.99868953, 6.785683e-13, 0.99869007, 0.051165372, -50.676517, -10.797089, -51.776405)
 shape = SubResource("CylinderShape3D_00tu3")
 
 [node name="badtothebone" type="AudioStreamPlayer3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene9/enter" unique_id=1451423120]
@@ -1843,6 +1859,7 @@ max_distance = 20.0
 doppler_tracking = 1
 
 [node name="exit2" type="Area3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene9" unique_id=359649493]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 1.4210855e-14, 1.7763568e-15, 1, -1.1680603, -1.3377457, -0.38203764)
 script = ExtResource("18_pmuua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH_SPIRAL/Looping_Barrierless_scene9/exit2" unique_id=831016526]
@@ -1850,31 +1867,31 @@ transform = Transform3D(0.7580645, 0.6500422, 0.052755773, -0.04019335, 0.127305
 shape = SubResource("CylinderShape3D_62cfs")
 
 [node name="Looping_Barrierless_scene10" parent="DEATH_SPIRAL" unique_id=728486223 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.5308515, 0.8474648, -3.704386e-08, 3.596971e-15, -4.3711395e-08, -1, -0.8474648, -0.5308515, 2.3204256e-08, 66.84786, 14.754663, -63.870403)
+transform = Transform3D(-0.5308515, 0.8474648, -3.704386e-08, 3.596971e-15, -4.3711395e-08, -1, -0.8474648, -0.5308515, 2.3204256e-08, 61.061775, 14.754663, -84.55721)
 
 [node name="Looping_Barrierless_scene11" parent="DEATH_SPIRAL" unique_id=991254038 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.5023562, 0.8646608, -3.7795502e-08, -1.2017892e-15, -4.371138e-08, -1, -0.8646608, -0.5023562, 2.1958675e-08, 70.69648, 21.615614, -57.76318)
+transform = Transform3D(-0.5023562, 0.8646608, -3.7795502e-08, -1.2017892e-15, -4.371138e-08, -1, -0.8646608, -0.5023562, 2.1958675e-08, 64.91039, 21.615614, -78.45)
 
 [node name="Looping_Barrierless_scene12" parent="DEATH_SPIRAL" unique_id=747796766 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.4168839, 0.9089599, -3.973189e-08, -1.646952e-16, -4.371138e-08, -1, -0.9089599, -0.4168839, 1.8222567e-08, 73.17626, 28.494593, -53.49497)
+transform = Transform3D(-0.4168839, 0.9089599, -3.973189e-08, -1.646952e-16, -4.371138e-08, -1, -0.9089599, -0.4168839, 1.8222567e-08, 67.390175, 28.494593, -74.181786)
 
 [node name="Looping_Barrierless_scene13" parent="DEATH_SPIRAL" unique_id=1702738696 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.40156424, 0.91583085, -4.0032237e-08, -3.0027951e-15, -4.3711385e-08, -1, -0.91583085, -0.40156424, 1.7552928e-08, 76.181076, 35.30207, -46.937412)
+transform = Transform3D(-0.40156424, 0.91583085, -4.0032237e-08, -3.0027951e-15, -4.3711385e-08, -1, -0.91583085, -0.40156424, 1.7552928e-08, 70.39499, 35.30207, -67.62423)
 
 [node name="Looping_Barrierless_scene14" parent="DEATH_SPIRAL" unique_id=1999289282 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.3116386, 0.95020086, -4.1534584e-08, 1.3598206e-15, -4.3711378e-08, -1, -0.95020086, -0.3116386, 1.362215e-08, 78.16333, 42.18105, -42.416607)
+transform = Transform3D(-0.3116386, 0.95020086, -4.1534584e-08, 1.3598206e-15, -4.3711378e-08, -1, -0.95020086, -0.3116386, 1.362215e-08, 72.37724, 42.18105, -63.103424)
 
 [node name="Looping_Barrierless_scene15" parent="DEATH_SPIRAL" unique_id=692824104 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.27984592, 0.9600451, -4.1964896e-08, -1.6954741e-15, -4.3711392e-08, -1, -0.9600451, -0.27984592, 1.2232451e-08, 80.431526, 49.041996, -35.563488)
+transform = Transform3D(-0.27984592, 0.9600451, -4.1964896e-08, -1.6954741e-15, -4.3711392e-08, -1, -0.9600451, -0.27984592, 1.2232451e-08, 74.64544, 49.041996, -56.250305)
 
 [node name="Looping_Barrierless_scene16" parent="DEATH_SPIRAL" unique_id=436832995 instance=ExtResource("32_rvk64")]
-transform = Transform3D(-0.18623264, 0.9825057, -4.294669e-08, -1.7312839e-15, -4.371139e-08, -1, -0.9825057, -0.18623264, 8.140482e-09, 81.81292, 55.92098, -30.824413)
+transform = Transform3D(-0.18623264, 0.9825057, -4.294669e-08, -1.7312839e-15, -4.371139e-08, -1, -0.9825057, -0.18623264, 8.140482e-09, 76.02683, 55.92098, -51.51123)
 
 [node name="Billboard_medium" parent="DEATH_SPIRAL" unique_id=2115963977 instance=ExtResource("16_lvo3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.61332, 54.066303, -3.3482332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.12116, 54.066303, -0.08184528)
 
 [node name="enter" type="Area3D" parent="DEATH_SPIRAL/Billboard_medium" unique_id=702916178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133163, 0, 0)
 script = ExtResource("17_csgam")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH_SPIRAL/Billboard_medium/enter" unique_id=809230246]
@@ -1882,7 +1899,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6485825, 6.958084, 0.065202
 shape = SubResource("BoxShape3D_55y6p")
 
 [node name="exit" type="Area3D" parent="DEATH_SPIRAL/Billboard_medium" unique_id=421976121]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133163, 0, -7.6541824)
 script = ExtResource("18_pmuua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH_SPIRAL/Billboard_medium/exit" unique_id=1752633989]
@@ -1890,7 +1907,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.594635, 7.1363716, 0.455034
 shape = SubResource("BoxShape3D_sg5iw")
 
 [node name="Billboard_medium2" parent="DEATH_SPIRAL" unique_id=207517115 instance=ExtResource("16_lvo3j")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 77.59769, 54.066303, -3.3482332)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 74.949745, 54.066303, -28.52919)
 
 [node name="enter" type="Area3D" parent="DEATH_SPIRAL/Billboard_medium2" unique_id=982441112]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3133144, 0, -1.1920929e-07)
