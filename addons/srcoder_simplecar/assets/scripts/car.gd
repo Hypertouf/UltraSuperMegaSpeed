@@ -528,8 +528,8 @@ func get_input(delta : float):
 			for n in score_list.get_children() :
 				if n :
 					var tween = create_tween()
-					tween.tween_property(n, "theme_override_colors/font_color", Color(0.156, 0.708, 0.857, 1.0), 1) # Uses TRANS_LINEAR.
-					tween.tween_callback(n.queue_free)
+					tween.tween_property(score_list.get_child(-1), "theme_override_colors/font_color", Color(0.156, 0.708, 0.857, 1.0), 1) # Uses TRANS_LINEAR.
+					tween.tween_callback(score_list.get_child(-1).queue_free)
 					await get_tree().create_timer(1.0).timeout
 				pass
 			var newtorbovalue = torbo.value
