@@ -121,7 +121,7 @@ func _input(event): #
 		print("big_jump")
 		Sound.stream = bigjump
 		Sound.play()
-				$ground_timer.start(0.5)
+		$ground_timer.start(0.5)
 		linear_velocity += (transform.basis.y * 6) + transform.basis.z #HOLY SHIT IT WORKS
 		linear_velocity.y += 7 #add a little global vertical boost for cleaner walljumps 
 				#transform.basis.y + 10 makes the car jump from local position and transform.basis.z makes the car keep it's rolling speed when jumping
