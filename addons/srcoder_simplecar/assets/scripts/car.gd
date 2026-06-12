@@ -518,7 +518,6 @@ func get_input(delta : float):
 
 				print("heelflip !")
 			
-			
 			score = abs(tricks[0]) + abs(tricks[1]) + abs(tricks[2])
 			print(score)
 			var tween2 = get_tree().create_tween()

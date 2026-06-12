@@ -2,24 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nexg1263s2je"
-path.s3tc="res://.godot/imported/Collisionvoiture_trottoir.png-38f49fa99d6a4a668ef8c2a8593eccc8.s3tc.ctex"
+uid="uid://b5jhqvsjep0fu"
+path="res://.godot/imported/Collisionvoiture_Vroom_save_07.05.png-7ccbafde1dbe1870e96bdd113b664b84.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "02c63685a7e1e787f1d0f96c21d4c4e1"
+"md5": "7de705f086070d65e21106bd134daae4"
 }
 
 [deps]
 
-source_file="res://assets/Models/textures/Collisionvoiture_trottoir.png"
-dest_files=["res://.godot/imported/Collisionvoiture_trottoir.png-38f49fa99d6a4a668ef8c2a8593eccc8.s3tc.ctex"]
+source_file="res://assets/Models/Tuture/Collisionvoiture_Vroom_save_07.05.png"
+dest_files=["res://.godot/imported/Collisionvoiture_Vroom_save_07.05.png-7ccbafde1dbe1870e96bdd113b664b84.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -41,4 +40,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

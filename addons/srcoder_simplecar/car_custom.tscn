@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://deikjexi0srs1" path="res://addons/srcoder_simplecar/assets/scripts/car.gd" id="2_mbobr"]
 [ext_resource type="ArrayMesh" uid="uid://brrhegunrhihi" path="res://assets/Models/Tuture/Body.tres" id="3_y1lln"]
 [ext_resource type="ArrayMesh" uid="uid://p0kah35jkkke" path="res://assets/Models/Tuture/wheel-back-right.tres" id="4_1i4ed"]
-[ext_resource type="Shape3D" uid="uid://j86ti6qr6k03" path="res://assets/Models/Tuture/body_collision_convex.tres" id="4_67njv"]
 [ext_resource type="AudioStream" uid="uid://r8bgkcn26u2e" path="res://assets/Audio/NFSU2 Nitrous Oxide System Sound Effects.mp3" id="4_v75hc"]
 [ext_resource type="AudioStream" uid="uid://dl8gi3jd4ttd5" path="res://assets/Audio/turboGain.wav" id="5_2cqij"]
 [ext_resource type="ArrayMesh" uid="uid://cap6vdgy1mha" path="res://assets/Models/Tuture/wheel-back-left.tres" id="5_67njv"]
@@ -40,6 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://d4ieiykm6gkws" path="res://assets/Audio/Tv_quotes/BUSTAMOVE.wav" id="20_r605t"]
 [ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://assets/Textures/Radio/frame0001.png" id="20_wj4kd"]
 [ext_resource type="Texture2D" uid="uid://copvhmpfo4ibr" path="res://assets/Textures/Radio/frame0002.png" id="21_0acjl"]
+[ext_resource type="Shape3D" uid="uid://yxjsfrstk0jp" path="res://assets/Models/Tuture/body_collision_convex_ROND.tres" id="21_635pb"]
 [ext_resource type="AudioStream" uid="uid://51nnw2m27ikx" path="res://assets/Audio/Tv_quotes/BustItAndDustIt.wav" id="21_hs7ed"]
 [ext_resource type="Texture2D" uid="uid://cp5hl5ypk0f5h" path="res://AnimTextExplo.tres" id="22_0acjl"]
 [ext_resource type="AudioStream" uid="uid://ch4s013fvhg7g" path="res://assets/Audio/Tv_quotes/GrppinAndRippin.wav" id="22_xsmfh"]
@@ -353,7 +353,7 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=107261883]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28881523, -0.020060861)
-shape = ExtResource("4_67njv")
+shape = ExtResource("21_635pb")
 
 [node name="WheelBackRight" type="VehicleWheel3D" parent="." unique_id=653985420]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, -0.028943002, -0.6687834)
