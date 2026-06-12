@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bunpfwsn8y2rj" path="res://assets/Models/props/Roads/road_4_ways.tscn" id="29_qn0af"]
 [ext_resource type="PackedScene" uid="uid://bfq0fd2nsskmy" path="res://assets/Models/CSG_scenes/turnpipe.tscn" id="30_00tu3"]
 [ext_resource type="PlaneMesh" uid="uid://uej1ixsmgesg" path="res://assets/BabyMesh.tres" id="30_ffspi"]
-[ext_resource type="PackedScene" uid="uid://ddk1ni0j2vby3" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
+[ext_resource type="PackedScene" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
 [ext_resource type="PackedScene" uid="uid://jaavrwy3gfo1" path="res://assets/Models/props/TV.tscn" id="31_ffspi"]
 [ext_resource type="PackedScene" uid="uid://c0hsfkgf6dwv" path="res://assets/Models/props/garage.tscn" id="32_00tu3"]
 [ext_resource type="AudioStream" uid="uid://cfc4poswwb4g2" path="res://assets/Audio/bad-to-the-bone.mp3" id="32_1uvwm"]
@@ -1092,7 +1092,7 @@ transform = Transform3D(1.9106855e-15, 4.3711385e-08, -1, 1, -4.3711385e-08, 0, 
 transform = Transform3D(0.0043037236, -0.009953633, -0.9999412, 0.31072962, 0.9504635, -0.008123696, 0.95048845, -0.3106764, 0.007183403, -117.59987, 25.631256, -1.9600397)
 
 [node name="booster_pad2" parent="VLoopSection" unique_id=1028991571 instance=ExtResource("18_csgam")]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -130.8111, 28.087387, -4.2320323)
+transform = Transform3D(6.0954536e-10, -0.013944773, -0.9999028, -1, -4.371139e-08, 0, -4.3707136e-08, 0.9999028, -0.013944773, -130.8111, 28.087387, -4.1736894)
 
 [node name="Cabine_Telephonique" parent="VLoopSection" unique_id=1364820621 instance=ExtResource("26_4vynd")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -144.84583, 26.474792, -5.927633)
@@ -1234,6 +1234,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.64674, 32.52715, 54.4468
 
 [node name="Barriere_default8" parent="Bighalfpipe" unique_id=942390943 instance=ExtResource("35_kb7yh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.84165, 32.539505, 54.467224)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Bighalfpipe" unique_id=1408776834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.73374, 39.914616, 41.46425)
+use_collision = true
+size = Vector3(23.632599, 0.53723145, 4.041504)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Bighalfpipe" unique_id=873981544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.73772, 39.915, 67.110054)
+use_collision = true
+size = Vector3(23.64003, 0.53723145, 4.609619)
 
 [node name="pipesystem" type="Node3D" parent="." unique_id=1160386969]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.382805, 15.9401455, 50.635838)

@@ -36,10 +36,11 @@
 [ext_resource type="Texture2D" uid="uid://d3kh47ydra6iu" path="res://assets/Textures/Boost/Boost_bottom.png" id="18_scxrs"]
 [ext_resource type="VideoStream" uid="uid://ch4oipsjay70n" path="res://assets/Video/0000-0393.ogv" id="19_854qw"]
 [ext_resource type="AudioStream" uid="uid://cpjivt75jel4" path="res://assets/Audio/Tv_quotes/ADIOS.wav" id="19_gpm1f"]
+[ext_resource type="PackedScene" uid="uid://de6iddciy0ggg" path="res://assets/UI/color_rect_anchors.tscn" id="20_2oksv"]
 [ext_resource type="AudioStream" uid="uid://d4ieiykm6gkws" path="res://assets/Audio/Tv_quotes/BUSTAMOVE.wav" id="20_r605t"]
 [ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://assets/Textures/Radio/frame0001.png" id="20_wj4kd"]
 [ext_resource type="Texture2D" uid="uid://copvhmpfo4ibr" path="res://assets/Textures/Radio/frame0002.png" id="21_0acjl"]
-[ext_resource type="Shape3D" uid="uid://yxjsfrstk0jp" path="res://assets/Models/Tuture/body_collision_convex_ROND.tres" id="21_635pb"]
+[ext_resource type="Shape3D" path="res://assets/Models/Tuture/body_collision_convex_ROND.tres" id="21_635pb"]
 [ext_resource type="AudioStream" uid="uid://51nnw2m27ikx" path="res://assets/Audio/Tv_quotes/BustItAndDustIt.wav" id="21_hs7ed"]
 [ext_resource type="Texture2D" uid="uid://cp5hl5ypk0f5h" path="res://AnimTextExplo.tres" id="22_0acjl"]
 [ext_resource type="AudioStream" uid="uid://ch4s013fvhg7g" path="res://assets/Audio/Tv_quotes/GrppinAndRippin.wav" id="22_xsmfh"]
@@ -59,6 +60,8 @@
 [ext_resource type="Shader" uid="uid://bwfye5q5nnp0o" path="res://Scenes/Test_scenes/controltest.gdshader" id="43_t8xh1"]
 [ext_resource type="Texture2D" uid="uid://0rgy786qbw43" path="res://assets/Textures/FX_Figure/Front360.png" id="44_5fmnu"]
 [ext_resource type="Material" uid="uid://dlw1kfg3trdvh" path="res://assets/ParticleSystem/Particle_process_fx.tres" id="54_q5a12"]
+[ext_resource type="Shader" uid="uid://bmol6efwm53mn" path="res://Scenes/Menus/Perspective.gdshader" id="57_0wh4r"]
+[ext_resource type="FontFile" uid="uid://dwp7apxjdqobd" path="res://assets/FOnt/LazyFox Pixel Font 2.ttf" id="58_u2f4k"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xtq8k"]
 streams_count = 6
@@ -151,6 +154,20 @@ shader = ExtResource("43_t8xh1")
 shader_parameter/outerRadius = 0.0
 shader_parameter/MainAlpha = 1.0
 shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u2f4k"]
+shader = ExtResource("57_0wh4r")
+shader_parameter/cull_backface = true
+shader_parameter/use_front = true
+shader_parameter/fov = 91.90400431794
+shader_parameter/rot_y_deg = -26.951984180219995
+shader_parameter/rot_x_deg = 26.95201838022001
+shader_parameter/inset = 0.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0wh4r"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 5
 
 [sub_resource type="Animation" id="Animation_jjlsn"]
 length = 0.001
@@ -290,14 +307,12 @@ cull_mode = 2
 shading_mode = 0
 albedo_color = Color(3.7541986e-06, 0.94921654, 0.64474994, 1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_635pb"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_2oksv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7us2"]
 cull_mode = 2
 shading_mode = 0
 albedo_color = Color(0.8516507, 0.10439276, 0.4250917, 1)
-
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_2oksv"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_0wh4r"]
 
@@ -315,7 +330,9 @@ albedo_color = Color(0.8516507, 0.10439276, 0.4250917, 1)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_clvmh"]
 
-[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "Tv_quotes", "Radio", "VStraemPlay", "exploParticles", "Particle_figure", "particule_holder", "score_display", "LayBa")]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_0ajwm"]
+
+[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "Tv_quotes", "Radio", "VStraemPlay", "exploParticles", "Particle_figure", "particule_holder", "score_display", "timy", "LayBa")]
 collision_layer = 2
 physics_material_override = ExtResource("1_gdthg")
 center_of_mass_mode = 1
@@ -343,7 +360,10 @@ FX_Figures = Array[CompressedTexture2D]([ExtResource("44_5fmnu"), ExtResource("9
 Particle_figure = NodePath("Ui_Holder/OUI/GPUParticles2D")
 Particle_material = ExtResource("54_q5a12")
 particule_holder = NodePath("Ui_Holder/OUI/MamanParticule")
-score_display = NodePath("Ui_Holder/OUI/Score_display")
+score_display = NodePath("Ui_Holder/OUI/SubViewportContainer/SubViewport/Score_display")
+colorrectanchor = ExtResource("20_2oksv")
+font = ExtResource("58_u2f4k")
+timy = NodePath("ResetStyleBoard")
 LayBa = NodePath("Ui_Holder/BalloonHolder")
 
 [node name="body" type="MeshInstance3D" parent="." unique_id=787695455]
@@ -465,6 +485,10 @@ one_shot = true
 one_shot = true
 
 [node name="ground_timer" type="Timer" parent="." unique_id=1432755134]
+one_shot = true
+
+[node name="ResetStyleBoard" type="Timer" parent="." unique_id=1944333127]
+wait_time = 3.0
 one_shot = true
 
 [node name="cockpit" type="Camera3D" parent="." unique_id=62731619]
@@ -597,6 +621,7 @@ one_shot = true
 process_material = ExtResource("54_q5a12")
 
 [node name="MamanParticule" type="Control" parent="Ui_Holder/OUI" unique_id=388910127]
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -604,13 +629,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Score_display" type="Panel" parent="Ui_Holder/OUI" unique_id=1880944910]
-offset_left = 994.0
-offset_top = 227.0
-offset_right = 1131.0
-offset_bottom = 402.0
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Ui_Holder/OUI" unique_id=1558594990]
+material = SubResource("ShaderMaterial_u2f4k")
+offset_left = 987.0
+offset_top = 196.0
+offset_right = 1124.0
+offset_bottom = 371.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Ui_Holder/OUI/Score_display" unique_id=867620818]
+[node name="SubViewport" type="SubViewport" parent="Ui_Holder/OUI/SubViewportContainer" unique_id=639185398]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(137, 175)
+render_target_update_mode = 4
+
+[node name="Score_display" type="Panel" parent="Ui_Holder/OUI/SubViewportContainer/SubViewport" unique_id=1880944910]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -87.5
+offset_bottom = 87.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Ui_Holder/OUI/SubViewportContainer/SubViewport/Score_display" unique_id=867620818]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -621,27 +666,34 @@ theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Ui_Holder/OUI/Score_display/MarginContainer" unique_id=1430901466]
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui_Holder/OUI/SubViewportContainer/SubViewport/Score_display/MarginContainer" unique_id=1430901466]
 layout_mode = 2
 alignment = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Ui_Holder/OUI/Score_display/MarginContainer/VBoxContainer" unique_id=381887123]
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui_Holder/OUI/SubViewportContainer/SubViewport/Score_display/MarginContainer/VBoxContainer" unique_id=381887123]
 layout_mode = 2
 alignment = 2
 
-[node name="HSeparator" type="HSeparator" parent="Ui_Holder/OUI/Score_display/MarginContainer/VBoxContainer" unique_id=81942042]
+[node name="HSeparator" type="HSeparator" parent="Ui_Holder/OUI/SubViewportContainer/SubViewport/Score_display/MarginContainer/VBoxContainer" unique_id=81942042]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_0wh4r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui_Holder/OUI/SubViewportContainer/SubViewport/Score_display/MarginContainer/VBoxContainer" unique_id=1789578254]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Ui_Holder/OUI/Score_display/MarginContainer/VBoxContainer" unique_id=1789578254]
+[node name="Label" type="Label" parent="Ui_Holder/OUI/SubViewportContainer/SubViewport/Score_display/MarginContainer/VBoxContainer/HBoxContainer" unique_id=379279844]
+texture_filter = 1
 layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("58_u2f4k")
+text = "STYLE"
 
-[node name="Label" type="Label" parent="Ui_Holder/OUI/Score_display/MarginContainer/VBoxContainer/HBoxContainer" unique_id=379279844]
+[node name="Label2" type="Label" parent="Ui_Holder/OUI/SubViewportContainer/SubViewport/Score_display/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1228495282]
+texture_filter = 1
 layout_mode = 2
-text = "SCORE"
-
-[node name="Label2" type="Label" parent="Ui_Holder/OUI/Score_display/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1228495282]
-layout_mode = 2
-text = "0000"
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("58_u2f4k")
+text = "0"
 
 [node name="BalloonHolder" type="CanvasLayer" parent="Ui_Holder" unique_id=1826505556]
 layer = 128
@@ -659,7 +711,7 @@ draw_pass_1 = SubResource("PlaneMesh_e70ve")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, 0.16494739, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_635pb")
+mesh = SubResource("ImmediateMesh_2oksv")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -670,7 +722,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.43419406, 0.30833566, -1.3361323)
 material_override = SubResource("StandardMaterial3D_b7us2")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_2oksv")
+mesh = SubResource("ImmediateMesh_0wh4r")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -681,7 +733,7 @@ startColor = Color(0.86993164, 0.15957409, 0.39749965, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.44745758, 0.30833566, -1.3361323)
 material_override = SubResource("StandardMaterial3D_b7us2")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_0wh4r")
+mesh = SubResource("ImmediateMesh_u2f4k")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -692,7 +744,7 @@ startColor = Color(0.86993164, 0.15957409, 0.39749965, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, -0.16910112, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_u2f4k")
+mesh = SubResource("ImmediateMesh_fimmd")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -703,7 +755,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, 0.16494739, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_fimmd")
+mesh = SubResource("ImmediateMesh_er80i")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -714,7 +766,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, -0.16910112, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_er80i")
+mesh = SubResource("ImmediateMesh_2qtt0")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -725,7 +777,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, 0.16494739, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_2qtt0")
+mesh = SubResource("ImmediateMesh_t48tg")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -736,7 +788,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, -0.16910112, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_t48tg")
+mesh = SubResource("ImmediateMesh_8ngsy")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -747,7 +799,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, 0.16494739, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_8ngsy")
+mesh = SubResource("ImmediateMesh_clvmh")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -758,7 +810,7 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, -0.16910112, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_clvmh")
+mesh = SubResource("ImmediateMesh_0ajwm")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -774,4 +826,5 @@ startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 [connection signal="timeout" from="bumpTimer" to="." method="_on_bump_timer_timeout"]
 [connection signal="timeout" from="exploCoolDown" to="." method="_on_explo_cool_down_timeout"]
 [connection signal="timeout" from="ground_timer" to="." method="_on_ground_timer_timeout"]
+[connection signal="timeout" from="ResetStyleBoard" to="." method="_on_reset_style_board_timeout"]
 [connection signal="value_changed" from="Ui_Holder/OUI/Nitro" to="." method="_on_nitro_value_changed"]
