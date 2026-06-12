@@ -210,12 +210,11 @@ sides = 30
 transform = Transform3D(0.7156806, 0, -0.6984279, 0, 1, 0, 0.6984279, 0, 0.7156806, -81.70702, -1.5223694, 74.29997)
 size = Vector3(267.1883, 12.806702, 40.46776)
 
-[node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("followcamera", "trails") instance=ExtResource("1_0nkrw")]
+[node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("followcamera") instance=ExtResource("1_0nkrw")]
 transform = Transform3D(-0.08296169, 0.0041113994, 0.9965446, 0.015588596, 0.9998748, -0.002827345, -0.99643105, 0.015300151, -0.0830154, -10.603754, 0.36242145, -176.33086)
 followcamera = NodePath("../FollowCamera")
 shortjump = ExtResource("3_kb7yh")
 bigjump = ExtResource("3_kb7yh")
-trails = []
 
 [node name="FollowCamera" parent="." unique_id=670489488 node_paths=PackedStringArray("follow_target") instance=ExtResource("2_fq8mh")]
 follow_target = NodePath("../car")

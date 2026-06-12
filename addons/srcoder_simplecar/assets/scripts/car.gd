@@ -275,6 +275,8 @@ func get_input(delta : float):
 				
 				total_rotation.x = 0
 				var lbl = Label.new()
+				lbl.set("theme_override_colors/font_color", true)
+				lbl.set("theme_override_colors/font_color", Color(1.0, 1.0, 1.0, 1.0))
 				lbl.text = "+100"
 				score_list.add_child(lbl)
 				tricks[0] +=1
@@ -430,6 +432,7 @@ func get_input(delta : float):
 
 			particule_holder.add_child(Particle)
 			var lbl = Label.new()
+			lbl.theme_override_colors.font_color = true
 			lbl.text = "+100"
 			score_list.add_child(lbl)
 			print("360 flip !!!")
@@ -523,7 +526,11 @@ func get_input(delta : float):
 			
 			#score_bilan.text = str(score * 100)
 			for n in score_list.get_children() :
-				n.queue_free()
+				if n :
+					var tween = create_tween()
+					tween.tween_property(n, "theme_override_colors/font_color", Color(0.156, 0.708, 0.857, 1.0), 1) # Uses TRANS_LINEAR.
+					tween.tween_callback(n.queue_free)
+					await get_tree().create_timer(1.0).timeout
 				pass
 			var newtorbovalue = torbo.value
 			newtorbovalue = torbo.value + score * 10

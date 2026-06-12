@@ -315,7 +315,7 @@ albedo_color = Color(0.8516507, 0.10439276, 0.4250917, 1)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_clvmh"]
 
-[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "Tv_quotes", "Radio", "VStraemPlay", "exploParticles", "trails", "Particle_figure", "particule_holder", "score_display", "LayBa")]
+[node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "Tv_quotes", "Radio", "VStraemPlay", "exploParticles", "Particle_figure", "particule_holder", "score_display", "LayBa")]
 collision_layer = 2
 physics_material_override = ExtResource("1_gdthg")
 center_of_mass_mode = 1
@@ -339,7 +339,6 @@ Radio = NodePath("Radio")
 videofin = ExtResource("19_854qw")
 VStraemPlay = NodePath("Ui_Holder/OUI/Panel/VideoStreamPlayer")
 exploParticles = NodePath("GPUParticles3D")
-trails = [NodePath("Trail3d"), NodePath("Trail3d2"), NodePath("Trail3d3"), NodePath("Trail3d4"), NodePath("Trail3d5"), NodePath("Trail3d6"), NodePath("Trail3d7"), NodePath("Trail3d8")]
 FX_Figures = Array[CompressedTexture2D]([ExtResource("44_5fmnu"), ExtResource("9_ltdkq"), ExtResource("10_q5a12"), ExtResource("11_635pb"), ExtResource("12_2oksv"), ExtResource("13_0wh4r"), ExtResource("14_u2f4k"), ExtResource("15_fimmd"), ExtResource("16_er80i"), ExtResource("17_2qtt0")])
 Particle_figure = NodePath("Ui_Holder/OUI/GPUParticles2D")
 Particle_material = ExtResource("54_q5a12")
