@@ -45,6 +45,9 @@ var trans2d : Transform2D
 @export var particule_holder : Control
 @export var score_display : Control
 @onready var score_list : Control = score_display.get_child(0).get_child(0).get_child(0)
+@onready var score_bilan : Control = score_display.get_child(0).get_child(0).get_child(2).get_child(1)
+var score_int : int = 0
+var score_string : String = "0"
 var Particle = GPUParticles2D.new()
 
 
@@ -102,7 +105,7 @@ func _ready() -> void:
 
 func hypothenuse(a, b): #urhm it might look silly but it is necessary for correctly calculating the adaptive FOV
 	return sqrt((a*a) + (b*b))
-	
+
 func gravity_changing() :
 	PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, -transform.basis.y)
 	gravity_change = true
@@ -178,11 +181,18 @@ func _physics_process(delta: float) -> void:
 		followcamera.rotation_damping = 0
 	else :
 		followcamera.rotation_damping = 3.11
-	
+
 	if basis.z.dot(linear_velocity) <= 4 or Input.is_action_just_released("sauter") or gravity_change == false:
 		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
-		
-		
+	#if gravity_change and (basis.z.dot(linear_velocity) <= 4 or Input.is_action_just_released("sauter")):
+		#PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
+		#gravity_change = false
+
+#func _score_to_string(_a):
+	#score_bilan.text = str(score_int)
+	#print(score_int)
+	#pass
+
 ## sets the variables player_steer, player_brake and player_acceleration based on the player input
 func get_input(delta : float):
 	#steer first
@@ -207,7 +217,7 @@ func get_input(delta : float):
 	else:
 		player_acceleration = 0.0
 		player_braking = 0.0
-		
+			
 	if Input.is_action_pressed("forward") and Input.is_action_pressed("back") and $check_ground.is_colliding() :
 		for wheel in steering_wheels :
 			wheel.wheel_friction_slip = 0.0
@@ -233,6 +243,7 @@ func get_input(delta : float):
 	if !$check_ground.is_colliding():
 		
 		gravity_change = false
+	#if !$check_ground.is_colliding():
 		#if default_position == Vector3(0.0,0.0,0.0):
 			#print(rotation_degrees)
 			#default_position = rotation_degrees
@@ -264,6 +275,8 @@ func get_input(delta : float):
 				
 				total_rotation.x = 0
 				var lbl = Label.new()
+				lbl.set("theme_override_colors/font_color", true)
+				lbl.set("theme_override_colors/font_color", Color(1.0, 1.0, 1.0, 1.0))
 				lbl.text = "+100"
 				score_list.add_child(lbl)
 				tricks[0] +=1
@@ -287,6 +300,9 @@ func get_input(delta : float):
 
 				particule_holder.add_child(Particle)
 
+				var lbl = Label.new()
+				lbl.text = "+100"
+				score_list.add_child(lbl)
 				tricks[0] -=1
 		else : 
 			speed.x = lerp(speed.x, 0.0, 0.5)
@@ -311,6 +327,9 @@ func get_input(delta : float):
 
 				particule_holder.add_child(Particle)
 
+				var lbl = Label.new()
+				lbl.text = "+100"
+				score_list.add_child(lbl)
 				tricks[1] +=1
 		elif Input.is_action_pressed("shuvright") :
 			speed.y = lerp(speed.y, 0.15, 0.05)
@@ -331,7 +350,9 @@ func get_input(delta : float):
 				Particle.position = Vector2(980.0,312.0)
 
 				particule_holder.add_child(Particle)
-
+				var lbl = Label.new()
+				lbl.text = "+100"
+				score_list.add_child(lbl)
 				tricks[1] -=1
 		else : 
 			speed.y = lerp(speed.y, 0.0, 0.5)
@@ -358,7 +379,10 @@ func get_input(delta : float):
 				Particle.position = Vector2(980.0,312.0)
 
 				particule_holder.add_child(Particle)
-
+				
+				var lbl = Label.new()
+				lbl.text = "+100"
+				score_list.add_child(lbl)
 				tricks[2] += 1
 		elif Input.is_action_pressed("roll_right") :
 			speed.z = lerp(speed.z, 0.15, 0.05)
@@ -378,7 +402,9 @@ func get_input(delta : float):
 				Particle.position = Vector2(980.0,312.0)
 
 				particule_holder.add_child(Particle)
-
+				var lbl = Label.new()
+				lbl.text = "+100"
+				score_list.add_child(lbl)
 				tricks[2] -=1
 		else : 
 			speed.z = lerp(speed.z, 0.0, 0.5)
@@ -405,7 +431,10 @@ func get_input(delta : float):
 			Particle.position = Vector2(980.0,312.0)
 
 			particule_holder.add_child(Particle)
-
+			var lbl = Label.new()
+			lbl.theme_override_colors.font_color = true
+			lbl.text = "+100"
+			score_list.add_child(lbl)
 			print("360 flip !!!")
 		if tricks == [0,1,1]:
 			#Particle_figure.texture = FX_Figures[7]
@@ -420,7 +449,9 @@ func get_input(delta : float):
 			Particle.position = Vector2(980.0,312.0)
 
 			particule_holder.add_child(Particle)
-			
+			var lbl = Label.new()
+			lbl.text = "+100"
+			score_list.add_child(lbl)
 			print("360 hardflip !!!")
 		if tricks == [0,1,-1]:
 			#Particle_figure.texture = FX_Figures[8]
@@ -435,7 +466,9 @@ func get_input(delta : float):
 			Particle.position = Vector2(980.0,312.0)
 
 			particule_holder.add_child(Particle)
-			
+			var lbl = Label.new()
+			lbl.text = "+100"
+			score_list.add_child(lbl)
 			print("360 heelflip !!!")
 		if tricks == [0,-1,1]:
 			#Particle_figure.texture = FX_Figures[9]
@@ -450,12 +483,14 @@ func get_input(delta : float):
 			Particle.position = Vector2(980.0,312.0)
 
 			particule_holder.add_child(Particle)
-			
+			var lbl = Label.new()
+			lbl.text = "+100"
+			score_list.add_child(lbl)
 			print("360 inward heelfip !!!")
 		
 		
 	if $check_ground.is_colliding():
-		
+
 		gravity_changing()
 		#print("it's non the ground")
 
@@ -486,17 +521,30 @@ func get_input(delta : float):
 			
 			score = abs(tricks[0]) + abs(tricks[1]) + abs(tricks[2])
 			print(score)
+			var tween2 = get_tree().create_tween()
+			tween2.tween_property(self, "score_int", score * 100, 0.5)
+			
+			#score_bilan.text = str(score * 100)
+			for n in score_list.get_children() :
+				if n :
+					var tween = create_tween()
+					tween.tween_property(n, "theme_override_colors/font_color", Color(0.156, 0.708, 0.857, 1.0), 1) # Uses TRANS_LINEAR.
+					tween.tween_callback(n.queue_free)
+					await get_tree().create_timer(1.0).timeout
+				pass
 			var newtorbovalue = torbo.value
 			newtorbovalue = torbo.value + score * 10
 			#
 			var tween = create_tween()
 			tween.tween_property(torbo, "value", newtorbovalue, 0.3) # Uses TRANS_LINEAR.
 			#torbo.value += score * 10
+			score = 0
+			score_int = 0
  				
 		tricks = [0,0,0]
 		default_position = Vector3(0,0,0)
 		total_rotation = Vector3.ZERO
-	
+	score_bilan.text = str(score_int)
 	if !$boostTimer.is_stopped() :
 		axis_lock_angular_y = true
 		axis_lock_angular_z = true
