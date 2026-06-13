@@ -36,6 +36,14 @@
 [ext_resource type="PackedScene" uid="uid://cvh2oig7trskq" path="res://assets/Models/props/Barriere/barriere_default.tscn" id="35_kb7yh"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="35_nseyi"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_1uvwm"]
+
+[sub_resource type="Resource" id="Resource_kb7yh"]
+script = ExtResource("35_nseyi")
+duration = 0.5
+transition = 1
+ease = 1
+
 [sub_resource type="Sky" id="Sky_6p87c"]
 sky_material = ExtResource("4_fq8mh")
 
@@ -176,12 +184,6 @@ duration = 0.5
 transition = 1
 ease = 1
 
-[sub_resource type="Resource" id="Resource_kb7yh"]
-script = ExtResource("35_nseyi")
-duration = 0.5
-transition = 1
-ease = 1
-
 [node name="The_BIG_city" type="Node3D" unique_id=234967597 node_paths=PackedStringArray("Player")]
 script = ExtResource("1_nkwo0")
 Player = NodePath("car")
@@ -226,15 +228,36 @@ sides = 30
 transform = Transform3D(0.7156806, 0, -0.6984279, 0, 1, 0, 0.6984279, 0, 0.7156806, -81.70702, -1.5223694, 74.29997)
 size = Vector3(267.1883, 12.806702, 40.46776)
 
-[node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("pcam_ground", "pcam_air") instance=ExtResource("1_0nkrw")]
+[node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("pcam_ground", "pcam_air", "velocity_direction") instance=ExtResource("1_0nkrw")]
 transform = Transform3D(-0.08296169, 0.0041113994, 0.9965446, 0.015588596, 0.9998748, -0.002827345, -0.99643105, 0.015300151, -0.0830154, -7.617603, 0.36242145, -176.33086)
 pcam_ground = NodePath("../pcam_ground")
-pcam_air = NodePath("../pcam_air")
+pcam_air = NodePath("velocity_direction/pcam_air")
+velocity_direction = NodePath("velocity_direction")
 shortjump = ExtResource("3_kb7yh")
 bigjump = ExtResource("3_kb7yh")
 
 [node name="camera_offset" type="Node3D" parent="car" unique_id=1721971396]
 transform = Transform3D(1, 0, -2.2351742e-08, 0, 1, 4.656613e-10, 1.4901161e-08, -2.3283064e-10, 0.9999999, 0.022827148, 1.464051, -0.0041399)
+
+[node name="velocity_direction" type="Node3D" parent="car" unique_id=1357260319]
+transform = Transform3D(1, 0, -1.4156103e-07, 0, 1, 1.6298145e-09, 1.0430813e-07, -2.3283064e-10, 0.99999917, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="car/velocity_direction" unique_id=755239222]
+transform = Transform3D(1.0000006, 0, -3.7252903e-08, 0, 1.0000006, 4.656613e-10, 1.4901161e-08, -2.3283064e-10, 1, 0, 0, 0)
+mesh = SubResource("SphereMesh_1uvwm")
+
+[node name="pcam_air" type="Node3D" parent="car/velocity_direction" unique_id=434970498 node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(0.99977463, -0.01554361, -0.015589528, -0.015542953, 0.0030696364, -0.99993515, 0.015589796, 0.999876, 0.0028275296, 0, 0, 0)
+script = ExtResource("34_kb7yh")
+look_at_mode = 2
+look_at_target = NodePath("../..")
+tween_resource = SubResource("Resource_kb7yh")
+follow_damping = true
+follow_damping_value = Vector3(0.2, 0.2, 0.2)
+look_at_damping = true
+align_transform_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1611002276]
 environment = SubResource("Environment_ajbjs")
@@ -2027,6 +2050,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4263308, 12.947545, 110.751
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0218725, 12.957882, 110.70516)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=593694407]
+physics_interpolation_mode = 1
 transform = Transform3D(-0.082959294, 0.0041112895, 0.9965445, 0.015588576, 0.9998745, -0.0028273258, -0.996431, 0.015300157, -0.08301306, -4.6279693, 1.8181746, -176.5799)
 top_level = true
 
@@ -2043,25 +2067,12 @@ follow_mode = 6
 follow_target = NodePath("../car/camera_offset")
 tween_resource = SubResource("Resource_1uvwm")
 follow_damping = true
+follow_damping_value = Vector3(0.2, 0.2, 0.2)
 follow_distance = 3.0
 spring_length = 3.0
 align_transform_with_view = Callable()
 align_position_with_view = Callable()
 align_rotation_with_view = Callable()
-
-[node name="pcam_air" type="Node3D" parent="." unique_id=434970498 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(-0.082959294, 0.0041112895, 0.9965445, 0.015588576, 0.9998745, -0.0028273258, -0.996431, 0.015300157, -0.08301306, -4.6279693, 1.8181746, -176.5799)
-script = ExtResource("34_kb7yh")
-follow_mode = 6
-follow_target = NodePath("../car/camera_offset")
-tween_resource = SubResource("Resource_kb7yh")
-follow_damping = true
-follow_distance = 3.0
-spring_length = 3.0
-align_transform_with_view = Callable()
-align_position_with_view = Callable()
-align_rotation_with_view = Callable()
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_finished"]
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone2" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_2_finished"]

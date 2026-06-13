@@ -20,6 +20,7 @@ extends VehicleBody3D
 #@export var followcamera : Node3D
 @export var pcam_ground : PhantomCamera3D
 @export var pcam_air : PhantomCamera3D
+@export var velocity_direction : Node3D
 @export var SLODER : VSlider
 @export var hitbox : Area3D
 @export var Ui : Control
@@ -50,6 +51,7 @@ var trans2d : Transform2D
 @onready var score_list : Control = score_display.get_child(0).get_child(0).get_child(0)
 @onready var score_bilan : Control = score_display.get_child(0).get_child(0).get_child(2).get_child(1)
 @export var font : FontFile
+
 
 var score_int : int = 0
 var score_string : String = "0"
@@ -195,15 +197,19 @@ func _physics_process(delta: float) -> void:
 	
 	#followcamera.mycamera.fov = 75 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) #adaptive FOV, when the car go faster the FOV go wider to make it feel faster.
 																									   ##the math used here is simply calculating the hypothenus of the triangle formed by the x axis vector and the z axis vector. this allows the fov adaptation to remain stable no matter the direction in which the car is turning.
+	velocity_direction.position.x = -basis.x.dot(linear_velocity)*0.5
+	velocity_direction.position.y = -basis.y.dot(linear_velocity)*0.5
+	velocity_direction.position.z = -basis.z.dot(linear_velocity)*0.5
 																									   ## calculating the absolute of this hypothenus simply makes the fov NOT works backwards when the car is going negative x and z directions.
 	if !$check_ground.is_colliding() :
 		#followcamera.rotation_damping = 0
 		pcam_air.set_priority(1)
 		pcam_ground.set_priority(0)
-		pcam_air.set_third_person_rotation_degrees(last_rotation)
-	#elif $check_ground.is_colliding() and $check_ground.global_rotation.x < -1.2 and $check_ground.global_rotation.x > -1.6 and $walljumpTimer.is_stopped():
-		#followcamera.rotation_damping = 0
-		#followcamera.rotation_degrees.y += 180 
+		#pcam_air.set_third_person_rotation_degrees(last_rotation)
+	#elif $check_ground.is_colliding() and $check_ground.global_rotation.x < -1.2 and $check_ground.global_rotation.x > -1.6 and $walljumpTimer.is_stopped() and Input.is_action_just_released("sauter"):
+		##followcamera.rotation_damping = 0
+		##followcamera.rotation_degrees.y += 180 
+		#last_rotation = Vector3(0, rotation_degrees.y+180, 0)
 		#$walljumpTimer.start(1)
 	#elif $check_ground.is_colliding() and $check_ground.global_rotation.x < -1.2 and $check_ground.global_rotation.x > -1.6 and !$walljumpTimer.is_stopped():
 		#followcamera.rotation_damping = 0
@@ -219,11 +225,14 @@ func _physics_process(delta: float) -> void:
 	#if gravity_change and (basis.z.dot(linear_velocity) <= 4 or Input.is_action_just_released("sauter")):
 		#PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
 		#gravity_change = false
+	
+
 
 #func _score_to_string(_a):
 	#score_bilan.text = str(score_int)
 	#print(score_int)
 	#pass
+	
 
 ## sets the variables player_steer, player_brake and player_acceleration based on the player input
 func get_input(delta : float):
