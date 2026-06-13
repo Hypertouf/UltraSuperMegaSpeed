@@ -172,9 +172,15 @@ size = Vector3(1.5658264, 12.683193, 29.507828)
 
 [sub_resource type="Resource" id="Resource_1uvwm"]
 script = ExtResource("35_nseyi")
+duration = 0.5
+transition = 1
+ease = 1
 
 [sub_resource type="Resource" id="Resource_kb7yh"]
 script = ExtResource("35_nseyi")
+duration = 0.5
+transition = 1
+ease = 1
 
 [node name="The_BIG_city" type="Node3D" unique_id=234967597 node_paths=PackedStringArray("Player")]
 script = ExtResource("1_nkwo0")
@@ -2037,7 +2043,6 @@ follow_mode = 6
 follow_target = NodePath("../car/camera_offset")
 tween_resource = SubResource("Resource_1uvwm")
 follow_damping = true
-follow_damping_value = Vector3(0.2, 0.2, 0.2)
 follow_distance = 3.0
 spring_length = 3.0
 align_transform_with_view = Callable()
@@ -2050,6 +2055,7 @@ script = ExtResource("34_kb7yh")
 follow_mode = 6
 follow_target = NodePath("../car/camera_offset")
 tween_resource = SubResource("Resource_kb7yh")
+follow_damping = true
 follow_distance = 3.0
 spring_length = 3.0
 align_transform_with_view = Callable()
