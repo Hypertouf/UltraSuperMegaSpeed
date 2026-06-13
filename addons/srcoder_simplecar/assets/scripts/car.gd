@@ -17,7 +17,9 @@ extends VehicleBody3D
 ## How sticky are the rear wheel. Default is 5. Try lower value for a more drift experience
 @export var rear_wheel_grip : float = 5.0
 @export var torbo : TextureProgressBar
-@export var followcamera : Node3D
+#@export var followcamera : Node3D
+@export var pcam_ground : PhantomCamera3D
+@export var pcam_air : PhantomCamera3D
 @export var SLODER : VSlider
 @export var hitbox : Area3D
 @export var Ui : Control
@@ -48,6 +50,7 @@ var trans2d : Transform2D
 @onready var score_list : Control = score_display.get_child(0).get_child(0).get_child(0)
 @onready var score_bilan : Control = score_display.get_child(0).get_child(0).get_child(2).get_child(1)
 @export var font : FontFile
+
 var score_int : int = 0
 var score_string : String = "0"
 var Particle = GPUParticles2D.new()
@@ -85,6 +88,7 @@ var wheelie = false
 var gravity_change = false
 var exploCooldown = false
 var burnout = false
+var last_rotation = Vector3.ZERO
 #an exporetd array of driving wheels so we can limit rom of each wheel when we process input
 @onready var driving_wheels : Array[VehicleWheel3D] = [$WheelBackLeft,$WheelBackRight]
 @onready var steering_wheels : Array[VehicleWheel3D] = [$WheelFrontLeft,$WheelFrontRight]
@@ -166,7 +170,7 @@ func _input(event): #
 		newtorbovalue -= 25
 		tween.tween_property(torbo, "value",newtorbovalue, 0.5)
 		
-		followcamera.rotation.y = rotation.y
+		#followcamera.rotation.y = rotation.y
 		linear_velocity += transform.basis.z * 12
 	
 	if event.is_action_pressed("stomp") and !$check_ground.is_colliding() and torbo.value > 10 :
@@ -189,19 +193,26 @@ func _physics_process(delta: float) -> void:
 		var actual_force : float = player_acceleration * ((-max_torque/max_wheel_rpm) * abs(wheel.get_rpm()) + max_torque) 
 		wheel.engine_force = actual_force
 	
-	followcamera.mycamera.fov = 75 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) #adaptive FOV, when the car go faster the FOV go wider to make it feel faster.
-																									   #the math used here is simply calculating the hypothenus of the triangle formed by the x axis vector and the z axis vector. this allows the fov adaptation to remain stable no matter the direction in which the car is turning.
-																									   # calculating the absolute of this hypothenus simply makes the fov NOT works backwards when the car is going negative x and z directions.
+	#followcamera.mycamera.fov = 75 + (abs(hypothenuse(linear_velocity.x, linear_velocity.z))) #adaptive FOV, when the car go faster the FOV go wider to make it feel faster.
+																									   ##the math used here is simply calculating the hypothenus of the triangle formed by the x axis vector and the z axis vector. this allows the fov adaptation to remain stable no matter the direction in which the car is turning.
+																									   ## calculating the absolute of this hypothenus simply makes the fov NOT works backwards when the car is going negative x and z directions.
 	if !$check_ground.is_colliding() :
-		followcamera.rotation_damping = 0
-	elif $check_ground.is_colliding() and $check_ground.global_rotation.x < -1.2 and $check_ground.global_rotation.x > -1.6 and $walljumpTimer.is_stopped():
-		followcamera.rotation_damping = 0
-		followcamera.rotation_degrees.y += 180 
-		$walljumpTimer.start(1)
-	elif $check_ground.is_colliding() and $check_ground.global_rotation.x < -1.2 and $check_ground.global_rotation.x > -1.6 and !$walljumpTimer.is_stopped():
-		followcamera.rotation_damping = 0
+		#followcamera.rotation_damping = 0
+		pcam_air.set_priority(1)
+		pcam_ground.set_priority(0)
+		pcam_air.set_third_person_rotation_degrees(last_rotation)
+	#elif $check_ground.is_colliding() and $check_ground.global_rotation.x < -1.2 and $check_ground.global_rotation.x > -1.6 and $walljumpTimer.is_stopped():
+		#followcamera.rotation_damping = 0
+		#followcamera.rotation_degrees.y += 180 
+		#$walljumpTimer.start(1)
+	#elif $check_ground.is_colliding() and $check_ground.global_rotation.x < -1.2 and $check_ground.global_rotation.x > -1.6 and !$walljumpTimer.is_stopped():
+		#followcamera.rotation_damping = 0
 	else :
-		followcamera.rotation_damping = 3.11
+		pcam_air.set_priority(0)
+		pcam_ground.set_priority(1)
+		pcam_ground.set_third_person_rotation_degrees(Vector3(-rotation_degrees.x, rotation_degrees.y + 180, -rotation_degrees.z))
+		last_rotation = Vector3(-rotation_degrees.x, rotation_degrees.y + 180, -rotation_degrees.z)
+	
 
 	if basis.z.dot(linear_velocity) <= 4 or Input.is_action_just_released("sauter") or gravity_change == false:
 		PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
@@ -644,9 +655,9 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 
 func _on_hitbox_area_entered(area: Area3D) -> void:
 	#print(area)
-	if area is enterLoop :
-		$cockpit.fov = 90
-		$cockpit.make_current()
+	#if area is enterLoop :
+		##$cockpit.fov = 90
+		##$cockpit.make_current()
 	
 	if area is enterWall :
 		print("WALLING")
@@ -658,21 +669,21 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 	if area is enterGRAVloop :
 		print("gravity looping")
 		#gravity_change = true
-		$cockpit.fov = 90
-		$cockpit.make_current()
+		#$cockpit.fov = 90
+		#$cockpit.make_current()
 		#PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN * 0.1)
 
 		
 																																			
 func _on_hitbox_area_exited(area: Area3D) -> void:
-	if area is exitLoop :
-		followcamera.mycamera.make_current()
+	#if area is exitLoop :
+		#followcamera.mycamera.make_current()
 	
 	if area is exitWall :
 		print("wall exited")
 		#PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
 		#gravity_change = false
-		followcamera.mycamera.make_current()
+		#followcamera.mycamera.make_current()
 		
 		
 	#region story stuff
@@ -796,3 +807,4 @@ func _on_reset_style_board_timeout() -> void:
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property(self, "score_int", 0, 0.5)
 	pass # Replace with function body.
+	

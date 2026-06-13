@@ -38,5 +38,6 @@ shape = SubResource("BoxShape3D_ppdcs")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1027601673]
 stream = ExtResource("3_bo13x")
 volume_db = -20.178
+max_db = -20.0
 
 [connection signal="area_entered" from="RigidBody3D/Area3D" to="RigidBody3D" method="_on_area_3d_area_entered"]

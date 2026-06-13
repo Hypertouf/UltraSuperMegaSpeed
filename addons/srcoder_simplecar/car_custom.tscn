@@ -40,7 +40,7 @@
 [ext_resource type="AudioStream" uid="uid://d4ieiykm6gkws" path="res://assets/Audio/Tv_quotes/BUSTAMOVE.wav" id="20_r605t"]
 [ext_resource type="Texture2D" uid="uid://be1ic7voxn0ta" path="res://assets/Textures/Radio/frame0001.png" id="20_wj4kd"]
 [ext_resource type="Texture2D" uid="uid://copvhmpfo4ibr" path="res://assets/Textures/Radio/frame0002.png" id="21_0acjl"]
-[ext_resource type="Shape3D" path="res://assets/Models/Tuture/body_collision_convex_ROND.tres" id="21_635pb"]
+[ext_resource type="Shape3D" uid="uid://yxjsfrstk0jp" path="res://assets/Models/Tuture/body_collision_convex_ROND.tres" id="21_635pb"]
 [ext_resource type="AudioStream" uid="uid://51nnw2m27ikx" path="res://assets/Audio/Tv_quotes/BustItAndDustIt.wav" id="21_hs7ed"]
 [ext_resource type="Texture2D" uid="uid://cp5hl5ypk0f5h" path="res://AnimTextExplo.tres" id="22_0acjl"]
 [ext_resource type="AudioStream" uid="uid://ch4s013fvhg7g" path="res://assets/Audio/Tv_quotes/GrppinAndRippin.wav" id="22_xsmfh"]
@@ -307,16 +307,12 @@ cull_mode = 2
 shading_mode = 0
 albedo_color = Color(3.7541986e-06, 0.94921654, 0.64474994, 1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_2oksv"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_u2f4k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7us2"]
 cull_mode = 2
 shading_mode = 0
 albedo_color = Color(0.8516507, 0.10439276, 0.4250917, 1)
-
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_0wh4r"]
-
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_u2f4k"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_fimmd"]
 
@@ -331,6 +327,10 @@ albedo_color = Color(0.8516507, 0.10439276, 0.4250917, 1)
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_clvmh"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_0ajwm"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_n0gwb"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_1k0cp"]
 
 [node name="car" type="VehicleBody3D" unique_id=585784445 node_paths=PackedStringArray("torbo", "SLODER", "hitbox", "Ui", "AnimPlayer", "Sound", "SoundNitro", "death_quotes", "Tv_quotes", "Radio", "VStraemPlay", "exploParticles", "Particle_figure", "particule_holder", "score_display", "timy", "LayBa")]
 collision_layer = 2
@@ -438,19 +438,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120831, -0.24324802, 0)
 
 [node name="Other_sounds" type="AudioStreamPlayer3D" parent="." unique_id=1541837788]
 volume_db = -30.0
+max_db = -20.0
 max_polyphony = 3
 
 [node name="Nitrous" type="AudioStreamPlayer3D" parent="." unique_id=1538426193]
 stream = ExtResource("4_v75hc")
 volume_db = -30.0
+max_db = -20.0
 
 [node name="Death_quote" type="AudioStreamPlayer3D" parent="." unique_id=1740587628]
 stream = SubResource("AudioStreamRandomizer_xtq8k")
 volume_db = -25.0
+max_db = -20.0
 
 [node name="Tv_quote" type="AudioStreamPlayer3D" parent="." unique_id=1331943520]
 stream = SubResource("AudioStreamRandomizer_pjluh")
 volume_db = -25.0
+max_db = -20.0
 
 [node name="Radio" type="AudioStreamPlayer3D" parent="." unique_id=1928303185]
 stream = SubResource("AudioStreamRandomizer_hhcwt")
@@ -490,9 +494,6 @@ one_shot = true
 [node name="ResetStyleBoard" type="Timer" parent="." unique_id=1944333127]
 wait_time = 3.0
 one_shot = true
-
-[node name="cockpit" type="Camera3D" parent="." unique_id=62731619]
-transform = Transform3D(-1, -1.0778209e-15, -8.742277e-08, 1.1167362e-08, 0.99180776, -0.12773977, 8.670658e-08, -0.12773976, -0.99180776, -2.5091273e-08, 1.0542033, -2.317504)
 
 [node name="Ui_Holder" type="Control" parent="." unique_id=1434486205]
 texture_filter = 1
@@ -708,10 +709,10 @@ process_material = SubResource("ParticleProcessMaterial_jjlsn")
 draw_pass_1 = SubResource("PlaneMesh_e70ve")
 
 [node name="Trail3d" type="MeshInstance3D" parent="." unique_id=1425037322]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, 0.16494739, -0.6830325)
+transform = Transform3D(3.1483967e-08, 0.7202692, 0.69369465, 1, -4.371139e-08, 0, 3.0322358e-08, 0.69369465, -0.7202692, 0.65783185, 0.16494739, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_2oksv")
+mesh = SubResource("ImmediateMesh_u2f4k")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -719,10 +720,10 @@ lifespan = 0.1
 startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 
 [node name="Trail3d9" type="MeshInstance3D" parent="." unique_id=2144895890]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.43419406, 0.30833566, -1.3361323)
+transform = Transform3D(4.1571468e-08, 0.9510443, 0.30905443, 1, -4.371139e-08, 0, 1.3509198e-08, 0.30905443, -0.9510443, 0.43419406, 0.30833566, -1.3361323)
 material_override = SubResource("StandardMaterial3D_b7us2")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_0wh4r")
+mesh = SubResource("ImmediateMesh_fimmd")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -730,10 +731,10 @@ lifespan = 0.1
 startColor = Color(0.86993164, 0.15957409, 0.39749965, 1)
 
 [node name="Trail3d10" type="MeshInstance3D" parent="." unique_id=705258064]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.44745758, 0.30833566, -1.3361323)
+transform = Transform3D(4.1448864e-08, 0.9482395, -0.31755605, 1, -4.371139e-08, 0, -1.3880816e-08, -0.31755605, -0.9482395, -0.44745758, 0.30833566, -1.3361323)
 material_override = SubResource("StandardMaterial3D_b7us2")
 cast_shadow = 0
-mesh = SubResource("ImmediateMesh_u2f4k")
+mesh = SubResource("ImmediateMesh_er80i")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08
@@ -741,29 +742,7 @@ lifespan = 0.1
 startColor = Color(0.86993164, 0.15957409, 0.39749965, 1)
 
 [node name="Trail3d2" type="MeshInstance3D" parent="." unique_id=633410569]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, -0.16910112, -0.6830325)
-material_override = SubResource("StandardMaterial3D_iux6i")
-cast_shadow = 0
-mesh = SubResource("ImmediateMesh_fimmd")
-skeleton = NodePath("../WheelBackLeft")
-script = ExtResource("12_b7us2")
-fromWidth = 0.08
-lifespan = 0.1
-startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
-
-[node name="Trail3d3" type="MeshInstance3D" parent="." unique_id=1644025789]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, 0.16494739, 0.60499716)
-material_override = SubResource("StandardMaterial3D_iux6i")
-cast_shadow = 0
-mesh = SubResource("ImmediateMesh_er80i")
-skeleton = NodePath("../WheelBackLeft")
-script = ExtResource("12_b7us2")
-fromWidth = 0.08
-lifespan = 0.1
-startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
-
-[node name="Trail3d4" type="MeshInstance3D" parent="." unique_id=1135858230]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.65783185, -0.16910112, 0.60499716)
+transform = Transform3D(3.1483967e-08, 0.7202692, 0.69369465, 1, -4.371139e-08, 0, 3.0322358e-08, 0.69369465, -0.7202692, 0.65783185, -0.16910112, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
 mesh = SubResource("ImmediateMesh_2qtt0")
@@ -773,8 +752,8 @@ fromWidth = 0.08
 lifespan = 0.1
 startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 
-[node name="Trail3d5" type="MeshInstance3D" parent="." unique_id=717174320]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, 0.16494739, -0.6830325)
+[node name="Trail3d3" type="MeshInstance3D" parent="." unique_id=1644025789]
+transform = Transform3D(-2.9589566e-08, -0.67693037, 0.736047, 1, -4.371139e-08, 0, 3.2173638e-08, 0.736047, 0.67693037, 0.65783185, 0.16494739, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
 mesh = SubResource("ImmediateMesh_t48tg")
@@ -784,8 +763,8 @@ fromWidth = 0.08
 lifespan = 0.1
 startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 
-[node name="Trail3d6" type="MeshInstance3D" parent="." unique_id=649443701]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, -0.16910112, -0.6830325)
+[node name="Trail3d4" type="MeshInstance3D" parent="." unique_id=1135858230]
+transform = Transform3D(-2.9589566e-08, -0.67693037, 0.736047, 1, -4.371139e-08, 0, 3.2173638e-08, 0.736047, 0.67693037, 0.65783185, -0.16910112, 0.60499716)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
 mesh = SubResource("ImmediateMesh_8ngsy")
@@ -795,8 +774,8 @@ fromWidth = 0.08
 lifespan = 0.1
 startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 
-[node name="Trail3d7" type="MeshInstance3D" parent="." unique_id=1530861115]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, 0.16494739, 0.60499716)
+[node name="Trail3d5" type="MeshInstance3D" parent="." unique_id=717174320]
+transform = Transform3D(3.2202347e-08, 0.7367038, -0.6762156, 1, -4.371139e-08, 0, -2.9558322e-08, -0.6762156, -0.7367038, -0.62695104, 0.16494739, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
 mesh = SubResource("ImmediateMesh_clvmh")
@@ -806,11 +785,33 @@ fromWidth = 0.08
 lifespan = 0.1
 startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 
-[node name="Trail3d8" type="MeshInstance3D" parent="." unique_id=1605269926]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.62695104, -0.16910112, 0.60499716)
+[node name="Trail3d6" type="MeshInstance3D" parent="." unique_id=649443701]
+transform = Transform3D(3.2202347e-08, 0.7367038, -0.6762156, 1, -4.371139e-08, 0, -2.9558322e-08, -0.6762156, -0.7367038, -0.62695104, -0.16910112, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
 mesh = SubResource("ImmediateMesh_0ajwm")
+skeleton = NodePath("../WheelBackLeft")
+script = ExtResource("12_b7us2")
+fromWidth = 0.08
+lifespan = 0.1
+startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
+
+[node name="Trail3d7" type="MeshInstance3D" parent="." unique_id=1530861115]
+transform = Transform3D(-3.0352997e-08, -0.6943956, -0.71959347, 1, -4.371139e-08, 0, -3.145443e-08, -0.71959347, 0.6943956, -0.62695104, 0.16494739, 0.60499716)
+material_override = SubResource("StandardMaterial3D_iux6i")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_n0gwb")
+skeleton = NodePath("../WheelBackLeft")
+script = ExtResource("12_b7us2")
+fromWidth = 0.08
+lifespan = 0.1
+startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
+
+[node name="Trail3d8" type="MeshInstance3D" parent="." unique_id=1605269926]
+transform = Transform3D(-3.0352997e-08, -0.6943956, -0.71959347, 1, -4.371139e-08, 0, -3.145443e-08, -0.71959347, 0.6943956, -0.62695104, -0.16910112, 0.60499716)
+material_override = SubResource("StandardMaterial3D_iux6i")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_1k0cp")
 skeleton = NodePath("../WheelBackLeft")
 script = ExtResource("12_b7us2")
 fromWidth = 0.08

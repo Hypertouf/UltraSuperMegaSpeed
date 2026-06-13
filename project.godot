@@ -23,6 +23,7 @@ config/icon="uid://du53j3hwuqhej"
 
 flowerwall_crt="*uid://cc1fomjf362h5"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+PhantomCameraManager="*uid://duq6jhf6unyis"
 
 [dialogue_manager]
 
@@ -36,7 +37,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/flowerwall_postprocess/plugin.cfg", "res://addons/proto_shape/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/flowerwall_postprocess/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/proto_shape/plugin.cfg")
 
 [input]
 

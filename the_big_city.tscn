@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dcup375s06tai" path="res://addons/srcoder_simplecar/car_custom.tscn" id="1_0nkrw"]
 [ext_resource type="Script" uid="uid://3yr365clp1xm" path="res://Scripts/testcity.gd" id="1_nkwo0"]
-[ext_resource type="PackedScene" uid="uid://rjx8tx5y7j2p" path="res://addons/srcoder_simplecar/follow_camera.tscn" id="2_fq8mh"]
 [ext_resource type="AudioStream" uid="uid://bic4a206esrbb" path="res://assets/Audio/005.Synth_MLT_se_ac_ce_bounce sound.wav" id="3_kb7yh"]
 [ext_resource type="Material" uid="uid://dh6ykun8bv60u" path="res://examples/day_sky.tres" id="4_fq8mh"]
 [ext_resource type="PackedScene" uid="uid://obvslhiy73ih" path="res://assets/Models/props/Roads/road_turning_barriere.tscn" id="10_rvk64"]
@@ -30,9 +29,12 @@
 [ext_resource type="AudioStream" uid="uid://cfc4poswwb4g2" path="res://assets/Audio/bad-to-the-bone.mp3" id="32_1uvwm"]
 [ext_resource type="PackedScene" uid="uid://denjrfospc545" path="res://assets/Models/props/bumper.tscn" id="32_62cfs"]
 [ext_resource type="PackedScene" uid="uid://b855nbwddsohx" path="res://assets/Models/props/looping_barrierless_scene.tscn" id="32_rvk64"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="33_1uvwm"]
 [ext_resource type="Script" uid="uid://7rjithirc7hi" path="res://enterGRAVloop.gd" id="33_62cfs"]
 [ext_resource type="PackedScene" uid="uid://bj41ndm0i4rlx" path="res://assets/Models/props/Barriere/barriere_small.tscn" id="34_1uvwm"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="34_kb7yh"]
 [ext_resource type="PackedScene" uid="uid://cvh2oig7trskq" path="res://assets/Models/props/Barriere/barriere_default.tscn" id="35_kb7yh"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="35_nseyi"]
 
 [sub_resource type="Sky" id="Sky_6p87c"]
 sky_material = ExtResource("4_fq8mh")
@@ -168,6 +170,12 @@ size = Vector3(0.6652832, 11.976547, 28.421848)
 [sub_resource type="BoxShape3D" id="BoxShape3D_025wx"]
 size = Vector3(1.5658264, 12.683193, 29.507828)
 
+[sub_resource type="Resource" id="Resource_1uvwm"]
+script = ExtResource("35_nseyi")
+
+[sub_resource type="Resource" id="Resource_kb7yh"]
+script = ExtResource("35_nseyi")
+
 [node name="The_BIG_city" type="Node3D" unique_id=234967597 node_paths=PackedStringArray("Player")]
 script = ExtResource("1_nkwo0")
 Player = NodePath("car")
@@ -212,15 +220,15 @@ sides = 30
 transform = Transform3D(0.7156806, 0, -0.6984279, 0, 1, 0, 0.6984279, 0, 0.7156806, -81.70702, -1.5223694, 74.29997)
 size = Vector3(267.1883, 12.806702, 40.46776)
 
-[node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("followcamera") instance=ExtResource("1_0nkrw")]
-transform = Transform3D(-0.08296169, 0.0041113994, 0.9965446, 0.015588596, 0.9998748, -0.002827345, -0.99643105, 0.015300151, -0.0830154, -10.603754, 0.36242145, -176.33086)
-followcamera = NodePath("../FollowCamera")
+[node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("pcam_ground", "pcam_air") instance=ExtResource("1_0nkrw")]
+transform = Transform3D(-0.08296169, 0.0041113994, 0.9965446, 0.015588596, 0.9998748, -0.002827345, -0.99643105, 0.015300151, -0.0830154, -7.617603, 0.36242145, -176.33086)
+pcam_ground = NodePath("../pcam_ground")
+pcam_air = NodePath("../pcam_air")
 shortjump = ExtResource("3_kb7yh")
 bigjump = ExtResource("3_kb7yh")
 
-[node name="FollowCamera" parent="." unique_id=670489488 node_paths=PackedStringArray("follow_target") instance=ExtResource("2_fq8mh")]
-transform = Transform3D(0.9999054, 0.01375276, 0, -0.01375276, 0.9999054, 0, 0, 0, 1, 0, 0, 0)
-follow_target = NodePath("../car")
+[node name="camera_offset" type="Node3D" parent="car" unique_id=1721971396]
+transform = Transform3D(1, 0, -2.2351742e-08, 0, 1, 4.656613e-10, 1.4901161e-08, -2.3283064e-10, 0.9999999, 0.022827148, 1.464051, -0.0041399)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1611002276]
 environment = SubResource("Environment_ajbjs")
@@ -2011,6 +2019,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4263308, 12.947545, 110.751
 
 [node name="Tv3" parent="." unique_id=1874244837 instance=ExtResource("31_ffspi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0218725, 12.957882, 110.70516)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=593694407]
+transform = Transform3D(-0.082959294, 0.0041112895, 0.9965445, 0.015588576, 0.9998745, -0.0028273258, -0.996431, 0.015300157, -0.08301306, -4.6279693, 1.8181746, -176.5799)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1981707844]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("33_1uvwm")
+
+[node name="pcam_ground" type="Node3D" parent="." unique_id=1159477692 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(-0.082959294, 0.0041112895, 0.9965445, 0.015588576, 0.9998745, -0.0028273258, -0.996431, 0.015300157, -0.08301306, -4.6279693, 1.8181746, -176.5799)
+script = ExtResource("34_kb7yh")
+priority = 1
+follow_mode = 6
+follow_target = NodePath("../car/camera_offset")
+tween_resource = SubResource("Resource_1uvwm")
+follow_damping = true
+follow_damping_value = Vector3(0.2, 0.2, 0.2)
+follow_distance = 3.0
+spring_length = 3.0
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+
+[node name="pcam_air" type="Node3D" parent="." unique_id=434970498 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(-0.082959294, 0.0041112895, 0.9965445, 0.015588576, 0.9998745, -0.0028273258, -0.996431, 0.015300157, -0.08301306, -4.6279693, 1.8181746, -176.5799)
+script = ExtResource("34_kb7yh")
+follow_mode = 6
+follow_target = NodePath("../car/camera_offset")
+tween_resource = SubResource("Resource_kb7yh")
+follow_distance = 3.0
+spring_length = 3.0
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_finished"]
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone2" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_2_finished"]
