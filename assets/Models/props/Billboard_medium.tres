@@ -1,12 +1,7 @@
 [gd_resource type="ArrayMesh" format=4 uid="uid://byadcg27rs6rx"]
 
 [ext_resource type="Material" uid="uid://33ly3c5h5wvt" path="res://assets/Materials/Billboard_generic.tres" id="1_aptve"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqpxi"]
-resource_name = "ImageBillboard"
-cull_mode = 2
-albedo_color = Color(0.9666559, 0.2074751, 0.4504654, 1)
-roughness = 0.5
+[ext_resource type="Material" uid="uid://dx4v6p673cgpn" path="res://assets/Materials/BillBoardImage.tres" id="1_xd0qf"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_c8d56"]
 _surfaces = [{
@@ -41,7 +36,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
-"material": SubResource("StandardMaterial3D_jqpxi"),
+"material": ExtResource("1_xd0qf"),
 "name": "ImageBillboard",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dx4v6p673cgpn"]
+
+[ext_resource type="Texture2D" uid="uid://bp0n88reajsmc" path="res://assets/Textures/Billboard_Medium.png" id="1_228in"]
+
+[resource]
+albedo_texture = ExtResource("1_228in")
+texture_filter = 0
