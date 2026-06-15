@@ -709,7 +709,7 @@ process_material = SubResource("ParticleProcessMaterial_jjlsn")
 draw_pass_1 = SubResource("PlaneMesh_e70ve")
 
 [node name="Trail3d" type="MeshInstance3D" parent="." unique_id=1425037322]
-transform = Transform3D(3.1483967e-08, 0.7202692, 0.69369465, 1, -4.371139e-08, 0, 3.0322358e-08, 0.69369465, -0.7202692, 0.65783185, 0.16494739, -0.6830325)
+transform = Transform3D(3.1483967e-08, 0.7202692, 0.69369465, 1, -4.371139e-08, 0, 3.0322358e-08, 0.69369465, -0.7202692, 0.67892206, 0.073168874, -0.67549944)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
 mesh = SubResource("ImmediateMesh_u2f4k")
@@ -753,7 +753,7 @@ lifespan = 0.1
 startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 
 [node name="Trail3d3" type="MeshInstance3D" parent="." unique_id=1644025789]
-transform = Transform3D(-2.9589566e-08, -0.67693037, 0.736047, 1, -4.371139e-08, 0, 3.2173638e-08, 0.736047, 0.67693037, 0.65783185, 0.16494739, 0.60499716)
+transform = Transform3D(-2.9589566e-08, -0.67693037, 0.736047, 1, -4.371139e-08, 0, 3.2173638e-08, 0.736047, 0.67693037, 0.65783185, -0.020830661, 0.6675115)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
 mesh = SubResource("ImmediateMesh_t48tg")
@@ -764,7 +764,8 @@ lifespan = 0.1
 startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 
 [node name="Trail3d4" type="MeshInstance3D" parent="." unique_id=1135858230]
-transform = Transform3D(-2.9589566e-08, -0.67693037, 0.736047, 1, -4.371139e-08, 0, 3.2173638e-08, 0.736047, 0.67693037, 0.65783185, -0.16910112, 0.60499716)
+transform = Transform3D(-2.9589566e-08, -0.67693037, 0.736047, 1, -4.371139e-08, 0, 3.2173638e-08, 0.736047, 0.67693037, 0.65783185, -0.16910112, 0.65298384)
+visible = false
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
 mesh = SubResource("ImmediateMesh_8ngsy")
@@ -775,7 +776,7 @@ lifespan = 0.1
 startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 
 [node name="Trail3d5" type="MeshInstance3D" parent="." unique_id=717174320]
-transform = Transform3D(3.2202347e-08, 0.7367038, -0.6762156, 1, -4.371139e-08, 0, -2.9558322e-08, -0.6762156, -0.7367038, -0.62695104, 0.16494739, -0.6830325)
+transform = Transform3D(3.2202347e-08, 0.7367038, -0.6762156, 1, -4.371139e-08, 0, -2.9558322e-08, -0.6762156, -0.7367038, -0.62695104, 0.10866511, -0.6830325)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
 mesh = SubResource("ImmediateMesh_clvmh")
@@ -797,7 +798,7 @@ lifespan = 0.1
 startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 
 [node name="Trail3d7" type="MeshInstance3D" parent="." unique_id=1530861115]
-transform = Transform3D(-3.0352997e-08, -0.6943956, -0.71959347, 1, -4.371139e-08, 0, -3.145443e-08, -0.71959347, 0.6943956, -0.62695104, 0.16494739, 0.60499716)
+transform = Transform3D(-3.0352997e-08, -0.6943956, -0.71959347, 1, -4.371139e-08, 0, -3.145443e-08, -0.71959347, 0.6943956, -0.62695104, 0.12008822, 0.65675575)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
 mesh = SubResource("ImmediateMesh_n0gwb")
@@ -808,7 +809,7 @@ lifespan = 0.1
 startColor = Color(7.412136e-06, 0.9410928, 0.6161276, 1)
 
 [node name="Trail3d8" type="MeshInstance3D" parent="." unique_id=1605269926]
-transform = Transform3D(-3.0352997e-08, -0.6943956, -0.71959347, 1, -4.371139e-08, 0, -3.145443e-08, -0.71959347, 0.6943956, -0.62695104, -0.16910112, 0.60499716)
+transform = Transform3D(-3.0352997e-08, -0.6943956, -0.71959347, 1, -4.371139e-08, 0, -3.145443e-08, -0.71959347, 0.6943956, -0.62695104, -0.16910112, 0.65927416)
 material_override = SubResource("StandardMaterial3D_iux6i")
 cast_shadow = 0
 mesh = SubResource("ImmediateMesh_1k0cp")
