@@ -240,6 +240,7 @@ transform = Transform3D(1, 0, -2.2351742e-08, 0, 1, 4.656613e-10, 1.4901161e-08,
 
 [node name="velocity_direction" type="Node3D" parent="car" unique_id=1357260319]
 transform = Transform3D(1, 0, -1.4156103e-07, 0, 1, 1.6298145e-09, 1.0430813e-07, -2.3283064e-10, 0.99999917, 0, 0, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="car/velocity_direction" unique_id=755239222]
 transform = Transform3D(1.0000006, 0, -3.7252903e-08, 0, 1.0000006, 4.656613e-10, 1.4901161e-08, -2.3283064e-10, 1, 0, 0, 0)
