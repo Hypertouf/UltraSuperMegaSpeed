@@ -1,14 +1,50 @@
-[gd_scene format=3 uid="uid://obvslhiy73ih"]
+[gd_scene format=3 uid="uid://dyr831iovtxg"]
 
 [ext_resource type="ArrayMesh" uid="uid://bir2od5mk4bj8" path="res://assets/Models/props/Roads/road_turning_barriere.tres" id="1_waxcv"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wi8h6"]
-data = PackedVector3Array(1.3999, 0, 0.7782, 3.4122, 0, 2.0218, 2.8803, 0, 2.1276999, 1.3999, 0, 0.7782, 2.0218, 0, 0.6314, 3.4122, 0, 2.0218, 2.4292998, 0, 2.4292998, 1.3999, 0, 0.7782, 2.8803, 0, 2.1276999, 2.4292998, 0, 2.4292998, 0.7782, 0, 1.3999, 1.3999, 0, 0.7782, 2.1276999, 0, 2.8803, 0.7782, 0, 1.3999, 2.4292998, 0, 2.4292998, 2.0218, 0, 3.4122, 0.7782, 0, 1.3999, 2.1276999, 0, 2.8803, 2.0218, 0, 3.4122, 0.6314, 0, 2.0218, 0.7782, 0, 1.3999, 2.0218, 0, 12.021999, 0.6314, 0, 2.0218, 2.0218, 0, 3.4122, 0.6314, 0, 2.0218, 2.0218, 0, 12.021999, -7.9779997, 0, 12.021999, 0.6314, 0, 2.0218, -7.9779997, 0, 12.021999, -7.9779997, 0, 2.0218, 12.021999, 0, -7.9779997, 2.0218, 0, 0.6314, 2.0218, 0, -7.9779997, 2.0218, 0, 0.6314, 12.021999, 0, -7.9779997, 12.021999, 0, 2.0218, 2.0218, 0, 0.6314, 12.021999, 0, 2.0218, 3.4122, 0, 2.0218, -6.3199997, 0, -4.6366, 0.7782, 0, 1.3999, -7.4925, 0, -2.7770998, -7.4925, 0, -2.7770998, 0.7782, 0, 1.3999, -7.9779997, 0, -0.6329, 0.7782, 0, 1.3999, -7.9779997, 0, 2.0218, -7.9779997, 0, -0.6329, 0.7782, 0, 1.3999, 0.6314, 0, 2.0218, -7.9779997, 0, 2.0218, 1.3999, 0, 0.7782, 0.7782, 0, 1.3999, -6.3199997, 0, -4.6366, 1.3999, 0, 0.7782, -6.3199997, 0, -4.6366, -4.6366, 0, -6.3199997, -2.7770998, 0, -7.4925, 1.3999, 0, 0.7782, -4.6366, 0, -6.3199997, -0.6329, 0, -7.9779997, 1.3999, 0, 0.7782, -2.7770998, 0, -7.4925, 2.0218, 0, -7.9779997, 1.3999, 0, 0.7782, -0.6329, 0, -7.9779997, 2.0218, 0, -7.9779997, 2.0218, 0, 0.6314, 1.3999, 0, 0.7782)
+[sub_resource type="BoxShape3D" id="BoxShape3D_waxcv"]
+size = Vector3(2.6454124, 1.0652771, 0.1601181)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f70mn"]
+size = Vector3(2.6975079, 1.0872803, 0.1601181)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qhs63"]
+size = Vector3(1.2936687, 1.0872803, 0.12742233)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aptw7"]
+size = Vector3(5.3069725, 1.0872803, 0.1398902)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ibjxq"]
+size = Vector3(1.9594336, 1.0872803, 0.16088748)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nh8hb"]
+size = Vector3(3.4811914, 1.0872803, 0.15460175)
 
 [node name="road_turning" type="StaticBody3D" unique_id=2123673970]
 
 [node name="RoadTurning" type="MeshInstance3D" parent="." unique_id=733073697]
 mesh = ExtResource("1_waxcv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2094034244]
-shape = SubResource("ConcavePolygonShape3D_wi8h6")
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1756169737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8871636, 0.54463863, -5.6724787)
+shape = SubResource("BoxShape3D_waxcv")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=419130741]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.653297, 0.5556402, 2.8602948)
+shape = SubResource("BoxShape3D_f70mn")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="." unique_id=993258240]
+transform = Transform3D(0.6667406, 0, 0.74528986, 0, 1, 0, -0.74528986, 0, 0.6667406, 2.2456093, 0.5556402, 2.2846625)
+shape = SubResource("BoxShape3D_qhs63")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="." unique_id=681989077]
+transform = Transform3D(0.6436162, 0, 0.76534843, 0, 1, 0, -0.76534843, 0, 0.6436162, -3.4051473, 0.5556407, -2.4722743)
+shape = SubResource("BoxShape3D_aptw7")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="." unique_id=1561080956]
+transform = Transform3D(0.27078527, 0, 0.9626398, 0, 1, 0, -0.9626398, 0, 0.27078527, -5.381676, 0.5556412, 0.53861284)
+shape = SubResource("BoxShape3D_ibjxq")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="." unique_id=2089566834]
+transform = Transform3D(0.9426823, 0, 0.33369178, 0, 1, 0, -0.33369178, 0, 0.9426823, -0.09520763, 0.5556412, -5.0878944)
+shape = SubResource("BoxShape3D_nh8hb")

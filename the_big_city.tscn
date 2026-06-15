@@ -4,8 +4,7 @@
 [ext_resource type="Script" uid="uid://3yr365clp1xm" path="res://Scripts/testcity.gd" id="1_nkwo0"]
 [ext_resource type="AudioStream" uid="uid://bic4a206esrbb" path="res://assets/Audio/005.Synth_MLT_se_ac_ce_bounce sound.wav" id="3_kb7yh"]
 [ext_resource type="Material" uid="uid://dh6ykun8bv60u" path="res://examples/day_sky.tres" id="4_fq8mh"]
-[ext_resource type="PackedScene" uid="uid://obvslhiy73ih" path="res://assets/Models/props/Roads/road_turning_barriere.tscn" id="10_rvk64"]
-[ext_resource type="PackedScene" uid="uid://2sm8xmqmpnxg" path="res://assets/Models/props/Roads/road_default_barriere.tscn" id="11_1uvwm"]
+[ext_resource type="PackedScene" uid="uid://chm4ifhu8twhl" path="res://assets/Models/props/Roads/road_default_barriere.tscn" id="11_1uvwm"]
 [ext_resource type="PackedScene" uid="uid://cwsm84uy55vlh" path="res://assets/Models/props/Roads/road_default.tscn" id="14_ffspi"]
 [ext_resource type="PackedScene" uid="uid://c11e3npj6453m" path="res://Scenes/pieton.tscn" id="15_qn0af"]
 [ext_resource type="PackedScene" uid="uid://cna0whqbhy737" path="res://assets/Models/props/building_scene.tscn" id="15_xib5o"]
@@ -20,10 +19,9 @@
 [ext_resource type="ArrayMesh" uid="uid://dbdtjsmneksfp" path="res://assets/Models/props/FeuTricolore.tres" id="25_guwcc"]
 [ext_resource type="PackedScene" uid="uid://lmk01hfaod2y" path="res://assets/Models/props/cabine_telephonique.tscn" id="26_4vynd"]
 [ext_resource type="PackedScene" uid="uid://ctk6ln36mej3g" path="res://assets/Models/props/Roads/road_turning.tscn" id="27_ib3t2"]
-[ext_resource type="PackedScene" uid="uid://bunpfwsn8y2rj" path="res://assets/Models/props/Roads/road_4_ways.tscn" id="29_qn0af"]
 [ext_resource type="PackedScene" uid="uid://bfq0fd2nsskmy" path="res://assets/Models/CSG_scenes/turnpipe.tscn" id="30_00tu3"]
 [ext_resource type="PlaneMesh" uid="uid://uej1ixsmgesg" path="res://assets/BabyMesh.tres" id="30_ffspi"]
-[ext_resource type="PackedScene" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
+[ext_resource type="PackedScene" uid="uid://ddk1ni0j2vby3" path="res://assets/Models/props/Echaffaudage_scene.tscn" id="30_pjy18"]
 [ext_resource type="PackedScene" uid="uid://jaavrwy3gfo1" path="res://assets/Models/props/TV.tscn" id="31_ffspi"]
 [ext_resource type="PackedScene" uid="uid://c0hsfkgf6dwv" path="res://assets/Models/props/garage.tscn" id="32_00tu3"]
 [ext_resource type="AudioStream" uid="uid://cfc4poswwb4g2" path="res://assets/Audio/bad-to-the-bone.mp3" id="32_1uvwm"]
@@ -33,6 +31,7 @@
 [ext_resource type="Script" uid="uid://7rjithirc7hi" path="res://enterGRAVloop.gd" id="33_62cfs"]
 [ext_resource type="PackedScene" uid="uid://bj41ndm0i4rlx" path="res://assets/Models/props/Barriere/barriere_small.tscn" id="34_1uvwm"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="34_kb7yh"]
+[ext_resource type="PackedScene" uid="uid://c6y4wtb3p4gcc" path="res://assets/Models/props/Roads/road_branching.tscn" id="35_1uvwm"]
 [ext_resource type="PackedScene" uid="uid://cvh2oig7trskq" path="res://assets/Models/props/Barriere/barriere_default.tscn" id="35_kb7yh"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="35_nseyi"]
 
@@ -247,7 +246,7 @@ transform = Transform3D(1.0000006, 0, -3.7252903e-08, 0, 1.0000006, 4.656613e-10
 mesh = SubResource("SphereMesh_1uvwm")
 
 [node name="pcam_air" type="Node3D" parent="car/velocity_direction" unique_id=434970498 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.99977463, -0.01554361, -0.015589528, -0.015542953, 0.0030696364, -0.99993515, 0.015589796, 0.999876, 0.0028275296, 0, 0, 0)
+transform = Transform3D(0.99977463, -0.01554361, -0.015595975, -0.015542953, 0.0030696364, -1.0003487, 0.015589796, 0.999876, 0.0028286993, 0, 0, 0)
 script = ExtResource("34_kb7yh")
 look_at_mode = 2
 look_at_target = NodePath("../..")
@@ -269,23 +268,14 @@ light_energy = 0.6
 
 [node name="Main_road" type="Node3D" parent="." unique_id=533878681]
 
-[node name="RoadDefault5" parent="Main_road" unique_id=1628273091 instance=ExtResource("14_ffspi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0, -71.662384)
-
 [node name="RoadDefault6" parent="Main_road" unique_id=258119508 instance=ExtResource("14_ffspi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0, -51.662388)
+transform = Transform3D(-0.9999973, 0, -0.0023213923, 0, 1, 0, 0.0023213923, 0, -0.9999973, 0.047167167, 0, -41.69842)
 
 [node name="road_turning" parent="Main_road" unique_id=2123673970 instance=ExtResource("27_ib3t2")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12.638648, 0.021516323, -52.773212)
-
-[node name="Road_4ways" parent="Main_road" unique_id=648047569 instance=ExtResource("29_qn0af")]
-transform = Transform3D(0.9999999, 0, -0.00041887164, 0, 1, 0, 0.00041887164, 0, 0.9999999, -9.904988, -0.011056662, -69.80463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.220489, 0.021516323, -75.87961)
 
 [node name="RoadDefault17" parent="Main_road" unique_id=1181978539 instance=ExtResource("14_ffspi")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -34.602745, -9.536743e-07, -49.80706)
-
-[node name="road_turning2" parent="Main_road" unique_id=1248459538 instance=ExtResource("10_rvk64")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.947511, 0.07214595, -173.5363)
 
 [node name="RoadDefaultbarriere" parent="Main_road" unique_id=776729052 instance=ExtResource("11_1uvwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0, -151.6985)
@@ -338,23 +328,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0.087901115, 141
 [node name="RoadDefaultbarriere22" parent="Main_road" unique_id=1758085215 instance=ExtResource("11_1uvwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0, 148.3015)
 
-[node name="Road_4ways2" parent="Main_road" unique_id=462498355 instance=ExtResource("29_qn0af")]
-transform = Transform3D(0.9999999, 0, -0.00041887164, 0, 1, 0, 0.00041887164, 0, 0.9999999, -9.902451, 0.06910825, -76.93973)
-
 [node name="road_turning3" parent="Main_road" unique_id=1465214732 instance=ExtResource("27_ib3t2")]
-transform = Transform3D(-0.0153757855, 0, 0.9998818, 0, 1, 0, -0.9998818, 0, -0.0153757855, 12.944324, 0.021516323, -7.9581757)
+transform = Transform3D(-0.0153757855, 0, 0.9998818, 0, 1, 0, -0.9998818, 0, -0.0153757855, 10.945903, 0.021516323, -17.468878)
 
-[node name="Road_4ways3" parent="Main_road" unique_id=605900406 instance=ExtResource("29_qn0af")]
-transform = Transform3D(-0.9998834, 0, -0.015271109, 0, 1, 0, 0.015271109, 0, -0.9998834, 9.595, -0.011056662, -34.63671)
+[node name="road_turning6" parent="Main_road" unique_id=930228659 instance=ExtResource("27_ib3t2")]
+transform = Transform3D(-0.0153757855, 0, 0.9998818, 0, 1, 0, -0.9998818, 0, -0.0153757855, 21.216518, 0.021516323, -7.4781914)
+
+[node name="road_turning4" parent="Main_road" unique_id=1129295872 instance=ExtResource("27_ib3t2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.261994, 0.021516323, -25.863352)
+
+[node name="road_turning5" parent="Main_road" unique_id=600560835 instance=ExtResource("27_ib3t2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.459814, 0.021516323, -15.900421)
 
 [node name="RoadDefault18" parent="Main_road" unique_id=1845330006 instance=ExtResource("14_ffspi")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34.69153, -9.536743e-07, -5.1591587)
-
-[node name="Road_4ways4" parent="Main_road" unique_id=1688210820 instance=ExtResource("29_qn0af")]
-transform = Transform3D(-0.9998834, 0, -0.015271109, 0, 1, 0, 0.015271109, 0, -0.9998834, 9.687509, 0.06910825, -24.768917)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 35.447266, -9.536743e-07, -6.7633724)
 
 [node name="RoadDefault7" parent="Main_road" unique_id=1015614187 instance=ExtResource("14_ffspi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0, -31.662388)
+transform = Transform3D(-0.9999973, 0, -0.0023213923, 0, 1, 0, 0.0023213923, 0, -0.9999973, 0.0007393211, 0, -61.698368)
 
 [node name="grosserampe2" type="CSGBox3D" parent="Main_road" unique_id=1797632154]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.01265119, 1.9528892, -155.72676)
@@ -2073,6 +2063,12 @@ spring_length = 3.0
 align_transform_with_view = Callable()
 align_position_with_view = Callable()
 align_rotation_with_view = Callable()
+
+[node name="road_branching" parent="." unique_id=1781833469 instance=ExtResource("35_1uvwm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029215813, -1.9073486e-06, -76.676865)
+
+[node name="road_branching2" parent="." unique_id=98537191 instance=ExtResource("35_1uvwm")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.06764412, -1.9073486e-06, -26.684822)
 
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_finished"]
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone2" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_2_finished"]
