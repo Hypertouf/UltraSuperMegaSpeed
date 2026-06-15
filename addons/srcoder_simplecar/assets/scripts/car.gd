@@ -560,10 +560,9 @@ func get_input(delta : float):
 			#torbo.value += score * 10
 			await get_tree().create_timer(0.2).timeout
 			score = 0
-			
+			tricks = [0,0,0]
 			#timy.start()
- 				
-		tricks = [0,0,0]
+			
 		default_position = Vector3(0,0,0)
 		total_rotation = Vector3.ZERO
 
