@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://d1tcneof8udqa"]
+
+[ext_resource type="Script" uid="uid://3yr365clp1xm" path="res://Scripts/testcity.gd" id="1_p5unj"]
+[ext_resource type="PackedScene" uid="uid://dcup375s06tai" path="res://addons/srcoder_simplecar/car_custom.tscn" id="14_hdrdw"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="16_1ylvh"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="17_yhtq2"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="18_1ylvh"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rshuw"]
+
+[sub_resource type="Resource" id="Resource_qrung"]
+script = ExtResource("17_yhtq2")
+duration = 0.5
+transition = 1
+ease = 1
+
+[sub_resource type="Resource" id="Resource_d2bhh"]
+script = ExtResource("17_yhtq2")
+duration = 0.5
+transition = 1
+ease = 1
+
+[node name="Alyvel" type="Node3D" unique_id=436537008 node_paths=PackedStringArray("Player")]
+script = ExtResource("1_p5unj")
+Player = NodePath("car")
+
+[node name="car" parent="." unique_id=585784445 node_paths=PackedStringArray("pcam_ground", "pcam_air", "velocity_direction") instance=ExtResource("14_hdrdw")]
+transform = Transform3D(0.0021641992, 0, 0.9999977, 0, 1, 0, -0.9999977, 0, 0.0021641992, 58.609184, 95.07951, -47.00492)
+pcam_ground = NodePath("../pcam_ground")
+pcam_air = NodePath("velocity_direction/pcam_air")
+velocity_direction = NodePath("velocity_direction")
+
+[node name="camera_offset" type="Node3D" parent="car" unique_id=1150513252]
+transform = Transform3D(1, 0, -2.2351742e-08, 0, 1, 4.656613e-10, 1.4901161e-08, -2.3283064e-10, 0.9999999, 0.022827148, 1.464051, -0.0041399)
+
+[node name="velocity_direction" type="Node3D" parent="car" unique_id=872105866]
+transform = Transform3D(1, 0, -1.4156103e-07, 0, 1, 1.6298145e-09, 1.0430813e-07, -2.3283064e-10, 0.99999917, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="car/velocity_direction" unique_id=1290364216]
+transform = Transform3D(1.0000006, 0, -3.7252903e-08, 0, 1.0000006, 4.656613e-10, 1.4901161e-08, -2.3283064e-10, 1, 0, 0, 0)
+mesh = SubResource("SphereMesh_rshuw")
+
+[node name="pcam_air" type="Node3D" parent="car/velocity_direction" unique_id=332523641 node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(-0.62418425, 0.7812875, -3.41673e-08, 1.2733761e-09, -4.2694168e-08, -1.0004741, -0.7813012, -0.6241743, 2.7063479e-08, 0, 0, 0)
+script = ExtResource("16_1ylvh")
+look_at_mode = 2
+look_at_target = NodePath("..")
+tween_resource = SubResource("Resource_qrung")
+follow_damping = true
+follow_damping_value = Vector3(0.2, 0.2, 0.2)
+look_at_damping = true
+align_transform_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="pcam_ground" type="Node3D" parent="." unique_id=687471282 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(0.0021643043, -3.1677916e-21, 0.9999977, 1.4636729e-18, 1, -5.169879e-26, -0.9999977, 1.4636694e-18, 0.0021643043, 61.605087, 96.543564, -47.021263)
+script = ExtResource("16_1ylvh")
+priority = 1
+follow_mode = 6
+follow_target = NodePath("../car/camera_offset")
+tween_resource = SubResource("Resource_d2bhh")
+follow_damping = true
+follow_damping_value = Vector3(0.2, 0.2, 0.2)
+follow_distance = 3.0
+spring_length = 3.0
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1793636547]
+physics_interpolation_mode = 1
+transform = Transform3D(0.0021643043, -3.1677916e-21, 0.9999977, 1.4636729e-18, 1, -5.169879e-26, -0.9999977, 1.4636694e-18, 0.0021643043, 61.605087, 96.543564, -47.021263)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=483314390]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("18_1ylvh")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
