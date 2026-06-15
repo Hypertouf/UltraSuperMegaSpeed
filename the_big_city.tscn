@@ -34,6 +34,10 @@
 [ext_resource type="PackedScene" uid="uid://c6y4wtb3p4gcc" path="res://assets/Models/props/Roads/road_branching.tscn" id="35_1uvwm"]
 [ext_resource type="PackedScene" uid="uid://cvh2oig7trskq" path="res://assets/Models/props/Barriere/barriere_default.tscn" id="35_kb7yh"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="35_nseyi"]
+[ext_resource type="PackedScene" uid="uid://byw3j8hwx6lau" path="res://assets/Models/props/Roads/road_spinning_90_down.tscn" id="36_cs1wj"]
+[ext_resource type="PackedScene" path="res://assets/Models/props/Roads/road_spinning_90_up.tscn" id="37_kaf07"]
+[ext_resource type="PackedScene" path="res://assets/Models/props/Roads/road_spinning_45.tscn" id="37_nn7lq"]
+[ext_resource type="PackedScene" path="res://assets/Models/props/Roads/road_spinning_45_Uturn.tscn" id="38_cs1wj"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_1uvwm"]
 
@@ -2085,6 +2089,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.837153, -1.9073486e-06, -1
 
 [node name="RoadDefault" parent="." unique_id=1112192967 instance=ExtResource("14_ffspi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024714947, -9.536743e-07, -131.71059)
+
+[node name="RoadSpinning47" parent="." unique_id=1542813108 instance=ExtResource("37_kaf07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.665524, 0.008201122, -163.83063)
+
+[node name="RoadSpinning45" parent="." unique_id=1000500168 instance=ExtResource("36_cs1wj")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 32.650856, 5.0886364, -123.83315)
+
+[node name="RoadSpinning46" parent="." unique_id=1372924602 instance=ExtResource("37_nn7lq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.6104, 5.058259, -83.83188)
+
+[node name="RoadSpinning48" parent="." unique_id=160922293 instance=ExtResource("38_cs1wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.596573, 5.0582366, -63.845722)
+
+[node name="RoadSpinning49" parent="." unique_id=495466087 instance=ExtResource("36_cs1wj")]
+transform = Transform3D(-2.9530982e-08, -3.2227412e-08, 0.99999994, -0.73727727, 0.67559016, 0, -0.67559016, -0.73727727, -4.3711385e-08, 48.63316, 5.190569, -53.63724)
 
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_finished"]
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone2" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_2_finished"]

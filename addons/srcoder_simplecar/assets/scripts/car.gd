@@ -92,6 +92,7 @@ var exploCooldown = false
 var burnout = false
 var last_rotation = Vector3.ZERO
 var trick_emitted = false
+var which_trick = [0,0,0]
 #an exporetd array of driving wheels so we can limit rom of each wheel when we process input
 @onready var driving_wheels : Array[VehicleWheel3D] = [$WheelBackLeft,$WheelBackRight]
 @onready var steering_wheels : Array[VehicleWheel3D] = [$WheelFrontLeft,$WheelFrontRight]
@@ -139,18 +140,17 @@ func _spawn_lbl_score(a):
 	pass
 	
 func emit_trick_particle(n) :
-	if trick_emitted == false :
-		var Particle = GPUParticles2D.new()
-		Particle.one_shot = true
-		Particle.emitting = true
-		Particle.amount = 1
-		Particle.texture = FX_Figures[n]
-		Particle.process_material = Particle_material
-		Particle.position = Vector2(980.0,312.0)
 
-		particule_holder.add_child(Particle)
-		_spawn_lbl_score(100)
-		trick_emitted = true
+	var Particle = GPUParticles2D.new()
+	Particle.one_shot = true
+	Particle.emitting = true
+	Particle.amount = 1
+	Particle.texture = FX_Figures[n]
+	Particle.process_material = Particle_material
+	Particle.position = Vector2(980.0,312.0)
+
+	particule_holder.add_child(Particle)
+	_spawn_lbl_score(100)
 
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
@@ -320,19 +320,11 @@ func get_input(delta : float):
 				#print("frontflip !!")
 				#Particle_figure.texture = FX_Figures[2]
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
-				var Particle = GPUParticles2D.new()
-				Particle.one_shot = true
-				Particle.emitting = true
-				Particle.amount = 1
-				Particle.texture = FX_Figures[2]
-				Particle.process_material = Particle_material
-				Particle.position = Vector2(980.0,312.0)
-				particule_holder.add_child(Particle)
+				emit_trick_particle(2)
 				
 				total_rotation.x = 0
-				_spawn_lbl_score(100)
 
-				
+				which_trick[0] += 1
 				tricks[0] +=1
 		elif Input.is_action_pressed("backflip") :
 			speed.x = lerp(speed.x, 0.15, 0.05)
@@ -344,17 +336,8 @@ func get_input(delta : float):
 				#Particle_figure.texture = FX_Figures[3]
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
-				var Particle = GPUParticles2D.new()
-				Particle.one_shot = true
-				Particle.emitting = true
-				Particle.amount = 1
-				Particle.texture = FX_Figures[3]
-				Particle.process_material = Particle_material
-				Particle.position = Vector2(980.0,312.0)
-
-				particule_holder.add_child(Particle)
-
-				_spawn_lbl_score(100)
+				emit_trick_particle(3)
+				which_trick[0] -=1
 				tricks[0] -=1
 		else : 
 			speed.x = lerp(speed.x, 0.0, 0.5)
@@ -369,16 +352,8 @@ func get_input(delta : float):
 				#Particle_figure.texture = FX_Figures[0]
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
-				var Particle = GPUParticles2D.new()
-				Particle.one_shot = true
-				Particle.emitting = true
-				Particle.amount = 1
-				Particle.texture = FX_Figures[0]
-				Particle.process_material = Particle_material
-				Particle.position = Vector2(980.0,312.0)
-
-				particule_holder.add_child(Particle)
-				_spawn_lbl_score(100)
+				emit_trick_particle(0)
+				which_trick[1] += 1
 				tricks[1] +=1
 		elif Input.is_action_pressed("shuvright") :
 			speed.y = lerp(speed.y, 0.15, 0.05)
@@ -390,15 +365,8 @@ func get_input(delta : float):
 				#Particle_figure.texture = FX_Figures[1]
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
-				var Particle = GPUParticles2D.new()
-				Particle.one_shot = true
-				Particle.emitting = true
-				Particle.amount = 1
-				Particle.texture = FX_Figures[1]
-				Particle.process_material = Particle_material
-				Particle.position = Vector2(980.0,312.0)
-
-				_spawn_lbl_score(100)
+				emit_trick_particle(1)
+				which_trick[1] -=1
 				tricks[1] -=1
 		else : 
 			speed.y = lerp(speed.y, 0.0, 0.5)
@@ -416,17 +384,8 @@ func get_input(delta : float):
 				#Particle_figure.texture = FX_Figures[5]
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
-				var Particle = GPUParticles2D.new()
-				Particle.one_shot = true
-				Particle.emitting = true
-				Particle.amount = 1
-				Particle.texture = FX_Figures[5]
-				Particle.process_material = Particle_material
-				Particle.position = Vector2(980.0,312.0)
-
-				particule_holder.add_child(Particle)
-				
-				_spawn_lbl_score(100)
+				emit_trick_particle(5)
+				which_trick[2] +=1
 				tricks[2] += 1
 		elif Input.is_action_pressed("roll_right") :
 			speed.z = lerp(speed.z, 0.15, 0.05)
@@ -437,16 +396,8 @@ func get_input(delta : float):
 				#Particle_figure.texture = FX_Figures[4]
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
-				var Particle = GPUParticles2D.new()
-				Particle.one_shot = true
-				Particle.emitting = true
-				Particle.amount = 1
-				Particle.texture = FX_Figures[4]
-				Particle.process_material = Particle_material
-				Particle.position = Vector2(980.0,312.0)
-
-				particule_holder.add_child(Particle)
-				_spawn_lbl_score(100)
+				emit_trick_particle(4)
+				which_trick[2] -=1
 				tricks[2] -=1
 		else : 
 			speed.z = lerp(speed.z, 0.0, 0.5)
@@ -460,33 +411,40 @@ func get_input(delta : float):
 			#print("shuvit !!!")
 			default_position = Vector3(0,0,0)
 		
-		if tricks == [0,-1,-1]:
+		if which_trick == [0,-1,-1]:
 			#Particle_figure.texture = FX_Figures[6]
 			#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			_destroy_particle()
 			emit_trick_particle(6)
-			#print("360 flip !!!")
+			which_trick =[0,0,0]
+			print("360 flip !!!")
 
-		if tricks == [0,1,1]:
+		if which_trick == [0,1,1]:
 			#Particle_figure.texture = FX_Figures[7]
 			#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			_destroy_particle()
 			emit_trick_particle(7)
-			#print("360 hardflip !!!")
+			which_trick =[0,0,0]
+			print("360 hardflip !!!")
 
-		if tricks == [0,1,-1]:
+		if which_trick == [0,1,-1]:
 			#Particle_figure.texture = FX_Figures[8]
 			#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
+			_destroy_particle()
 			emit_trick_particle(8)
-			#print("360 heelflip !!!")
+			which_trick =[0,0,0]
+			print("360 heelflip !!!")
 			
-		if tricks == [0,-1,1]:
+		if which_trick == [0,-1,1]:
 			#Particle_figure.texture = FX_Figures[9]
 			#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 			emit_trick_particle(9)
-			#print("360 inward heelfip !!!")
+			which_trick =[0,0,0]
+			print("360 inward heelfip !!!")
 
 		
 		
@@ -494,33 +452,16 @@ func get_input(delta : float):
 
 		gravity_changing()
 		#print("it's non the ground")
-
 		if tricks != [0,0,0]:
 			_destroy_particle()
-			print(tricks)
+			print(which_trick)
 			#Sound.stream = trickLand
 			#Sound.play()
-			if tricks == [0,1,0] :
-
-				print("front 360 !")
-			if tricks == [0,-1,0] :
-
-				print("backflip 360 !")
-			if tricks == [1,0,0]:
-
-				print("frontflip !")
-			if tricks == [-1,0,0]:	
-
-				print("backflip !")
-			if tricks == [0,0,-1]:
-
-				print("kickflip !")
-			if tricks == [0,0,1]:
-
-				print("heelflip !")
 			
 			score = abs(tricks[0]) + abs(tricks[1]) + abs(tricks[2])
-			print(score)
+			tricks = [0,0,0]
+			which_trick = [0,0,0]
+			#print(score)
 			var tween2 = get_tree().create_tween()
 			tween2.tween_property(self, "score_int", score * 100, 0.5)
 			
@@ -543,7 +484,7 @@ func get_input(delta : float):
 			#torbo.value += score * 10
 			await get_tree().create_timer(0.2).timeout
 			score = 0
-			tricks = [0,0,0]
+
 			#timy.start()
 			
 		default_position = Vector3(0,0,0)
