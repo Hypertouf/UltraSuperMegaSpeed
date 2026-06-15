@@ -1,13 +1,6 @@
 [gd_resource type="ArrayMesh" format=4 uid="uid://bc2i02inwu2x7"]
 
-[ext_resource type="Texture2D" uid="uid://cavsk4ptvtgt0" path="res://assets/Models/props/Roads/Roads_turn2_Road_atlas.png" id="1_7txrb"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxbyt"]
-resource_name = "RoadAtlas"
-cull_mode = 2
-albedo_texture = ExtResource("1_7txrb")
-roughness = 0.5
-texture_filter = 2
+[ext_resource type="Material" uid="uid://m18bqy1e0bx2" path="res://assets/Models/props/Road_Atlas.tres" id="1_7txrb"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_t5t76"]
 _surfaces = [{
@@ -33,7 +26,7 @@ _surfaces = [{
 "index_count": 168,
 "index_data": PackedByteArray("AAABADwAAQADADwAPAADAAQAPAAEAAIAPQAAADwAPQAGAAAABwAGAD0ACAAHAD0ACQAIAD0ACQA9AAUACwA+AD8ACgA/AD4APgALAEAAPgBAAEEAQQBAAAwADQBCAA8ADwBCABAAQgARABAAQgAOABEAQwBCAA0AQwANABMAFABDABMAFQBDABQAFgBDABUAFgASAEMAGQBEAEUAFwBFAEQARQBGABkARQBHAEYARwAYAEYASAAcABoASABJABwAHQBJAEgAHQAbAEkAHgBKAEsAHgAfAEoASwBKACEASwAhACAAIgAjACQAIgAlACMATAAnACgATABNACcATgAvAC4ATgBPAC8ANAA1ADYANAA3ADUAUAAqACYAUABRACoAOAA5ADoAOAA7ADkAMgAxADAAMgAzADEAUgApACsAUgBTACkAVAAsAC0AVABVACwA"),
 "lods": [0.065029025, PackedByteArray("AAABAAIAAQADAAIAAgADAAQABQAAAAIABQAGAAAABwAGAAUACAAHAAUACQAIAAUACgALAAwADQAOAA8ADwAOABAADgARABAAEgAOAA0AEgANABMAFAASABMAFQASABQAFgASABUAFwAYABkAGgAbABwAHQAbABoAHgAfACAAIAAfACEAIgAjACQAIgAlACMAJgAnACgAKAAnACkAJgAqACcAKAApACsAKwApACwAKwAsAC0ALgAqACYALgAvACoAMAAvAC4AMAAxAC8AMgAxADAAMgAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkA")],
-"material": SubResource("StandardMaterial3D_nxbyt"),
+"material": ExtResource("1_7txrb"),
 "name": "RoadAtlas",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),

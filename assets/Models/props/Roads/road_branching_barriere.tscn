@@ -5,6 +5,9 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4kage"]
 points = PackedVector3Array(5.0000014, 0.04, -5.0000024, 5.0000014, 0, -5.0000024, -5.0000024, 0.04, -5.0000024, 4.999022, 0.04, 5.0000024, 4.999022, 0, 5.0000024, -5.0000024, 0, -5.0000024, -5.0000024, 0.04, 4.999024, -5.0000024, 0, 4.999024)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1epbq"]
+size = Vector3(0.14938354, 1.0473633, 9.965881)
+
 [node name="road_branching" type="StaticBody3D" unique_id=1781833469]
 
 [node name="RoadBranching" type="MeshInstance3D" parent="." unique_id=503659164]
@@ -12,3 +15,7 @@ mesh = ExtResource("1_1epbq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=946648746]
 shape = SubResource("ConvexPolygonShape3D_4kage")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=172866059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.850129, 0.5617726, -0.10592651)
+shape = SubResource("BoxShape3D_1epbq")

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dcuhtbtilwc1n"]
+
+[ext_resource type="Texture2D" uid="uid://cvtsmpmakgsuc" path="res://assets/Models/props/Barrieres_Barriere.png" id="1_aavex"]
+
+[resource]
+resource_name = "RoadAtlas"
+cull_mode = 2
+albedo_texture = ExtResource("1_aavex")
+roughness = 0.5
+texture_filter = 0
