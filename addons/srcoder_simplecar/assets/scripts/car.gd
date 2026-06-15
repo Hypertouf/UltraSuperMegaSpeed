@@ -558,6 +558,7 @@ func get_input(delta : float):
 			var tween = create_tween()
 			tween.tween_property(torbo, "value", torbo.value + score * 10, 0.3) # Uses TRANS_LINEAR.
 			#torbo.value += score * 10
+			await get_tree().create_timer(0.2).timeout
 			score = 0
 			
 			#timy.start()
