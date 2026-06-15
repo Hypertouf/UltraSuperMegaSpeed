@@ -1,9 +1,12 @@
-[gd_scene format=3 uid="uid://2sm8xmqmpnxg"]
+[gd_scene format=3 uid="uid://chm4ifhu8twhl"]
 
 [ext_resource type="ArrayMesh" uid="uid://bmkm0jpginpc7" path="res://assets/Models/props/Roads/road_default_barriere.tres" id="1_040yn"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ssa08"]
 points = PackedVector3Array(5, 0.04, 10, -5, 0.04, 10, 5, 0, 10, 5, 0.04, -10, -5, 0, 10, -5, 0.04, -10, 5, 0, -10, -5, 0, -10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_040yn"]
+size = Vector3(0.16223145, 1.0459595, 19.985474)
 
 [node name="RoadDefaultbarriere" type="StaticBody3D" unique_id=776729052]
 
@@ -12,3 +15,7 @@ mesh = ExtResource("1_040yn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=693541634]
 shape = SubResource("ConvexPolygonShape3D_ssa08")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1281234682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8765078, 0.5638795, -0.0028128624)
+shape = SubResource("BoxShape3D_040yn")
