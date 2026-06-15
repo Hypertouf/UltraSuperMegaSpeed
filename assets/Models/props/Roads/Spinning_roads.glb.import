@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bbjtpbkqgsn5w"
-path="res://.godot/imported/Roads_turn2.glb-824eb9fe16cd941138290d94dcd73ebf.scn"
+uid="uid://b5g4modd62k2v"
+path="res://.godot/imported/Spinning_roads.glb-2895a83967fc506fe03db5f2087d2f7c.scn"
 
 [deps]
 
-source_file="res://assets/Models/props/Roads/Roads_turn2.glb"
-dest_files=["res://.godot/imported/Roads_turn2.glb-824eb9fe16cd941138290d94dcd73ebf.scn"]
+source_file="res://assets/Models/props/Roads/Spinning_roads.glb"
+dest_files=["res://.godot/imported/Spinning_roads.glb-2895a83967fc506fe03db5f2087d2f7c.scn"]
 
 [params]
 

@@ -1,20 +1,7 @@
 [gd_resource type="ArrayMesh" format=4 uid="uid://carl2fjpur4x"]
 
-[ext_resource type="Texture2D" uid="uid://c4e1ytwb7q58j" path="res://assets/Models/props/Barrieres_Road_atlas.png" id="1_c8epq"]
-[ext_resource type="Texture2D" uid="uid://cvtsmpmakgsuc" path="res://assets/Models/props/Barrieres_Barriere.png" id="2_7cypd"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqp5g"]
-resource_name = "RoadAtlas"
-cull_mode = 2
-albedo_texture = ExtResource("1_c8epq")
-roughness = 0.5
-texture_filter = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sor64"]
-resource_name = "Material.001"
-cull_mode = 2
-albedo_texture = ExtResource("2_7cypd")
-roughness = 0.5
+[ext_resource type="Material" uid="uid://m18bqy1e0bx2" path="res://assets/Models/props/Road_Atlas.tres" id="1_c8epq"]
+[ext_resource type="Material" uid="uid://dcuhtbtilwc1n" path="res://assets/Models/props/Barriere.tres" id="2_7cypd"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6nh2h"]
 _surfaces = [{
@@ -49,7 +36,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_fqp5g"),
+"material": ExtResource("1_c8epq"),
 "name": "RoadAtlas",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -62,7 +49,7 @@ _surfaces = [{
 "index_count": 246,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEAVABVAFYAVABXAFUAWABZAFoAWABbAFkAXABdAF4AXABfAF0AYABhAGIAYABjAGEAZABlAGYAZABnAGUAaABpAGoAaABrAGkAbABtAG4AbABvAG0AcABxAHIAcABzAHEAdAB1AHYAdAB3AHUAeAB5AHoAeAB7AHkAfAB9AH4AfAB/AH0AgACBAIIAgACDAIEAhACFAIYAhACHAIUAiACJAIoAiACLAIkAjACNAI4AjACPAI0AkACRAJIAkACTAJEAlACVAJYAlACXAJUAmACZAJoAmACbAJkAnACdAJ4AnACfAJ0AoAChAKIAoACjAKEA"),
 "lods": [0.41173744, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA")],
-"material": SubResource("StandardMaterial3D_sor64"),
+"material": ExtResource("2_7cypd"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),

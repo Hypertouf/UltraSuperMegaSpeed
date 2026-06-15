@@ -280,12 +280,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -34.
 [node name="RoadDefaultbarriere" parent="Main_road" unique_id=776729052 instance=ExtResource("11_1uvwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0, -151.6985)
 
-[node name="RoadDefaultbarriere2" parent="Main_road" unique_id=1184861863 instance=ExtResource("11_1uvwm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0, -131.6985)
-
-[node name="RoadDefaultbarriere3" parent="Main_road" unique_id=1608845687 instance=ExtResource("11_1uvwm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0, -111.6985)
-
 [node name="RoadDefaultbarriere4" parent="Main_road" unique_id=1637832704 instance=ExtResource("11_1uvwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023953244, 0, -91.6985)
 
@@ -2069,6 +2063,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029215813, -1.9073486e-06,
 
 [node name="road_branching2" parent="." unique_id=98537191 instance=ExtResource("35_1uvwm")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.06764412, -1.9073486e-06, -26.684822)
+
+[node name="RoadDefault2" parent="." unique_id=219328549 instance=ExtResource("14_ffspi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.046833992, -2.861023e-06, -111.70674)
+
+[node name="Barriere_default" parent="." unique_id=1327421578 instance=ExtResource("35_kb7yh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9023776, -1.9073486e-06, -106.59104)
+
+[node name="Barriere_default3" parent="." unique_id=1903837964 instance=ExtResource("35_kb7yh")]
+transform = Transform3D(0.9723495, 0, -0.23353025, 0, 1, 0, 0.23353025, 0, 0.9723495, 5.987665, -1.9073486e-06, -116.25232)
+
+[node name="Barriere_default5" parent="." unique_id=1409156296 instance=ExtResource("35_kb7yh")]
+transform = Transform3D(0.9843836, 0, 0.17603676, 0, 1, 0, -0.17603676, 0, 0.9843836, 6.3145475, -1.9073486e-06, -125.92836)
+
+[node name="Barriere_default4" parent="." unique_id=1356781966 instance=ExtResource("35_kb7yh")]
+transform = Transform3D(0.8969654, 0, 0.44210076, 0, 1, 0, -0.44210076, 0, 0.8969654, 7.1613274, -1.9073486e-06, -137.23982)
+
+[node name="Barriere_default2" parent="." unique_id=594192123 instance=ExtResource("35_kb7yh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.837153, -1.9073486e-06, -106.59104)
+
+[node name="RoadDefault" parent="." unique_id=1112192967 instance=ExtResource("14_ffspi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024714947, -9.536743e-07, -131.71059)
 
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_finished"]
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone2" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_2_finished"]
