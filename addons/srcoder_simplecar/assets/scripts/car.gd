@@ -91,6 +91,7 @@ var gravity_change = false
 var exploCooldown = false
 var burnout = false
 var last_rotation = Vector3.ZERO
+var trick_emitted = false
 #an exporetd array of driving wheels so we can limit rom of each wheel when we process input
 @onready var driving_wheels : Array[VehicleWheel3D] = [$WheelBackLeft,$WheelBackRight]
 @onready var steering_wheels : Array[VehicleWheel3D] = [$WheelFrontLeft,$WheelFrontRight]
@@ -136,6 +137,20 @@ func _spawn_lbl_score(a):
 	#tween.tween_property(rect, "size", Vector2(0,648), 0.01)
 	tween.tween_property(rect, "scale", Vector2(0.8,1), 0.3)
 	pass
+	
+func emit_trick_particle(n) :
+	if trick_emitted == false :
+		var Particle = GPUParticles2D.new()
+		Particle.one_shot = true
+		Particle.emitting = true
+		Particle.amount = 1
+		Particle.texture = FX_Figures[n]
+		Particle.process_material = Particle_material
+		Particle.position = Vector2(980.0,312.0)
+
+		particule_holder.add_child(Particle)
+		_spawn_lbl_score(100)
+		trick_emitted = true
 
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
@@ -449,62 +464,30 @@ func get_input(delta : float):
 			#Particle_figure.texture = FX_Figures[6]
 			#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
-			var Particle = GPUParticles2D.new()
-			Particle.one_shot = true
-			Particle.emitting = true
-			Particle.amount = 1
-			Particle.texture = FX_Figures[6]
-			Particle.process_material = Particle_material
-			Particle.position = Vector2(980.0,312.0)
+			emit_trick_particle(6)
+			#print("360 flip !!!")
 
-			particule_holder.add_child(Particle)
-			_spawn_lbl_score(100)
-			print("360 flip !!!")
 		if tricks == [0,1,1]:
 			#Particle_figure.texture = FX_Figures[7]
 			#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
-			var Particle = GPUParticles2D.new()
-			Particle.one_shot = true
-			Particle.emitting = true
-			Particle.amount = 1
-			Particle.texture = FX_Figures[7]
-			Particle.process_material = Particle_material
-			Particle.position = Vector2(980.0,312.0)
+			emit_trick_particle(7)
+			#print("360 hardflip !!!")
 
-			particule_holder.add_child(Particle)
-			_spawn_lbl_score(100)
-			print("360 hardflip !!!")
 		if tricks == [0,1,-1]:
 			#Particle_figure.texture = FX_Figures[8]
 			#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
-			var Particle = GPUParticles2D.new()
-			Particle.one_shot = true
-			Particle.emitting = true
-			Particle.amount = 1
-			Particle.texture = FX_Figures[8]
-			Particle.process_material = Particle_material
-			Particle.position = Vector2(980.0,312.0)
-
-			particule_holder.add_child(Particle)
-			_spawn_lbl_score(100)
-			print("360 heelflip !!!")
+			emit_trick_particle(8)
+			#print("360 heelflip !!!")
+			
 		if tricks == [0,-1,1]:
 			#Particle_figure.texture = FX_Figures[9]
 			#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
-			var Particle = GPUParticles2D.new()
-			Particle.one_shot = true
-			Particle.emitting = true
-			Particle.amount = 1
-			Particle.texture = FX_Figures[9]
-			Particle.process_material = Particle_material
-			Particle.position = Vector2(980.0,312.0)
+			emit_trick_particle(9)
+			#print("360 inward heelfip !!!")
 
-			particule_holder.add_child(Particle)
-			_spawn_lbl_score(100)
-			print("360 inward heelfip !!!")
 		
 		
 	if $check_ground.is_colliding():
