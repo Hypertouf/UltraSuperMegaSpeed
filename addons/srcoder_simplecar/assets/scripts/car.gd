@@ -445,8 +445,17 @@ func get_input(delta : float):
 			emit_trick_particle(9)
 			which_trick =[0,0,0]
 			print("360 inward heelfip !!!")
-
 		
+		if which_trick == [1,0,1] or which_trick == [-1,0,1] or which_trick == [1,0,-1] or which_trick == [-1,0,-1] or which_trick == [-1,1,0] or which_trick == [1,1,0] or  which_trick == [-1,-1,0] :
+			which_trick =[0,0,0]
+			print("unknown 2 trick yet")
+		
+		if which_trick[0] != 0 and which_trick[1] != 0 and which_trick[2] != 0:
+			which_trick =[0,0,0]
+			print("unknown 3 trick yet")
+		
+		if abs(which_trick[0]) > 1 or abs(which_trick[1]) > 1 or abs(which_trick[2])>1:
+			which_trick =[0,0,0]
 		
 	if $check_ground.is_colliding():
 
