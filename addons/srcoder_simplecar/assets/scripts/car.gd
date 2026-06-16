@@ -93,6 +93,7 @@ var burnout = false
 var last_rotation = Vector3.ZERO
 var trick_emitted = false
 var which_trick = [0,0,0]
+var gravity_strengh = 1
 #an exporetd array of driving wheels so we can limit rom of each wheel when we process input
 @onready var driving_wheels : Array[VehicleWheel3D] = [$WheelBackLeft,$WheelBackRight]
 @onready var steering_wheels : Array[VehicleWheel3D] = [$WheelFrontLeft,$WheelFrontRight]
@@ -118,7 +119,7 @@ func hypothenuse(a, b): #urhm it might look silly but it is necessary for correc
 	return sqrt((a*a) + (b*b))
 
 func gravity_changing() :
-	PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, -transform.basis.y)
+	PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, -transform.basis.y * gravity_strengh)
 	gravity_change = true
 	
 	
@@ -154,13 +155,10 @@ func emit_trick_particle(n) :
 
 func _input(event): #
 	if event.is_action_pressed("sauter"): #car go jump. 
-		print("pressed")
 		if $check_ground.is_colliding(): #but only if car is on the ground of course
-			print("ground_checked")
 			$jumpTimer.start(0.1)
 			
 	if event.is_action_released("sauter") and $check_ground.is_colliding() and $jumpTimer.is_stopped():
-		print("big_jump")
 		Sound.stream = bigjump
 		Sound.play()
 		$ground_timer.start(0.5)
@@ -169,7 +167,6 @@ func _input(event): #
 				#transform.basis.y + 10 makes the car jump from local position and transform.basis.z makes the car keep it's rolling speed when jumping
 				#if we prefer making the car stick to the wall and ceiling use linear_velocity.y += 10
 	elif event.is_action_released("sauter") and $check_ground.is_colliding() and !$jumpTimer.is_stopped() :
-		print("small_jump")
 		Sound.stream = shortjump
 		Sound.play()
 		linear_velocity += (transform.basis.y * 2) + transform.basis.z #HOLY SHIT IT WORKS
@@ -219,7 +216,7 @@ func _physics_process(delta: float) -> void:
 	if !$check_ground.is_colliding() :
 		#followcamera.rotation_damping = 0
 		pcam_air.set_priority(1)
-		pcam_ground.set_priority(0)
+		pcam_ground.set_priority(0) #use clamp() function to restrain values from min to max
 		#pcam_air.set_third_person_rotation_degrees(last_rotation)
 	#elif $check_ground.is_colliding() and $check_ground.global_rotation.x < -1.2 and $check_ground.global_rotation.x > -1.6 and $walljumpTimer.is_stopped() and Input.is_action_just_released("sauter"):
 		##followcamera.rotation_damping = 0
@@ -232,7 +229,7 @@ func _physics_process(delta: float) -> void:
 		pcam_air.set_priority(0)
 		pcam_ground.set_priority(1)
 		pcam_ground.set_third_person_rotation_degrees(Vector3(-rotation_degrees.x, rotation_degrees.y + 180, -rotation_degrees.z))
-		last_rotation = Vector3(-rotation_degrees.x, rotation_degrees.y + 180, -rotation_degrees.z)
+		#last_rotation = Vector3(-rotation_degrees.x, rotation_degrees.y + 180, -rotation_degrees.z)
 	
 
 	if basis.z.dot(linear_velocity) <= 4 or Input.is_action_just_released("sauter") or gravity_change == false:
@@ -299,7 +296,10 @@ func get_input(delta : float):
 	if !$check_ground.is_colliding():
 		
 		gravity_change = false
-	#if !$check_ground.is_colliding():
+		if last_rotation == Vector3.ZERO :
+			last_rotation = rotation_degrees
+			print(last_rotation)
+		
 		#if default_position == Vector3(0.0,0.0,0.0):
 			#print(rotation_degrees)
 			#default_position = rotation_degrees
@@ -316,6 +316,8 @@ func get_input(delta : float):
 			speed.x = lerp(speed.x, 0.15, 0.05)
 			rotate_object_local(Vector3(1, 0, 0), speed.x)
 			total_rotation.x += 1
+			if rotation_degrees[0] == last_rotation[0]+1 :
+				print("FRONTFLIP")
 			if total_rotation.x == 60:
 				#print("frontflip !!")
 				#Particle_figure.texture = FX_Figures[2]
@@ -418,7 +420,7 @@ func get_input(delta : float):
 			_destroy_particle()
 			emit_trick_particle(6)
 			which_trick =[0,0,0]
-			print("360 flip !!!")
+			#print("360 flip !!!")
 
 		if which_trick == [0,1,1]:
 			#Particle_figure.texture = FX_Figures[7]
@@ -427,7 +429,7 @@ func get_input(delta : float):
 			_destroy_particle()
 			emit_trick_particle(7)
 			which_trick =[0,0,0]
-			print("360 hardflip !!!")
+			#print("360 hardflip !!!")
 
 		if which_trick == [0,1,-1]:
 			#Particle_figure.texture = FX_Figures[8]
@@ -436,7 +438,7 @@ func get_input(delta : float):
 			_destroy_particle()
 			emit_trick_particle(8)
 			which_trick =[0,0,0]
-			print("360 heelflip !!!")
+			#print("360 heelflip !!!")
 			
 		if which_trick == [0,-1,1]:
 			#Particle_figure.texture = FX_Figures[9]
@@ -444,15 +446,15 @@ func get_input(delta : float):
 				#Particle_figure.emit_particle(trans2d,Vector2(0,0),0,0,2)
 			emit_trick_particle(9)
 			which_trick =[0,0,0]
-			print("360 inward heelfip !!!")
+			#print("360 inward heelfip !!!")
 		
 		if which_trick == [1,0,1] or which_trick == [-1,0,1] or which_trick == [1,0,-1] or which_trick == [-1,0,-1] or which_trick == [-1,1,0] or which_trick == [1,1,0] or  which_trick == [-1,-1,0] :
 			which_trick =[0,0,0]
-			print("unknown 2 trick yet")
+			#print("unknown 2 trick yet")
 		
 		if which_trick[0] != 0 and which_trick[1] != 0 and which_trick[2] != 0:
 			which_trick =[0,0,0]
-			print("unknown 3 trick yet")
+			#print("unknown 3 trick yet")
 		
 		if abs(which_trick[0]) > 1 or abs(which_trick[1]) > 1 or abs(which_trick[2])>1:
 			which_trick =[0,0,0]
@@ -460,10 +462,11 @@ func get_input(delta : float):
 	if $check_ground.is_colliding():
 
 		gravity_changing()
+		last_rotation = Vector3.ZERO
 		#print("it's non the ground")
 		if tricks != [0,0,0]:
 			_destroy_particle()
-			print(which_trick)
+			#print(which_trick)
 			#Sound.stream = trickLand
 			#Sound.play()
 			
@@ -518,8 +521,8 @@ func get_input(delta : float):
 		axis_lock_angular_z = true
 		axis_lock_angular_x = true
 		
-	#if !$ground_timer.is_stopped() :
-		#$check_ground.enabled = false
+	if !$ground_timer.is_stopped() :
+		$check_ground.enabled = false
 
 		
 func _destroy_particle():
@@ -564,7 +567,7 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 			
 	if body is bumper :
 		body.Meesh.player.play("Trigger_001")
-		print("enter bumper")
+		#print("enter bumper")
 		position.y = body.global_position.y + 0.5
 		position.x = body.global_position.x
 		position.z = body.global_position.z
@@ -578,7 +581,7 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 
 		
 	if body is booster_pad :
-		print("enter booster")
+		#print("enter booster")
 		position.y = body.global_position.y + 0.31
 		position.x = body.global_position.x
 		position.z = body.global_position.z
@@ -602,19 +605,20 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 		##$cockpit.make_current()
 	
 	if area is enterWall :
-		print("WALLING")
+		#print("WALLING")
+		gravity_strengh = 2
 		#gravity_changing()
 		#gravity_change = true
 		# Set the default gravity direction the x coordinates of the wall.																					
 		#PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, area.get_parent().global_transform.basis.x * 2)
 		
-	if area is enterGRAVloop :
-		print("gravity looping")
+	#if area is enterGRAVloop :
+		#print("gravity looping")
 		#gravity_change = true
 		#$cockpit.fov = 90
 		#$cockpit.make_current()
 		#PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN * 0.1)
-
+		
 		
 																																			
 func _on_hitbox_area_exited(area: Area3D) -> void:
@@ -622,7 +626,8 @@ func _on_hitbox_area_exited(area: Area3D) -> void:
 		#followcamera.mycamera.make_current()
 	
 	if area is exitWall :
-		print("wall exited")
+		#print("wall exited")
+		gravity_strengh = 1
 		#PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3.DOWN)
 		#gravity_change = false
 		#followcamera.mycamera.make_current()
@@ -740,8 +745,8 @@ func _on_radio_finished() -> void:
 	Radio.play()
 
 
-#func _on_ground_timer_timeout() -> void:
-	#$check_ground.enabled = true
+func _on_ground_timer_timeout() -> void:
+	$check_ground.enabled = true
 
 
 func _on_reset_style_board_timeout() -> void:
