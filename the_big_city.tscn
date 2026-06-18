@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dcup375s06tai" path="res://addons/srcoder_simplecar/car_custom.tscn" id="1_0nkrw"]
 [ext_resource type="Script" uid="uid://3yr365clp1xm" path="res://Scripts/testcity.gd" id="1_nkwo0"]
+[ext_resource type="Material" uid="uid://chnhb8kw2qm0o" path="res://assets/Materials/Concrete_gen.tres" id="2_cs1wj"]
 [ext_resource type="AudioStream" uid="uid://bic4a206esrbb" path="res://assets/Audio/005.Synth_MLT_se_ac_ce_bounce sound.wav" id="3_kb7yh"]
 [ext_resource type="Material" uid="uid://dh6ykun8bv60u" path="res://examples/day_sky.tres" id="4_fq8mh"]
 [ext_resource type="PackedScene" uid="uid://chm4ifhu8twhl" path="res://assets/Models/props/Roads/road_default_barriere.tscn" id="11_1uvwm"]
@@ -38,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://ckxiut41tm7oc" path="res://assets/Models/props/Roads/road_spinning_90_up.tscn" id="37_kaf07"]
 [ext_resource type="PackedScene" uid="uid://bpq8jrpwqxfn6" path="res://assets/Models/props/Roads/road_spinning_45.tscn" id="37_nn7lq"]
 [ext_resource type="PackedScene" uid="uid://csvnspf4iaomw" path="res://assets/Models/props/Roads/road_spinning_45_Uturn.tscn" id="38_cs1wj"]
+[ext_resource type="PackedScene" uid="uid://de8hhvrmnrpv2" path="res://assets/Models/props/Trottoir.tscn" id="40_kaf07"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_1uvwm"]
 
@@ -195,6 +197,7 @@ Player = NodePath("car")
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -3.4689665, -4.000001, 1.4937671)
 use_collision = true
 size = Vector3(309.36572, 8, 300)
+material = ExtResource("2_cs1wj")
 metadata/_edit_lock_ = true
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Ground" unique_id=2017698729]
@@ -213,8 +216,10 @@ size = Vector3(265.37433, 12.806702, 40.46776)
 
 [node name="Ground2" type="CSGBox3D" parent="." unique_id=388524686]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -3.511283, -4.25753, 1.4582828)
+material_override = ExtResource("2_cs1wj")
 use_collision = true
 size = Vector3(309.36572, 7.095703, 300)
+material = ExtResource("2_cs1wj")
 metadata/_edit_lock_ = true
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Ground2" unique_id=568140438]
@@ -447,7 +452,7 @@ sides = 64
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.163746, 0.06802559, -122.20584)
 
 [node name="Building12" parent="bunch_o\'_buildings" unique_id=977404606 instance=ExtResource("15_xib5o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.816868, 0.06802559, -125.79879)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.66238, 0.06802559, -125.79879)
 
 [node name="Building2" parent="bunch_o\'_buildings" unique_id=893436831 instance=ExtResource("15_xib5o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.05157, 0.06802559, -99.46102)
@@ -2098,6 +2103,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.596573, 5.0582366, -63.845
 
 [node name="RoadSpinning49" parent="." unique_id=495466087 instance=ExtResource("36_cs1wj")]
 transform = Transform3D(-2.9530982e-08, -3.2227412e-08, 0.99999994, -0.73727727, 0.67559016, 0, -0.67559016, -0.73727727, -4.3711385e-08, 48.63316, 5.190569, -53.63724)
+
+[node name="Trottoir" parent="." unique_id=1245531836 instance=ExtResource("40_kaf07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5868163, -9.536743e-07, -151.54666)
+
+[node name="Trottoir2" parent="." unique_id=1441633673 instance=ExtResource("40_kaf07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5868163, -9.536743e-07, -107.88947)
+
+[node name="Trottoir3" parent="." unique_id=1971392589 instance=ExtResource("40_kaf07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5868163, -9.536743e-07, -87.93582)
+
+[node name="Trottoir4" parent="." unique_id=212067423 instance=ExtResource("40_kaf07")]
+transform = Transform3D(-0.99999124, 0, 0.0041886764, 0, 1, 0, -0.0041886764, 0, -0.99999124, 7.839795, -9.536743e-07, -147.92285)
+
+[node name="Trottoir5" parent="." unique_id=1825004505 instance=ExtResource("40_kaf07")]
+transform = Transform3D(-0.99999124, 0, 0.0041886764, 0, 1, 0, -0.0041886764, 0, -0.99999124, 7.7256336, -9.536743e-07, -127.89353)
+
+[node name="Trottoir6" parent="." unique_id=1150175719 instance=ExtResource("40_kaf07")]
+transform = Transform3D(-0.99999124, 0, 0.0041886764, 0, 1, 0, -0.0041886764, 0, -0.99999124, 7.545809, -9.536743e-07, -87.9359)
+
+[node name="Trottoir7" parent="." unique_id=2050067872 instance=ExtResource("40_kaf07")]
+transform = Transform3D(-0.99999124, 0, 0.0041886764, 0, 1, 0, -0.0041886764, 0, -0.99999124, 7.629388, -9.536743e-07, -107.88937)
 
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_finished"]
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone2" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_2_finished"]

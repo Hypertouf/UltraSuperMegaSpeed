@@ -1,0 +1,41 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://v61vey887x0s"]
+
+[ext_resource type="Texture2D" uid="uid://c2f8pb57lpnsa" path="res://assets/Models/props/Trottoir_trottoir.png" id="1_do6m8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34tqf"]
+resource_name = "Trottoir"
+cull_mode = 2
+albedo_texture = ExtResource("1_do6m8")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6xbm3"]
+_surfaces = [{
+"aabb": AABB(-2.3768396, 0, -10, 4.9844894, 0.10499655, 20),
+"format": 34896613377,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABQACAAYABAAGAAIAAwAFAAcAAwAHAAQACAAFAAYABwAFAAgABgAJAAgABwAKAAQABwAIAAoABAALAAYABgALAAkACgAMAAQABAAMAAsACAANAAoACAAJAA0ACgANAAwADQAJAAsADQALAAwA"),
+"name": "Trottoir",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 14,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAIZhAAAAAAAAhmH//wAAAAAAAAAAAAAk9IZhAAAAACT0AAD//wAAJPSGYf//AAAk9AAAAAAAAP//AAD//wAA////////AAD//wAAAAAAACT0/////wAAJPT//wAAAAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Trottoir_Cube_003"
+_surfaces = [{
+"aabb": AABB(-2.3768396, 0, -10, 4.9844894, 0.10499655, 20),
+"attribute_data": PackedByteArray("qzzxAio8+P8qPPECqzz4/8d78QLHewYASHzxAsd7FT9IfBU/G33xAht9BgDHgtTDRYL4/0WC1MPHgvj/x4LpwHOB6cBzgdTDz3j4/7t78QK7e/j/z3jxAqs8+P+rPPECBgD4/yo88QIqPPj/BgDxAn2EpQLRhaz/fYSs/9GFpQIHgPECG334/xt98QIHgPj/SHzxAht9+P9IfPj/G33xAg=="),
+"format": 34896613399,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABwAEAAYABwAGAAgABQAJAAYABQAKAAkACwAMAA0ACwAOAAwADwALAA0ADQAQAA8ADQARABAAEgATABQAEgAVABMAFgAVABIAFgAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUA"),
+"material": SubResource("StandardMaterial3D_34tqf"),
+"name": "Trottoir",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAIZhAABU1QAAhmH//1TVAAAAAAAAVNUk9AAAAAD/////AAAAAP//JPSGYQAA//8AAAAAAAD//wAAhmEAAP//JPT//wAA////////AAD//yT0AAD///+/AACGYf///78k9IZh////vwAAAAD///+///8AAP///7//////////vyT0//////+/JPQAAAAA/7///wAA////v///AAAAAP+/JPQAAP///78AAAAAAAD/vwAAAAD///+/JPSGYQAA//8AAIZh/////wAAhmEAAP//JPSGYf///////wAA//9U1f////8AAFTV//8AAAAAVNX///////9U1f////8AAP+/JPT//////78k9P//AAD/v/////////+/JPSGYQAAVNUk9P////9U1ST0hmH//1TVJPT//wAAVNVUVaqqVFWqqlRVqqpUVaqq/7//v/+//7//v/+//7//v/+//7//v/+//7//v/9//3//f/9//3//f/9//3//f/9//3//f/9//38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/qiqqKqoqqiqqKqoqqiqqKv///3/+//9/////f/7//39U1VTVVNVU1VTVVNVU1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6xbm3")
