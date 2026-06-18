@@ -1,7 +1,7 @@
 [gd_resource type="ArrayMesh" format=4 uid="uid://byadcg27rs6rx"]
 
 [ext_resource type="Material" uid="uid://33ly3c5h5wvt" path="res://assets/Materials/Billboard_generic.tres" id="1_aptve"]
-[ext_resource type="Material" path="res://assets/Materials/BillBoardImage.tres" id="1_xd0qf"]
+[ext_resource type="Material" uid="uid://dx4v6p673cgpn" path="res://assets/Materials/BillBoardImage.tres" id="1_xd0qf"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_c8d56"]
 _surfaces = [{

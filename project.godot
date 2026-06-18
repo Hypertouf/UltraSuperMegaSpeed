@@ -37,7 +37,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/flowerwall_postprocess/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/proto_shape/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/flowerwall_postprocess/plugin.cfg", "res://addons/nexus_vertex_painter/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/proto_shape/plugin.cfg")
 
 [input]
 
