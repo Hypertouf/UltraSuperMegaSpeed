@@ -1,23 +1,13 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://dh6ykun8bv60u"]
 
 [ext_resource type="Shader" uid="uid://23se0jdaiq78" path="res://Shaders/stylized_sky.gdshader" id="1_0f220"]
-
-[sub_resource type="Gradient" id="Gradient_1tdt5"]
-offsets = PackedFloat32Array(0.410876, 0.664653, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.807843, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0vkrc"]
-gradient = SubResource("Gradient_1tdt5")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.846154, 0.803419)
+[ext_resource type="Texture2D" uid="uid://2cwvf6ut003v" path="res://assets/Textures/sun.tres" id="2_1tdt5"]
 
 [sub_resource type="Curve" id="Curve_q2clh"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.358543, 1), -1.14079, -1.14079, 0, 0, Vector2(0.997199, 0.75), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_gf4w3"]
-texture_mode = 1
 curve = SubResource("Curve_q2clh")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6k3ko"]
@@ -52,11 +42,11 @@ shader_parameter/clouds_light_color = Color(1, 1, 1, 1)
 shader_parameter/clouds_shadow_intensity = 3.5
 shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_227pj")
 shader_parameter/high_clouds_density = 0.0
-shader_parameter/top_color = Color(0.99434, 0.884934, 0.540142, 1)
-shader_parameter/bottom_color = Color(0.948623, 0.519427, 0, 1)
-shader_parameter/sun_scatter = Color(0.962253, 0.633932, 0.871568, 1)
-shader_parameter/astro_tint = Color(0.975098, 0, 0.0546957, 1)
-shader_parameter/astro_sampler = SubResource("GradientTexture2D_0vkrc")
+shader_parameter/top_color = Color(0.8989904, 0.12192171, 0.37870222, 1)
+shader_parameter/bottom_color = Color(0.9416618, 0.4486078, 0, 1)
+shader_parameter/sun_scatter = Color(1, 0.56643295, 0.2927627, 1)
+shader_parameter/astro_tint = Color(0.6217662, 0, 0.1988391, 1)
+shader_parameter/astro_sampler = ExtResource("2_1tdt5")
 shader_parameter/astro_scale = 2.0
 shader_parameter/astro_intensity = 3.0
 shader_parameter/stars_intensity = 0.0

@@ -1,34 +1,40 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://bl84qltiq711f"]
 
-[ext_resource type="Shader" uid="uid://bxfoy56nkxla1" path="res://Shaders/Woter.gdshader" id="1_vw3b4"]
+[ext_resource type="Shader" uid="uid://b4343yncdjam7" path="res://water2.gdshader" id="1_vw3b4"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1nc34"]
-seamless = true
+[sub_resource type="Gradient" id="Gradient_vw3b4"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_eqjet"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1nc34"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8b5wv"]
-width = 1024
-noise = SubResource("FastNoiseLite_eqjet")
-seamless = true
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eqjet"]
+noise = SubResource("FastNoiseLite_1nc34")
+color_ramp = SubResource("Gradient_vw3b4")
+
+[sub_resource type="Gradient" id="Gradient_8b5wv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8mdqj"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qe3y2"]
+width = 2024
+height = 2024
+noise = SubResource("FastNoiseLite_8mdqj")
+color_ramp = SubResource("Gradient_8b5wv")
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_vw3b4")
-shader_parameter/time_speed = 0.5
-shader_parameter/surface_speed = 0.5
-shader_parameter/spin = 0.8
-shader_parameter/brightness = 0.6
-shader_parameter/color_intensity = 0.0
-shader_parameter/horizontal_frequency = 50.0
-shader_parameter/vertical_frequency = 50.0
-shader_parameter/size = 3.0
-shader_parameter/banding_bias = 0.6
-shader_parameter/wave_texture = SubResource("NoiseTexture2D_8b5wv")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_1nc34")
-shader_parameter/wave_height = 1.0
-shader_parameter/texture_height = 1.0
-shader_parameter/color1 = Color(0.59, 0.761, 1, 1)
-shader_parameter/color2 = Color(0.274, 0.474, 0.98, 1)
-shader_parameter/color3 = Color(0.059, 0.389, 0.85, 1)
-shader_parameter/color4 = Color(0, 0.267, 1, 1)
+shader_parameter/surfaceNoise = SubResource("NoiseTexture2D_qe3y2")
+shader_parameter/distortNoise = SubResource("NoiseTexture2D_eqjet")
+shader_parameter/beer_factor = 0.8
+shader_parameter/foam_distance = 0.01
+shader_parameter/foam_max_distance = 0.4
+shader_parameter/foam_min_distance = 0.04
+shader_parameter/foam_color = Color(1, 1, 1, 1)
+shader_parameter/surface_noise_tiling = Vector2(4, 4)
+shader_parameter/surface_noise_scroll = Vector3(0.03, 0.03, 0)
+shader_parameter/surface_noise_cutoff = 0.777
+shader_parameter/surface_distortion_amount = 0.27
+shader_parameter/_DepthGradientShallow = Color(0.96935445, 0.7601849, 0.78197193, 0.7254902)
+shader_parameter/_DepthGradientDeep = Color(0.55418605, 0.11223196, 0.64508414, 0.7490196)
+shader_parameter/_DepthMaxDistance = 1.0
+shader_parameter/_DepthFactor = 1.0
