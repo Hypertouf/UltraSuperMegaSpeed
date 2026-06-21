@@ -109,6 +109,7 @@ func _ready() -> void:
 	#set wheel friction slip
 	nitro_oldvalue = torbo.value
 	Radio.play()
+	_radio_start("intro")
 	AnimPlayer.play("spawn")
 	for wheel in steering_wheels:
 		wheel.wheel_friction_slip = front_wheel_grip
@@ -552,11 +553,23 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 		if body.get_parent().Karma == 0 :
 			
 			SLODER.value += 5
+			var tween = get_tree().create_tween()
+			tween.tween_property(SLODER, "position", Vector2(18.0,224.0), 1.0)
+			tween.tween_property(SLODER, "position", Vector2(-5.0,224.0), 0.3)
+			tween.tween_property(SLODER, "position", Vector2(2.0,224.0), 0.15)
+			tween.tween_property(SLODER, "position", Vector2(2.0,224.0), 6.0)
+			tween.tween_property(SLODER, "position", Vector2(-189.0,224.0), 1.0)
+
 			_radio_start("Child_good")
 			pass
 			
 		if body.get_parent().Karma == 1 :
-			
+			var tween = get_tree().create_tween()
+			tween.tween_property(SLODER, "position", Vector2(18.0,224.0), 0.1)
+			tween.tween_property(SLODER, "position", Vector2(-5.0,224.0), 0.05)
+			tween.tween_property(SLODER, "position", Vector2(2.0,224.0), 0.2)
+			tween.tween_property(SLODER, "position", Vector2(2.0,224.0), 6.0)
+			tween.tween_property(SLODER, "position", Vector2(-189.0,224.0), 0.02)
 			SLODER.value -= 5
 			_radio_start("Child_bad")
 			pass

@@ -2210,6 +2210,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1498528, 0.09541273, -43.36
 [node name="FeuTricolor" parent="Props" unique_id=1259394730 instance=ExtResource("42_37tu7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.477196, 0.039998055, -81.905685)
 
+[node name="Pieton4" parent="." unique_id=451089032 instance=ExtResource("15_qn0af")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.808544, 1.2713811, -136.63542)
+PietonMESH = ExtResource("30_ffspi")
+
+[node name="Pieton5" parent="." unique_id=460330157 instance=ExtResource("15_qn0af")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5252168, 1.2713811, -120.98266)
+PietonMESH = ExtResource("30_ffspi")
+Karma = 1
+
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_finished"]
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone2" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_2_finished"]
 [connection signal="finished" from="DEATH_SPIRAL/Looping_Barrierless_scene/enter/badtothebone3" to="DEATH_SPIRAL/Looping_Barrierless_scene/enter" method="_on_badtothebone_3_finished"]

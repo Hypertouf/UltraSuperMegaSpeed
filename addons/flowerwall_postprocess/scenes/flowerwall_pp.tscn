@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://dxlwhj47enyqa" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_presets.gd" id="2_aii1a"]
 [ext_resource type="Script" uid="uid://tog6nmrph15b" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_ui_slider.gd" id="8_orrbg"]
 [ext_resource type="Script" uid="uid://c5emn1tatcw1r" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_ui_toggle.gd" id="9_30wqw"]
-[ext_resource type="Material" uid="uid://dt041yk8t6j64" path="res://addons/flowerwall_postprocess/shaders/dithering_shader.material" id="26_aii1a"]
-[ext_resource type="Material" uid="uid://s1jsk7n8wfo4" path="res://addons/flowerwall_postprocess/shaders/blurx_shader.material" id="27_yx2vx"]
-[ext_resource type="Material" uid="uid://bsxrqif6qhb7r" path="res://addons/flowerwall_postprocess/shaders/crt_shader.material" id="28_aii1a"]
-[ext_resource type="Material" uid="uid://cc63ylfclhnd0" path="res://addons/flowerwall_postprocess/shaders/blury_shader.material" id="28_yx2vx"]
-[ext_resource type="Material" uid="uid://ct8dyxqy4mcwp" path="res://addons/flowerwall_postprocess/shaders/bloom_shader.material" id="29_aii1a"]
+[ext_resource type="Material" path="res://addons/flowerwall_postprocess/shaders/dithering_shader.material" id="26_aii1a"]
+[ext_resource type="Material" path="res://addons/flowerwall_postprocess/shaders/blurx_shader.material" id="27_yx2vx"]
+[ext_resource type="Material" path="res://addons/flowerwall_postprocess/shaders/crt_shader.material" id="28_aii1a"]
+[ext_resource type="Material" path="res://addons/flowerwall_postprocess/shaders/blury_shader.material" id="28_yx2vx"]
+[ext_resource type="Material" path="res://addons/flowerwall_postprocess/shaders/bloom_shader.material" id="29_aii1a"]
 [ext_resource type="Script" uid="uid://dtpi5lt33t6eg" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_close.gd" id="32_8p6dx"]
 [ext_resource type="Script" uid="uid://ch7evcy0lie0m" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_save.gd" id="32_jahb0"]
 
@@ -37,7 +37,6 @@ post_bloom = NodePath("post_bloom")
 crt = NodePath("CRT")
 
 [node name="dithering" type="CanvasLayer" parent="." unique_id=1282008183]
-layer = 500
 
 [node name="dither" type="ColorRect" parent="dithering" unique_id=132058151]
 material = ExtResource("26_aii1a")
@@ -49,7 +48,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="preblur_x" type="CanvasLayer" parent="." unique_id=1176890485]
-layer = 500
 
 [node name="x_blur" type="ColorRect" parent="preblur_x" unique_id=1246841215]
 material = ExtResource("27_yx2vx")
@@ -63,7 +61,6 @@ size_flags_vertical = 4
 mouse_filter = 2
 
 [node name="preblur_y" type="CanvasLayer" parent="." unique_id=694541876]
-layer = 500
 
 [node name="y_blur" type="ColorRect" parent="preblur_y" unique_id=1399310455]
 material = ExtResource("28_yx2vx")
@@ -77,7 +74,6 @@ size_flags_vertical = 4
 mouse_filter = 2
 
 [node name="CRT" type="CanvasLayer" parent="." unique_id=887880847]
-layer = 500
 
 [node name="crt_shader" type="ColorRect" parent="CRT" unique_id=1076642122]
 material = ExtResource("28_aii1a")
@@ -89,7 +85,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="post_bloom" type="CanvasLayer" parent="." unique_id=1900139259]
-layer = 500
 
 [node name="bloom" type="ColorRect" parent="post_bloom" unique_id=1830820583]
 material = ExtResource("29_aii1a")
@@ -103,7 +98,6 @@ size_flags_vertical = 4
 mouse_filter = 2
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=636038685]
-layer = 500
 
 [node name="FlowerwallCrtConfigUi" type="ColorRect" parent="UI" unique_id=1468640461]
 anchors_preset = 9
